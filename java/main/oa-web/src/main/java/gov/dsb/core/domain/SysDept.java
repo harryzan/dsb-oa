@@ -462,6 +462,7 @@ public class SysDept extends IdEntity implements Treeable {
     private Collection<SysUser> sysusers;
 
     @OneToMany(mappedBy = "sysdept")
+    @OrderBy("id")
     public Collection<SysUser> getSysusers() {
         return sysusers;
     }

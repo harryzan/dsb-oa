@@ -190,6 +190,8 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
                 attendances = service.createDayAttendance(new java.sql.Date(sdf.parse(day).getTime()));
             else if (sysUserDao.containRole(currentUser.getId(), "考勤负责人"))
                 attendances = service.createDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser.getSysdept());
+            else
+                attendances = service.createDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser);
         }
 
         return "day";

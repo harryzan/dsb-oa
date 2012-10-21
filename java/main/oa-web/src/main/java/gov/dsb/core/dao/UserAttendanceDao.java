@@ -31,21 +31,24 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
     }
 
     public List<UserAttendance> getDayAttendance(Date date) {
-        List<UserAttendance> attendances = findByProperty("checkdate", date);
+        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? order by user.sysdept.orderno, user.id", date);
         return attendances;
     }
 
     public List<UserAttendance> getDayAttendance(Date date, SysDept sysDept) {
-        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=?", date, sysDept.getId());
-        System.out.println("********* attendances.size() = " + attendances.size());
+        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id", date, sysDept.getId());
+        return attendances;
+    }
+
+    public List<UserAttendance> getDayAttendance(Date date, SysUser sysUser) {
+        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? and user.id=?", date, sysUser.getId());
         return attendances;
     }
 
     public List<UserAttendance> createDayAttendance(Date date) {
         List<UserAttendance> attendances = getDayAttendance(date);
 
-        // todo 用户变化需要控制
-        List<SysUser> users = sysUserDao.findAll();
+        List<SysUser> users = sysUserDao.findByQuery("from SysUser order by id");
 
         if (attendances.size() > 0)
         for (UserAttendance attendance : attendances) {
@@ -67,7 +70,6 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
     public List<UserAttendance> createDayAttendance(Date date, SysDept sysDept) {
         List<UserAttendance> attendances = getDayAttendance(date, sysDept);
 
-        // todo 用户变化需要控制
         Collection<SysUser> users = sysDept.getSysusers();
 
         if (attendances.size() > 0)
@@ -83,7 +85,19 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             userAttendance.setUser(user);
             save(userAttendance);
             attendances.add(userAttendance);
-            System.out.println("***************** new attendances = " + attendances.size());
+        }
+        return attendances;
+    }
+
+    public List<UserAttendance> createDayAttendance(Date date, SysUser sysUser) {
+        List<UserAttendance> attendances = getDayAttendance(date, sysUser);
+
+        if (attendances.size() == 0) {
+            UserAttendance userAttendance = new UserAttendance();
+            userAttendance.setCheckdate(date);
+            userAttendance.setUser(sysUser);
+            save(userAttendance);
+            attendances.add(userAttendance);
         }
         return attendances;
     }

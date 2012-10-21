@@ -30,7 +30,8 @@
         function initial() {
             var config = {};
             editor = CKEDITOR.appendTo('editor', config, '');
-            editor.setData('${description}');
+            var desc = document.getElementById('desc');
+            editor.setData(desc.innerHTML);
             CKFinder.setupCKEditor(editor, '/CKFinderJava/ckfinder/');
         }
 
@@ -103,6 +104,9 @@
                               <td height="60" colspan="2">&nbsp;
                                   <div id="editor" name="editor"></div>
                                   <input name="description" id="description" value="" type="hidden"/>
+                                  <div id="desc" style="display: none">
+                                      ${description}
+                                      </div>
                                   <%--<textarea name="editor" id="editor">${description}</textarea></td>--%>
                           </tr>
 

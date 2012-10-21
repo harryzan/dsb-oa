@@ -58,7 +58,7 @@ public class SysPrivilegeTreeAction extends TreeActionSupport {
         TreeBranch treeBranch = new TreeBranch();
 
         if (id.equals("root")) {
-            List<SysPrivilege> sysprivileges = service.findByQuery("from SysPrivilege where parent is null order by orderno");
+            List<SysPrivilege> sysprivileges = service.findByQuery("from SysPrivilege where parent is null order by tag");
 
             for (SysPrivilege sysprivilege : sysprivileges) {
                 TreeNode treeNode = new TreeNode();
@@ -72,7 +72,7 @@ public class SysPrivilegeTreeAction extends TreeActionSupport {
         } else if (id.startsWith("sys-privilege")) {
             Long parentid = Long.valueOf(StringHelp.getElementValue(id, "id"));
 
-            List<SysPrivilege> sysprivileges = service.findByQuery("from SysPrivilege where parent.id=? order by orderno", parentid);//
+            List<SysPrivilege> sysprivileges = service.findByQuery("from SysPrivilege where parent.id=? order by tag", parentid);//
             // .findByCriteria(Restrictions.eq("parent.id", parentid));
 
             for (SysPrivilege sysprivilege : sysprivileges) {

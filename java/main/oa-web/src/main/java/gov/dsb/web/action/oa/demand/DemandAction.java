@@ -2,8 +2,10 @@ package gov.dsb.web.action.oa.demand;
 
 import gov.dsb.core.dao.DemandDao;
 import gov.dsb.core.dao.DemandTypeDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.Demand;
 import gov.dsb.core.domain.DemandType;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.web.security.UserSession;
 import gov.dsb.web.security.UserSessionService;
@@ -29,6 +31,9 @@ public class DemandAction extends CRUDActionSupport<Demand>{
 
     @Autowired
     private UserSessionService userSessionService;
+
+    @Autowired
+    private SysUserDao sysUserDao;
 
     @Autowired
     private DemandTypeDao demandTypeDao;
@@ -104,12 +109,27 @@ public class DemandAction extends CRUDActionSupport<Demand>{
         return "main";
     }
 
+    private boolean isadmin;
+
+    public boolean getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
+    }
+
     public String tab(){
         UserSession userSession = userSessionService.getUserSession();
         typeid = (Long) userSession.get("typeid");
         demandType = demandTypeDao.get(typeid);
-        System.out.println("***************** type.getName() = " + demandType.getName());
 
+        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
+                demandType.getUser().getId().equals(currentUser.getId())) {
+            isadmin = true;
+        }
         return "tab";
     }
 }

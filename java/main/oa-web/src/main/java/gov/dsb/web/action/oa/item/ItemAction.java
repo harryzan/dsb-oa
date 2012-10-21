@@ -2,9 +2,12 @@ package gov.dsb.web.action.oa.item;
 
 import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.ItemDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.Car;
 import gov.dsb.core.domain.Item;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
+import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
@@ -24,6 +27,12 @@ public class ItemAction extends CRUDActionSupport<Item>{
 
     @Autowired
     private ItemDao service;
+
+    @Autowired
+    private UserSessionService userSessionService;
+
+    @Autowired
+    private SysUserDao sysUserDao;
 
     private String gridParam;
 
@@ -78,4 +87,23 @@ public class ItemAction extends CRUDActionSupport<Item>{
         return entity;
     }
 
+    private boolean isadmin;
+
+    public boolean getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
+    }
+
+    public String tab() {
+        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
+                sysUserDao.containRole(currentUser.getId(), "领用负责人")) {
+            isadmin = true;
+        }
+        return "tab";
+    }
 }

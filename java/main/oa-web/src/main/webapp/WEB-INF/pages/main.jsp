@@ -26,7 +26,6 @@
         <td width="97%">欢迎您，${user.displayname}</td>
     </tr>
 </table>
-<br />
 <table width="98%" border="0" align="center">
 <tr>
 <td width="82%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -150,7 +149,7 @@
                                 <s:iterator value="bulletins">
                                 <tr>
                                     <td width="30%">${starttime}</td>
-                                    <td width="70%" align="left">&nbsp;&nbsp;${name}</td>
+                                    <td width="70%" align="left">&nbsp;&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
                                 </tr>
                                 </s:iterator>
                         </table></td>

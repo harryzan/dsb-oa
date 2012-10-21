@@ -8,8 +8,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-        function openFunction(url) {
+        function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
+            var count = 4;
+            for (var i = 1; i <= count; i++) {
+                var button = document.getElementById('button' + i);
+                button.className = 'tab';
+            }
+            input.className = 'tab_xz';
         }
     </script>
 </head>
@@ -17,10 +23,12 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('item-grid')" type="button" name="button1" id="button1" value="日常用品管理" class="tab_xz" />
-            <input onclick="openFunction('item-use-grid')" type="button" name="button2" id="button2" value="领用申请" class="tab" />
-            <input onclick="openFunction('item-check-grid')" type="button" name="button3" id="button3" value="领用审核" class="tab" />
-            <input onclick="openFunction('item-complete-grid')" type="button" name="button4" id="button4" value="历史审核" class="tab" />
+            <input onclick="openFunction('item-use-grid', this)" type="button" name="button2" id="button2" value="领用申请" class="tab" />
+            <c:if test='${isadmin}'>
+            <input onclick="openFunction('item-grid', this)" type="button" name="button1" id="button1" value="日常用品管理" class="tab_xz" />
+            <input onclick="openFunction('item-check-grid', this)" type="button" name="button3" id="button3" value="领用审核" class="tab" />
+            <input onclick="openFunction('item-complete-grid', this)" type="button" name="button4" id="button4" value="历史审核" class="tab" />
+            </c:if>
         </td>
     </tr>
 </table>

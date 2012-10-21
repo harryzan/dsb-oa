@@ -197,6 +197,7 @@ public class SysPrivilege extends IdEntity implements Treeable {
     private Collection<SysPrivilege> children;
 
     @OneToMany(mappedBy = "parent")
+    @OrderBy("tag")
     public Collection<SysPrivilege> getChildren() {
         return children;
     }

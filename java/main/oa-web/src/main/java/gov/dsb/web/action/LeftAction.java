@@ -107,11 +107,11 @@ public class LeftAction extends PageActionSupport<DemandType> {
                         submenus.add(p);
                     }
                 }
-                Collections.sort(submenus, new Comparator<SysPrivilege>() {
-                    public int compare(SysPrivilege p1, SysPrivilege p2) {
-                        return p1.getOrderno().compareTo(p2.getOrderno());
-                    }
-                });
+//                Collections.sort(submenus, new Comparator<SysPrivilege>() {
+//                    public int compare(SysPrivilege p1, SysPrivilege p2) {
+//                        return p1.getTag().compareTo(p2.getTag());
+//                    }
+//                });
                 map.put("submenus", submenus);
                 loginmenus.add(map);
             }

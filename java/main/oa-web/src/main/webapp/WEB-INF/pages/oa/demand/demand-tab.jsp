@@ -17,9 +17,9 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('demand-use-grid')" type="button" name="button2" id="button2" value="需求申请" class="tab" />
-            <input onclick="openFunction('demand-check-grid')" type="button" name="button3" id="button3" value="申请审核" class="tab" />
-            <input onclick="openFunction('demand-complete-grid')" type="button" name="button4" id="button4" value="历史审核" class="tab" />
+            <input onclick="openFunction('demand-use-grid')" type="button" name="button2" id="button2" value="${demandType.name}申请" class="tab" />
+            <input onclick="openFunction('demand-check-grid')" type="button" name="button3" id="button3" value="${demandType.name}审核" class="tab" />
+            <input onclick="openFunction('demand-complete-grid')" type="button" name="button4" id="button4" value="历史${demandType.name}" class="tab" />
         </td>
     </tr>
 </table>

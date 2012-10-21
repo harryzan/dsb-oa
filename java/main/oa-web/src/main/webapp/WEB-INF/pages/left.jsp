@@ -43,7 +43,7 @@
                                         <c:forEach items="${types}" var="type" varStatus="status">
                                         <tr>
                                         <td><img src="${themesPath}/images/left_3.png" alt="" width="5" height="9" /></td>
-                                        <td class="Left_cd1"><a href="#" onclick="openFunction('${ctx}${definition}?typeid=${type.id}')" class="cd">${type.name}</a></td>
+                                        <td class="Left_cd1"><a href="#" onclick="openFunction('${ctx}${definition}?typeid=${type.id}')" class="cd">${type.name}申请</a></td>
                                         </tr>
                                          </c:forEach>
                                     </c:if>

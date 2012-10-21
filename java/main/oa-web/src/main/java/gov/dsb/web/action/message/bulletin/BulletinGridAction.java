@@ -126,7 +126,6 @@ public class BulletinGridAction extends PageActionSupport<Bulletin> {
             QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
             page = service.findPageByQuery(page, queryTranslate.toString() + " order by starttime desc");
         } else {
-            System.out.println("*************** hql = " + hql + " order by starttime desc");
             page = service.findPageByQuery(page, hql + " order by starttime desc");
         }
         List<Bulletin> list = page.getResult();

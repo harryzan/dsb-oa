@@ -11,6 +11,12 @@
         .STYLE1 {color: #FF0000}
         -->
     </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script src="${scriptsPath}/highcharts/highcharts.js"></script>
+    <script src="${scriptsPath}/highcharts/highcharts-more.js"></script>
+    <script src="${scriptsPath}/highcharts/clock.js"></script>
 </head>
 
 <body bgcolor="#FFFFFF">
@@ -141,13 +147,12 @@
                 <table width="100%" border="0">
                     <tr>
                         <td><table width="90%" border="0" align="center">
-                            <tr>
-                                <td>值班人员：姚吉安<br />
-                                    最新公告：大风警报大风警报大风警报大风警报大风警报大风警报大风警报大<br />
-                                    大风警报大风警报大风警报大风警报大风警报大风警报大风警报大<br />
-                                    大风警报大风警报大风警报大风警报大风警报大风警报<br />
-                                    催办事务：事务事务事务事务事务事务事务事务事务事务事务事务事务事</td>
-                            </tr>
+                                <s:iterator value="bulletins">
+                                <tr>
+                                    <td width="30%">${starttime}</td>
+                                    <td width="70%" align="left">&nbsp;&nbsp;${name}</td>
+                                </tr>
+                                </s:iterator>
                         </table></td>
                     </tr>
                 </table>
@@ -271,6 +276,11 @@
     <script type="text/javascript" src="${scriptsPath}/system/main.js"></script>
 </td>
 </tr>
+     <tr>
+       <td>
+           <div id="container" style="width: 260px; height: 260px; margin: 0 auto"></div>
+       </td>
+     </tr>
 </table></td>
 </tr>
 </table>

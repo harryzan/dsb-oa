@@ -19,9 +19,30 @@
     <script type="text/javascript" src="${scriptsPath}/system/calendar.js"></script>
     <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
 
+    <script type="text/javascript" src="${ckeditor}/ckeditor.js"></script>
+    <script src="${ckeditor}/_samples/sample.js" type="text/javascript"></script>
+    <link href="${ckeditor}/_samples/sample.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/CKFinderJava/ckfinder/ckfinder.js"></script>
+
+    <script type="text/javascript">
+        var editor;
+
+        function initial() {
+            var config = {};
+            editor = CKEDITOR.appendTo('editor', config, '');
+            editor.setData('${description}');
+            CKFinder.setupCKEditor(editor, '/CKFinderJava/ckfinder/');
+        }
+
+        function save() {
+            var data = editor.getData();
+            var description = document.getElementById('description');
+            description.value = data;
+        }
+    </script>
 </head>
 
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="initial();">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
   <%--<tr>--%>
     <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
@@ -66,21 +87,23 @@
                                 </td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;
-                                <textarea name="description" id="description" class="input_five" >${description}</textarea></td>
-                          </tr>
-                          <tr class="textone1">
                               <td width="30%"><div align="right">发布时间：</div></td>
                               <td width="70%">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
                                   <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'date');" /></td>
                           </tr>
-                          <tr class="textone12">
+                          <tr class="textone1">
                               <td width="30%"><div align="right">结束时间：</div></td>
                               <td width="70%">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
                                   <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">内容：</div></td>
+                              <td height="60" colspan="2">&nbsp;
+                                  <div id="editor" name="editor"></div>
+                                  <input name="description" id="description" value="" type="hidden"/>
+                                  <%--<textarea name="editor" id="editor">${description}</textarea></td>--%>
                           </tr>
 
 
@@ -116,10 +139,11 @@
             Ext.MessageBox.alert("提示", "标题不能为空！");
             return false;
         }
-        if(afrom.description.value == ""){
-            Ext.MessageBox.alert("提示", "内容不能为空！");
-            return false;
-        }
+//        if(afrom.description.value == ""){
+//            Ext.MessageBox.alert("提示", "内容不能为空！");
+//            return false;
+//        }
+        save();
         return true;
     }
 

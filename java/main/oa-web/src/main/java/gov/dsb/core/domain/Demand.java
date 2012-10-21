@@ -125,7 +125,7 @@ public class Demand extends IdEntity {
 
     private DemandType type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TYPEID", referencedColumnName = "ID")
     public DemandType getType() {
         return type;

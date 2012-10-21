@@ -11,3 +11,4 @@
 <c:set var="pagesPath" value="${ctx}/WEB-INF/pages"/>
 <c:set var="scriptsPath" value="${ctx}/scripts"/>
 <c:set var="themesPath" value="${ctx}/themes/default"/>
+<c:set var="ckeditor" value="${ctx}/ckeditor"/>

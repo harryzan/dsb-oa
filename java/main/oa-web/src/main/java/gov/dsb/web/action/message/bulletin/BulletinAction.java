@@ -95,7 +95,6 @@ public class BulletinAction extends CRUDActionSupport<Bulletin> {
 
     public String save() throws Exception {
         SysUser user = userSessionService.getCurrentSysUser();
-        System.out.println("************ user.getDisplayname() = " + user.getDisplayname());
         entity.setAdduser(user);
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {

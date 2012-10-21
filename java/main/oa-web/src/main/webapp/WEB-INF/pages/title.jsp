@@ -18,14 +18,14 @@
   	
   <div class="nav">
       <ul>
-        <li class="n1"><a href="main_1.jsp" class="tag">电子邮件</a></li>
-        <li class="n1"><a href="main_1.jsp">规章制度</a></li>
-        <li class="n1"><a href="#">文书管理</a></li>
-        <li class="n1"><a href="#">需求申请</a></li>
-        <li class="n1"><a href="#">资料库链接</a></li>
-        <li class="n1"><a href="#">机关党委</a></li>
-        <li class="n1"><a href="#">机关工会</a></li>
-        <li class="n1"><a href="#">BBS论坛</a></li>									
+        <li class="n1"><a class="tag">电子邮件</a></li>
+        <li class="n1"><a >规章制度</a></li>
+        <li class="n1"><a >文书管理</a></li>
+        <li class="n1"><a >需求申请</a></li>
+        <li class="n1"><a >资料库链接</a></li>
+        <li class="n1"><a >机关党委</a></li>
+        <li class="n1"><a >机关工会</a></li>
+        <li class="n1"><a >BBS论坛</a></li>
     </ul>
   </div>
 </div>

@@ -1,7 +1,9 @@
 package gov.dsb.web.action;
 
+import gov.dsb.core.dao.BulletinDao;
 import gov.dsb.core.dao.DemandTypeDao;
 import gov.dsb.core.dao.WorkArrangeDao;
+import gov.dsb.core.domain.Bulletin;
 import gov.dsb.core.domain.DemandType;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.domain.WorkArrange;
@@ -31,6 +33,9 @@ public class MainAction extends PageActionSupport<DemandType> {
 
     @Autowired
     private WorkArrangeDao workArrangeDao;
+
+    @Autowired
+    private BulletinDao bulletinDao;
 
     @Autowired
     private UserSessionService userSessionService;
@@ -117,6 +122,16 @@ public class MainAction extends PageActionSupport<DemandType> {
         return SUCCESS;
     }
 
+    private List<Bulletin> bulletins;
+
+    public List<Bulletin> getBulletins() {
+        return bulletins;
+    }
+
+    public void setBulletins(List<Bulletin> bulletins) {
+        this.bulletins = bulletins;
+    }
+
     @Override
     public String execute() throws Exception {
 
@@ -137,6 +152,8 @@ public class MainAction extends PageActionSupport<DemandType> {
         friarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "6");
         satarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "7");
         sunarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "1");
+
+        bulletins = bulletinDao.findByQuery("from Bulletin where endtime >= to_char(sysdate) order by starttime");
 
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
     }

@@ -59,14 +59,14 @@ public class DemandAction extends CRUDActionSupport<Demand>{
         this.typeid = typeid;
     }
 
-    private DemandType type;
+    private DemandType demandType;
 
-    public DemandType getType() {
-        return type;
+    public DemandType getDemandType() {
+        return demandType;
     }
 
-    public void setType(DemandType type) {
-        this.type = type;
+    public void setDemandType(DemandType demandType) {
+        this.demandType = demandType;
     }
 
     public String save() throws Exception {
@@ -99,7 +99,7 @@ public class DemandAction extends CRUDActionSupport<Demand>{
             UserSession userSession = userSessionService.getUserSession();
             userSession.set("typeid", typeid);
             userSessionService.putUserSession(userSession);
-            type = demandTypeDao.get(typeid);
+            demandType = demandTypeDao.get(typeid);
         }
         return "main";
     }
@@ -107,7 +107,8 @@ public class DemandAction extends CRUDActionSupport<Demand>{
     public String tab(){
         UserSession userSession = userSessionService.getUserSession();
         typeid = (Long) userSession.get("typeid");
-        type = demandTypeDao.get(typeid);
+        demandType = demandTypeDao.get(typeid);
+        System.out.println("***************** type.getName() = " + demandType.getName());
 
         return "tab";
     }

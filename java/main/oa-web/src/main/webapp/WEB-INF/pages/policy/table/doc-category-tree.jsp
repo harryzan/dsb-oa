@@ -14,7 +14,7 @@
             ]);
 
             //定义树的根节点
-            var root = new Ext.tree.AsyncTreeNode({id:'root',text:'个人文件夹目录',icon:iconPath + 'biaoduan.gif'});
+            var root = new Ext.tree.AsyncTreeNode({id:'root',text:'表格下载目录',icon:iconPath + 'biaoduan.gif'});
 
             //构造树面板 ，url="treedata.jsp"定义了异步数据源 .
             var treePanel = new TreePanel(root, null, "doc-category-tree!treedata", imageUrl, " ");

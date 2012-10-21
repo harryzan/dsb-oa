@@ -63,7 +63,7 @@ public class DocCategoryTreeAction extends TreeActionSupport {
         TreeBranch treeBranch = new TreeBranch();
 
         if (id.equals("root")) {
-            Collection<DocCategory> mp = service.findByQuery("from DocCategory category where category.name = 'biaogexiazai' and category.parent is null order by category.orderno", false);
+            Collection<DocCategory> mp = service.findByQuery("from DocCategory category where category.code = 'biaogexiazai' and category.issystem is true and category.parent is null order by category.orderno");
             for (DocCategory doccategory : mp) {
                 if (isPermitted(doccategory)) {
                     TreeNode treeNode = new TreeNode();
@@ -82,7 +82,7 @@ public class DocCategoryTreeAction extends TreeActionSupport {
             }
         } else if (id.startsWith("doc-category")) {
             Long parentid = Long.valueOf(StringHelp.getElementValue(id, "id"));
-            Collection<DocCategory> mp = service.findByQuery("from DocCategory category where category.parent.id=? order by category.orderno", false, parentid);
+            Collection<DocCategory> mp = service.findByQuery("from DocCategory category where category.parent.id=? order by category.orderno", parentid);
             for (DocCategory doccategory : mp) {
                 if (isPermitted(doccategory)) {
                     TreeNode treeNode = new TreeNode();

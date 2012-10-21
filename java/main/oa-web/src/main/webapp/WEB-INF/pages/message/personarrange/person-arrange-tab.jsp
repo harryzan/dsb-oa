@@ -17,7 +17,7 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('person-arrange!week')" type="button" name="button1" id="button1" value="一周工作安排" class="tab_xz" />
+            <input onclick="openFunction('person-arrange!week')" type="button" name="button1" id="button1" value="待办事项" class="tab_xz" />
             <%--<input onclick="openFunction('person-arrange!record')" type="button" name="button2" id="button2" value="日志记录" class="tab" />--%>
         </td>
     </tr>

@@ -20,7 +20,7 @@
 <body>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
-        <td colspan="4" class="line_td_title" align="center">全室一周工作安排</td>
+        <td colspan="4" class="line_td_title" align="center">一周待办事项</td>
     </tr>
     <form action="person-arrange!input?year=${nyear}&week=${nweek}" method="post">
     <tr>

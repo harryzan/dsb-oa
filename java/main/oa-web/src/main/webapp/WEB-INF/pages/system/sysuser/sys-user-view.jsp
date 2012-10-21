@@ -53,7 +53,7 @@
                             <td>&nbsp;${displayname}</td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">手机：</div></td>
+                            <td><div align="right">电话：</div></td>
                             <td>&nbsp;${phonenumber}</td>
                           </tr>
                           <tr class="textone12">

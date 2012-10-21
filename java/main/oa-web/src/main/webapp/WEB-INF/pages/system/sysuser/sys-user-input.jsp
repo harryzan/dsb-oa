@@ -56,7 +56,7 @@
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">手机：</div></td>
+                            <td><div align="right">电话：</div></td>
                             <td>&nbsp;<input name="phonenumber" id="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
@@ -203,14 +203,6 @@
         }
         if(displayname.length <= 0 || regist.exec(displayname)){
             Ext.MessageBox.alert("提示", "显示名称不能为空！");
-            return false;
-        }
-        if(phonenumber.length <= 0 || regist.exec(phonenumber)){
-            Ext.MessageBox.alert("提示", "手机号不能为空！");
-            return false;
-        }
-        if(phonenumber.length != 11){
-            Ext.MessageBox.alert("提示", "手机号不符合规则！");
             return false;
         }
         if(email.length <= 0 || regist.exec(email)){

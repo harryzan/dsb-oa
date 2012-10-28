@@ -40,11 +40,11 @@
                               <td><div align="right">发布时间：</div></td>
                               <td>&nbsp;${starttime}</td>
                             </tr>
+                          <%--<tr class="textone1">--%>
+                              <%--<td><div align="right">结束时间：</div></td>--%>
+                              <%--<td>&nbsp;${endtime}</td>--%>
+                          <%--</tr>--%>
                           <tr class="textone1">
-                              <td><div align="right">结束时间：</div></td>
-                              <td>&nbsp;${endtime}</td>
-                          </tr>
-                          <tr class="textone12">
                               <td><div align="right">内容：</div></td>
                               <td>&nbsp;${description}</td>
                             </tr>

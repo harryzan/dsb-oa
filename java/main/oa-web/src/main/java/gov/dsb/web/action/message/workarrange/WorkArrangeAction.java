@@ -6,16 +6,16 @@ import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.domain.WorkArrange;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.utils.StringHelp;
-import gov.dsb.core.utils.TimeHelper;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+//import java.sql.Timestamp;
 
 /**
  * Created by IntelliJ IDEA.
@@ -132,17 +132,17 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
         this.year = year;
     }
 
-    private Timestamp today;
+//    private Timestamp today;
 
     private List<Map<String, Object>> result;
 
-    public Timestamp getToweek() {
-        return today;
-    }
+//    public Timestamp getToweek() {
+//        return today;
+//    }
 
-    public void setToday(Timestamp today) {
-        this.today = today;
-    }
+//    public void setToday(Timestamp today) {
+//        this.today = today;
+//    }
 
     public List<Map<String, Object>> getResult() {
         return result;
@@ -189,14 +189,18 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
         entity.setSysuser(currentUser);
 
-        Timestamp start = Timestamp.valueOf(entity.getStarttime());
-        Timestamp end = Timestamp.valueOf(entity.getEndtime());
-        entity.setPeriod(TimeHelper.dtLong2DtString(end.getTime() - start.getTime()));
-        entity.setWorktime(end.getTime() - start.getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+//        Timestamp start = Timestamp.valueOf(entity.getStarttime());
+//        Timestamp end = Timestamp.valueOf(entity.getEndtime());
+//        entity.setPeriod(TimeHelper.dtLong2DtString(end.getTime() - start.getTime()));
+//        entity.setWorktime(end.getTime() - start.getTime());
+
+        Date start = sdf.parse(entity.getStarttime());
 
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(start.getTime());
-        entity.setDow(""+c.get(Calendar.DAY_OF_WEEK));
+        entity.setDow("" + c.get(Calendar.DAY_OF_WEEK));
 
         service.save(entity);
 
@@ -205,15 +209,14 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
     public String delete() throws Exception {
         service.delete(id);
-        return RELOAD;
+        return week();
     }
 
     protected void prepareModel() throws Exception {
         if (entity == null) {
             if (id != null) {
                 entity = service.get(id);
-            }
-            else {
+            } else {
                 entity = new WorkArrange();
 
                 if (year != null && week != null) {
@@ -237,14 +240,12 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
             calendar.set(Calendar.WEEK_OF_YEAR, week);
             Date d = calendar.getTime();
             day = sdf.format(d);
-        }
-        else if (StringHelp.isNotEmpty(day)) {
+        } else if (StringHelp.isNotEmpty(day)) {
             Date d = sdf.parse(day);
             calendar.setTime(d);
             setNweek(calendar.get(Calendar.WEEK_OF_YEAR));
             setNyear(calendar.get(Calendar.YEAR));
-        }
-        else {
+        } else {
             Date d = new Date();
             calendar.setTime(d);
             day = sdf.format(d);
@@ -261,8 +262,7 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
         if (week == 1) {
             setBeforeweek(52);
             setBeforeyear(year - 1);
-        }
-        else if (week == 52) {
+        } else if (week == 52) {
             setAfterweek(1);
             setAfteryear(year + 1);
         }
@@ -289,12 +289,11 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
     public String month() throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        today = new Timestamp(System.currentTimeMillis());
+//        today = new Timestamp(System.currentTimeMillis());
 
         result = new ArrayList<Map<String, Object>>();
         try {
-         }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "month";
@@ -314,5 +313,9 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
     public String search() throws Exception {
         return "search";
+    }
+
+    public String view() throws Exception {
+        return VIEW;
     }
 }

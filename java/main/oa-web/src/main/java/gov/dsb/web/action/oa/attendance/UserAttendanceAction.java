@@ -230,4 +230,25 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
     public String search() throws Exception {
         return "search";
     }
+
+
+    private boolean isadmin;
+
+    public boolean getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
+    }
+
+    public String tab() {
+        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
+                sysUserDao.containRole(currentUser.getId(), "考勤负责人")) {
+            isadmin = true;
+        }
+        return "tab";
+    }
 }

@@ -9,7 +9,7 @@
     </script>
 </head>
 <frameset rows="38,*" name="parentFrame" border="0" framespacing="1" bordercolor="white" height="auto" frameborder="0">
-    <frame name="tab_frame" scrolling="no" src="user-attendance-tab"/>
-    <frame name="main_frame" scrolling="auto" src="user-attendance!day"/>
+    <frame name="tab_frame" scrolling="no" src="user-attendance!tab"/>
+    <frame name="main_frame" scrolling="auto" src="user-attendance!record"/>
 </frameset>
 </html>

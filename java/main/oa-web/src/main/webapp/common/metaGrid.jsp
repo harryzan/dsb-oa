@@ -46,9 +46,9 @@
         Ext.MessageBox.wait(msg, "提示");
     }
 
-    window.onbeforeunload = function(){
-        healthWaiting(false);
-    };
+//    window.onbeforeunload = function(){
+//        healthWaiting(false);
+//    };
 
     function closeWaiting(){
         Ext.MessageBox.hide();

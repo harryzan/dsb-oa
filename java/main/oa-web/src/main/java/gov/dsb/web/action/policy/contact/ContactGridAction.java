@@ -1,6 +1,7 @@
-package gov.dsb.web.action.message.bulletin;
+package gov.dsb.web.action.policy.contact;
 
 import gov.dsb.core.dao.BulletinDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.dao.base.Page;
 import gov.dsb.core.domain.Bulletin;
 import gov.dsb.core.domain.SysUser;
@@ -28,10 +29,10 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class BulletinGridAction extends PageActionSupport<Bulletin> {
+public class ContactGridAction extends PageActionSupport<SysUser> {
 
     @Autowired
-    private BulletinDao service;
+    private SysUserDao service;
 
     @Autowired
     private UserSessionService userSessionService;
@@ -99,9 +100,9 @@ public class BulletinGridAction extends PageActionSupport<Bulletin> {
 
     public String griddata() throws Exception {
         if (!Nulls.isNull(limit) && limit > 0) {
-            page = new Page<Bulletin>(limit, true);
+            page = new Page<SysUser>(limit, true);
         } else {
-            page = new Page<Bulletin>(10, true);
+            page = new Page<SysUser>(15, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {
@@ -117,18 +118,18 @@ public class BulletinGridAction extends PageActionSupport<Bulletin> {
 //                "exists　( select b.new from b where b.student = t )    \n" +
 //                "and true=all( select b.new from b where b.student = t )";
 
-        String hql = "from Bulletin";
+        String hql = "from SysUser";
 //        if (bulletinstatus)
 //            hql += " where endtime < to_char(sysdate)";
 //        else
 //            hql += " where endtime >= to_char(sysdate)";
         if (!StringHelp.isEmpty(conditions)) {
             QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
-            page = service.findPageByQuery(page, queryTranslate.toString() + " order by starttime desc");
+            page = service.findPageByQuery(page, queryTranslate.toString() + " order by sysdept.id, id");
         } else {
-            page = service.findPageByQuery(page, hql + " order by starttime desc");
+            page = service.findPageByQuery(page, hql + " order by sysdept.id, id");
         }
-        List<Bulletin> list = page.getResult();
+        List<SysUser> list = page.getResult();
 
         rows = Grid.gridValue2Rows(list, columns);
         return GRIDDATA;

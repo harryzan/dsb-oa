@@ -8,6 +8,7 @@ import gov.dsb.core.domain.DemandType;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.domain.WorkArrange;
 import gov.dsb.core.struts2.PageActionSupport;
+import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -132,6 +133,77 @@ public class MainAction extends PageActionSupport<DemandType> {
         this.bulletins = bulletins;
     }
 
+    private String day;
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    Integer week;
+
+    public Integer getNweek() {
+        return week;
+    }
+
+    public void setNweek(Integer week) {
+        this.week = week;
+    }
+
+    Integer year;
+
+    public Integer getNyear() {
+        return year;
+    }
+
+    public void setNyear(Integer year) {
+        this.year = year;
+    }
+
+
+    private Integer beforeweek;
+
+    private Integer afterweek;
+
+    private Integer beforeyear;
+
+    private Integer afteryear;
+
+    public int getBeforeweek() {
+        return beforeweek;
+    }
+
+    public void setBeforeweek(int beforeweek) {
+        this.beforeweek = beforeweek;
+    }
+
+    public int getAfterweek() {
+        return afterweek;
+    }
+
+    public void setAfterweek(int afterweek) {
+        this.afterweek = afterweek;
+    }
+
+    public int getBeforeyear() {
+        return beforeyear;
+    }
+
+    public void setBeforeyear(int beforeyear) {
+        this.beforeyear = beforeyear;
+    }
+
+    public int getAfteryear() {
+        return afteryear;
+    }
+
+    public void setAfteryear(int afteryear) {
+        this.afteryear = afteryear;
+    }
+
     @Override
     public String execute() throws Exception {
 
@@ -140,10 +212,42 @@ public class MainAction extends PageActionSupport<DemandType> {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
 
-        Date d = new Date();
-        calendar.setTime(d);
-        Integer week = calendar.get(Calendar.WEEK_OF_YEAR);
-        Integer year = calendar.get(Calendar.YEAR);
+//        Date d = new Date();
+//        calendar.setTime(d);
+//        week = calendar.get(Calendar.WEEK_OF_YEAR);
+//        year = calendar.get(Calendar.YEAR);
+
+        if (week != null && year != null) {
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.WEEK_OF_YEAR, week);
+            Date d = calendar.getTime();
+            day = sdf.format(d);
+        } else if (StringHelp.isNotEmpty(day)) {
+            Date d = sdf.parse(day);
+            calendar.setTime(d);
+            setNweek(calendar.get(Calendar.WEEK_OF_YEAR));
+            setNyear(calendar.get(Calendar.YEAR));
+        } else {
+            Date d = new Date();
+            calendar.setTime(d);
+            day = sdf.format(d);
+            setNweek(calendar.get(Calendar.WEEK_OF_YEAR));
+            setNyear(calendar.get(Calendar.YEAR));
+        }
+
+
+        setBeforeweek(week - 1);
+        setBeforeyear(year);
+        setAfterweek(week + 1);
+        setAfteryear(year);
+//        setWeek("" + _week);
+        if (week == 1) {
+            setBeforeweek(52);
+            setBeforeyear(year - 1);
+        } else if (week == 52) {
+            setAfterweek(1);
+            setAfteryear(year + 1);
+        }
 
         monarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "2");
         tusarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "3");
@@ -153,7 +257,7 @@ public class MainAction extends PageActionSupport<DemandType> {
         satarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "7");
         sunarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "1");
 
-        bulletins = bulletinDao.findByQuery("from Bulletin where endtime >= to_char(sysdate) order by starttime");
+        bulletins = bulletinDao.findByQuery("from Bulletin order by starttime desc");
 
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
     }

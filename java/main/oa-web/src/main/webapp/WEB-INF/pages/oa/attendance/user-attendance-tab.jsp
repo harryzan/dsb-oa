@@ -8,17 +8,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-        function openFunction(url) {
+        function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
+            var count = 2;
+            for (var i = 1; i <= count; i++) {
+                var button = document.getElementById('button' + i);
+                button.className = 'tab';
+            }
+            input.className = 'tab_xz';
         }
+        <c:if test='${isadmin}'>
+            openFunction('user-attendance!day', document.getElementById('button1'));
+        </c:if>
     </script>
 </head>
 <body>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('user-attendance!day')" type="button" name="button1" id="button1" value="个人考勤" class="tab_xz" />
-            <input onclick="openFunction('user-attendance!record')" type="button" name="button2" id="button2" value="考勤记录" class="tab" />
+            <c:if test='${isadmin}'>
+                <input onclick="openFunction('user-attendance!day',this)" type="button" name="button1" id="button1" value="考勤管理" class="tab" />
+            </c:if>
+            <input onclick="openFunction('user-attendance!record', this)" type="button" name="button2" id="button2" value="考勤记录" class="tab_xz" />
         </td>
     </tr>
 </table>

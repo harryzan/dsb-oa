@@ -17,8 +17,8 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('bulletin-grid?bulletinstatus=false')" type="button" name="button1" id="button1" value="通知公告管理" class="tab_xz" />
-            <input onclick="openFunction('bulletin-grid?bulletinstatus=true')" type="button" name="button2" id="button2" value="已过期通知公告" class="tab" />
+            <input onclick="openFunction('bulletin-grid')" type="button" name="button1" id="button1" value="通知公告管理" class="tab_xz" />
+            <%--<input onclick="openFunction('bulletin-grid?bulletinstatus=true')" type="button" name="button2" id="button2" value="已过期通知公告" class="tab" />--%>
         </td>
     </tr>
 </table>

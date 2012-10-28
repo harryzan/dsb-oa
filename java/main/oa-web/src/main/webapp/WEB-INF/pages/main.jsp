@@ -6,17 +6,27 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
     <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         <!--
         .STYLE1 {color: #FF0000}
         -->
     </style>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="${scriptsPath}/system/jquery.min.js"></script>
 
     <script src="${scriptsPath}/highcharts/highcharts.js"></script>
     <script src="${scriptsPath}/highcharts/highcharts-more.js"></script>
     <script src="${scriptsPath}/highcharts/clock.js"></script>
+    <script type="text/javascript" src="${scriptsPath}/system/calendar.js"></script>
+    <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+
+    <script type="text/javascript">
+        function changeday() {
+            var value = document.getElementById("day").value;
+            window.location = "main?day=" + value;
+        }
+    </script>
 </head>
 
 <body bgcolor="#FFFFFF">
@@ -30,8 +40,18 @@
 <tr>
 <td width="82%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
-        <td width="10%" background="${themesPath}/images/sy_4.jpg"><img src="${themesPath}/images/sy_1.jpg" width="150" height="33" /></td>
-        <td width="90%" background="${themesPath}/images/sy_4.jpg">&nbsp;</td>
+        <td width="10%" background="${themesPath}/images/sy_4.jpg">
+            <img src="${themesPath}/images/sy_1.jpg" width="150" height="33" />
+
+        </td>
+        <td width="90%" background="${themesPath}/images/sy_4.jpg">&nbsp;
+            <a href="main?nweek=${beforeweek}&nyear=${beforeyear}">←${beforeyear}年&nbsp;第${beforeweek}周&nbsp;</a>
+            日期：
+            <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
+            <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
+            <input type="button" name="search" id="search" value="转到" class="search_but" onclick="changeday();"/>
+            <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;${afteryear}年&nbsp;第${afterweek}周→</a>
+        </td>
     </tr>
     <tr>
         <td colspan="2"><div class="sy_line">
@@ -41,7 +61,7 @@
                     <td width="86%"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${monarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -54,7 +74,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${tusarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -67,7 +87,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${wedarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -80,7 +100,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${thearranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -93,7 +113,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${friarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -106,7 +126,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${satarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -119,7 +139,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${sunarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="#">${fn:substring(arrange.starttime, 11, 16)}&nbsp;&nbsp;${arrange.content}</a></td>
+                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -148,8 +168,8 @@
                         <td><table width="90%" border="0" align="center">
                                 <s:iterator value="bulletins">
                                 <tr>
-                                    <td width="30%">${starttime}</td>
-                                    <td width="70%" align="left">&nbsp;&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
+                                    <td width="20%">${starttime}</td>
+                                    <td width="80%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
                                 </tr>
                                 </s:iterator>
                         </table></td>

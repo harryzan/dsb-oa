@@ -21,9 +21,9 @@
         var pageParam = "";
 //        var privilegecode = "s07_bulletin_D,s07_bulletin_R,s07_bulletin_U,s07_bulletin_C";
 //        var result = doPrivilege(privilegecode);
-        var addurl = "bulletin!input?bulletinstatus=${bulletinstatus}";
-        var modifyurl = "bulletin!input?bulletinstatus=${bulletinstatus}";
-        var deleteurl = "bulletin!delete";
+        <%--var addurl = "bulletin!input?bulletinstatus=${bulletinstatus}";--%>
+        <%--var modifyurl = "bulletin!input?bulletinstatus=${bulletinstatus}";--%>
+//        var deleteurl = "bulletin!delete";
 //        addurl = false; // 目前的系统公告功能仅供报警推送之用
 //        deleteurl = false;
 //        modifyurl = false;
@@ -40,28 +40,28 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"bulletin-grid!griddata?bulletinstatus=${bulletinstatus}",
-            addUrl:addurl,
-            modifyUrl:modifyurl,
-            deleteUrl:deleteurl,
+            url:"contact-grid!griddata",
+//            addUrl:addurl,
+//            modifyUrl:modifyurl,
+//            deleteUrl:deleteurl,
 
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"name",renderer:checkview,header:"标题",width:"20%"},
-                {name:"starttime",header:"发布时间",width:"20%"},
-//                {name:"endtime",header:"结束时间",width:"10%"},
-                {name:"adduser.displayname",header:"发布人",width:"10%"},
-                {name:"description",header:"内容",width:"40%"}
+                {name:"sysdept.name",header:"部门",width:"20%"},
+                {name:"displayname",renderer:checkview,header:"姓名",width:"20%"},
+                {name:"phonenumber",header:"电话号码",width:"20%"},
+                {name:"email",header:"邮件地址",width:"20%"}
+//                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
+//            buttonParams:[{header:"操作",renderer:"displayButton"}],
             customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
-                ["内容","","String","description"],
-                ["标题","","String","name"]
+                ["姓名","","String","displayname"]
+//                ["标题","","String","name"]
             ],
             //每页显示的记录条数
             pageSize:15,

@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>待办事项维护</title>
+<title>待办事项查看</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
@@ -71,20 +71,15 @@
                           </tr>
                           <tr class="textone1">
                               <td width="30%"><div align="right">开始时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'date');" /></td>
+                              <td width="70%">&nbsp;${starttime}</td>
                           </tr>
                           <tr class="textone12">
                               <td width="30%"><div align="right">结束时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>
+                              <td width="70%">&nbsp;${endtime}</td>
                           </tr>
                           <tr class="textone12">
                             <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;
-                                <textarea name="content" id="content" class="input_three" >${content}</textarea></td>
+                            <td height="60" colspan="2">&nbsp;${content}</td>
                           </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -95,14 +90,8 @@
                       <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
                     </tr><tr>
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
-                                <tr valign="top">
-                                  <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="保 存">
-                                  </div></td>
-                                  <td width="10%"><div align="center">
-                                      <input type="reset" class="button_cc" name="input" value="重 写">
-                                  </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                                <tr valign="top" align="center">
+                                  <td width="45%" align="center"><input type="button" class="button_cc" name="input" value="关 闭" onClick="window.close();"></td>
                                 </tr>
                             </table></td>
                           </tr>

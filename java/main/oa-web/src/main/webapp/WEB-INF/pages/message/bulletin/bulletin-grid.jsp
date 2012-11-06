@@ -49,10 +49,10 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 {name:"name",renderer:checkview,header:"标题",width:"20%"},
-                {name:"starttime",header:"发布时间",width:"20%"},
+//                {name:"starttime",header:"发布时间",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},
-                {name:"adduser.displayname",header:"发布人",width:"10%"},
-                {name:"description",header:"内容",width:"40%"}
+                {name:"adduser.displayname",header:"发布人",width:"10%"}
+//                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

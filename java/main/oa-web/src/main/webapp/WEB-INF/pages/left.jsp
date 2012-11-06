@@ -14,7 +14,7 @@
 </head>
 
 <body bgcolor="#e8eef8">
-<table width="231" border="0" cellpadding="0" cellspacing="0">
+<table width="170" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td><img src="${themesPath}/images/left_1.jpg" width="231" height="31" /></td>
     </tr>

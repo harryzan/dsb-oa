@@ -8,7 +8,7 @@ BODY {
     PADDING-BOTTOM: 0px;
     PADDING-TOP: 0px;
     MARGIN: 0;
-    BACKGROUND: url(login_bg.jpg) #fff no-repeat top center;
+    BACKGROUND: url(login/login_bg.jpg) #fff no-repeat top center;
     FONT: 12px/150% Arial, "宋体", Helvetica, sans-serif;
     text-align: center;
 }

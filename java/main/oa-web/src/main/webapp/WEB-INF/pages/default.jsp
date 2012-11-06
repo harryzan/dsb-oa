@@ -10,7 +10,7 @@
 <frameset rows="*,37" frameborder="no" border="0" framespacing="0">
   <frameset rows="117,*" frameborder="no" border="0" framespacing="0">
     <frame src="title" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-    <frameset cols="231,*" frameborder="no" border="0" framespacing="0">
+    <frameset cols="170,*" frameborder="no" border="0" framespacing="0">
       <frame src="left" name="leftFrame" scrolling="auto" noresize="noresize" id="leftFrame" />
       <frame src="main" name="mainFrame" id="mainFrame" title="mainFrame" />
     </frameset>

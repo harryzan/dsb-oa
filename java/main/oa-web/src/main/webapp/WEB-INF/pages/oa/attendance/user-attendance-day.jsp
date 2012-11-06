@@ -50,7 +50,11 @@
                     <option value="2" <c:if test='${attendance.type == 2}'>selected</c:if>>调休</option>
                     <option value="3" <c:if test='${attendance.type == 3}'>selected</c:if>>事假</option>
                     <option value="4" <c:if test='${attendance.type == 4}'>selected</c:if>>病假</option>
-                    <option value="0" <c:if test='${attendance.type == 5}'>selected</c:if>>缺勤</option>
+                    <option value="0" <c:if test='${attendance.type == 5}'>selected</c:if>>产假</option>
+                    <option value="0" <c:if test='${attendance.type == 6}'>selected</c:if>>婚假</option>
+                    <option value="0" <c:if test='${attendance.type == 7}'>selected</c:if>>哺乳假</option>
+                    <option value="0" <c:if test='${attendance.type == 8}'>selected</c:if>>探亲假</option>
+                    <option value="0" <c:if test='${attendance.type == 9}'>selected</c:if>>旷工</option>
                 </select>
                     <c:if test='${empty attendance.type }'>
                         &nbsp;<font color="red">请选择</font>

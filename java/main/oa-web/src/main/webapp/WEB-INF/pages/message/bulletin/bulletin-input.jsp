@@ -87,19 +87,19 @@
                                 <input name="name" id="name" type="text" class="input_one" value="${name}"> &nbsp;<span class="textxing">*</span>
                                 </td>
                           </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">发布时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'date');" /></td>
-                          </tr>
+                          <%--<tr class="textone12">--%>
+                              <%--<td width="30%"><div align="right">发布时间：</div></td>--%>
+                              <%--<td width="70%">&nbsp;--%>
+                                  <%--&lt;%&ndash;<s:date name="buydate" format="yyyy-MM-dd"/>&ndash;%&gt;--%>
+                                  <%--<input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'date');" /></td>--%>
+                          <%--</tr>--%>
                           <%--<tr class="textone1">--%>
                               <%--<td width="30%"><div align="right">结束时间：</div></td>--%>
                               <%--<td width="70%">&nbsp;--%>
                                   <s:date name="buydate" format="yyyy-MM-dd"/>
                                   <%--<input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>--%>
                           <%--</tr>--%>
-                          <tr class="textone1">
+                          <tr class="textone12">
                               <td><div align="right">内容：</div></td>
                               <td height="60" colspan="2">&nbsp;
                                   <div id="editor" name="editor"></div>

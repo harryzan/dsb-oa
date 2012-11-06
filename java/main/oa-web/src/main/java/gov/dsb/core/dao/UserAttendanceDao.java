@@ -51,11 +51,11 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
         List<SysUser> users = sysUserDao.findByQuery("from SysUser order by id");
 
         if (attendances.size() > 0)
-        for (UserAttendance attendance : attendances) {
-            if (users.contains(attendance.getUser())) {
-                users.remove(attendance.getUser());
+            for (UserAttendance attendance : attendances) {
+                if (users.contains(attendance.getUser())) {
+                    users.remove(attendance.getUser());
+                }
             }
-        }
 
         for (SysUser user : users) {
             UserAttendance userAttendance = new UserAttendance();

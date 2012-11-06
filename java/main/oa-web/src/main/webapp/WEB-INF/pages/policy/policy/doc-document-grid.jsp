@@ -12,20 +12,16 @@
     <script type="text/javascript">
         //扩展参数,备用
         var pageParam = "";
-//        var privilegecode = "d02_document_D,d02_document_R,d02_document_U,d02_document_C";
-//        var result = doPrivilege(privilegecode);
+        var privilegecode = "policy_admin,policy_use";
+        var result = doPrivilege(privilegecode);
         var addurl = "doc-document!input?doccategoryid=${doccategoryid}";
         var modifyurl = "doc-document!input";
         var deleteurl = "doc-document!delete";
-//        if(result.d02_document_C){
-//            addurl = false;
-//        }
-//        if(result.d02_document_U){
-//            modifyurl = false;
-//        }
-//        if(result.d02_document_D){
-//            deleteurl = false;
-//        }
+        if(result.policy_admin){
+            addurl = false;
+            modifyurl = false;
+            deleteurl = false;
+        }
         //grid 参数配置
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
@@ -111,7 +107,7 @@
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
             var title = record.data["name"];
-            var url = '${ctx}/d/d02/doc-document?id=' + id;
+            var url = 'doc-document?id=' + id;
             enter(title,url,600,400);
 //            window.open('doc-document?id=' + id,'','width=800px,height=420px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
         }

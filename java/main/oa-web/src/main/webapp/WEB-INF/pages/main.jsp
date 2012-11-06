@@ -168,8 +168,8 @@
                         <td><table width="90%" border="0" align="center">
                                 <s:iterator value="bulletins">
                                 <tr>
-                                    <td width="20%">${starttime}</td>
-                                    <td width="80%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
+                                    <%--<td width="20%">${starttime}</td>--%>
+                                    <td width="98%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
                                 </tr>
                                 </s:iterator>
                         </table></td>

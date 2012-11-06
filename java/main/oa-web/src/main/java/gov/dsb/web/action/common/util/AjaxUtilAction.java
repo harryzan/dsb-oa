@@ -222,6 +222,7 @@ public class AjaxUtilAction extends SimpleActionSupport {
     }
 
     public String hasPrivileges() throws Exception {
+        System.out.println("********** privilegecode = " + privilegecode);
         result = "{'Results':{";
         // privilege code : is forbid
         if (privilegecode != null) {
@@ -230,6 +231,7 @@ public class AjaxUtilAction extends SimpleActionSupport {
             Collection<SysPrivilege> privileges = sysUserEntityService.getUsePrivileges(user.getId());
 
             for (String code : pCodes) {
+                System.out.println("*********** code = " + code);
 
                 SysPrivilege privilege = sysPrivilegeEntityService.findUniqueByProperty("code", code);
                 if (privilege != null) {

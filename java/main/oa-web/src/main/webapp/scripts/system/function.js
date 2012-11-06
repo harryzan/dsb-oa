@@ -1235,7 +1235,9 @@ function checkdatetime(value, type){
 }
 
 function doPrivilege(privilegecode) {
-    var result = getUrlContent('/web/common/util/ajax-util!hasPrivileges?privilegecode=' + privilegecode + "&tail=" + Math.random(), "POST", null);
+//    alert(privilegecode);
+//    alert(CONTEXT_NAME + '/common/util/ajax-util!hasPrivileges?privilegecode=' + privilegecode);
+    var result = getUrlContent(CONTEXT_NAME + '/common/util/ajax-util!hasPrivileges?privilegecode=' + privilegecode + "&tail=" + Math.random(), "POST", null);
     result = eval("(" + result + ")").Results;
     return result
 }

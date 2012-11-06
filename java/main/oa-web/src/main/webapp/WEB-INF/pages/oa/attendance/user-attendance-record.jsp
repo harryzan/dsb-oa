@@ -51,7 +51,11 @@
                 <c:if test='${attendance.type == 2}'>调休</c:if>
                 <c:if test='${attendance.type == 3}'>事假</c:if>
                 <c:if test='${attendance.type == 4}'>病假</c:if>
-                <c:if test='${attendance.type == 5}'>缺勤</c:if>
+                <c:if test='${attendance.type == 5}'>产假</c:if>
+                <c:if test='${attendance.type == 6}'>婚假</c:if>
+                <c:if test='${attendance.type == 7}'>哺乳假</c:if>
+                <c:if test='${attendance.type == 8}'>探亲假</c:if>
+                <c:if test='${attendance.type == 9}'>旷工</c:if>
             </td>
         </tr>
     </c:forEach>

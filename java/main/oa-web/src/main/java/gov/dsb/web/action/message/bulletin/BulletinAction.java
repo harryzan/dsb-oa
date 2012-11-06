@@ -13,8 +13,10 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -118,6 +120,10 @@ public class BulletinAction extends CRUDActionSupport<Bulletin> {
                 entity = service.get(id);
             } else {
                 entity = new Bulletin();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date now = new Date(System.currentTimeMillis());
+                entity.setStarttime(sdf.format(now));
             }
         }
 

@@ -17,10 +17,9 @@
   </div>
   	
   <div class="nav">
-      <img src="${themesPath}/images/main_2.jpg" width="19" height="20" />
-      </li>欢迎您，${user.displayname}
-      </li>
       <ul>
+          <%--<li><img src="${themesPath}/images/main_2.jpg" width="19" height="20" /> 欢迎您，${user.displayname}--%>
+          <%--</li>--%>
         <li class="n1"><a class="tag">电子邮件</a></li>
         <li class="n1"><a >规章制度</a></li>
         <li class="n1"><a >文书管理</a></li>

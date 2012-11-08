@@ -701,6 +701,14 @@ height:25px;
     width: 300px;
     height: 50px;
 }
+.input_long{
+    font-size: 12px;
+    border: 1px solid #e2ecfa;
+    color: #666666;
+    background-color: #e2ecfa;
+    width: 600px;
+    height: 50px;
+}
 .input_five{
     font-size: 12px;
     border: 1px solid #e2ecfa;

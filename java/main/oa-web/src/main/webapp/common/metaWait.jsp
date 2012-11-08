@@ -4,15 +4,10 @@
     response.setHeader("Cache-Control","no-cache");//HTTP     1.0
     response.setHeader("Expires","0");               //防止被proxy
 %>
-<link rel="stylesheet" type="text/css" href="${themesPath}/ext/ext-all.css"/>
-<link rel="stylesheet" type="text/css" href="${themesPath}/oldcss/style.css"/>
 <script type="text/javascript" >
     var CONTEXT_NAME = "${ctx}";
     var blank_gif = "${themesPath}/oldimages/icons/s.gif";     //modify by chenjp 修改ext-base缺省空白gif，避免指向http://extjs.com/s.gif
 </script>
-<script type="text/javascript" src="${scriptsPath}/ext/ext-base.js"></script>
-<script type="text/javascript" src="${scriptsPath}/ext/ext-all.js"></script>
-<script type="text/javascript" src="${scriptsPath}/ext/grid.js"></script>
 <script type="text/javascript">
     function regist() {
         Ext.QuickTips.init();
@@ -47,12 +42,16 @@
         Ext.MessageBox.wait(msg, "提示");
     }
 
-//    window.onbeforeunload = function(){
-//        healthWaiting(false);
-//    };
+    window.onbeforeunload = function(){
+        healthWaiting(false);
+    };
 
-//    function closeWaiting(){
-//        Ext.MessageBox.hide();
-//    }
+    window.onload = function() {
+        healthWaiting(false);
+    }
+
+    function closeWaiting(){
+        Ext.MessageBox.hide();
+    }
 </script>
 <%--<script type="text/javascript" src="${scriptsPath}/jquery/jquery.layout.js"></script>--%>

@@ -17,12 +17,12 @@
             }
             input.className = 'tab_xz';
         }
-        <c:if test='${isadmin}'>
-            openFunction('user-attendance!day', document.getElementById('button1'));
-        </c:if>
+
     </script>
 </head>
-<body>
+<body <c:if test='${isadmin}'>
+        onload="openFunction('user-attendance!day', document.getElementById('button1'));"
+</c:if>>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>

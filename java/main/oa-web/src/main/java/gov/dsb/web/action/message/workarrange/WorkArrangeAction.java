@@ -3,15 +3,18 @@ package gov.dsb.web.action.message.workarrange;
 import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.dao.WorkArrangeDao;
 import gov.dsb.core.domain.SysUser;
+import gov.dsb.core.domain.UserAttendance;
 import gov.dsb.core.domain.WorkArrange;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -174,35 +177,39 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
         this.avaiable = avaiable;
     }
 
-    private String arrid;
+    private String arrangeids;
 
-    public String getArrid() {
-        return arrid;
+    public String getArrangeids() {
+        return arrangeids;
     }
 
-    public void setArrid(String arrid) {
-        this.arrid = arrid;
+    public void setArrangeids(String arrangeids) {
+        this.arrangeids = arrangeids;
+    }
+
+    private String contents;
+
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
     }
 
     public String save() throws Exception {
-        SysUser currentUser = userSessionService.getCurrentSysUser();
+        HttpServletRequest request = ServletActionContext.getRequest();
 
-        entity.setSysuser(currentUser);
+        System.out.println("arrangeids = " + arrangeids);
+        String[] ids = arrangeids.split(",");
+        for (String id : ids) {
+            WorkArrange arrange = service.get(Long.parseLong(id.trim()));
+            String content = request.getParameter("content" + id.trim());
+            System.out.println("content = " + content);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-//        Timestamp start = Timestamp.valueOf(entity.getStarttime());
-//        Timestamp end = Timestamp.valueOf(entity.getEndtime());
-//        entity.setPeriod(TimeHelper.dtLong2DtString(end.getTime() - start.getTime()));
-//        entity.setWorktime(end.getTime() - start.getTime());
-
-        Date start = sdf.parse(entity.getStarttime());
-
-        Calendar c = Calendar.getInstance();
-        c.setTimeInMillis(start.getTime());
-        entity.setDow("" + c.get(Calendar.DAY_OF_WEEK));
-
-        service.save(entity);
+            arrange.setContent(content);
+            service.save(arrange);
+        }
 
         return week();
     }
@@ -267,7 +274,23 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
             setAfteryear(year + 1);
         }
 
+        arranges = service.findByQuery("from WorkArrange where week=? and year=? order by year, week, dow", week.toString(), year.toString());
+
         SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (arranges.size() == 0) {
+            for (int i = 1; i < 8; i++) {
+                WorkArrange workArrange = new WorkArrange();
+                workArrange.setYear(year.toString());
+                workArrange.setWeek(week.toString());
+                workArrange.setDow(String.valueOf(i));
+                workArrange.setSysuser(currentUser);
+                service.save(workArrange);
+
+                arranges.add(workArrange);
+            }
+        }
+
 
 //        Date now = new Date();
 //        if (!d.after(now)) {
@@ -277,7 +300,7 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 //            setAvaiable(false);
 //        }
 
-        arranges = service.findByQuery("from WorkArrange where week=? and year=? order by starttime", week.toString(), year.toString());
+//        arranges = service.findByQuery("from WorkArrange where week=? and year=? order by starttime", week.toString(), year.toString());
 
         return "week";
     }

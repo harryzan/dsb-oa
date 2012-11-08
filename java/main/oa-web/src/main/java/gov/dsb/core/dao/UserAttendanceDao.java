@@ -31,21 +31,18 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
     }
 
     public List<UserAttendance> getDayAttendance(Date date) {
-        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? order by user.sysdept.orderno, user.id", date);
-        return attendances;
+        return findByQuery("from UserAttendance where checkdate=? order by user.sysdept.orderno, user.id, noon", date);
     }
 
     public List<UserAttendance> getDayAttendance(Date date, SysDept sysDept) {
-        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id", date, sysDept.getId());
-        return attendances;
+        return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id, noon", date, sysDept.getId());
     }
 
     public List<UserAttendance> getDayAttendance(Date date, SysUser sysUser) {
-        List<UserAttendance> attendances = findByQuery("from UserAttendance where checkdate=? and user.id=?", date, sysUser.getId());
-        return attendances;
+        return findByQuery("from UserAttendance where checkdate=? and user.id=? order by noon", date, sysUser.getId());
     }
 
-    public List<UserAttendance> createDayAttendance(Date date) {
+    synchronized public List<UserAttendance> createDayAttendance(Date date) {
         List<UserAttendance> attendances = getDayAttendance(date);
 
         List<SysUser> users = sysUserDao.findByQuery("from SysUser order by id");
@@ -61,13 +58,21 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             UserAttendance userAttendance = new UserAttendance();
             userAttendance.setCheckdate(date);
             userAttendance.setUser(user);
+            userAttendance.setNoon(false);
+            save(userAttendance);
+            attendances.add(userAttendance);
+
+            userAttendance = new UserAttendance();
+            userAttendance.setCheckdate(date);
+            userAttendance.setUser(user);
+            userAttendance.setNoon(true);
             save(userAttendance);
             attendances.add(userAttendance);
         }
         return attendances;
     }
 
-    public List<UserAttendance> createDayAttendance(Date date, SysDept sysDept) {
+    synchronized public List<UserAttendance> createDayAttendance(Date date, SysDept sysDept) {
         List<UserAttendance> attendances = getDayAttendance(date, sysDept);
 
         Collection<SysUser> users = sysDept.getSysusers();
@@ -83,19 +88,35 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             UserAttendance userAttendance = new UserAttendance();
             userAttendance.setCheckdate(date);
             userAttendance.setUser(user);
+            userAttendance.setNoon(false);
+            save(userAttendance);
+            attendances.add(userAttendance);
+
+            userAttendance = new UserAttendance();
+            userAttendance.setCheckdate(date);
+            userAttendance.setUser(user);
+            userAttendance.setNoon(true);
             save(userAttendance);
             attendances.add(userAttendance);
         }
         return attendances;
     }
 
-    public List<UserAttendance> createDayAttendance(Date date, SysUser sysUser) {
-        List<UserAttendance> attendances = getDayAttendance(date, sysUser);
+    synchronized public List<UserAttendance> createDayAttendance(Date date, SysUser user) {
+        List<UserAttendance> attendances = getDayAttendance(date, user);
 
         if (attendances.size() == 0) {
             UserAttendance userAttendance = new UserAttendance();
             userAttendance.setCheckdate(date);
-            userAttendance.setUser(sysUser);
+            userAttendance.setUser(user);
+            userAttendance.setNoon(false);
+            save(userAttendance);
+            attendances.add(userAttendance);
+
+            userAttendance = new UserAttendance();
+            userAttendance.setCheckdate(date);
+            userAttendance.setUser(user);
+            userAttendance.setNoon(true);
             save(userAttendance);
             attendances.add(userAttendance);
         }

@@ -42,10 +42,18 @@
     <c:forEach items="${attendances}" var="attendance" varStatus="status">
         <tr>
             <input type="hidden" name="attid" value="${attendance.id}"/>
-            <td class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
-            <td class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
-            <td class="line_td_light" width="40%">&nbsp;&nbsp;&nbsp;&nbsp;
-
+            <c:if test='${attendance.noon == false}'>
+            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
+            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
+            </c:if>
+            <td class="line_td_light" width="40%">&nbsp;&nbsp;
+                <c:if test='${attendance.noon == false}'>
+                    上午
+                </c:if>
+                <c:if test='${attendance.noon == true}'>
+                    下午
+                </c:if>
+                &nbsp;&nbsp;
 
                 <c:if test='${attendance.type == 1}'>出勤</c:if>
                 <c:if test='${attendance.type == 2}'>调休</c:if>

@@ -38,7 +38,7 @@
                     <td><table width="98%" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td><img src="${themesPath}/images/tcxt.png" width="15" height="14" /></td>
-                            <td><a href="#" class="titlelj">退出系统</a></td>
+                            <td><a href="#" onclick="window.parent.location='${ctx}';" class="titlelj">退出系统</a></td>
                         </tr>
                     </table></td>
                 </tr>

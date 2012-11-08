@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
+<%@ include file="/common/metaWait.jsp" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,9 +44,18 @@
     <c:forEach items="${attendances}" var="attendance" varStatus="status">
         <tr>
             <input type="hidden" name="attid" value="${attendance.id}"/>
-            <td class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
-            <td class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
-            <td class="line_td_light" width="40%">&nbsp;&nbsp;&nbsp;&nbsp;
+            <c:if test='${attendance.noon == false}'>
+            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
+            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
+            </c:if>
+            <td class="line_td_light" width="40%">&nbsp;&nbsp;
+                <c:if test='${attendance.noon == false}'>
+                  上午
+                </c:if>
+                <c:if test='${attendance.noon == true}'>
+                  下午
+                </c:if>
+                &nbsp;&nbsp;
                 <select name="atttype" id="atttype">
                     <option value="1" <c:if test='${attendance.type == 1}'>selected</c:if>>出勤</option>
                     <option value="2" <c:if test='${attendance.type == 2}'>selected</c:if>>调休</option>

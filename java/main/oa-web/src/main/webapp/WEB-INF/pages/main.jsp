@@ -32,8 +32,8 @@
 <body bgcolor="#FFFFFF">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="main_title">
     <tr>
-        <td width="3%" nowrap="nowrap">&nbsp;&nbsp;<img src="${themesPath}/images/main_2.jpg" width="19" height="20" /></td>
-        <td width="97%">欢迎您，${user.displayname}</td>
+        <td width="3%" nowrap="nowrap">&nbsp;&nbsp;</td>
+        <td width="97%">&nbsp;</td>
     </tr>
 </table>
 <table width="98%" border="0" align="center">

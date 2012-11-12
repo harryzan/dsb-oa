@@ -107,7 +107,11 @@
                           <tr class="textone1">
                               <td><div align="right">文书附件：</div></td>
                               <td height="60" colspan="2">&nbsp;
-                                  <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${document.id}">
+                                  <s:iterator value ="attachs">
+                                  <a href='${ctx}/common/document/doc-attach!download?id=${id}' target='_blank'>
+                                      <img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:hand' alt='${filename}'></a>
+                                    </s:iterator>&nbsp;&nbsp;
+                                  <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${docdocument.id}">
                               </td>
                           </tr>
                           <tr class="textone12">

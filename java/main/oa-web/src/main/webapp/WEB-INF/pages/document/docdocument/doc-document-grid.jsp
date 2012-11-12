@@ -34,7 +34,7 @@
             addUrl:addurl,
             //viewUrl:"doc-document",
             modifyUrl:modifyurl,
-            deleteUrl:deleteurl,
+//            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},

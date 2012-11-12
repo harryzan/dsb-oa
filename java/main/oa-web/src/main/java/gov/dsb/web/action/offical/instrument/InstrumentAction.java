@@ -1,7 +1,9 @@
 package gov.dsb.web.action.offical.instrument;
 
+import gov.dsb.core.dao.DocDocumentDao;
 import gov.dsb.core.dao.InstrumentDao;
 import gov.dsb.core.dao.SysUserDao;
+import gov.dsb.core.domain.DocDocument;
 import gov.dsb.core.domain.Instrument;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
@@ -39,6 +41,10 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
     @Autowired
     private UserSessionService userSessionService;
 
+
+    @Autowired
+    private DocDocumentDao docDocumentEntityService;
+
     protected Long id;
 
     private String tuserid;
@@ -69,6 +75,16 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
         this.id = id;
     }
 
+    private Long documentid;
+
+    public Long getDocumentid() {
+        return documentid;
+    }
+
+    public void setDocumentid(Long documentid) {
+        this.documentid = documentid;
+    }
+
     public String save() throws Exception {
         System.out.println("121212121212121");
         SysUser user = userSessionService.getCurrentSysUser();
@@ -88,6 +104,11 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
             SysUser targetuser = sysUserEntityService.get(Long.parseLong(tuserid));
             System.out.println("targetuser.getDisplayname() = " + targetuser.getDisplayname());
             entity.setTargetuser(targetuser);
+        }
+
+        if(documentid != null){
+            DocDocument document = docDocumentEntityService.get(documentid);
+            entity.setDocdocument(document);
         }
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {

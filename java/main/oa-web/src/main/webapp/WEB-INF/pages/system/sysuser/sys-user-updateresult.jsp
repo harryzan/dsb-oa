@@ -69,7 +69,7 @@
                   <tr>
                     <td width="45%"></td>
                     <td width="10%"><div align="center">
-                      <input type="reset" class="button_cc" name="" value="关 闭" onclick="closewindow('修改密码');">
+                      <input type="reset" class="button_cc" name="" value="返 回" onclick="window.location='${ctx}/default'">
                     </div></td>
                     <td width="45%"></td>
                   </tr>

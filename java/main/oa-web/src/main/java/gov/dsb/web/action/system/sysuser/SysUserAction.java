@@ -387,6 +387,7 @@ public class SysUserAction extends CRUDActionSupport<SysUser> {
     public String savepwd(){
 
         SysUser user = userSessionService.getCurrentSysUser();
+        System.out.println("**************** newpwd = " + newpwd);
         user.setPassword(CryptUtil.cl_encrypt(newpwd));
 
         service.save(user);

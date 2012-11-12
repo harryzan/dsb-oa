@@ -71,7 +71,7 @@ public class LoginAction extends SimpleActionSupport {
         HttpSession session = request.getSession(true);
 
 //        SysUser user = service.login(loginname, loginpass);
-        System.out.println("loginname = " + loginname);
+//        System.out.println("loginname = " + loginname);
         if (userSessionService.verify(loginname, loginpass)) {
             UserSession userSession = userSessionService.login(loginname);
 
@@ -91,7 +91,6 @@ public class LoginAction extends SimpleActionSupport {
             return SUCCESS;
         }
         else if ("admin".equals(loginname)) {
-
             return SUCCESS;
         }
         else {

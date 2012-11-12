@@ -13,6 +13,8 @@
         <mapping class="gov.dsb.core.domain.DocDocument"/>
         <mapping class="gov.dsb.core.domain.DocDocumentAttach"/>
         <mapping class="gov.dsb.core.domain.DocRelateCategory"/>
+        <mapping class="gov.dsb.core.domain.Instrument"/>
+        <mapping class="gov.dsb.core.domain.InstrumentDetail"/>
         <mapping class="gov.dsb.core.domain.Item"/>
         <mapping class="gov.dsb.core.domain.ItemHistory"/>
         <mapping class="gov.dsb.core.domain.ItemUse"/>

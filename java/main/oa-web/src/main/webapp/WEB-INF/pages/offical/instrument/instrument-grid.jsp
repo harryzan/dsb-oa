@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>公告信息</title>
+    <title>办文管理</title>
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 

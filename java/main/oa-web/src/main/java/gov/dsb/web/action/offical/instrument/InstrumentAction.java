@@ -41,14 +41,14 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
 
     protected Long id;
 
-    private String targetuserid;
+    private String tuserid;
 
-    public String getTargetuserid() {
-        return targetuserid;
+    public String getTuserid() {
+        return tuserid;
     }
 
-    public void setTargetuserid(String targetuserid) {
-        this.targetuserid = targetuserid;
+    public void setTuserid(String tuserid) {
+        this.tuserid = tuserid;
     }
 
     private String gridParam;
@@ -70,8 +70,11 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
     }
 
     public String save() throws Exception {
+        System.out.println("121212121212121");
         SysUser user = userSessionService.getCurrentSysUser();
+        System.out.println("user.getDisplayname() = " + user.getDisplayname());
         Timestamp now = new Timestamp(System.currentTimeMillis());
+        System.out.println("now = " + now);
 
         if (entity.getId() == null) {
             entity.setCreateuser(user);
@@ -80,8 +83,10 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
         entity.setUpdateuser(user);
         entity.setUpdatedate(now);
 
-        if (targetuserid != null) {
-            SysUser targetuser = sysUserEntityService.get(Long.getLong(targetuserid));
+//        System.out.println("tuserid = " + Long.getLong(tuserid));
+        if (tuserid != null) {
+            SysUser targetuser = sysUserEntityService.get(Long.parseLong(tuserid));
+            System.out.println("targetuser.getDisplayname() = " + targetuser.getDisplayname());
             entity.setTargetuser(targetuser);
         }
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
@@ -92,6 +97,7 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
 //        }
 
         service.save(entity);
+        System.out.println("*********** save success");
         return RELOAD;
     }
 

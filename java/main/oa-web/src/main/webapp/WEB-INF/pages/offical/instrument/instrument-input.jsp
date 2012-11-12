@@ -25,6 +25,7 @@
             if(!documentid) {
                 documentid = "";
             }
+//            alert(documentid);
             var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=instrument&documentid=" + documentid, null, "dialogWidth:870px;");
             if(returnvalue != null && returnvalue != "" && returnvalue != undefined){
                 document.getElementById("documentid").value = returnvalue;
@@ -34,8 +35,8 @@
         function targetuser(){
             var returnvalue = window.showModalDialog("${ctx}/common/tree/sys-user-tree", 1);
             if(returnvalue){
-                document.getElementById("targetuser").value = returnvalue.split(",")[0];
-                document.getElementById("targetuserid").value = returnvalue.split(",")[1];
+                document.getElementById("targetusername").value = returnvalue.split(",")[0];
+                document.getElementById("tuserid").value = returnvalue.split(",")[1];
             }
         }
     </script>
@@ -67,7 +68,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="instrument!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="instrument!save?id=${id}" method="post">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <%--<input type ="hidden" name="status" value="${status}">--%>
                 <tr>
@@ -106,14 +107,14 @@
                           <tr class="textone1">
                               <td><div align="right">文书附件：</div></td>
                               <td height="60" colspan="2">&nbsp;
-                                  <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件组件</span><input type ="hidden" name="documentid" value="${document.id}">
+                                  <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${document.id}">
                               </td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">提交给：</div></td>
                               <td height="60" colspan="2">&nbsp;
-                                <input type="hidden" name="targetuserid" id="targetuserid"/>
-                                <input name="targetuser" id="targetuser" type="text" class="input_one" readonly />
+                                <input type="hidden" name="tuserid" id="tuserid"/>
+                                <input name="targetusername" id="targetusername" type="text" class="input_one" readonly />
                                   <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="targetuser()" >
                               </td>
                           </tr>
@@ -146,7 +147,7 @@
         </table>
 <script type="text/javascript">
     function check_form(afrom){
-        if(afrom.name.value == ""){
+        if(afrom.title.value == ""){
             Ext.MessageBox.alert("提示", "标题不能为空！");
             return false;
         }

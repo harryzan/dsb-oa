@@ -3,13 +3,13 @@
 
 <html>
 <head>
-    <title>办文管理</title>
+    <title>发文管理</title>
     <script type="text/javascript">
         var gridParams = new Array();
     </script>
 </head>
 <frameset rows="38,*" name="parentFrame" border="0" framespacing="1" bordercolor="white" height="auto" frameborder="0">
-    <frame name="tab_frame" scrolling="no" src="instrument-tab"/>
-    <frame name="main_frame" scrolling="auto" src="instrument-grid?status=false"/>
+    <frame name="tab_frame" scrolling="no" src="work-flow-tab"/>
+    <frame name="main_frame" scrolling="auto" src="work-flow-grid?status=false"/>
 </frameset>
 </html>

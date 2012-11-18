@@ -29,6 +29,8 @@
         <mapping class="gov.dsb.core.domain.SysUserPrivilege"/>
         <mapping class="gov.dsb.core.domain.UserAttendance"/>
         <mapping class="gov.dsb.core.domain.WorkLog"/>
+        <mapping class="gov.dsb.core.domain.WorkFlow"/>
+        <mapping class="gov.dsb.core.domain.WorkFlowType"/>
         <mapping class="gov.dsb.core.domain.WorkArrange"/>
 
     </session-factory>

@@ -14,9 +14,9 @@
 </head>
 
 <body bgcolor="#e8eef8">
-<table width="170" border="0" cellpadding="0" cellspacing="0">
+<table width="154" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td><img src="${themesPath}/images/left_1.jpg" width="231" height="31" /></td>
+        <td><img src="${themesPath}/images/left_1.jpg" width="154" height="31" /></td>
     </tr>
     <tr>
         <td></td>
@@ -25,13 +25,13 @@
     <s:iterator value="loginmenus" status="sta">
         <tr>
             <td>
-                <table width="231" border="0" cellpadding="0" cellspacing="0">
+                <table width="154" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="Left_cd">${mainmenu.name}</td>
                     </tr>
                     <tr>
                         <td align="center">
-                            <table width="200" border="0" cellpadding="0" cellspacing="0">
+                            <table width="154" border="0" cellpadding="0" cellspacing="0">
                                 <s:iterator value="submenus">
                                     <c:if test='${code != "demand"}'>
                                     <tr>

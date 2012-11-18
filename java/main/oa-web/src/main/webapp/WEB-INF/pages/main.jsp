@@ -30,12 +30,6 @@
 </head>
 
 <body bgcolor="#FFFFFF">
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="main_title">
-    <tr>
-        <td width="3%" nowrap="nowrap">&nbsp;&nbsp;</td>
-        <td width="97%">&nbsp;</td>
-    </tr>
-</table>
 <table width="98%" border="0" align="center">
 <tr>
 <td width="82%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -45,12 +39,12 @@
 
         </td>
         <td width="90%" background="${themesPath}/images/sy_4.jpg">&nbsp;
-            <a href="main?nweek=${beforeweek}&nyear=${beforeyear}">←${beforeyear}年&nbsp;第${beforeweek}周&nbsp;</a>
+            <a href="main?nweek=${beforeweek}&nyear=${beforeyear}">←&nbsp;上周&nbsp;</a>
             日期：
             <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
             <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
             <input type="button" name="search" id="search" value="转到" class="search_but" onclick="changeday();"/>
-            <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;${afteryear}年&nbsp;第${afterweek}周→</a>
+            <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;下周&nbsp;→</a>
         </td>
     </tr>
     <tr>
@@ -197,28 +191,28 @@
                     <tr>
                         <td height="80"><table width="80%" border="0" align="center">
                             <tr>
-                                <td><table width="160" border="0">
+                                <td><table width="50%" border="0">
                                     <tr>
-                                        <td><img src="${themesPath}/images/sy_icon_1.jpg" width="23" height="25" /><a href="#"></a></td>
-                                        <td><a href="#">收文<span class="STYLE1">（1）</span></a></td>
+                                        <td><img src="${themesPath}/images/sy_icon_1.jpg" width="23" height="25" /></td>
+                                        <td nowrap="nowrap"><a href="#">收文<span class="STYLE1">（1）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="160" border="0">
+                                <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_2.jpg" width="41" height="22" /><a href="#"></a></td>
-                                        <td><a href="#">用车提醒<span class="STYLE1">（1）</span></a></td>
+                                        <td nowrap="nowrap"><a href="#">用车提醒<span class="STYLE1">（1）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="160" border="0">
+                                <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_3.jpg" width="31" height="24" /><a href="#"></a></td>
-                                        <td><a href="#">会议通知<span class="STYLE1">（3）</span></a></td>
+                                        <td nowrap="nowrap"><a href="#">会议通知<span class="STYLE1">（3）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="160" border="0">
+                                <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_4.jpg" width="27" height="28" /><a href="#"></a></td>
-                                        <td><a href="#">代办事项<span class="STYLE1">（3）</span></a></td>
+                                        <td nowrap="nowrap"><a href="#">代办事项<span class="STYLE1">（3）</span></a></td>
                                     </tr>
                                 </table></td>
                             </tr>

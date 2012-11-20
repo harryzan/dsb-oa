@@ -121,7 +121,7 @@ public class WorkFlowGridAction extends PageActionSupport<WorkFlow> {
 //        if (bulletinstatus)
 //            hql += " where endtime < to_char(sysdate)";
 //        else
-            hql += " where targetuser.id = " + user.getId() + " and status is not true ";
+            hql += " where targetuser.id = " + user.getId() + " and (status is false or status is null) ";
         if (!StringHelp.isEmpty(conditions)) {
             QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
             page = service.findPageByQuery(page, queryTranslate.toString() + " order by updatedate desc");

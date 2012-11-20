@@ -9,6 +9,7 @@ import gov.dsb.core.domain.WorkFlow;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.struts2.SimpleActionSupport;
+import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -27,7 +28,7 @@ import java.util.Collection;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "instrument-grid", type = "chain"),
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "work-flow-grid", type = "chain"),
         @Result(name = SimpleActionSupport.SUCCESS, location = "/WEB-INF/pages/common/ajaxutilData.jsp")})
 public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
@@ -46,14 +47,14 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
     protected Long id;
 
-    private String tuserid;
+    private String checkuserid;
 
-    public String getTuserid() {
-        return tuserid;
+    public String getCheckuserid() {
+        return checkuserid;
     }
 
-    public void setTuserid(String tuserid) {
-        this.tuserid = tuserid;
+    public void setCheckuserid(String checkuserid) {
+        this.checkuserid = checkuserid;
     }
 
     private String gridParam;
@@ -94,6 +95,96 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
         this.attachs = attachs;
     }
 
+    private String modifyuserid;
+
+    public String getModifyuserid() {
+        return modifyuserid;
+    }
+
+    public void setModifyuserid(String modifyuserid) {
+        this.modifyuserid = modifyuserid;
+    }
+
+    private String typeuserid;
+
+    public String getTypeuserid() {
+        return typeuserid;
+    }
+
+    public void setTypeuserid(String typeuserid) {
+        this.typeuserid = typeuserid;
+    }
+
+    private String collateuserid;
+
+    public String getCollateuserid() {
+        return collateuserid;
+    }
+
+    public void setCollateuserid(String collateuserid) {
+        this.collateuserid = collateuserid;
+    }
+
+    private String signuserid;
+
+    public String getSignuserid() {
+        return signuserid;
+    }
+
+    public void setSignuserid(String signuserid) {
+        this.signuserid = signuserid;
+    }
+
+    private String allsignuserid;
+
+    public String getAllsignuserid() {
+        return allsignuserid;
+    }
+
+    public void setAllsignuserid(String allsignuserid) {
+        this.allsignuserid = allsignuserid;
+    }
+
+    private String senduserid;
+
+    public String getSenduserid() {
+        return senduserid;
+    }
+
+    public void setSenduserid(String senduserid) {
+        this.senduserid = senduserid;
+    }
+
+    private String ccuserid;
+
+    public String getCcuserid() {
+        return ccuserid;
+    }
+
+    public void setCcuserid(String ccuserid) {
+        this.ccuserid = ccuserid;
+    }
+
+    private String ctuserid;
+
+    public String getCtuserid() {
+        return ctuserid;
+    }
+
+    public void setCtuserid(String ctuserid) {
+        this.ctuserid = ctuserid;
+    }
+
+    private String printuserid;
+
+    public String getPrintuserid() {
+        return printuserid;
+    }
+
+    public void setPrintuserid(String printuserid) {
+        this.printuserid = printuserid;
+    }
+
     public String save() throws Exception {
 //        System.out.println("121212121212121");
         SysUser user = userSessionService.getCurrentSysUser();
@@ -108,22 +199,76 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
         entity.setUpdateuser(user);
         entity.setUpdatedate(now);
 
-//        System.out.println("tuserid = " + Long.getLong(tuserid));
-        if (tuserid != null) {
-            SysUser targetuser = sysUserEntityService.get(Long.parseLong(tuserid));
-//            System.out.println("targetuser.getDisplayname() = " + targetuser.getDisplayname());
-            entity.setTargetuser(targetuser);
-        }
-
         if(documentid != null){
             DocDocument document = docDocumentEntityService.get(documentid);
             entity.setDocdocument(document);
         }
 
         entity.setStep(entity.getStep() + 1);
-        if (entity.getStep() == 8) {
+        if (entity.getStep() == 9) {
             entity.setStatus(true);
         }
+        else if (entity.getStep() == 2) {
+            if (StringHelp.isNotEmpty(checkuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(checkuserid));
+                entity.setTargetuser(targetuser);
+                entity.setCheckuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 3) {
+            if (StringHelp.isNotEmpty(modifyuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(modifyuserid));
+                entity.setTargetuser(targetuser);
+                entity.setModifyuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 4) {
+            if (StringHelp.isNotEmpty(typeuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(typeuserid));
+                entity.setTargetuser(targetuser);
+                entity.setTypeuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 5) {
+            if (StringHelp.isNotEmpty(collateuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(collateuserid));
+                entity.setTargetuser(targetuser);
+                entity.setCollateuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 6) {
+            if (StringHelp.isNotEmpty(signuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(signuserid));
+                entity.setTargetuser(targetuser);
+                entity.setSignuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 7) {
+            if (StringHelp.isNotEmpty(allsignuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(allsignuserid));
+                entity.setTargetuser(targetuser);
+                entity.setAllsignuser(targetuser);
+            }
+        }
+        else if (entity.getStep() == 8) {
+            if (StringHelp.isNotEmpty(printuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(printuserid));
+                entity.setTargetuser(targetuser);
+            }
+            if (StringHelp.isNotEmpty(senduserid)) {
+                SysUser senduser = sysUserEntityService.get(Long.parseLong(senduserid));
+                entity.setSenduser(senduser);
+            }
+            if (StringHelp.isNotEmpty(ccuserid)) {
+                SysUser ccuser = sysUserEntityService.get(Long.parseLong(ccuserid));
+                entity.setCcuser(ccuser);
+            }
+            if (StringHelp.isNotEmpty(ctuserid)) {
+                SysUser ctuser = sysUserEntityService.get(Long.parseLong(ctuserid));
+                entity.setCtuser(ctuser);
+            }
+        }
+
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {
 //            entity.getSysuserbulletins().clear();
@@ -139,6 +284,11 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
     public String delete() throws Exception {
         service.delete(id);
         return RELOAD;
+    }
+
+    public String  print() throws Exception {
+        prepareModel();
+        return "print";
     }
 
     protected void prepareModel() throws Exception {
@@ -158,6 +308,8 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setStep(1);
                 entity.setWriteuser(currentUser);
                 entity.setWritedept(currentUser.getSysdept());
+
+                entity.setStatus(false);
 //                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //                Date now = new Date(System.currentTimeMillis());
 //                entity.setStarttime(sdf.format(now));

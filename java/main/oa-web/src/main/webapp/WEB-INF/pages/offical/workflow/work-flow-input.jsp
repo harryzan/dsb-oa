@@ -8,11 +8,9 @@
     <%@ include file="/common/metaMocha.jsp" %>
 
     <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-<!--
-.STYLE1 {color: #FF0000}
--->
-</style>
+    <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+    <script type="text/javascript" src="${scriptsPath}/system/calender.js"></script>
+
     <script type="text/javascript">
         function signuser(){
             var returnvalue = window.showModalDialog("${ctx}/common/tree/sys-user-tree", 1);
@@ -113,6 +111,11 @@
                 document.getElementById("documentid").value = returnvalue;
             }
         }
+
+        function printme()
+        {
+            openWindow('work-flow!print?id=${id}', 800, 800);
+        }
     </script>
 </head>
 
@@ -186,11 +189,11 @@
           <tr>
             <td height="50" align="right">
                 <c:if test='${step == 5}'>
-                    <input name="signday" id="signday" class="input_one2" type="text" value="${signday}"/>&nbsp;
-                    <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(signday,'date');" style="cursor:pointer">
+                    <input name="signdate" id="signdate" class="input_one2" type="text" value="${signdate}"/>&nbsp;
+                    <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(signdate,'date');" style="cursor:pointer">
                 </c:if>
                 <c:if test='${step != 5}'>
-                    ${signday}
+                    ${signdate}
                 </c:if>
                 </td>
           </tr>
@@ -215,11 +218,11 @@
           <tr>
             <td height="50" align="right">
                 <c:if test='${step == 6}'>
-                    <input name="allsignday" id="allsignday" class="input_one2" type="text" value="${allsignday}"/>&nbsp;
-                    <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(allsignday,'date');" style="cursor:pointer">
+                    <input name="allsigndate" id="allsigndate" class="input_one2" type="text" value="${allsigndate}"/>&nbsp;
+                    <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(allsigndate,'date');" style="cursor:pointer">
                 </c:if>
                 <c:if test='${step != 6}'>
-                    ${allsignday}
+                    ${allsigndate}
                 </c:if>
             </td>
           </tr>
@@ -453,13 +456,18 @@
       <tr>
           <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
               <tr valign="top">
-                  <td width="45%"><div align="right">
+                    <c:if test='${step == 8}'>
+                    <td width="30%"><div align="right">
+                      <input type="button" class="button_bc" name="input" onclick="printme();" value="打 印">
+                  </div></td>
+                    </c:if>
+                  <td width="30%"><div align="right">
                       <input type="submit" class="button_bc" name="input" value="保 存">
                   </div></td>
                   <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="input" value="重 写">
                   </div></td>
-                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                  <td width="30%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
               </tr>
           </table></td>
       </tr>

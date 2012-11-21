@@ -1,13 +1,12 @@
 package gov.dsb.web.message;
 
-import gov.dsb.core.dao.BulletinDao;
-import gov.dsb.core.dao.DocDocumentDao;
 import gov.dsb.core.dao.MessageDao;
 import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 
 /**
@@ -28,12 +27,32 @@ public class MessageListener implements Listener {
 
     @Override
     public void notice(Collection<SysUser> sysUsers, Bulletin bulletin) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        for (SysUser sysUser : sysUsers) {
+            Message message = new Message();
+
+            message.setName(bulletin.getName());
+            long current = System.currentTimeMillis();
+            message.setStarttime(new Timestamp(current));
+            message.setDescription("/message/bulletin/bulletin!view?id=" + bulletin.getId());
+            message.setReceiver(sysUser);
+
+            messageDao.save(message);
+        }
     }
 
     @Override
     public void notice(Collection<SysUser> sysUsers, DocDocument docDocument) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        for (SysUser sysUser : sysUsers) {
+            Message message = new Message();
+
+            message.setName(docDocument.getName());
+            long current = System.currentTimeMillis();
+            message.setStarttime(new Timestamp(current));
+            message.setDescription("/document/docdocument/doc-document?id=" + docDocument.getId());
+            message.setReceiver(sysUser);
+
+            messageDao.save(message);
+        }
     }
 
     @Override

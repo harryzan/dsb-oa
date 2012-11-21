@@ -167,19 +167,31 @@ public class Message extends IdEntity {
         return result;
     }
 
-    private SysUser adduser;
+    private SysUser sender;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "USERID", referencedColumnName = "ID")
-    public SysUser getAdduser() {
-        return adduser;
+    @JoinColumn(name = "SENDERID", referencedColumnName = "ID")
+    public SysUser getSender() {
+        return sender;
     }
 
-    public void setAdduser(SysUser adduser) {
-        this.adduser = adduser;
+    public void setSender(SysUser sender) {
+        this.sender = sender;
     }
 
-//    private Collection<SysUser> sysuserbulletins;
+    private SysUser receiver;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "RECEIVERID", referencedColumnName = "ID")
+    public SysUser getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(SysUser receiver) {
+        this.receiver = receiver;
+    }
+
+    //    private Collection<SysUser> sysuserbulletins;
 //
 //    @ManyToMany(mappedBy = "bulletinusers")
 //    public Collection<SysUser> getSysuserbulletins() {

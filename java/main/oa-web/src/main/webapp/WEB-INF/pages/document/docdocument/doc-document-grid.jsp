@@ -111,8 +111,10 @@
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
             var title = record.data["name"];
-            var url = '${ctx}/d/d02/doc-document?id=' + id;
-            enter(title,url,600,400);
+            var url = '${ctx}/document/docdocument/doc-document?id=' + id;
+            window.location = url;
+//            openWindow(url);
+//            enter(title,url,600,400);
 //            window.open('doc-document?id=' + id,'','width=800px,height=420px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
         }
 

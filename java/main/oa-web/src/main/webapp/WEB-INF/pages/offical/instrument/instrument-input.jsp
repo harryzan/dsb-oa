@@ -122,6 +122,11 @@
                                   <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="targetuser()" >
                               </td>
                           </tr>
+                          <tr class="textone1">
+                              <td><div align="right">是否结束：</div></td>
+                              <td height="60" colspan="2">&nbsp;
+                                  <input type="checkbox" name="status" id="status"/>
+                          </tr>
 
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

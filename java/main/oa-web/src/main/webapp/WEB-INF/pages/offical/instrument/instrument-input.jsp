@@ -125,7 +125,7 @@
                           <tr class="textone1">
                               <td><div align="right">是否结束：</div></td>
                               <td height="60" colspan="2">&nbsp;
-                                  <input type="checkbox" name="status" id="status"/>
+                                  <input type="checkbox" name="sstatus" id="sstatus"/>
                           </tr>
 
                       </table></td>

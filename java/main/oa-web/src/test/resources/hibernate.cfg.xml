@@ -32,6 +32,7 @@
         <mapping class="gov.dsb.core.domain.WorkFlow"/>
         <mapping class="gov.dsb.core.domain.WorkFlowType"/>
         <mapping class="gov.dsb.core.domain.WorkArrange"/>
+        <mapping class="gov.dsb.core.domain.Message"/>
 
     </session-factory>
 </hibernate-configuration>

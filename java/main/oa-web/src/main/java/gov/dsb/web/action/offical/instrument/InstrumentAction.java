@@ -9,6 +9,7 @@ import gov.dsb.core.domain.Instrument;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.struts2.SimpleActionSupport;
+import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -97,6 +98,16 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
         this.attachs = attachs;
     }
 
+    public boolean sstatus;
+
+    public boolean isSstatus() {
+        return sstatus;
+    }
+
+    public void setSstatus(boolean sstatus) {
+        this.sstatus = sstatus;
+    }
+
     public String save() throws Exception {
 //        System.out.println("121212121212121");
         SysUser user = userSessionService.getCurrentSysUser();
@@ -112,7 +123,7 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
         entity.setUpdatedate(now);
 
 //        System.out.println("tuserid = " + Long.getLong(tuserid));
-        if (tuserid != null) {
+        if (StringHelp.isNotEmpty(tuserid)) {
             SysUser targetuser = sysUserEntityService.get(Long.parseLong(tuserid));
 //            System.out.println("targetuser.getDisplayname() = " + targetuser.getDisplayname());
             entity.setTargetuser(targetuser);
@@ -122,6 +133,8 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
             DocDocument document = docDocumentEntityService.get(documentid);
             entity.setDocdocument(document);
         }
+
+        System.out.println("sstatus = " + sstatus);
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {
 //            entity.getSysuserbulletins().clear();

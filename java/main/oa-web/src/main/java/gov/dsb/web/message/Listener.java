@@ -1,8 +1,6 @@
 package gov.dsb.web.message;
 
-import gov.dsb.core.domain.Bulletin;
-import gov.dsb.core.domain.DocDocument;
-import gov.dsb.core.domain.SysUser;
+import gov.dsb.core.domain.*;
 
 import java.sql.Timestamp;
 import java.util.Collection;
@@ -19,5 +17,12 @@ public interface Listener {
     public void notice(Collection<SysUser> sysUsers, Bulletin bulletin);
 
     public void notice(Collection<SysUser> sysUsers, DocDocument docDocument);
+
+    public void notice(Collection<SysUser> sysUsers, CarUse carUse);
+
+    public void notice(Collection<SysUser> sysUsers, Demand demand);
+
+    public void notice(Collection<SysUser> sysUsers, WorkArrange workArrange);
+
 
 }

@@ -107,7 +107,7 @@
 //            if(temp.length == 3){
 //                title = temp[2];
 //            }
-            var url = '${ctx}/officla/instrument/instrument!view?id=' + id;
+            var url = '${ctx}/offical/instrument/instrument!view?id=' + id;
             window.location = url;
         }
 

@@ -98,13 +98,13 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
         this.attachs = attachs;
     }
 
-    public boolean sstatus;
+    public String sstatus;
 
-    public boolean isSstatus() {
+    public String isSstatus() {
         return sstatus;
     }
 
-    public void setSstatus(boolean sstatus) {
+    public void setSstatus(String sstatus) {
         this.sstatus = sstatus;
     }
 
@@ -134,7 +134,11 @@ public class InstrumentAction extends CRUDActionSupport<Instrument> {
             entity.setDocdocument(document);
         }
 
-        System.out.println("sstatus = " + sstatus);
+        if (StringHelp.isNotEmpty(sstatus) && sstatus.equals("on"))
+        {
+            entity.setStatus(true);
+        }
+//        System.out.println("sstatus = " + sstatus);
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {
 //            entity.getSysuserbulletins().clear();

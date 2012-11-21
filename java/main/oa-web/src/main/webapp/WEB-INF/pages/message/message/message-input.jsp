@@ -40,6 +40,14 @@
             var description = document.getElementById('description');
             description.value = data;
         }
+
+        function targetuser(){
+            var returnvalue = window.showModalDialog("${ctx}/common/tree/sys-user-tree", 1);
+            if(returnvalue){
+                document.getElementById("targetusername").value = returnvalue.split(",")[0];
+                document.getElementById("tuserid").value = returnvalue.split(",")[1];
+            }
+        }
     </script>
 </head>
 
@@ -68,9 +76,9 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="bulletin!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="message!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
-                <input type ="hidden" name="bulletinstatus" value="${bulletinstatus}"> 
+                <input type ="hidden" name="messagestatus" value="${messagestatus}"> 
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -109,7 +117,14 @@
                                       </div>
                                   <%--<textarea name="editor" id="editor">${description}</textarea></td>--%>
                           </tr>
-
+                          <tr class="textone12">
+                              <td><div align="right">发送给：</div></td>
+                              <td height="60" colspan="2">&nbsp;
+                                  <input type="hidden" name="tuserid" id="tuserid"/>
+                                  <input name="targetusername" id="targetusername" type="text" class="input_one" readonly />
+                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="targetuser()" >
+                              </td>
+                          </tr>
 
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

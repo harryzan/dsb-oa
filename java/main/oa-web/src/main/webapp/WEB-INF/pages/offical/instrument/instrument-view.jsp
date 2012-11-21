@@ -105,6 +105,16 @@
                                 ${content}</td>
                         </tr>
                         <tr class="textone1">
+                            <td><div align="right">发起人：</div></td>
+                            <td height="60" colspan="2">&nbsp;
+                                ${createuser.displayname}</td>
+                        </tr>
+                        <tr class="textone12">
+                            <td><div align="right">最后修改人：</div></td>
+                            <td height="60" colspan="2">&nbsp;
+                                ${updateuser.displayname}</td>
+                        </tr>
+                        <tr class="textone1">
                             <td><div align="right">文书附件：</div></td>
                             <td height="60" colspan="2">&nbsp;
                                 <s:iterator value ="attachs">
@@ -139,7 +149,7 @@
                         <%--<td width="10%"><div align="center">--%>
                             <%--<input type="reset" class="button_cc" name="input" value="重 写">--%>
                         <%--</div></td>--%>
-                        <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                        <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
                     </tr>
                 </table></td>
             </tr>

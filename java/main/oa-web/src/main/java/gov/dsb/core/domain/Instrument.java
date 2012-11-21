@@ -82,7 +82,7 @@ public class Instrument extends IdEntity {
 
     private SysUser createuser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CREATEUSERID", referencedColumnName = "ID")
     public SysUser getCreateuser() {
         return createuser;
@@ -94,7 +94,7 @@ public class Instrument extends IdEntity {
 
     private SysUser updateuser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "UPDATEUSERID", referencedColumnName = "ID")
     public SysUser getUpdateuser() {
         return updateuser;

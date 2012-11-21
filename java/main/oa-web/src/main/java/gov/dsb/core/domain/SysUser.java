@@ -277,4 +277,16 @@ public class SysUser extends IdEntity {
     public void setEditDocPermitted(Set<DocCategory> editDocPermitted) {
         this.editDocPermitted = editDocPermitted;
     }
+
+    private DocDocument docdocument;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DOCID", referencedColumnName = "ID")
+    public DocDocument getDocdocument() {
+        return docdocument;
+    }
+
+    public void setDocdocument(DocDocument docdocument) {
+        this.docdocument = docdocument;
+    }
 }

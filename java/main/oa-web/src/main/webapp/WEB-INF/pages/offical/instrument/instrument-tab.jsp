@@ -23,8 +23,8 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('instrument-grid?status=false')" type="button" name="button1" id="button1" value="办文管理" class="tab_xz" />
-            <input onclick="openFunction('instrument-grid?status=true')" type="button" name="button2" id="button2" value="历史办文" class="tab" />
+            <input onclick="openFunction('instrument-grid')" type="button" name="button1" id="button1" value="办文管理" class="tab_xz" />
+            <input onclick="openFunction('instrument-history-grid')" type="button" name="button2" id="button2" value="历史办文" class="tab" />
         </td>
     </tr>
 </table>

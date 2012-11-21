@@ -98,16 +98,19 @@
 //            }
 //            return value;
         }
+
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["name"];
-            var temp = title.split("|");
-            if(temp.length == 3){
-                title = temp[2];
-            }
-            var url = '${ctx}/officla/work-flow/work-flow!view?id=' + id;
-            enter(title,url,500,300);
+//            var title = record.data["title"];
+//            var temp = title.split("|");
+//            if(temp.length == 3){
+//                title = temp[2];
+//            }
+            var url = '${ctx}/offical/workflow/work-flow!view?id=' + id;
+            window.location = url;
+//            openWindow(url, 800,800);
+//            enter(title,url,500,300);
         }
 
     </script>

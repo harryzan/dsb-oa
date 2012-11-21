@@ -21,9 +21,9 @@
         var pageParam = "";
 //        var privilegecode = "s07_bulletin_D,s07_bulletin_R,s07_bulletin_U,s07_bulletin_C";
 //        var result = doPrivilege(privilegecode);
-        var addurl = "work-flow!input";
-        var modifyurl = "work-flow!input";
-        var deleteurl = "work-flow!delete";
+//        var addurl = "instrument!input";
+//        var modifyurl = "instrument!input";
+//        var deleteurl = "instrument!delete";
 //        addurl = false; // 目前的系统公告功能仅供报警推送之用
 //        deleteurl = false;
 //        modifyurl = false;
@@ -40,10 +40,10 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"work-flow-grid!griddata",
-            addUrl:addurl,
-            modifyUrl:modifyurl,
-            deleteUrl:deleteurl,
+            url:"instrument-history-grid!griddata",
+//            addUrl:addurl,
+//            modifyUrl:modifyurl,
+//            deleteUrl:deleteurl,
 
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
@@ -88,24 +88,26 @@
         }
 
         function checkview(value){
-//            if(result.b01_model_R){
-//                return value;
-//            }
+//            if(result.s07_bulletin_R){
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
-        }
+//            }
 
+//            var temp = value.split("|");
+//            if(temp.length == 3){
+//                value = "[<a style='cursor:pointer;'onclick='goResult("+ temp[0] +", \""+temp[1]+"\")'>推送结果</a>]" + temp[2];
+//            }
+//            return value;
+        }
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-//            var title = record.data["title"];
+//            var title = record.data["name"];
 //            var temp = title.split("|");
 //            if(temp.length == 3){
 //                title = temp[2];
 //            }
-            var url = '${ctx}/offical/workflow/work-flow!view?id=' + id;
+            var url = '${ctx}/officla/instrument/instrument!view?id=' + id;
             window.location = url;
-//            openWindow(url, 800,800);
-//            enter(title,url,500,300);
         }
 
     </script>

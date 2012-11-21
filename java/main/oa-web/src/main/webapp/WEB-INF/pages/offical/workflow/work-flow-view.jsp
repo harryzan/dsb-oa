@@ -7,12 +7,12 @@
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 
-    <%--<link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">--%>
+    <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript">
         function printme()
         {
-            window.print();
+            openWindow('work-flow!print?id=${id}', 800, 800);
         }
     </script>
 </head>

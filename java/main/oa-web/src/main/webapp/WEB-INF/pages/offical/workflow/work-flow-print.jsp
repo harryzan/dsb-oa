@@ -28,7 +28,7 @@
       <tr>
         <td height="50" colspan="4" class="table_gw_td" ><table width="98%" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="18%" height="50">发文号</td>
+            <td width="18%" height="50">发文号&nbsp;&nbsp;</td>
             <td width="82%">
                 ${workno}
                 </td>
@@ -36,7 +36,7 @@
         </table></td>
         <td width="113" class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="18%" height="50" nowrap="nowrap">缓急 </td>
+              <td width="18%" height="50" nowrap="nowrap">缓急&nbsp;&nbsp;</td>
               <td width="82%">
                       ${fast}
               </td>
@@ -44,7 +44,7 @@
           </table></td>
         <td width="117" class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="18%" height="50" nowrap="nowrap">密级 </td>
+              <td width="18%" height="50" nowrap="nowrap">密级&nbsp;&nbsp;</td>
               <td width="82%">
                       ${security}
               </td>
@@ -64,7 +64,7 @@
           </tr>
           <tr>
             <td height="50" align="right">
-                    ${signdate}
+                    ${signdate}&nbsp;
                 </td>
           </tr>
         </table>          </td>
@@ -80,7 +80,7 @@
           </tr>
           <tr>
             <td height="50" align="right">
-                    ${allsigndate}
+                    ${allsigndate}&nbsp;
             </td>
           </tr>
         </table></td>

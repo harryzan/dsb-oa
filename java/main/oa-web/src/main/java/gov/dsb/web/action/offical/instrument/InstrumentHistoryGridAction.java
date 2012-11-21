@@ -28,7 +28,7 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class InstrumentGridAction extends PageActionSupport<Instrument> {
+public class InstrumentHistoryGridAction extends PageActionSupport<Instrument> {
 
     @Autowired
     private InstrumentDao service;
@@ -121,7 +121,7 @@ public class InstrumentGridAction extends PageActionSupport<Instrument> {
 //        if (bulletinstatus)
 //            hql += " where endtime < to_char(sysdate)";
 //        else
-            hql += " where targetuser.id = " + user.getId() + " and (status is null or status is false) ";
+            hql += " where status is true ";
         if (!StringHelp.isEmpty(conditions)) {
             QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
             page = service.findPageByQuery(page, queryTranslate.toString() + " order by updatedate desc");

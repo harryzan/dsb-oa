@@ -21,8 +21,8 @@
         var pageParam = "";
 //        var privilegecode = "s07_bulletin_D,s07_bulletin_R,s07_bulletin_U,s07_bulletin_C";
 //        var result = doPrivilege(privilegecode);
-        var addurl = "instrument!input?status=${status}";
-        var modifyurl = "instrument!input?status=${status}";
+        var addurl = "instrument!input";
+        var modifyurl = "instrument!input";
         var deleteurl = "instrument!delete";
 //        addurl = false; // 目前的系统公告功能仅供报警推送之用
 //        deleteurl = false;
@@ -40,7 +40,7 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"instrument-grid!griddata?status=${status}",
+            url:"instrument-grid!griddata",
             addUrl:addurl,
             modifyUrl:modifyurl,
             deleteUrl:deleteurl,
@@ -89,7 +89,7 @@
 
         function checkview(value){
 //            if(result.s07_bulletin_R){
-                return value;
+            return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
 //            }
 
 //            var temp = value.split("|");
@@ -98,16 +98,17 @@
 //            }
 //            return value;
         }
+
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["name"];
-            var temp = title.split("|");
-            if(temp.length == 3){
-                title = temp[2];
-            }
+//            var title = record.data["name"];
+//            var temp = title.split("|");
+//            if(temp.length == 3){
+//                title = temp[2];
+//            }
             var url = '${ctx}/officla/instrument/instrument!view?id=' + id;
-            enter(title,url,500,300);
+            window.location = url;
         }
 
     </script>

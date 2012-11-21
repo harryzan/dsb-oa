@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>公告信息维护</title>
+<title>办文信息维护</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
@@ -109,7 +109,7 @@
                               <td height="60" colspan="2">&nbsp;
                                   <s:iterator value ="attachs">
                                   <a href='${ctx}/common/document/doc-attach!download?id=${id}' target='_blank'>
-                                      <img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:hand' alt='${filename}'></a>
+                                      <img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:pointer' alt='${filename}'></a>
                                     </s:iterator>&nbsp;&nbsp;
                                   <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${docdocument.id}">
                               </td>

@@ -14,6 +14,19 @@
 <title>维护用户信息</title>
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+    <script type="text/javascript">
+        function docdocument(){
+            var documentid = document.getElementById("documentid").value;
+            if(!documentid){
+                documentid = "";
+            }
+            var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=Structure&documentid=" + documentid, null, "dialogWidth:870px;");
+            if(returnvalue){
+                document.getElementById("documentid").value = returnvalue;
+            }
+
+        }
+    </script>
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -48,53 +61,45 @@
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
                             <td width="32%"><div align="right">用户名：</div></td>
-                            <td width="68%">&nbsp;<input name="loginname" type="text" class="input_one" value="${loginname}" onblur="unique();">&nbsp;<span class="textxing">*</span> <span id ="load"></span></td>
+                            <td width="68%">&nbsp;${loginname}</td>
                           </tr>
                           <tr class="textone12">
                             <td><div align="right">显示名：</div></td>
-                            <td>&nbsp;<input name="displayname" type="text" class="input_one" value="${displayname}">&nbsp;<span class="textxing">*</span>
+                            <td>&nbsp;${displayname}
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">手机：</div></td>
-                            <td>&nbsp;<input name="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
-                              </td>
+                              <td><div align="right">电子签名：</div></td>
+                              <td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">上传电子签名</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>
                           </tr>
-                          <tr class="textone12">
-                            <td><div align="right">邮箱：</div></td>
-                            <td>&nbsp;<input name="email" type="text" class="input_one" value="${email}">&nbsp;<span class="textxing">*</span>
-                              </td>
-                          </tr>
-                          <tr class="textone1">
-                            <td><div align="right">密码：</div></td>
-                            <td>&nbsp;<input name="updatepwd" type="password" class="input_one" value="">&nbsp;<span id="pwdtext1">不填写密码时，将不对密码进行修改</span></td>
-                          </tr>
-                          <tr class="textone12">
-                            <td><div align="right">确认密码：</div></td>
-                            <td>&nbsp;<input name="password2" type="password" class="input_one" value="" onblur="passwordcheck();">&nbsp;<span id ="pwdtext2"></span>
-							</td>
-                          </tr>
-                          <tr class="textone1">
-                            <td><div align="right">状态：</div></td>
-                            <td>&nbsp;<input name="status" type="checkbox" value="true" onblur="passwordcheck();" <s:if test="status">checked="checked"</s:if>>
-							</td>
-                          </tr>
+                          <%--<tr class="textone1">--%>
+                            <%--<td><div align="right">手机：</div></td>--%>
+                            <%--<td>&nbsp;<input name="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>--%>
+                              <%--</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone12">--%>
+                            <%--<td><div align="right">邮箱：</div></td>--%>
+                            <%--<td>&nbsp;<input name="email" type="text" class="input_one" value="${email}">&nbsp;<span class="textxing">*</span>--%>
+                              <%--</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone1">--%>
+                            <%--<td><div align="right">密码：</div></td>--%>
+                            <%--<td>&nbsp;<input name="updatepwd" type="password" class="input_one" value="">&nbsp;<span id="pwdtext1">不填写密码时，将不对密码进行修改</span></td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone12">--%>
+                            <%--<td><div align="right">确认密码：</div></td>--%>
+                            <%--<td>&nbsp;<input name="password2" type="password" class="input_one" value="" onblur="passwordcheck();">&nbsp;<span id ="pwdtext2"></span>--%>
+							<%--</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone1">--%>
+                            <%--<td><div align="right">状态：</div></td>--%>
+                            <%--<td>&nbsp;<input name="status" type="checkbox" value="true" onblur="passwordcheck();" <s:if test="status">checked="checked"</s:if>>--%>
+							<%--</td>--%>
+                          <%--</tr>--%>
                         </table>
 
-                        <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                          <tr class="textone12">
-                            <td colspan="4"><div align="center"><strong>设置角色</strong></div></td>
-                          </tr>
-                          <s:iterator value="colsysrole" status="sta">
-                              ${((sta.index % 4) == 0) && (((sta.index / 4) % 2) == 0) ? "<tr class=\"textone1\">":""}
-                              ${((sta.index % 4) == 0) && (((sta.index / 4) % 2) != 0) ? "<tr class=\"textone12\">":""}
-                                     <td width="25%" height="26">
-                                         <div align="center">
-                                              &nbsp;<s:if test="!isnull"><input type="checkbox" id="${sysrole.id}" name="sysroleids" value="${sysrole.id}" ${checked?"checked=\"checked\"":""}>${sysrole.name}</s:if>
-                                         </div></td>
-                               ${((sta.index % 4) == 3) ? "</tr>":""}
-                          </s:iterator>
-                        </table></td>
+
+                          <td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>
                     <tr>

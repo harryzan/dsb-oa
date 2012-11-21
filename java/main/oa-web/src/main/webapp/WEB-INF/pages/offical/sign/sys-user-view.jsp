@@ -17,6 +17,34 @@
         if (parent.tree_frame != null)
             parent.tree_frame.updateParent(parent.tree_frame.lastSelectedNode);
     </script>
+
+<script type="text/javascript">
+    window.addEvent('domready',function(){
+        var total = 0;
+        <s:iterator value="attachs" status="status">total = ${status.index + 1};</s:iterator>
+        var arr = new Array(0);
+        for(var i = 0; i < total; i++){
+            arr[i] = i;
+        }
+        //SAMPLE 2 (transition: Bounce.easeOut)
+        var nS2 = new noobSlide({
+            box: $('box2'),
+            items: arr,
+            interval: 3000,
+            fxOptions: {
+                duration: 1000,
+                transition: Fx.Transitions.Bounce.easeOut,
+                wait: false
+            },
+            addButtons: {
+                previous: $('prev1'),
+                play: $('play1'),
+                stop: $('stop1'),
+                next: $('next1')
+            }
+        });
+    });
+</script>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <%--<table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
       <%--<tr>--%>
@@ -53,17 +81,34 @@
                             <td>&nbsp;${displayname}</td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">电话：</div></td>
-                            <td>&nbsp;${phonenumber}</td>
+                              <td><div align="right">电子签名：</div></td>
+                              <td height="60"><div class="mask2">
+                                  <div id="box2">
+                                      <s:iterator value="attachs">
+                                          <span><img src="${ctx}/common/document/doc-attach!displayPic?id=${id}" alt="${filename}" height="150px" width="200px" ></span>
+                                      </s:iterator>
+                                      <span></span>
+                                  </div>
+                              </div>
+                                  <p class="buttons">
+                                      <span id="prev1">&lt;&lt; 上一张</span>
+                                      <span id="play1">幻灯片 &gt;</span>
+                                      <span id="stop1">停止</span>
+                                      <span id="next1">下一张 &gt;&gt;</span>
+                                  </p></td>
                           </tr>
-                          <tr class="textone12">
-                            <td><div align="right">邮箱：</div></td>
-                            <td>&nbsp;${email}</td>
-                          </tr>
-                          <tr class="textone1">
-                            <td><div align="right">状态：</div></td>
-                            <td>&nbsp;${status ? "激活" : "禁用"}</td>
-                          </tr>
+                          <%--<tr class="textone1">--%>
+                            <%--<td><div align="right">电话：</div></td>--%>
+                            <%--<td>&nbsp;${phonenumber}</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone12">--%>
+                            <%--<td><div align="right">邮箱：</div></td>--%>
+                            <%--<td>&nbsp;${email}</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone1">--%>
+                            <%--<td><div align="right">状态：</div></td>--%>
+                            <%--<td>&nbsp;${status ? "激活" : "禁用"}</td>--%>
+                          <%--</tr>--%>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>

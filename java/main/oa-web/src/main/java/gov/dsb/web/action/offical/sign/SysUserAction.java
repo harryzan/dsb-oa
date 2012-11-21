@@ -49,6 +49,9 @@ public class SysUserAction extends CRUDActionSupport<SysUser> {
     private SysUserPrivilegeDao sysUserPrivilegeEntityService;
 
     @Autowired
+    private DocDocumentDao docDocumentEntityService;
+
+    @Autowired
     private SysLogDao sysLogEntityService;
 
     protected Long id;
@@ -64,6 +67,26 @@ public class SysUserAction extends CRUDActionSupport<SysUser> {
     private Long privilegeid;
 
     private String type;
+
+    private Long documentid;
+
+    private Collection<DocDocumentAttach> attachs;
+
+    public Collection<DocDocumentAttach> getAttachs() {
+        return attachs;
+    }
+
+    public void setAttachs(Collection<DocDocumentAttach> attachs) {
+        this.attachs = attachs;
+    }
+
+    public Long getDocumentid() {
+        return documentid;
+    }
+
+    public void setDocumentid(Long documentid) {
+        this.documentid = documentid;
+    }
 
     public void setType(String type) {
         this.type = type;
@@ -134,6 +157,12 @@ public class SysUserAction extends CRUDActionSupport<SysUser> {
             }
 
             entity.setPassword(CryptUtil.cl_encrypt(entity.getPassword()));
+
+            if(documentid != null){
+                DocDocument document = docDocumentEntityService.get(documentid);
+                entity.setDocdocument(document);
+            }
+
             service.save(entity);
 //            service.save(service.merge(entity));
         }
@@ -193,42 +222,14 @@ public class SysUserAction extends CRUDActionSupport<SysUser> {
         if (entity == null) {
             if (id != null) {
                 entity = service.get(id);
+
+                DocDocument document = entity.getDocdocument();
+                if(document != null) {
+                    attachs = document.getDocdocumentattaches();
+                }
             }
             else {
                 entity = new SysUser();
-            }
-        }
-
-        //系统角色的初始化
-        Collection<SysRole> colrole = sysRoleEntityService.findAll();
-        colsysrole = new ArrayList<Map<String, Object>>();
-        //Map<Long, UserRoleUtil> map = new HashMap<Long, UserRoleUtil>();
-        for(SysRole sysrole : colrole){
-            //系统中定义的角色
-            Map<String, Object> map = new HashMap<String, Object>();
-
-            map.put("sysrole", sysrole);
-            map.put("isnull", false);
-            map.put("checked", false);
-            if(entity.getSysroleusers() != null && entity.getSysroleusers().contains(sysrole)){
-                map.put("checked", true);
-            }
-
-            colsysrole.add(map);
-        }
-        int nullvalue = 0;
-        if(colsysrole.size() % 4 != 0){
-            nullvalue = 4 - colsysrole.size() % 4;
-        }
-        if(nullvalue != 0){
-            for(int i = 0; i < nullvalue; i++){
-                Map<String, Object> map = new HashMap<String, Object>();
-
-                map.put("sysrole", null);
-                map.put("isnull", true);
-                map.put("checked", false);
-
-                colsysrole.add(map);
             }
         }
     }

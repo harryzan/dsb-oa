@@ -41,46 +41,46 @@
                 treeMenu.addItem(new MenuItem(node, "刷新", updateChildren));
             } else if (node.id.indexOf("sys-dept") >= 0) {
 //                if (!result.s02_user_C) {
-                    treeMenu.addItem(new MenuItem(node, "添加用户", "sys-user!input?sysdeptid=" + getIdElement(id)));
-                    treeMenu.addSeparator();
+//                    treeMenu.addItem(new MenuItem(node, "添加用户", "sys-user!input?sysdeptid=" + getIdElement(id)));
+//                    treeMenu.addSeparator();
 //                }
 //                if (!result.s02_user_U) {
-                    treeMenu.addItem(new MenuItem(node, "粘帖", paste));
-                    treeMenu.addSeparator();
+//                    treeMenu.addItem(new MenuItem(node, "粘帖", paste));
+//                    treeMenu.addSeparator();
 //                }
                 treeMenu.addItem(new MenuItem(node, "刷新", updateChildren));
             }
             else if (node.id.indexOf("sys-user") >= 0) {
 //                if (!result.s02_user_U) {
-                    treeMenu.addItem(new MenuItem(node, "更新用户", "sys-user!update?id=" + getIdElement(id)));
+                    treeMenu.addItem(new MenuItem(node, "维护电子签名", "sys-user!update?id=" + getIdElement(id)));
                     treeMenu.addSeparator();
 //                }
 //                if (!result.s02_user_U) {
-                    var status = getElementValue(id, "status");
-                    if (status == "true") {
-                        treeMenu.addItem(new MenuItem(node, "禁用用户", "sys-user!changestatus?status=false&id=" + getIdElement(id)));
-                    }
-                    else {
-                        treeMenu.addItem(new MenuItem(node, "激活用户", "sys-user!changestatus?status=true&id=" + getIdElement(id)));
-                    }
-                    treeMenu.addSeparator();
+//                    var status = getElementValue(id, "status");
+//                    if (status == "true") {
+//                        treeMenu.addItem(new MenuItem(node, "禁用用户", "sys-user!changestatus?status=false&id=" + getIdElement(id)));
+//                    }
+//                    else {
+//                        treeMenu.addItem(new MenuItem(node, "激活用户", "sys-user!changestatus?status=true&id=" + getIdElement(id)));
+//                    }
+//                    treeMenu.addSeparator();
 //                }
 //                if (!result.s02_user_D) {
-                    var del = getElementValue(id, "delete");
-                    if (del == "true") {
-                        treeMenu.addItem(new MenuItem(node, "删除用户", "sys-user!delete?id=" + getIdElement(id), true));
-                        treeMenu.addSeparator();
-                    }
+//                    var del = getElementValue(id, "delete");
+//                    if (del == "true") {
+//                        treeMenu.addItem(new MenuItem(node, "删除用户", "sys-user!delete?id=" + getIdElement(id), true));
+//                        treeMenu.addSeparator();
+//                    }
 //                }
 //                if (!result.s02_user_U) {
-                    treeMenu.addItem(new MenuItem(node, "清除密码", "sys-user!clearpassword?id=" + getIdElement(id)));
-                    treeMenu.addSeparator();
-                    treeMenu.addItem(new MenuItem(node, "剪切", cut));
-                    treeMenu.addSeparator();
+//                    treeMenu.addItem(new MenuItem(node, "清除密码", "sys-user!clearpassword?id=" + getIdElement(id)));
+//                    treeMenu.addSeparator();
+//                    treeMenu.addItem(new MenuItem(node, "剪切", cut));
+//                    treeMenu.addSeparator();
 //                }
 //                if (!result.s02_user_privilege) {
-                    treeMenu.addItem(new MenuItem(node, "配置权限", "sys-privilege-tree?sysuserid=" + getIdElement(id)));
-                    treeMenu.addSeparator();
+//                    treeMenu.addItem(new MenuItem(node, "配置权限", "sys-privilege-tree?sysuserid=" + getIdElement(id)));
+//                    treeMenu.addSeparator();
 //                }
                 treeMenu.addItem(new MenuItem(node, "刷新",  updateChildren));
             }

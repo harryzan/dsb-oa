@@ -1,14 +1,13 @@
 package gov.dsb.web.action.common.util;
 
+import gov.dsb.core.dao.MessageDao;
 import gov.dsb.core.dao.SysLogDao;
 import gov.dsb.core.dao.SysPrivilegeDao;
 import gov.dsb.core.dao.SysUserDao;
-import gov.dsb.core.domain.SysLog;
-import gov.dsb.core.domain.SysPrivilege;
-import gov.dsb.core.domain.SysRole;
-import gov.dsb.core.domain.SysUser;
+import gov.dsb.core.domain.*;
 import gov.dsb.core.struts2.SimpleActionSupport;
 import gov.dsb.core.utils.CryptUtil;
+import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSession;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.ServletActionContext;
@@ -18,8 +17,13 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -256,57 +260,48 @@ public class AjaxUtilAction extends SimpleActionSupport {
         return SUCCESS;
     }
 
+    private String username;
 
-    /**
-     * 主页面获取实时滚动信息
-     *
-     * @return
-     * @throws Exception 。
-     */
-//    public String mainMsg() throws Exception {
-//        result = "";
-//        try {
-//            Collection<MonitorProj> projs = monitorProjEntityService.findByQuery("from MonitorProj where acquiremode.listcode=?", SysCodeList.ACQUIREMODE_MANUAL);
-//            MonitorProj monitorProj = null;
-//
-//            for (MonitorProj proj : projs) {
-//                long period = TimeHelper.dtString2DtLong(proj.getCheckperiod());
-//
-//                Collection<ManualReport> reports = manualReportEntityService.findByQuery("from ManualReport where monitorproj.id = ? order by checktime desc", proj.getId());
-//
-//                if (reports == null || reports.size() <= 0) {
-//                    result += "人工检测项目-" + proj.getName() + "&nbsp;尚未填写过人工检测报告！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-//                } else {
-//                    ManualReport report = reports.iterator().next();
-//                    Timestamp nexttime = new Timestamp(report.getChecktime().getTime() + period);
-//
-//                    if (nexttime.before(new Timestamp(System.currentTimeMillis()))) {
-//                        result += "人工检测项目-" + proj.getName() + "&nbsp;应该在" + nexttime + "时填写人工检测报告！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-//                    } else if (nexttime.before(new Timestamp(System.currentTimeMillis() + 10 * 24 * 3600000))) {   // 10天内的进行提醒
-//                        result += "人工检测项目-" + proj.getName() + "&nbsp;需要在" + nexttime + "时填写人工检测报告！&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-//                    }
-//                }
-//            }
-//
-//
-//            Collection<StructureAlarmType> types = structureAlarmTypeEntityService.findAll();
-//
-//            for (StructureAlarmType type : types) {
-//                Collection<StructureAlarmTypeResult> results = structureAlarmTypeResultEntityService.findByQuery("from StructureAlarmTypeResult where structurealarmtype.id=? order by starttime", type.getId());
-//
-//                if (results != null && results.size() > 0) {
-//                    StructureAlarmTypeResult result = results.iterator().next();
-//                    if (result.getStarttime().after(new Timestamp(System.currentTimeMillis() - 2 * 24 * 3600000))) {    // 显示两天内的结构预警结果
-//                        this.result += "结构预警类型-" + type.getName() + "在" + result.getStarttime() + "&nbsp;发生报警&nbsp;" + result.getName() + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-//                    }
-//                }
-//            }
-//
-//        } catch (Exception ignore) {
-//            ignore.printStackTrace();
-//        }
-//        return SUCCESS;
-//    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Autowired
+    private MessageDao messageDao;
+
+    public void messagecount() throws IOException {
+        String outputString = "0";
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpServletResponse response = ServletActionContext.getResponse();
+        HttpSession session = request.getSession(true);
+        OutputStream os = response.getOutputStream();
+
+        System.out.println("username = " + username);
+        if (StringHelp.isNotEmpty(username)) {
+            SysUser sysUser = sysUserEntityService.login(username, password);
+
+            List<Message> query = messageDao.findByQuery("from Message where recevier.id=?" + sysUser.getId());
+            System.out.println("query.size() = " + query.size());
+            outputString = "" + query.size();
+
+        }
+
+        os.write(outputString.getBytes());
+    }
 
 
     private Timestamp startTime;

@@ -10,7 +10,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>公告信息</title>
+    <title><c:if test='${messagestatus == false}'>未读</c:if>
+        <c:if test='${messagestatus == true}'>已读</c:if>
+        短信息</title>
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 
@@ -49,9 +51,9 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 {name:"name",renderer:checkview,header:"标题",width:"20%"},
-//                {name:"starttime",header:"发布时间",width:"20%"},
+                {name:"starttime",header:"时间",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},
-                {name:"adduser.displayname",header:"发布人",width:"10%"}
+                {name:"sender.displayname",header:"发布人",width:"20%"}
 //                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列

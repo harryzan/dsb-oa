@@ -26,6 +26,11 @@
             var value = document.getElementById("day").value;
             window.location = "main?day=" + value;
         }
+
+        var url = "${url}";
+        if(url.trim() != ""){
+            location.replace(url);
+        }
     </script>
 </head>
 

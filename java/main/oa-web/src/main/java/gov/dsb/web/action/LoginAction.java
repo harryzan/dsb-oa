@@ -24,7 +24,7 @@ import java.sql.Timestamp;
  * To change this template use File | Settings | File Templates.
  */
 @ParentPackage("default")
-@Results({@Result(name = SimpleActionSupport.SUCCESS, location = "/default", type = "redirect"),
+@Results({@Result(name = SimpleActionSupport.SUCCESS, location = "/default", type = "chain"),
         @Result(name = "failed", location = "/", type = "redirect")})
 public class LoginAction extends SimpleActionSupport {
 
@@ -38,7 +38,17 @@ public class LoginAction extends SimpleActionSupport {
 
     private String loginpass;
 
-//    private String url;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    //    private String url;
 
 
     public void setLoginname(String loginname) {

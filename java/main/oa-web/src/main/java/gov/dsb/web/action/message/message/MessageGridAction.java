@@ -11,11 +11,17 @@ import gov.dsb.web.security.UserSessionService;
 import gov.dsb.web.ui.grid.Grid;
 import gov.dsb.web.ui.grid.QueryTranslate;
 import gov.dsb.web.ui.grid.Row;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -116,6 +122,7 @@ public class MessageGridAction extends PageActionSupport<Message> {
 //        String s = "Select t from Student t left join t.books b where   \n" +
 //                "exists　( select b.new from b where b.student = t )    \n" +
 //                "and true=all( select b.new from b where b.student = t )";
+//        System.out.println("user.getId() = " + user.getId());
 
         String hql = "from Message where receiver.id=" + user.getId();
         if (messagestatus) {
@@ -128,6 +135,8 @@ public class MessageGridAction extends PageActionSupport<Message> {
 //            hql += " where endtime < to_char(sysdate)";
 //        else
 //            hql += " where endtime >= to_char(sysdate)";
+
+//        System.out.println("hql = " + hql);
         if (!StringHelp.isEmpty(conditions)) {
             QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
             page = service.findPageByQuery(page, queryTranslate.toString() + " order by starttime desc");
@@ -135,8 +144,11 @@ public class MessageGridAction extends PageActionSupport<Message> {
             page = service.findPageByQuery(page, hql + " order by starttime desc");
         }
         List<Message> list = page.getResult();
+//        System.out.println("list.size() = " + list.size());
 
         rows = Grid.gridValue2Rows(list, columns);
         return GRIDDATA;
     }
+
+
 }

@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>办公管理信息系统</title>
+    <script type="text/javascript">
+        var url = "${url}";
+        if(url.trim() != ""){
+            location.replace(url);
+        }
+    </script>
 </head>
 
 <frameset rows="*,37" frameborder="no" border="0" framespacing="0">

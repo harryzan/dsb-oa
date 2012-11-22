@@ -32,7 +32,7 @@
                     <td><table width="98%" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td><img src="${themesPath}/images/fhsy.png" width="15" height="14" /></td>
-                            <td><a href="#" onclick="window.parent.location.reload();" class="titlelj">返回首页</a></td>
+                            <td><a href="#" onclick="window.parent.location='${ctx}/default';" class="titlelj">返回首页</a></td>
                         </tr>
                     </table></td>
                     <td><table width="98%" border="0" cellpadding="0" cellspacing="0">
@@ -62,8 +62,8 @@
                 <li class="n1"><a href="#">文书管理</a></li>
                 <li class="n1"><a href="#">需求申请</a></li>
                 <li class="n1"><a href="#">资料库链接</a></li>
-                <li class="n1"><a href="#">机关党委</a></li>
-                <li class="n1"><a href="#">机关工会</a></li>
+                <li class="n1"><a href="${ctx}/dw/index" target="_blank">机关党委</a></li>
+                <li class="n1"><a href="${ctx}/gh/index" target="_blank">机关工会</a></li>
                 <li class="n1"><a href="#">BBS论坛</a></li>
             </ul>
         </div>

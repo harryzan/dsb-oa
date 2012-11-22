@@ -287,14 +287,12 @@ public class AjaxUtilAction extends SimpleActionSupport {
         String outputString = "0";
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpServletResponse response = ServletActionContext.getResponse();
-        HttpSession session = request.getSession(true);
         OutputStream os = response.getOutputStream();
 
-        System.out.println("username = " + username);
         if (StringHelp.isNotEmpty(username)) {
-            SysUser sysUser = sysUserEntityService.login(username, password);
+            SysUser sysUser = userSessionService.getUserByLoginname(username);
 
-            List<Message> query = messageDao.findByQuery("from Message where recevier.id=?" + sysUser.getId());
+            List<Message> query = messageDao.findByQuery("from Message where receiver.id=?", sysUser.getId());
             System.out.println("query.size() = " + query.size());
             outputString = "" + query.size();
 

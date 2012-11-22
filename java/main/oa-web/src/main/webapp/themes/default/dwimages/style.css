@@ -1,0 +1,90 @@
+body {
+	font-family: "΢���ź�";
+	font-size:12px;
+	color:#454545;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+}
+html,body{height:100%;}
+div,form,img,ul,ol,li,dl,dt,dd {margin: 0; padding: 0; border: 0; list-style: none none;}
+h1,h2,h3,h4,h5,h6 { margin:0; padding:0; font-size:14px; font-weight: normal;}
+table,td,tr,th{font-size:12px;}
+
+a:link {color: #333; text-decoration:none;}
+a:visited {color: #333;text-decoration:none;}
+a:hover { color: #f60; text-decoration:none;}
+a:active { color: #333;}
+
+.cd:link {color: #fff; text-decoration:none; font-size:14px;}
+.cd:visited {color: #fff; font-size:14px;}
+.cd:hover { color: #f60; text-decoration:none; font-size:14px;}
+.cd:active {
+	color: #fff; font-size:14px;
+
+}
+.table_line{
+	border: 1px solid #e6e6e6;
+}
+.input_1{
+	width: 95%;
+	border: 1px solid #ccc;
+	height: 20px;
+	line-height: 20px;
+}
+.search_but{
+	height: 27px;
+	width: 27px;
+	border: none;
+	cursor: pointer;
+	background-image: url(sosuo.jpg);
+	background-repeat: no-repeat;
+}
+
+.right_title_text{
+	line-height: 25px;
+	color: #61a1e0;
+	font-weight: bold;
+}
+.right_main_text{
+	line-height: 25px;
+	color: #4c4c4c;
+	font-family: "����";
+	font-size: 12px;
+
+}
+.main_title{
+	line-height: 35px;
+	color: #599ddf;
+	font-size: 16px;
+	font-weight: bold;
+}
+.main_text{
+	line-height: 35px;
+	color: #6f6f6f;
+
+}
+.title_text{
+	line-height: 20px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	font-size:14px;
+}
+.title_text1{
+
+	color: #ba1801;
+	font-weight: bold;
+	font-size:14px;
+}
+.tcy_title{
+line-height: 35px;
+	font-weight: bold;
+	font-size:16px;
+	text-align: center;
+}
+.tcy_text{
+line-height: 25px;
+	font-size:14px;
+	text-align: left;
+}

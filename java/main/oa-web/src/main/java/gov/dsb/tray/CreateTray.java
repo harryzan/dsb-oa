@@ -134,12 +134,12 @@ import org.apache.commons.httpclient.methods.GetMethod;
              trayIcon = new TrayIcon(image, trayName, popup);
              trayIcon.setImageAutoSize(true);
              //创建一个Action监听器:左键双击事件
-             final  ActionListener al = new ActionListener() {
-                 public void actionPerformed(ActionEvent e) {
-                     trayIcon.displayMessage("托盘事件", "这个双击事件己收到", TrayIcon.MessageType.WARNING);
-                 }
-             };
-             trayIcon.addActionListener(al);
+//             final  ActionListener al = new ActionListener() {
+//                 public void actionPerformed(ActionEvent e) {
+//                     trayIcon.displayMessage("托盘事件", "这个双击事件己收到", TrayIcon.MessageType.INFO);
+//                 }
+//             };
+//             trayIcon.addActionListener(al);
              try {
                  tray.add(trayIcon);
                  isCreated=true;

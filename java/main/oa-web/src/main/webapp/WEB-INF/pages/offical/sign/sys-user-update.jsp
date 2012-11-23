@@ -20,7 +20,7 @@
             if(!documentid){
                 documentid = "";
             }
-            var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=Structure&documentid=" + documentid, null, "dialogWidth:870px;");
+            var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=sysuser&documentid=" + documentid, null, "dialogWidth:870px;");
             if(returnvalue){
                 document.getElementById("documentid").value = returnvalue;
             }

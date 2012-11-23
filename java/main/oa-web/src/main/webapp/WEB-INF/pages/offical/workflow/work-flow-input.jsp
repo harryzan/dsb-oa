@@ -106,7 +106,7 @@
                 documentid = "";
             }
 //            alert(documentid);
-            var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=work-flow&documentid=" + documentid, null, "dialogWidth:870px;");
+            var returnvalue = window.showModalDialog("${ctx}/common/document/doc-client-category!main?modelname=workflow&documentid=" + documentid, null, "dialogWidth:870px;");
             if(returnvalue != null && returnvalue != "" && returnvalue != undefined){
                 document.getElementById("documentid").value = returnvalue;
             }

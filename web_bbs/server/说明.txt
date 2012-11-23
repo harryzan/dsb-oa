@@ -1,0 +1,7 @@
+内部论坛配置步骤
+
+1、安装nbsetup2.8.4128.EXE 到服务器上默认路径
+2、修改mis目录下的“bbs.box”文件，设置服务端口和路径
+3、双击“bbs.box”运行服务
+4、打开web_bbs路径下的bbs.jsp和loginFromMis.asp文件，修改其中的ip地址和端口
+5、进入mis系统，通过右上角的内部论坛链接测试服务

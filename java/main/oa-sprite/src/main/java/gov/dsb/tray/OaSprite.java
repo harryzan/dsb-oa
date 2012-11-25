@@ -22,20 +22,20 @@ import java.io.InputStreamReader;
  *
  * @author:NetJava.cn
  */
-public class CreateTray {
+public class OaSprite {
     /**
      * 创建单实列
      */
-    public static CreateTray instance() {
+    public static OaSprite instance() {
         if (null == ct) {
-            ct = new CreateTray();
+            ct = new OaSprite();
         }
         return ct;
     }
 
     //测试
     public static void main(String[] args) throws InterruptedException {
-        CreateTray ct = instance();
+        OaSprite ct = instance();
         //工作目录下使用的tray图标文件
         PopupMenu pop = ct.createPopup();
         if (!ct.CreteTrayIcon("OA小精灵", pop)) {
@@ -213,9 +213,9 @@ public class CreateTray {
         return popup;
     }
 
-    private CreateTray() {
+    private OaSprite() {
     }
 
 
-    private static CreateTray ct = null;
+    private static OaSprite ct = null;
 }

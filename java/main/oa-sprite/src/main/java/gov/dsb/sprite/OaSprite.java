@@ -13,8 +13,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 /**
  * 使java application生成托盘图标的例子
@@ -148,13 +150,16 @@ public class OaSprite {
      * @para popup 这个tray上的PopupMenu
      */
     public boolean CreteTrayIcon(String trayName, PopupMenu popup) {
-        String url = this.getClass().getClassLoader().getResource("gov/dsb/sprite").getPath();
+        URL url = this.getClass().getClassLoader().getResource("tray.gif");
+        System.out.println("url = " + url);
+//        File file = new File(url);
+//        System.out.println("file.exists() = " + file.exists());
 
         boolean isCreated = false;
 //         final  TrayIcon trayIcon;
         if (SystemTray.isSupported()) {
             SystemTray tray = SystemTray.getSystemTray();
-            Image image = Toolkit.getDefaultToolkit().getImage(url + "/tray.gif");
+            Image image = Toolkit.getDefaultToolkit().getImage(url);
             trayIcon = new TrayIcon(image, trayName, popup);
             trayIcon.setImageAutoSize(true);
             //创建一个Action监听器:左键双击事件

@@ -43,7 +43,7 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
                                         <Main-Class>gov.dsb.sprite.OaSprite</Main-Class>
-                                        <Build-Number>001</Build-Number>
+                                        <Build-Number>002</Build-Number>
                                     </manifestEntries>
                                 </transformer>
                             </transformers>

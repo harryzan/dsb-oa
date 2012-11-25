@@ -292,8 +292,7 @@ public class AjaxUtilAction extends SimpleActionSupport {
         if (StringHelp.isNotEmpty(username)) {
             SysUser sysUser = userSessionService.getUserByLoginname(username);
 
-            List<Message> query = messageDao.findByQuery("from Message where receiver.id=?", sysUser.getId());
-            System.out.println("query.size() = " + query.size());
+            List<Message> query = messageDao.findByQuery("from Message where receiver.id=? and (status is null or status is false)", sysUser.getId());
             outputString = "" + query.size();
 
         }

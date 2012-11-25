@@ -15,6 +15,8 @@
         <mapping class="gov.dsb.core.domain.DocRelateCategory"/>
         <mapping class="gov.dsb.core.domain.DwType"/>
         <mapping class="gov.dsb.core.domain.Dw"/>
+        <mapping class="gov.dsb.core.domain.GhType"/>
+        <mapping class="gov.dsb.core.domain.Gh"/>
         <mapping class="gov.dsb.core.domain.Instrument"/>
         <mapping class="gov.dsb.core.domain.InstrumentDetail"/>
         <mapping class="gov.dsb.core.domain.Item"/>

@@ -18,24 +18,14 @@
       <tr>
         <td><table width="800" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td width="62" align="center"><a href="#" class="cd">首页</a></td>
+            <td width="62" align="center"><a href="index" class="cd">首页</a></td>
             <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="77" align="center"><a href="jqdt" class="cd">近期动态</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="77" align="center"><a href="#" class="cd">支部生活</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="130" align="center" nowrap="nowrap"><a href="#" class="cd">学习型党组织建设</a></td>
-            <td align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="87" align="center"><a href="#" class="cd">党务公开</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="87" align="center"><a href="#" class="cd">创先争优</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="87" align="center"><a href="#" class="cd">机关文化</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="87" align="center"><a href="#" class="cd">组织架构</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
-            <td width="87" align="center"><a href="#" class="cd">文件下载</a></td>
-            <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
+
+            <s:iterator value="dwTypes">
+                <td nowrap="nowrap" align="center"><a href="type?tid=${id}" class="cd">&nbsp;${name}&nbsp;</a></td>
+                <td width="1" align="center"><img src="${themesPath}/dwimages/title3.png" width="1" height="11" /></td>
+            </s:iterator>
+
           </tr>
         </table></td>
         </tr>
@@ -71,80 +61,15 @@
       </tr>
       <tr>
         <td valign="top"  background="${themesPath}/dwimages/title8.jpg"><table width="250" border="0" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="32" height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td width="202"><a href="tcy" target="_blank">组工干部要以实际行动永葆纯洁</a></td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td height="25">组工干部要以实际行洁性</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td height="25">组工干部要以实际行动永葆纯</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td>组工干部要以实</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td>组工干部要以实际行动永葆纯</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td height="25">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td height="25">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
-            <td height="25">&nbsp;</td>
-          </tr>
+            <s:iterator value="dws1">
+                <tr>
+                    <td width="32" height="25" align="center"><img src="${themesPath}/dwimages/d2.jpg" width="13" height="13" /></td>
+                    <td width="202"><a href="content?id=${id}" target="_blank">${name}</a></td>
+                </tr>
+                <tr>
+                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                </tr>
+            </s:iterator>
         </table></td>
       </tr>
       <tr>
@@ -177,50 +102,19 @@
                 <td height="3"></td>
               </tr>
               <tr>
-                <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td width="313"><a href="#">组工干部要以实际行动永</a></td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际行动永葆</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动永葆纯</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                </table></td>
+                  <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <s:iterator value="dws2">
+
+                          <tr>
+                              <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
+                              <td width="313"><a href="content?id=${id}">${name}</a></td>
+                          </tr>
+                          <tr>
+                              <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                          </tr>
+                      </s:iterator>
+
+                  </table></td>
               </tr>
             </table></td>
           </tr>
@@ -244,48 +138,17 @@
               </tr>
               <tr>
                 <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td width="313"><a href="#">组工干部要以实际行动永</a></td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际行动永葆</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动永葆纯</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
+                    <s:iterator value="dws3">
+
+                        <tr>
+                            <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
+                            <td width="313"><a href="content?id=${id}">${name}</a></td>
+                        </tr>
+                        <tr>
+                            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                        </tr>
+                    </s:iterator>
+
                 </table></td>
               </tr>
             </table></td>
@@ -312,48 +175,16 @@
               </tr>
               <tr>
                 <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td width="313"><a href="#">组工干部要以实际行动永</a></td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际行动永葆</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动永葆纯</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
+                    <s:iterator value="dws4">
+
+                        <tr>
+                            <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
+                            <td width="313"><a href="content?id=${id}">${name}</a></td>
+                        </tr>
+                        <tr>
+                            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                        </tr>
+                    </s:iterator>
                 </table></td>
               </tr>
             </table></td>
@@ -378,48 +209,16 @@
               </tr>
               <tr>
                 <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td width="313"><a href="#">组工干部要以实际行动永</a></td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际行动永葆</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td>组工干部要以实际</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
-                  <tr>
-                    <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-                    <td height="25">组工干部要以实际行动永葆纯</td>
-                  </tr>
-                  <tr>
-                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-                  </tr>
+                    <s:iterator value="dws5">
+
+                        <tr>
+                            <td width="29" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
+                            <td width="313"><a href="content?id=${id}">${name}</a></td>
+                        </tr>
+                        <tr>
+                            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                        </tr>
+                    </s:iterator>
                 </table></td>
               </tr>
             </table></td>
@@ -453,40 +252,16 @@
         <td><img src="${themesPath}/dwimages/title13.jpg" width="250" height="81" /></td>
       </tr>
       <tr>
-        <td valign="top" background="${themesPath}/dwimages/title14.jpg"><table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="10" height="25"><img src="${themesPath}/dwimages/d4.jpg" width="3" height="3" /></td>
-            <td width="204"><a href="#">组工干部要以实际行动永</a></td>
-          </tr>
-          <tr>
-            <td height="25"><img src="${themesPath}/dwimages/d4.jpg" width="3" height="3" /></td>
-            <td><a href="#">组工干部要以实际行动永</a></td>
-          </tr>
-          <tr>
-            <td height="25"><img src="${themesPath}/dwimages/d4.jpg" width="3" height="3" /></td>
-            <td><a href="#">组工干部要以实际行动永</a></td>
-          </tr>
-          <tr>
-            <td height="25">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="25">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="25">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="25">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="25">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-        </table></td>
+          <td valign="top" background="${themesPath}/dwimages/title14.jpg"><table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
+              <s:iterator value="dws6">
+
+                  <tr>
+                      <td width="10" height="25"><img src="${themesPath}/dwimages/d4.jpg" width="3" height="3" /></td>
+                      <td width="204"><a href="content?id=${id}">${name}</a></td>
+                  </tr>
+              </s:iterator>
+
+          </table></td>
       </tr>
       <tr>
         <td><img src="${themesPath}/dwimages/title15.jpg" width="250" height="9" /></td>
@@ -512,29 +287,19 @@
     <td valign="top"><table width="723" border="0" cellpadding="0" cellspacing="0" class="table_line">
       <tr>
         <td valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="32" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-            <td width="689"><a href="#">组工干部要以实际行动永</a></td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-            <td height="25">组工干部要以实际</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
-          <tr>
-            <td height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
-            <td height="25">组工干部要以实际行动</td>
-          </tr>
-          <tr>
-            <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
-          </tr>
+            <s:iterator value="dws7">
+
+                <tr>
+                    <td width="32" height="25" align="center"><img src="${themesPath}/dwimages/d1.jpg" /></td>
+                    <td width="689"><a href="content?id=${id}">${name}</a></td>
+                </tr>
+                <tr>
+                    <td height="1" colspan="2" background="${themesPath}/dwimages/d3.jpg"></td>
+                </tr>
+            </s:iterator>
+
         </table></td>
-        </tr>
+      </tr>
     </table></td>
   </tr>
 </table>

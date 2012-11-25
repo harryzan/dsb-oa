@@ -1,6 +1,5 @@
 package gov.dsb.tray;
 
-import gov.dsb.core.utils.StringHelp;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.HttpStatus;
@@ -94,7 +93,7 @@ public class CreateTray {
     public void updateTray() {
         String returnvalue = doGet("http://localhost:8080/oa/common/util/ajax-util!messagecount?username=" + username + "&password=" + password, null, "GBK", true);
 
-        if (StringHelp.isNotEmpty(returnvalue) && Integer.parseInt(returnvalue.trim()) > 0) {
+        if (StringUtils.isNotEmpty(returnvalue) && Integer.parseInt(returnvalue.trim()) > 0) {
             PopupMenu popupMenu = trayIcon.getPopupMenu();
             int itemCount = popupMenu.getItemCount();
 

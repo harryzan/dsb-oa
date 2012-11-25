@@ -1,4 +1,4 @@
-package gov.dsb.tray;
+package gov.dsb.sprite;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
@@ -148,7 +148,7 @@ public class OaSprite {
      * @para popup 这个tray上的PopupMenu
      */
     public boolean CreteTrayIcon(String trayName, PopupMenu popup) {
-        String url = this.getClass().getClassLoader().getResource("gov/dsb/tray").getPath();
+        String url = this.getClass().getClassLoader().getResource("gov/dsb/sprite").getPath();
 
         boolean isCreated = false;
 //         final  TrayIcon trayIcon;

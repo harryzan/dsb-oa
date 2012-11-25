@@ -3,6 +3,7 @@ package gov.dsb.core.domain;
 import gov.dsb.core.domain.base.IdEntity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Collection;
 
 /**
@@ -28,15 +29,15 @@ public class Dw extends IdEntity {
         this.id = id;
     }
 
-    private String starttime;
+    private Timestamp starttime;
 
     @Basic
-    @Column(name = "STARTTIME", length = 10)
-    public String getStarttime() {
+//    @Column(name = "STARTTIME", length = 10)
+    public Timestamp getStarttime() {
         return starttime;
     }
 
-    public void setStarttime(String starttime) {
+    public void setStarttime(Timestamp starttime) {
         this.starttime = starttime;
     }
 

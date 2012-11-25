@@ -13,6 +13,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -125,9 +126,9 @@ public class GhAction extends CRUDActionSupport<Gh> {
             } else {
                 entity = new Gh();
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Date now = new Date(System.currentTimeMillis());
-                entity.setStarttime(sdf.format(now));
+//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Timestamp now = new Timestamp(System.currentTimeMillis());
+                entity.setStarttime(now);
             }
         }
 

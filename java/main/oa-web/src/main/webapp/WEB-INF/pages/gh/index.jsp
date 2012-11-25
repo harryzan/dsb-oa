@@ -100,123 +100,49 @@ function MM_swapImage() { //v3.0
       <tr>
         <td height="10" colspan="2"></td>
       </tr>
-      <tr>
-        <td width="728" valign="top"  background="${themesPath}/ghimages/huandeng_bg3.jpg" style="background-repeat:repeat-y"><table width="728" border="0" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="71" valign="top" background="${themesPath}/ghimages/huandeng_bg2.jpg" style="background-repeat:no-repeat"><table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_title">八月寿星</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>温情祝福，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 zhouyiyun 编辑 08-02-2012 </span></td>
-              </tr>
-              <tr>
-                <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
-                <td width="14" ></td>
-              </tr>
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text">八月，夏风轻拂，绿荫环绕。在这阵阵蝉鸣声中，我室有4位职工迎来生日。<br />
-                  他们是：刘淑荣、徐平、曹力奋、沈伟强<br />
-                  工会代表全室职工，献上诚挚的祝福。</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text" align="center"><table width="95%" border="0">
+        <s:iterator value="ghs1">
+
+            <tr>
+                <td width="728" valign="top"  background="${themesPath}/ghimages/huandeng_bg3.jpg" style="background-repeat:repeat-y"><table width="728" border="0" cellpadding="0" cellspacing="0">
                     <tr>
-                      <td width="48%" align="center"><img src="${themesPath}/ghimages/happy.jpg" width="146" height="146" /></td>
-                      <td width="52%">祝愿他们：<br />
-                        生日快乐！  身体健康！<br />
-                        工作顺利！  合家欢乐！</td>
+                        <td height="71" valign="top" background="${themesPath}/ghimages/huandeng_bg2.jpg" style="background-repeat:no-repeat"><table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="main_title">${name}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>${ghType.name}，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 ${createuser.displayname} 编辑 ${starttime} </span></td>
+                            </tr>
+                            <tr>
+                                <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
+                                <td width="14" ></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="main_text">
+                                        ${description}
+                                </td>
+                            </tr>
+                        </table>              </td>
                     </tr>
                 </table></td>
-              </tr>
-            </table>              </td>
-          </tr>
+            </tr>
+        </s:iterator>
+
+    </table>          </td>
+      <td valign="top"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
           <tr>
-            <td height="71" valign="top" style="background-repeat:no-repeat"><table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_title">八月寿星</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>温情祝福，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 zhouyiyun 编辑 08-02-2012 </span></td>
-              </tr>
-              <tr>
-                <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
-                <td width="14" ></td>
-              </tr>
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text">八月，夏风轻拂，绿荫环绕。在这阵阵蝉鸣声中，我室有4位职工迎来生日。<br />
-                  他们是：刘淑荣、徐平、曹力奋、沈伟强<br />
-                  工会代表全室职工，献上诚挚的祝福。</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text" align="center"><table width="95%" border="0">
-                    <tr>
-                      <td width="48%" align="center"><img src="${themesPath}/ghimages/happy.jpg" width="146" height="146" /></td>
-                      <td width="52%">祝愿他们：<br />
-                        生日快乐！  身体健康！<br />
-                        工作顺利！  合家欢乐！</td>
-                    </tr>
-                </table></td>
-              </tr>
-            </table></td>
-          </tr>
-          <tr>
-            <td height="71" valign="top" style="background-repeat:no-repeat"><table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_title">八月寿星</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>温情祝福，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 zhouyiyun 编辑 08-02-2012 </span></td>
-              </tr>
-              <tr>
-                <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
-                <td width="14" ></td>
-              </tr>
-              <tr>
-                <td colspan="2">&nbsp;</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text">八月，夏风轻拂，绿荫环绕。在这阵阵蝉鸣声中，我室有4位职工迎来生日。<br />
-                  他们是：刘淑荣、徐平、曹力奋、沈伟强<br />
-                  工会代表全室职工，献上诚挚的祝福。</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="main_text" align="center"><table width="95%" border="0">
-                    <tr>
-                      <td width="48%" align="center"><img src="${themesPath}/ghimages/happy.jpg" width="146" height="146" /></td>
-                      <td width="52%">祝愿他们：<br />
-                        生日快乐！  身体健康！<br />
-                        工作顺利！  合家欢乐！</td>
-                    </tr>
-                </table></td>
-              </tr>
-            </table></td>
-          </tr>
-        </table>          </td>
-        <td valign="top"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-            <td height="192" valign="top" background="${themesPath}/ghimages/right_3.jpg"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
-              <tr>
-                <td height="10" colspan="3" bgcolor="#f5f5f7"></td>
-              </tr>
-              <tr>
-                <td colspan="3"><img src="${themesPath}/ghimages/right_1.jpg" width="259" height="31" /></td>
-              </tr>
+              <td height="192" valign="top" background="${themesPath}/ghimages/right_3.jpg"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                      <td height="10" colspan="3" bgcolor="#f5f5f7"></td>
+                  </tr>
+                  <tr>
+                      <td colspan="3"><img src="${themesPath}/ghimages/right_1.jpg" width="259" height="31" /></td>
+                  </tr>
               <tr>
                 <td width="9"><img src="${themesPath}/ghimages/right_4.jpg" width="9" height="766" /></td>
                 <td width="242" valign="top" background="${themesPath}/ghimages/right_6.jpg"><table width="235" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -235,26 +161,22 @@ function MM_swapImage() { //v3.0
                       <tr>
                         <td ><table width="100" border="0" align="center">
                           <tr>
-                            <td class="right_main_text"><a href="#">&gt; 养生保健</a><a href="#"></a><br />
-&gt; 工会公告<br />
-&gt; 工会制度<br />
-&gt; 工会快讯<br />
-&gt; 未分类<br />
-&gt; 涂鸦天地<br />
-&gt; 温情祝福<br />
-&gt; 看图说话</td>
+                              <td class="right_main_text">
+                                  <s:iterator value="ghTypes">
+                                      <a href="index?tid=${id}">&gt;${name} </a><a href="#"></a><br />
+                                      </s:iterator>
                           </tr>
                         </table></td>
                         <td class="right_main_text"><table width="100" border="0" align="center">
                           <tr>
-                            <td class="right_main_text">&gt; 2012年八月<br />
-                              &gt; 2012年七月<br />
-                               &gt; 2012年六月<br />
-                                &gt; 2012年五月<br />
-                                 &gt; 2012年四月<br />
-                                  &gt; 2012年三月<br />
-                                   &gt; 2012年二月<br />
-                                    &gt; 2012年一月</td>
+                            <td class="right_main_text">&gt; 2012年十一月<br />
+                              &gt; 2012年十月<br />
+                               &gt; 2012年九月<br />
+                                &gt; 2012年八月<br />
+                                 &gt; 2012年七月<br />
+                                  &gt; 2012年六月<br />
+                                   &gt; 2012年五月<br />
+                                    &gt; 2012年四月</td>
                           </tr>
                         </table></td>
                       </tr>

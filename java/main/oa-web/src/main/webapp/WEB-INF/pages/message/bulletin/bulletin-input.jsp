@@ -82,8 +82,8 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">标题：</div></td>
-                            <td width="70%" colspan="2">&nbsp;
+                            <td width="10%"><div align="right">标题：</div></td>
+                            <td width="90%" colspan="2">&nbsp;
                                 <input name="name" id="name" type="text" class="input_one" value="${name}"> &nbsp;<span class="textxing">*</span>
                                 </td>
                           </tr>

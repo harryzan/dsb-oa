@@ -92,8 +92,10 @@ public class OaSprite {
         this.trayIcon = trayIcon;
     }
 
+    public static String host = "localhost:8080";
+
     public void updateTray() {
-        String returnvalue = doGet("http://localhost:8080/oa/common/util/ajax-util!messagecount?username=" + username + "&password=" + password, null, "GBK", true);
+        String returnvalue = doGet("http://" + host + "/oa/common/util/ajax-util!messagecount?username=" + username + "&password=" + password, null, "GBK", true);
 
         if (StringUtils.isNotEmpty(returnvalue) && Integer.parseInt(returnvalue.trim()) > 0) {
             PopupMenu popupMenu = trayIcon.getPopupMenu();
@@ -104,7 +106,7 @@ public class OaSprite {
             ActionListener messageListener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        String url = "http://localhost:8080/oa/login?loginname=" + username + "&loginpass=" + password + "&url=/oa/message/message/message-grid?messagestatus=false";
+                        String url = "http://" + host + "/oa/login?loginname=" + username + "&loginpass=" + password + "&url=/oa/message/message/message-grid?messagestatus=false";
                         Runtime.getRuntime().exec("explorer.exe " + "\"" + url + "\"");
                     } catch (IOException e1) {
                         e1.printStackTrace();
@@ -126,7 +128,7 @@ public class OaSprite {
             ActionListener messageListener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        String url = "http://localhost:8080/oa/login?loginname=" + username + "&loginpass=" + password + "&url=/oa/message/message/message-grid?messagestatus=false";
+                        String url = "http://" + host + "/oa/login?loginname=" + username + "&loginpass=" + password + "&url=/oa/message/message/message-grid?messagestatus=false";
                         Runtime.getRuntime().exec("explorer.exe " + "\"" + url + "\"");
                     } catch (IOException e1) {
                         e1.printStackTrace();

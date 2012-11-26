@@ -100,44 +100,45 @@ function MM_swapImage() { //v3.0
       <tr>
         <td height="10" colspan="2"></td>
       </tr>
-        <s:iterator value="ghs1">
+      <tr>
+          <td width="728" valign="top"  background="${themesPath}/ghimages/huandeng_bg3.jpg" style="background-repeat:repeat-y"><table width="728" border="0" cellpadding="0" cellspacing="0">
 
-            <tr>
-                <td width="728" valign="top"  background="${themesPath}/ghimages/huandeng_bg3.jpg" style="background-repeat:repeat-y"><table width="728" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td height="71" valign="top" background="${themesPath}/ghimages/huandeng_bg2.jpg" style="background-repeat:no-repeat"><table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td colspan="2">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="main_title">${name}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>${ghType.name}，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 ${createuser.displayname} 编辑 ${starttime} </span></td>
-                            </tr>
-                            <tr>
-                                <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
-                                <td width="14" ></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="main_text">
-                                        ${description}
-                                </td>
-                            </tr>
-                        </table>              </td>
-                    </tr>
-                </table></td>
-            </tr>
-        </s:iterator>
-
-    </table>          </td>
-      <td valign="top"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tr>
-              <td height="192" valign="top" background="${themesPath}/ghimages/right_3.jpg"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
+              <s:iterator value="ghs1">
                   <tr>
+                      <td height="71" valign="top" background="${themesPath}/ghimages/huandeng_bg2.jpg" style="background-repeat:no-repeat">
+                          <table width="650" border="0" align="right" cellpadding="0" cellspacing="0">
+                              <tr>
+                                  <td colspan="2">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2" class="main_title">${name}</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2" class="right_main_text"><span style=" color:#999999">栏目：</span>${ghType.name}，<span style=" color:#999999">此文</span> 没有评论，<span style=" color:#999999">由 ${createuser.displayname} 编辑 ${starttime} </span></td>
+                              </tr>
+                              <tr>
+                                  <td width="626" height="1" background="${themesPath}/ghimages/right_line.jpg" bgcolor="#d8dbe2"><img src="${themesPath}/ghimages/right_line.jpg" width="2" height="2" /></td>
+                                  <td width="14" ></td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2" class="main_text">
+                                          ${description}
+                                  </td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+              </s:iterator>
+
+
+          </table>          </td>
+          <td valign="top"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                  <td height="192" valign="top" background="${themesPath}/ghimages/right_3.jpg"><table width="260" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tr>
                       <td height="10" colspan="3" bgcolor="#f5f5f7"></td>
                   </tr>
                   <tr>
@@ -163,7 +164,7 @@ function MM_swapImage() { //v3.0
                           <tr>
                               <td class="right_main_text">
                                   <s:iterator value="ghTypes">
-                                      <a href="index?tid=${id}">&gt;${name} </a><a href="#"></a><br />
+                                      <a href="index?typeid=${id}">&gt;${name} </a><a href="#"></a><br />
                                       </s:iterator>
                           </tr>
                         </table></td>
@@ -202,12 +203,11 @@ function MM_swapImage() { //v3.0
                             <td align="left" class="right_title_text">最近文章</td>
                             </tr>
                           <tr>
-                            <td class="right_main_text" ><a href="#">&gt; 八月寿星</a><br />
-                              <a href="#">&gt; 我运动 我健康 我参与 我快乐----小记我室</a><br />
-                               参加市级机关广播操比赛<br />
-                               &gt; 美兮山水----四川九寨沟、黄龙旅游有感<br />
-                                &gt; 七月寿星<br />
-                                 &gt; 六月寿星</td>
+                              <td class="right_main_text" >
+                                  <s:iterator value="ghs2">
+                                      <a href="#">&gt; ${name}</a><br />
+                                  </s:iterator>
+                            </td>
                             </tr>
                       </table>
                         <table width="235" border="0" align="center" cellpadding="0" cellspacing="0">

@@ -79,6 +79,11 @@
                             <td>&nbsp;<input name="status" type="checkbox" value="true" onblur="passwordcheck();" <s:if test="status">checked="checked"</s:if>>
 							</td>
                           </tr>
+                          <tr class="textone12">
+                              <td><div align="right">自定义：</div></td>
+                              <td>&nbsp;<input name="profile" id="profile" type="text" class="input_one" value="${profile}">&nbsp;
+                              </td>
+                          </tr>
                         </table>
 
                         <table width="100%" border="0" cellpadding="0" cellspacing="1">

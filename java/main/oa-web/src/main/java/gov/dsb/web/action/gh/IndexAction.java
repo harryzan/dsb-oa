@@ -119,19 +119,51 @@ public class IndexAction extends SimpleActionSupport {
         this.typeid = typeid;
     }
 
+    private Long tid;
+
+    public Long getTid() {
+        return tid;
+    }
+
+    public void setTid(Long tid) {
+        this.tid = tid;
+    }
+
+    private Collection<GhType> types;
+
+    public Collection<GhType> getTypes() {
+        return types;
+    }
+
+    public void setTypes(Collection<GhType> types) {
+        this.types = types;
+    }
+
     @Override
     public String execute() throws Exception {
+        GhType type = null;
 //        ghTypes = ghTypeDao.findByQuery("from GhType where parent is null");
-
-        if (typeid == null)
-            ghs1 = ghDao.findByQuery("from Gh order by id desc");
-        else
-            ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by id desc", typeid);
-//
-        GhType type = ghTypeDao.findUnique("from GhType where name='首页'");
-        if (type != null) {
-           ghTypes = type.getChildren();
+        if (tid != null) {
+            type = ghTypeDao.get(tid);
         }
+        else {
+            type = ghTypeDao.findUnique("from GhType where name='首页'");
+        }
+
+
+        if (typeid != null) {
+            ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", typeid);
+        }
+        else {
+            ghs1 = ghDao.findByQuery("from Gh order by starttime desc");
+        }
+
+        ghTypes = type.getChildren();
+
+        ghs2 = ghDao.findByQuery("from Gh order by starttime desc");
+
+        types = ghTypeDao.findByQuery("from GhType where parent is null");
+
 //        if (type != null) {
 //            ghs2 = type.getGhs();
 //        }

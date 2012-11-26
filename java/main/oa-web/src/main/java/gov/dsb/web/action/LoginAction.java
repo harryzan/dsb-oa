@@ -25,7 +25,7 @@ import java.sql.Timestamp;
  */
 @ParentPackage("default")
 @Results({@Result(name = SimpleActionSupport.SUCCESS, location = "/default", type = "chain"),
-        @Result(name = "failed", location = "/", type = "redirect")})
+        @Result(name = "failed", location = "/index", type = "redirect")})
 public class LoginAction extends SimpleActionSupport {
 
     @Autowired

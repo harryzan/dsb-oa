@@ -22,7 +22,7 @@ $(function () {
             chart: {
                 renderTo: 'container',
                 type: 'gauge',
-                plotBackgroundColor: null,
+//                plotBackgroundColor: [0.8, 'rgba(113, 231, 98, 0.8)'],
                 plotBackgroundImage: null,
                 plotBorderWidth: 0,
                 plotShadow: false,
@@ -39,6 +39,7 @@ $(function () {
 
             pane: {
                 background: [{
+//                    backgroundColor: [0.5, 'rgba(255, 255, 255, 0.2)']
                     // default background
                 }, {
                     // reflex for supported browsers

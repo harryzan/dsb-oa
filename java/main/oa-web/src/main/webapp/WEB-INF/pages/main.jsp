@@ -241,25 +241,26 @@
 <tr>
 <td><table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="1">
     <tr>
-        <td><style>
-            body,td,.p1,.p2,.i{font-family:arial}
-            body{margin:6px 0 0 0;background-color:#fff;color:#000;}
-            table{border:0}
-            #cal{width:260px;border:1px solid #c3d9ff;font-size:12px;margin:0px 0 0 0px}
-            #cal #top{height:29px;line-height:29px;background:#e7eef8;color:#003784;padding-left:5px}
-            #cal #top select{font-size:12px}
-            #cal #top input{padding:0}
-            #cal ul#wk{margin:0;padding:0;height:25px}
-            #cal ul#wk li{float:left;width:36px;text-align:center;line-height:25px;list-style:none}
-            #cal ul#wk li b{font-weight:normal;color:#c60b02}
-            #cal #cm{clear:left;border-top:1px solid #ddd;border-bottom:1px dotted #ddd;position:relative}
-            #cal #cm .cell{position:absolute;width:30px;height:36px;text-align:center;margin:0 0 0 9px}
-            #cal #cm .cell .so{font:bold 12px arial;}
-            #cal #bm{text-align:right;height:24px;line-height:24px;padding:0 13px 0 0}
-            #cal #bm a{color:7977ce}
-            #cal #fd{display:none;position:absolute;border:1px solid #dddddf;background:#feffcd;padding:10px;line-height:21px;width:150px}
-            #cal #fd b{font-weight:normal;color:#c60a00}
-        </style>
+        <td>
+            <style>
+                body,td,.p1,.p2,.i{font-family:arial}
+                body{margin:6px 0 0 0;background-color:transparent;color:#000;}
+                table{border:0}
+                #cal{width:260px;border:1px solid #c3d9ff;font-size:12px;margin:0px 0 0 0px}
+                #cal #top{height:29px;line-height:29px;background:transparent; background-image:url(${themesPath}/images/bg.jpg); background-repeat:repeat-x;color:#ffffff;padding-left:5px}
+                #cal #top select{font-size:12px}
+                #cal #top input{padding:0}
+                #cal ul#wk{margin:0;padding:0;height:25px}
+                #cal ul#wk li{float:left;width:36px;text-align:center;line-height:25px;list-style:none}
+                #cal ul#wk li b{font-weight:normal;color:#c60b02}
+                #cal #cm{clear:left;border-top:1px solid #ddd;border-bottom:1px dotted #ddd;position:relative}
+                #cal #cm .cell{position:absolute;width:30px;height:36px;text-align:center;margin:0 0 0 9px}
+                #cal #cm .cell .so{font:bold 12px arial;}
+                #cal #bm{text-align:right;height:24px;line-height:24px;padding:0 13px 0 0}
+                #cal #bm a{color:7977ce}
+                #cal #fd{display:none;position:absolute;border:1px solid #dddddf;background:#feffcd;padding:10px;line-height:21px; z-index:10000; width:150px}
+                #cal #fd b{font-weight:normal;color:#c60a00}
+            </style>
             <!--[if IE]>
             <style>
                 #cal #top{padding-top:4px}

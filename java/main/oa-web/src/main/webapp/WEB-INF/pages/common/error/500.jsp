@@ -63,7 +63,7 @@
                     <td height="30" align="center">&nbsp; </td>
                     <td class="text1">
                         <%if (isSessionFail) { %>
-                        <div><a href="javascript:top.location.href='${ctx}/';"><b>返回首页
+                        <div><a href="javascript:top.location.href='${ctx}/index';"><b>返回首页
                         </b></a></div>
                         <%} else {%>
                         <input type="button" value="返回" onClick="history.back();" class="button_back">

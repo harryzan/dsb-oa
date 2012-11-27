@@ -92,7 +92,7 @@ public class OaSprite {
         this.trayIcon = trayIcon;
     }
 
-    public static String host = "localhost:8080";
+    public static String host = "10.0.0.22";
 
     public void updateTray() {
         String returnvalue = doGet("http://" + host + "/oa/common/util/ajax-util!messagecount?username=" + username + "&password=" + password, null, "GBK", true);
@@ -102,7 +102,7 @@ public class OaSprite {
             int itemCount = popupMenu.getItemCount();
 
             MenuItem menuMessage = popupMenu.getItem(itemCount - 1);
-            menuMessage.setLabel("Message(" + returnvalue.trim() + ")");
+            menuMessage.setLabel("短消息(" + returnvalue.trim() + ")");
             ActionListener messageListener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -124,7 +124,7 @@ public class OaSprite {
             int itemCount = popupMenu.getItemCount();
 
             MenuItem menuMessage = popupMenu.getItem(itemCount - 1);
-            menuMessage.setLabel("Message");
+            menuMessage.setLabel("短消息");
             ActionListener messageListener = new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -194,9 +194,9 @@ public class OaSprite {
      */
     public PopupMenu createPopup() {
         PopupMenu popup = new PopupMenu();
-        MenuItem menuExit = new MenuItem("exit");
-        MenuItem menuOpen = new MenuItem("login");
-        MenuItem menuMessage = new MenuItem("message");
+        MenuItem menuExit = new MenuItem("退出");
+        MenuItem menuOpen = new MenuItem("登录");
+        MenuItem menuMessage = new MenuItem("短消息");
 //         MenuItem menuCancel = new MenuItem("cancel");
         //创建退出菜单监听器
         ActionListener exitListener = new ActionListener() {

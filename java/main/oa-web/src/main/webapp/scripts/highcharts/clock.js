@@ -22,11 +22,12 @@ $(function () {
             chart: {
                 renderTo: 'container',
                 type: 'gauge',
-//                plotBackgroundColor: [0.8, 'rgba(113, 231, 98, 0.8)'],
+                plotBackgroundColor: ['rgba(206, 224, 248,)'],
                 plotBackgroundImage: null,
                 plotBorderWidth: 0,
-                plotShadow: false,
-                height: 200
+                plotShadow: null,
+                height: 200,
+                backgroundColor: ['rgba(206, 224, 248,)']
             },
 
             credits: {

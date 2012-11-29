@@ -41,9 +41,9 @@
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
             <td width="10%" background="${themesPath}/images/sy_5.jpg"><img src="${themesPath}/images/sy_2.jpg" width="150" height="33" /></td>
-            <td width="90%" background="${themesPath}/images/sy_5.jpg" align="right">&nbsp;&nbsp;
+            <td width="90%" background="${themesPath}/images/sy_5.jpg" align="left">&nbsp;&nbsp;
                 <c:if test="${pageno > 1}">
-                <a href="main?pageno=${pageno-1}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="main?pageno=${pageno-1}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </c:if>
                 <c:if test="${pageno < totalpages}">
                 <a href="main?pageno=${pageno+1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;

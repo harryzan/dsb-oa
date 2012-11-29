@@ -8,7 +8,7 @@ body {
 html,body{height:100%;}
 div,form,img,ul,ol,li,dl,dt,dd {margin: 0; padding: 0; border: 0; list-style: none none;}
 h1,h2,h3,h4,h5,h6 { margin:0; padding:0; font-size:14px; font-weight: normal;}
-table,td,tr,th{font-size:14px;}
+table,td,tr,th{font-size:12px;}
 
 a:link {color: #333; text-decoration:none;}
 a:visited {color: #333;text-decoration:none;}
@@ -438,7 +438,7 @@ a:active { color: #333;}
 
 .sy_line{
     height: auto;
-    line-height: 31px;
+    line-height: 22px;
     background-image: url(../images/sy_bg.jpg);
     background-repeat: repeat-x;
     border-right-width: 1px;
@@ -455,8 +455,7 @@ a:active { color: #333;}
 	color: #ae0407;
 }
 .sy_right_bg{
-	background-image: url(../images/sy_7.jpg);
-	background-repeat: no-repeat;
-	background-position: bottom;
-	width: 280px;
+    background-image: url(../images/sy_7.jpg);
+    background-repeat: repeat-y;
+    width: 280px;
 }

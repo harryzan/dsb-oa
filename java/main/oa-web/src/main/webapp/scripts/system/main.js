@@ -1,10 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: harryzan
- * Date: 10/14/12
- * Time: 2:14 PM
- * To change this template use File | Settings | File Templates.
- */
 (function(){
     var S=navigator.userAgent.indexOf("MSIE")!=-1&&!window.opera;
     function M(C){

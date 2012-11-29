@@ -4,7 +4,6 @@ import gov.dsb.core.domain.base.IdEntity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,8 +13,8 @@ import java.util.Collection;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "GH")
-public class Gh extends IdEntity {
+@Table(name = "GHCOMMENT")
+public class GhComment extends IdEntity {
 
     private Long id;
 
@@ -32,7 +31,6 @@ public class Gh extends IdEntity {
     private Timestamp starttime;
 
     @Basic
-//    @Column(name = "STARTTIME", length = 10)
     public Timestamp getStarttime() {
         return starttime;
     }
@@ -77,18 +75,6 @@ public class Gh extends IdEntity {
         this.status = status;
     }
 
-    private String period;
-
-    @Basic
-    @Column(name = "PERIOD", length = 200)
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(String period) {
-        this.period = period;
-    }
-
     private String endtime;
 
     @Basic
@@ -120,7 +106,7 @@ public class Gh extends IdEntity {
             return false;
         }
 
-        Gh bulletin = (Gh) o;
+        GhComment bulletin = (GhComment) o;
 
 
         if (id != null ? !id.equals(bulletin.id) : bulletin.id != null) {
@@ -138,9 +124,6 @@ public class Gh extends IdEntity {
         if (status != null ? !status.equals(bulletin.status) : bulletin.status != null) {
             return false;
         }
-        if (period != null ? !period.equals(bulletin.period) : bulletin.period != null) {
-            return false;
-        }
         if (endtime != null ? !endtime.equals(bulletin.endtime) : bulletin.endtime != null) {
             return false;
         }
@@ -155,7 +138,6 @@ public class Gh extends IdEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (period != null ? period.hashCode() : 0);
         result = 31 * result + (endtime != null ? endtime.hashCode() : 0);
         return result;
     }
@@ -172,39 +154,15 @@ public class Gh extends IdEntity {
         this.createuser = createuser;
     }
 
-    private GhType ghType;
+    private Gh gh;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "GHTYPE", referencedColumnName = "ID")
-    public GhType getGhType() {
-        return ghType;
+    @JoinColumn(name = "GHID", referencedColumnName = "ID")
+    public Gh getGh() {
+        return gh;
     }
 
-    public void setGhType(GhType ghType) {
-        this.ghType = ghType;
-    }
-
-    private DocDocument docdocument;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DOCID", referencedColumnName = "ID")
-    public DocDocument getDocdocument() {
-        return docdocument;
-    }
-
-    public void setDocdocument(DocDocument docdocument) {
-        this.docdocument = docdocument;
-    }
-
-    private Collection<GhComment> ghComments;
-
-    @OneToMany(mappedBy = "gh")
-    @OrderBy("starttime")
-    public Collection<GhComment> getGhComments() {
-        return ghComments;
-    }
-
-    public void setGhComments(Collection<GhComment> ghComments) {
-        this.ghComments = ghComments;
+    public void setGh(Gh gh) {
+        this.gh = gh;
     }
 }

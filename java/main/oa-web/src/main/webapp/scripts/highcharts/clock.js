@@ -22,11 +22,12 @@ $(function () {
             chart: {
                 renderTo: 'container',
                 type: 'gauge',
-//                plotBackgroundColor: [0.8, 'rgba(113, 231, 98, 0.8)'],
+                plotBackgroundColor: ['rgba(206, 224, 248,)'],
                 plotBackgroundImage: null,
                 plotBorderWidth: 0,
-                plotShadow: false,
-                height: 200
+                plotShadow: null,
+                height: 200,
+				backgroundColor: ['rgba(206, 224, 248,)']
             },
 
             credits: {
@@ -39,8 +40,10 @@ $(function () {
 
             pane: {
                 background: [{
-//                    backgroundColor: [0.5, 'rgba(255, 255, 255, 0.2)']
+				backgroundColor: '#e6fefe'
+
                     // default background
+					 
                 }, {
                     // reflex for supported browsers
                     backgroundColor: Highcharts.svg ? {
@@ -63,28 +66,30 @@ $(function () {
                 },
                 min: 0,
                 max: 12,
-                lineWidth: 0,
+                lineWidth: 6,
+				lineColor: '#0e5392',
                 showFirstLabel: false,
 
                 minorTickInterval: 'auto',
                 minorTickWidth: 1,
-                minorTickLength: 5,
+                minorTickLength: 8,
                 minorTickPosition: 'inside',
                 minorGridLineWidth: 0,
-                minorTickColor: '#666',
-
+                minorTickColor: '#000',
+				
                 tickInterval: 1,
                 tickWidth: 2,
                 tickPosition: 'inside',
-                tickLength: 10,
-                tickColor: '#666',
+                tickLength: 12,
+                tickColor: '#008cfa',
+				
                 title: {
                     text: '',
                     style: {
                         color: '#BBB',
                         fontWeight: 'normal',
                         fontSize: '8px',
-                        lineHeight: '10px'
+						lineHeight: '10px'
                     },
                     y: 10
                 }

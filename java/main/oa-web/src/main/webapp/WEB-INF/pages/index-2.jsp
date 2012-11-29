@@ -38,7 +38,7 @@
     </style>
 <link href="${themesPath}/login2/login.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="userlogin_body">
+<body class="userlogin_body" onload="document.getElementById('loginname').focus()">
 		
 	<div class="centerDiv"> <br />
       <br />

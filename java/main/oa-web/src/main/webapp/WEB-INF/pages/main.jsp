@@ -34,10 +34,48 @@
     </script>
 </head>
 
-<body bgcolor="#FFFFFF">
-<table width="98%" border="0" align="center">
+<body bgcolor="#FFFFFF" style="overflow:hidden; height:100%" >
+<table width="98%" height="100%" border="0" align="center">
 <tr>
-<td width="82%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<td width="82%" valign="top">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="10%" background="${themesPath}/images/sy_5.jpg"><img src="${themesPath}/images/sy_2.jpg" width="150" height="33" /></td>
+            <td width="90%" background="${themesPath}/images/sy_5.jpg" align="right">&nbsp;&nbsp;
+                <c:if test="${pageno > 1}">
+                <a href="main?pageno=${pageno-1}">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </c:if>
+                <c:if test="${pageno < totalpages}">
+                <a href="main?pageno=${pageno+1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                </c:if>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><div class="sy_line">
+                <table width="100%" border="0">
+                    <tr>
+                        <td valign="top"><table width="90%" border="0" align="center">
+                            <s:iterator value="bulletins">
+                                <tr>
+                                        <%--<td width="20%">${starttime}</td>--%>
+                                    <td width="98%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
+                                </tr>
+                            </s:iterator>
+                        </table></td>
+                    </tr>
+                </table>
+            </div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td background="${themesPath}/images/sy_jiao2.jpg"><img src="${themesPath}/images/sy_jiao1.jpg" width="7" height="7" /></td>
+                        <td background="${themesPath}/images/sy_jiao2.jpg"></td>
+                        <td background="${themesPath}/images/sy_jiao2.jpg" align="right"><img src="${themesPath}/images/sy_jiao3.jpg" width="7" height="7" /></td>
+                    </tr>
+                </table></td>
+        </tr>
+    </table>
+    <br />
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td width="10%" background="${themesPath}/images/sy_4.jpg">
             <img src="${themesPath}/images/sy_1.jpg" width="150" height="33" />
@@ -60,7 +98,7 @@
                     <td width="86%"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${monarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -73,7 +111,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${tusarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -86,7 +124,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${wedarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -99,7 +137,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${thearranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -112,7 +150,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${friarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -125,7 +163,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${satarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -138,7 +176,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${sunarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${arrange.content}</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -157,43 +195,13 @@
     <br />
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-            <td width="10%" background="${themesPath}/images/sy_5.jpg"><img src="${themesPath}/images/sy_2.jpg" width="150" height="33" /></td>
-            <td width="90%" background="${themesPath}/images/sy_5.jpg">&nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="2"><div class="sy_line">
-                <table width="100%" border="0">
-                    <tr>
-                        <td><table width="90%" border="0" align="center">
-                                <s:iterator value="bulletins">
-                                <tr>
-                                    <%--<td width="20%">${starttime}</td>--%>
-                                    <td width="98%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
-                                </tr>
-                                </s:iterator>
-                        </table></td>
-                    </tr>
-                </table>
-            </div>
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td background="${themesPath}/images/sy_jiao2.jpg"><img src="${themesPath}/images/sy_jiao1.jpg" width="7" height="7" /></td>
-                        <td background="${themesPath}/images/sy_jiao2.jpg"></td>
-                        <td background="${themesPath}/images/sy_jiao2.jpg" align="right"><img src="${themesPath}/images/sy_jiao3.jpg" width="7" height="7" /></td>
-                    </tr>
-                </table></td>
-        </tr>
-    </table>
-    <br />
-    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
             <td width="10%" background="${themesPath}/images/sy_6.jpg"><img src="${themesPath}/images/sy_3.jpg" width="150" height="33" /></td>
             <td width="100%" background="${themesPath}/images/sy_6.jpg">&nbsp;</td>
         </tr>
         <tr>
             <td colspan="2"><div class="sy_line">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr>
+                <tr>
                         <td height="80"><table width="80%" border="0" align="center">
                             <tr>
                                 <td><table width="50%" border="0">

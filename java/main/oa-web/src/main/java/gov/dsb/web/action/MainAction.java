@@ -3,6 +3,7 @@ package gov.dsb.web.action;
 import gov.dsb.core.dao.BulletinDao;
 import gov.dsb.core.dao.DemandTypeDao;
 import gov.dsb.core.dao.WorkArrangeDao;
+import gov.dsb.core.dao.base.Page;
 import gov.dsb.core.domain.Bulletin;
 import gov.dsb.core.domain.DemandType;
 import gov.dsb.core.domain.SysUser;
@@ -204,6 +205,26 @@ public class MainAction extends PageActionSupport<DemandType> {
         this.afteryear = afteryear;
     }
 
+    private Integer pageno;
+
+    public Integer getPageno() {
+        return pageno;
+    }
+
+    public void setPageno(Integer pageno) {
+        this.pageno = pageno;
+    }
+
+    private Integer totalpages;
+
+    public Integer getTotalpages() {
+        return totalpages;
+    }
+
+    public void setTotalpages(Integer totalpages) {
+        this.totalpages = totalpages;
+    }
+
     @Override
     public String execute() throws Exception {
 
@@ -257,7 +278,18 @@ public class MainAction extends PageActionSupport<DemandType> {
         satarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "7");
         sunarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "1");
 
-        bulletins = bulletinDao.findByQuery("from Bulletin order by starttime desc");
+
+        Page<Bulletin> page = new Page<Bulletin>(5);
+        if (null != pageno) {
+            page.setPageNo(pageno);
+        }
+        else {
+            pageno = page.getPageNo();
+        }
+        bulletinDao.findPageByQuery(page, "from Bulletin order by starttime desc");
+        bulletins = page.getResult();
+
+        totalpages = page.getTotalPages();
 
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
     }

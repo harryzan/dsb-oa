@@ -20,6 +20,12 @@
                     <td><table width="98%" border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td><img src="${themesPath}/images/xgmm.png" width="15" height="14" /></td>
+                            <td><a href="download/setup.exe"  class="titlelj">小精灵下载</a></td>
+                        </tr>
+                    </table></td>
+                    <td><table width="98%" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td><img src="${themesPath}/images/xgmm.png" width="15" height="14" /></td>
                             <td><a href="#" onclick="window.parent.location='${ctx}/system/sysuser/sys-user!updatepwd'" class="titlelj">修改密码</a></td>
                         </tr>
                     </table></td>

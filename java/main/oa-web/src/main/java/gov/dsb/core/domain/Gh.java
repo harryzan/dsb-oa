@@ -198,8 +198,8 @@ public class Gh extends IdEntity {
 
     private Collection<GhComment> ghComments;
 
-    @OneToMany(mappedBy = "gh")
-    @OrderBy("starttime")
+    @OneToMany(mappedBy = "gh", fetch = FetchType.EAGER)
+    @OrderBy("starttime desc")
     public Collection<GhComment> getGhComments() {
         return ghComments;
     }

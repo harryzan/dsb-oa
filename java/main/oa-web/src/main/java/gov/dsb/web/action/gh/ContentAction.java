@@ -7,12 +7,14 @@ import gov.dsb.core.dao.base.Page;
 import gov.dsb.core.domain.Gh;
 import gov.dsb.core.domain.GhComment;
 import gov.dsb.core.domain.GhType;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.SimpleActionSupport;
+import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,7 +25,7 @@ import java.util.List;
  */
 @ParentPackage("default")
 //@Results({@Result(name = SimpleActionSupport.SUCCESS, location = "/default", type = "redirect")})
-public class IndexAction extends SimpleActionSupport {
+public class ContentAction extends SimpleActionSupport {
 
     @Autowired
     private GhTypeDao ghTypeDao;
@@ -33,6 +35,26 @@ public class IndexAction extends SimpleActionSupport {
 
     @Autowired
     private GhCommentDao ghCommentDao;
+
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    private Gh gh;
+
+    public Gh getGh() {
+        return gh;
+    }
+
+    public void setGh(Gh gh) {
+        this.gh = gh;
+    }
 
     private Collection<GhComment> ghComments;
 
@@ -157,30 +179,37 @@ public class IndexAction extends SimpleActionSupport {
     @Override
     public String execute() throws Exception {
 
+        gh = ghDao.get(id);
+
+        comments = gh.getGhComments();
+
         ghTypes = ghTypeDao.findByQuery("from GhType where parent is null order by id");
 
         GhType type = null;
         if (tid != null) {
             type = ghTypeDao.get(tid);
+            type = type.getParent();
         }
         else {
             type = ghTypeDao.findUnique("from GhType where name='首页'");
         }
 
-        types = type.getChildren();
+//        ghs1 = gh.getGhType()
 
-        if (typeid != null) {
-            ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", typeid);
-        }
-        else {
-            if (types.size() > 0) {
-                GhType ghType = types.iterator().next();
-                ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", ghType.getId());
-            }
-            else {
-                ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", type.getId());
-            }
-        }
+        types = type.getChildren();
+//
+//        if (typeid != null) {
+//            ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", typeid);
+//        }
+//        else {
+//            if (types.size() > 0) {
+//                GhType ghType = types.iterator().next();
+//                ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", ghType.getId());
+//            }
+//            else {
+//                ghs1 = ghDao.findByQuery("from Gh where ghType.id=? order by starttime desc", type.getId());
+//            }
+//        }
 
         Page<Gh> page = new Page<Gh>(5);
 
@@ -227,5 +256,47 @@ public class IndexAction extends SimpleActionSupport {
 //        }
 
         return SUCCESS;
+    }
+
+
+    private Collection<GhComment> comments;
+
+    public Collection<GhComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Collection<GhComment> comments) {
+        this.comments = comments;
+    }
+
+    @Autowired
+    private UserSessionService userSessionService;
+
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String save() throws Exception {
+        gh = ghDao.get(id);
+
+        GhComment comment = new GhComment();
+
+        SysUser user = userSessionService.getCurrentSysUser();
+
+        comment.setDescription(content);
+        comment.setCreateuser(user);
+        comment.setStarttime(new Timestamp(System.currentTimeMillis()));
+
+        comment.setGh(gh);
+
+        ghCommentDao.save(comment);
+
+        return execute();
     }
 }

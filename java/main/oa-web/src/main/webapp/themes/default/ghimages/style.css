@@ -25,6 +25,17 @@ a:active { color: #333;}
 	color: #fff;
 
 }
+.title:link {
+	color: #333;
+	text-decoration:none;
+	font-weight: bold;
+}
+.title:visited {color: #333; font-weight: bold;}
+.title:hover { color: #f60; text-decoration:none; font-weight: bold;}
+.title:active {
+	color: #333; font-weight: bold;
+
+}
 .table_line{
 	border: 1px solid #e6e6e6;
 }
@@ -61,8 +72,18 @@ a:active { color: #333;}
 	font-size: 16px;
 	font-weight: bold;
 }
+.main_title_pinglun{
+	line-height: 35px;
+	color: #599ddf;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #cee0f8;
+}
 .main_text{
 	line-height: 35px;
 	color: #6f6f6f;
 
+}
+.textarea {
+	width: 99%;
 }

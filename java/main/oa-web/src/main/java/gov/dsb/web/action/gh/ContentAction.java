@@ -11,6 +11,8 @@ import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.SimpleActionSupport;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
@@ -24,7 +26,7 @@ import java.util.Collection;
  * To change this template use File | Settings | File Templates.
  */
 @ParentPackage("default")
-//@Results({@Result(name = SimpleActionSupport.SUCCESS, location = "/default", type = "redirect")})
+//@Results({@Result(name = SimpleActionSupport.INPUT, location = "index", type = "redirect")})
 public class ContentAction extends SimpleActionSupport {
 
     @Autowired
@@ -297,6 +299,9 @@ public class ContentAction extends SimpleActionSupport {
 
         ghCommentDao.save(comment);
 
+        ghDao.refresh(gh);
+
+//        return INPUT;
         return execute();
     }
 }

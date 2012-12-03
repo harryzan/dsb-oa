@@ -30,6 +30,9 @@
                 <input onclick="openFunction('user-attendance!day',this)" type="button" name="button1" id="button1" value="考勤管理" class="tab" />
             </c:if>
             <input onclick="openFunction('user-attendance!record', this)" type="button" name="button2" id="button2" value="考勤记录" class="tab_xz" />
+            <c:if test='${isadmin}'>
+                <input onclick="openFunction('user-attendance!sum', this)" type="button" name="button3" id="button3" value="考勤月报" class="tab" />
+            </c:if>
         </td>
     </tr>
 </table>

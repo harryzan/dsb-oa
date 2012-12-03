@@ -49,7 +49,7 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 {name:"title",renderer:checkview,header:"标题",width:"20%"},
-//                {name:"starttime",header:"发布时间",width:"20%"},
+                {name:"workno",header:"发文号",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},
                 {name:"createuser.displayname",header:"创建人",width:"10%"},
                 {name:"updateuser.displayname",header:"最新更新",width:"10%"}

@@ -185,6 +185,16 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
         this.printuserid = printuserid;
     }
 
+    private String backinput;
+
+    public String getBackinput() {
+        return backinput;
+    }
+
+    public void setBackinput(String backinput) {
+        this.backinput = backinput;
+    }
+
     public String save() throws Exception {
 //        System.out.println("121212121212121");
         SysUser user = userSessionService.getCurrentSysUser();
@@ -204,15 +214,31 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             entity.setDocdocument(document);
         }
 
-        entity.setStep(entity.getStep() + 1);
+        System.out.println("backinput = " + backinput);
+
+        if ("1".equals(backinput)) {
+            entity.setStep(entity.getStep() - 1);
+        }
+        else {
+            entity.setStep(entity.getStep() + 1);
+        }
+
         if (entity.getStep() == 9) {
             entity.setStatus(true);
+        }
+        else if (entity.getStep() == 1) {
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getWriteuser());
+            }
         }
         else if (entity.getStep() == 2) {
             if (StringHelp.isNotEmpty(checkuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(checkuserid));
                 entity.setTargetuser(targetuser);
                 entity.setCheckuser(targetuser);
+            }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getCheckuser());
             }
         }
         else if (entity.getStep() == 3) {
@@ -221,12 +247,18 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setTargetuser(targetuser);
                 entity.setModifyuser(targetuser);
             }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getModifyuser());
+            }
         }
         else if (entity.getStep() == 4) {
             if (StringHelp.isNotEmpty(typeuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(typeuserid));
                 entity.setTargetuser(targetuser);
                 entity.setTypeuser(targetuser);
+            }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getTypeuser());
             }
         }
         else if (entity.getStep() == 5) {
@@ -235,12 +267,18 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setTargetuser(targetuser);
                 entity.setCollateuser(targetuser);
             }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getCollateuser());
+            }
         }
         else if (entity.getStep() == 6) {
             if (StringHelp.isNotEmpty(signuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(signuserid));
                 entity.setTargetuser(targetuser);
                 entity.setSignuser(targetuser);
+            }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getSignuser());
             }
         }
         else if (entity.getStep() == 7) {
@@ -249,10 +287,14 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setTargetuser(targetuser);
                 entity.setAllsignuser(targetuser);
             }
+            if ("1".equals(backinput)) {
+                entity.setTargetuser(entity.getAllsignuser());
+            }
         }
         else if (entity.getStep() == 8) {
             if (StringHelp.isNotEmpty(printuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(printuserid));
+                entity.setPrintuser(targetuser);
                 entity.setTargetuser(targetuser);
             }
             if (StringHelp.isNotEmpty(senduserid)) {

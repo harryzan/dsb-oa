@@ -6,6 +6,7 @@ import gov.dsb.core.domain.Bulletin;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.struts2.SimpleActionSupport;
+import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -40,6 +41,9 @@ public class BulletinAction extends CRUDActionSupport<Bulletin> {
 
     @Autowired
     private UserSessionService userSessionService;
+
+    @Autowired
+    private MessageListener messageListener;
 
     protected Long id;
 
@@ -105,7 +109,14 @@ public class BulletinAction extends CRUDActionSupport<Bulletin> {
 //            entity.setSysuserbulletins(new ArrayList<SysUser>());
 //        }
 
+        Long entityId = entity.getId();
+
         service.save(entity);
+
+        if (entityId == null) {
+            messageListener.notice(sysUserEntityService.findAll(), entity);
+        }
+
         return RELOAD;
     }
 

@@ -2,12 +2,10 @@ package gov.dsb.web.action;
 
 import gov.dsb.core.dao.BulletinDao;
 import gov.dsb.core.dao.DemandTypeDao;
+import gov.dsb.core.dao.MessageDao;
 import gov.dsb.core.dao.WorkArrangeDao;
 import gov.dsb.core.dao.base.Page;
-import gov.dsb.core.domain.Bulletin;
-import gov.dsb.core.domain.DemandType;
-import gov.dsb.core.domain.SysUser;
-import gov.dsb.core.domain.WorkArrange;
+import gov.dsb.core.domain.*;
 import gov.dsb.core.struts2.PageActionSupport;
 import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
@@ -41,6 +39,9 @@ public class MainAction extends PageActionSupport<DemandType> {
 
     @Autowired
     private UserSessionService userSessionService;
+
+    @Autowired
+    private MessageDao messageDao;
 
     private SysUser user;
 
@@ -291,6 +292,58 @@ public class MainAction extends PageActionSupport<DemandType> {
 
         totalpages = page.getTotalPages();
 
+        List<Message> query = messageDao.findByQuery("from Message where type = '发文管理' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count1 = query.size();
+
+        query = messageDao.findByQuery("from Message where type = '车辆申请' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count2 = query.size();
+
+        query = messageDao.findByQuery("from Message where type = '车辆需求' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count3 = query.size();
+
+        query = messageDao.findByQuery("from Message where type = '一周工作安排' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count4 = query.size();
+
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
+    }
+
+    private Integer count1;
+
+    private Integer count2;
+
+    private Integer count3;
+
+    private Integer count4;
+
+    public Integer getCount1() {
+        return count1;
+    }
+
+    public void setCount1(Integer count1) {
+        this.count1 = count1;
+    }
+
+    public Integer getCount2() {
+        return count2;
+    }
+
+    public void setCount2(Integer count2) {
+        this.count2 = count2;
+    }
+
+    public Integer getCount3() {
+        return count3;
+    }
+
+    public void setCount3(Integer count3) {
+        this.count3 = count3;
+    }
+
+    public Integer getCount4() {
+        return count4;
+    }
+
+    public void setCount4(Integer count4) {
+        this.count4 = count4;
     }
 }

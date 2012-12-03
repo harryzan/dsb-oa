@@ -143,6 +143,9 @@ public class MessageAction extends CRUDActionSupport<Message> {
             } else {
                 entity = new Message();
 
+                entity.setType("个人短信");
+                entity.setSystem(false);
+
 //                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //                Date now = new Date(System.currentTimeMillis());
 //                entity.setStarttime(sdf.format(now));

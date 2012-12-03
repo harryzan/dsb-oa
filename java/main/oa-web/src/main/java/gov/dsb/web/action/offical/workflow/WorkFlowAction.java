@@ -10,6 +10,7 @@ import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.struts2.SimpleActionSupport;
 import gov.dsb.core.utils.StringHelp;
+import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -40,6 +41,10 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
     @Autowired
     private UserSessionService userSessionService;
+
+    @Autowired
+    private MessageListener messageListener;
+
 
 
     @Autowired
@@ -214,7 +219,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             entity.setDocdocument(document);
         }
 
-        System.out.println("backinput = " + backinput);
+//        System.out.println("backinput = " + backinput);
 
         if ("1".equals(backinput)) {
             entity.setStep(entity.getStep() - 1);
@@ -240,6 +245,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getCheckuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 3) {
             if (StringHelp.isNotEmpty(modifyuserid)) {
@@ -250,6 +256,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getModifyuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 4) {
             if (StringHelp.isNotEmpty(typeuserid)) {
@@ -260,6 +267,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getTypeuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 5) {
             if (StringHelp.isNotEmpty(collateuserid)) {
@@ -270,6 +278,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getCollateuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 6) {
             if (StringHelp.isNotEmpty(signuserid)) {
@@ -280,6 +289,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getSignuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 7) {
             if (StringHelp.isNotEmpty(allsignuserid)) {
@@ -290,24 +300,29 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getAllsignuser());
             }
+            messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 8) {
             if (StringHelp.isNotEmpty(printuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(printuserid));
                 entity.setPrintuser(targetuser);
                 entity.setTargetuser(targetuser);
+                messageListener.notice(entity.getTargetuser(), entity);
             }
             if (StringHelp.isNotEmpty(senduserid)) {
                 SysUser senduser = sysUserEntityService.get(Long.parseLong(senduserid));
                 entity.setSenduser(senduser);
+                messageListener.notice(entity.getSenduser(), entity);
             }
             if (StringHelp.isNotEmpty(ccuserid)) {
                 SysUser ccuser = sysUserEntityService.get(Long.parseLong(ccuserid));
                 entity.setCcuser(ccuser);
+                messageListener.notice(entity.getCcuser(), entity);
             }
             if (StringHelp.isNotEmpty(ctuserid)) {
                 SysUser ctuser = sysUserEntityService.get(Long.parseLong(ctuserid));
                 entity.setCtuser(ctuser);
+                messageListener.notice(entity.getCtuser(), entity);
             }
         }
 
@@ -335,6 +350,8 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
     protected void prepareModel() throws Exception {
         if (entity == null) {
+            SysUser currentUser = userSessionService.getCurrentSysUser();
+
             if (id != null) {
                 entity = service.get(id);
 
@@ -342,10 +359,15 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 if(document != null) {
                     attachs = document.getDocdocumentattaches();
                 }
+
+                if (entity.getTargetuser().getId().equals(currentUser.getId())) {
+                    admin = true;
+                }
+                else {
+                    admin = false;
+                }
             } else {
                 entity = new WorkFlow();
-
-                SysUser currentUser = userSessionService.getCurrentSysUser();
 
                 entity.setStep(1);
                 entity.setWriteuser(currentUser);
@@ -360,8 +382,25 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
     }
 
+    private Boolean admin;
+
+    public Boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
+
     public String view() throws Exception {
         return VIEW;
+    }
+
+    public String input() throws Exception {
+        if (admin)
+            return INPUT;
+        else
+            return view();
     }
 
     public WorkFlow getModel() {

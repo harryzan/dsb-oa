@@ -42,7 +42,7 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"message-grid!griddata?messagestatus=${messagestatus}",
+            url:"message-grid!griddata?messagestatus=${messagestatus}&type=${type}",
             addUrl:addurl,
             modifyUrl:modifyurl,
             deleteUrl:deleteurl,
@@ -50,6 +50,7 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
+                {name:"type",header:"分类",width:"20%"},
                 {name:"name",renderer:checkview,header:"标题",width:"20%"},
                 {name:"starttime",header:"时间",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},

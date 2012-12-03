@@ -113,6 +113,25 @@ public class Message extends IdEntity {
         this.confirmids = confirmids;
     }
 
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private Boolean system;
+
+    public Boolean getSystem() {
+        return system;
+    }
+
+    public void setSystem(Boolean system) {
+        this.system = system;
+    }
 
     @Override
     public boolean equals(Object o) {

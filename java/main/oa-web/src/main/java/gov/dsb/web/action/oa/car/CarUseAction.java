@@ -2,9 +2,12 @@ package gov.dsb.web.action.oa.car;
 
 import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.CarUseDao;
+import gov.dsb.core.dao.SysRoleDao;
 import gov.dsb.core.domain.Car;
 import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.SysRole;
 import gov.dsb.core.struts2.CRUDActionSupport;
+import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -30,12 +33,17 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
     @Autowired
     private CarUseDao service;
 
+    @Autowired
+    private MessageListener messageListener;
 
     @Autowired
     private CarDao  carDao;
 
     @Autowired
     private UserSessionService userSessionService;
+
+    @Autowired
+    private SysRoleDao sysRoleDao;
 
     private String gridParam;
 
@@ -85,7 +93,17 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
+
+        Long entityId = entity.getId();
+
         service.save(entity);
+
+        if (entityId == null) {
+
+            SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
+            messageListener.notice(role.getSysuserroles(), entity);
+        }
+
         return RELOAD;
     }
 

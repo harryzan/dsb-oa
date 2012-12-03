@@ -4,7 +4,9 @@ import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.CarUseDao;
 import gov.dsb.core.domain.Car;
 import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
+import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -12,8 +14,10 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,6 +33,9 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
     private CarUseDao service;
+
+    @Autowired
+    private MessageListener messageListener;
 
 
     @Autowired
@@ -84,6 +91,11 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
         entity.setChecker(userSessionService.getCurrentSysUser());
         entity.setStatus(true);
         service.save(entity);
+
+        List<SysUser> sysUsers = new ArrayList<SysUser>();
+        sysUsers.add(entity.getUser());
+        messageListener.notice(sysUsers, entity);
+
         return RELOAD;
     }
 

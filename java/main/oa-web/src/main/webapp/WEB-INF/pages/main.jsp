@@ -207,25 +207,25 @@
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_1.jpg" width="23" height="25" /></td>
-                                        <td nowrap="nowrap"><a href="#">收文<span class="STYLE1">（1）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=发文管理">发文管理<span class="STYLE1">（${count1}）</span></a></td>
                                     </tr>
                                 </table></td>
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_2.jpg" width="41" height="22" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="#">用车提醒<span class="STYLE1">（1）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=用车申请">用车申请<span class="STYLE1">（${count2}）</span></a></td>
                                     </tr>
                                 </table></td>
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_3.jpg" width="31" height="24" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="#">会议通知<span class="STYLE1">（3）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=需求申请">需求申请<span class="STYLE1">（${count3}）</span></a></td>
                                     </tr>
                                 </table></td>
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_4.jpg" width="27" height="28" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="#">代办事项<span class="STYLE1">（3）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=一周工作安排">工作安排<span class="STYLE1">（${count4}）</span></a></td>
                                     </tr>
                                 </table></td>
                             </tr>

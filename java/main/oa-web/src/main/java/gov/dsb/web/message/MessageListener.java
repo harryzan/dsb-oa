@@ -30,11 +30,14 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
+            message.setType("公告通知");
             message.setName(bulletin.getName());
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
             message.setDescription("/message/bulletin/bulletin!view?id=" + bulletin.getId());
             message.setReceiver(sysUser);
+
+            message.setSystem(true);
 
             messageDao.save(message);
         }
@@ -45,11 +48,14 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
+            message.setType("文档共享");
             message.setName(docDocument.getName());
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
             message.setDescription("/document/docdocument/doc-document?id=" + docDocument.getId());
             message.setReceiver(sysUser);
+
+            message.setSystem(true);
 
             messageDao.save(message);
         }
@@ -60,6 +66,7 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
+            message.setType("车辆申请");
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
             if (carUse.getStatus()) {
@@ -72,6 +79,8 @@ public class MessageListener implements Listener {
             }
             message.setReceiver(sysUser);
 
+            message.setSystem(true);
+
             messageDao.save(message);
         }
     }
@@ -81,6 +90,7 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
+            message.setType("需求申请");
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
             if (demand.getStatus()) {
@@ -93,6 +103,8 @@ public class MessageListener implements Listener {
             }
             message.setReceiver(sysUser);
 
+            message.setSystem(true);
+
             messageDao.save(message);
         }
     }
@@ -102,13 +114,39 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
+            message.setType("一周工作安排");
             message.setName(workArrange.getYear() + "年第" + workArrange.getWeek() + "周工作安排");
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
-            message.setDescription("/");
+            message.setDescription("/message/workarrange/work-arrange!week");
             message.setReceiver(sysUser);
+
+            message.setSystem(true);
 
             messageDao.save(message);
         }
+    }
+
+    @Override
+    public void notice(Collection<SysUser> sysUsers, WorkFlow workFlow) {
+        for (SysUser sysUser : sysUsers) {
+            notice(sysUser, workFlow);
+        }
+    }
+
+    @Override
+    public void notice(SysUser sysUser, WorkFlow workFlow) {
+            Message message = new Message();
+
+            message.setType("发文管理");
+            message.setName(workFlow.getWorkno() + " " + workFlow.getTitle());
+            long current = System.currentTimeMillis();
+            message.setStarttime(new Timestamp(current));
+            message.setDescription("/offical/workflow/work-flow!input?id=" + workFlow.getId());
+            message.setReceiver(sysUser);
+
+            message.setSystem(true);
+
+            messageDao.save(message);
     }
 }

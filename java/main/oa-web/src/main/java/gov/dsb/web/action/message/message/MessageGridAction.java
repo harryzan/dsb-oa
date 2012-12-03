@@ -64,6 +64,16 @@ public class MessageGridAction extends PageActionSupport<Message> {
 
     private String gridParams;
 
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public void setColumns(String columns) {
         this.columns = columns;
     }
@@ -125,6 +135,11 @@ public class MessageGridAction extends PageActionSupport<Message> {
 //        System.out.println("user.getId() = " + user.getId());
 
         String hql = "from Message where receiver.id=" + user.getId();
+
+        if (StringHelp.isNotEmpty(type)) {
+            hql += " and type = '" + type + "' ";
+        }
+
         if (messagestatus) {
             hql += " and status is true ";
         }

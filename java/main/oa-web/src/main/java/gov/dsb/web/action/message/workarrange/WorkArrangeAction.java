@@ -7,6 +7,7 @@ import gov.dsb.core.domain.UserAttendance;
 import gov.dsb.core.domain.WorkArrange;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.utils.StringHelp;
+import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -40,6 +41,10 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
     @Autowired
     private SysUserDao sysUserDao;
+
+    @Autowired
+    private MessageListener messageListener;
+
 
     protected Long id;
 
@@ -202,6 +207,7 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
         System.out.println("arrangeids = " + arrangeids);
         String[] ids = arrangeids.split(",");
+        WorkArrange workArrange = null;
         for (String id : ids) {
             WorkArrange arrange = service.get(Long.parseLong(id.trim()));
             String content = request.getParameter("content" + id.trim());
@@ -209,6 +215,12 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
 
             arrange.setContent(content);
             service.save(arrange);
+
+            workArrange = arrange;
+        }
+
+        if (ids.length > 0 && workArrange != null) {
+            messageListener.notice(sysUserDao.findAll(), workArrange);
         }
 
         return week();

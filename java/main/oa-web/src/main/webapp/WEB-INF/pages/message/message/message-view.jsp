@@ -46,7 +46,14 @@
                           <%--</tr>--%>
                           <tr class="textone12">
                               <td><div align="right">内容：</div></td>
-                              <td>&nbsp;${description}</td>
+                              <td>&nbsp;
+                                  <c:if test="${system == true}">
+                                      <a href="${ctx}${description}" target="_blank"><font color="red">点击跳转</font></a>
+                                  </c:if>
+                                  <c:if test="${system == false}">
+                                      ${description}
+                                  </c:if>
+                              </td>
                             </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td><div align="right">状态：</div></td>--%>

@@ -24,5 +24,7 @@ public interface Listener {
 
     public void notice(Collection<SysUser> sysUsers, WorkArrange workArrange);
 
+    public void notice(Collection<SysUser> sysUsers, WorkFlow workFlow);
 
+    public void notice(SysUser sysUser, WorkFlow workFlow);
 }

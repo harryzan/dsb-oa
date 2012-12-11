@@ -171,102 +171,13 @@ public class DocDocumentGridAction extends PageActionSupport<DocDocument> {
         return result;
     }
 
-    public String resolveCondition() throws Exception {
-        try {
-            if (null != doccategoryid) {
-                DocCategory docCategory = docCategoryDao.get(doccategoryid);
-                queryCondition = "文档目录为 \"" + docCategory.getName() + "\"";
-            }
-            String hql = "from DocDocument where doccategory.id=?";
-            if (!StringHelp.isEmpty(conditions)) {
-                QueryTranslateWeight queryTranslate = new QueryTranslateWeight(hql, conditions);
-                hql = queryTranslate.toString();
-                String[] fields = hql.substring(hql.indexOf("?"), hql.lastIndexOf(")")).split("and");
-                for (String field : fields) {
-                    field = field.trim();
-
-                    String operator = "";
-                    if (field.indexOf("createtime") > -1) {
-                        queryCondition += " 创建时间";
-                        if (field.indexOf("between") > -1) {
-                            queryCondition +=
-                                    " 在 " + field.substring(field.indexOf("between") + 17, field.indexOf(",") - 1) + " 和 " +
-                                            field.substring(field.indexOf("AND") + 13,
-                                                    field.indexOf(",", field.indexOf("AND")) - 1) + "之间";
-                        } else {
-
-
-                            if (field.indexOf(">=") > -1) {
-                                operator = " 大于等于 ";
-                            } else if (field.indexOf("<=") > -1) {
-                                operator = " 小于等于 ";
-                            } else if (field.indexOf("=") > -1) {
-                                operator = " 等于 ";
-                            } else if (field.indexOf("<") > -1) {
-                                operator = " 小于 ";
-                            } else if (field.indexOf(">") > -1) {
-                                operator = " 大于 ";
-                            }
-                            //String value = field.substring(field.indexOf("(") + 2, field.indexOf(",") - 1);
-                            queryCondition += operator + field.substring(field.indexOf("to_date") + 9, field.indexOf(",") - 1);
-                        }
-
-                    } else {
-                        String name = "";
-                        String value = "";
-                        if (field.indexOf("sysdept.name") > -1) {
-                            name = " 单位名称";
-                        } else if (field.indexOf("name") > -1) {
-                            name = " 文档名称";
-                        } else if (field.indexOf("path") > -1) {
-                            name = " 文档目录";
-                        }
-
-                        if (field.indexOf("=") > -1) {
-                            operator = " 等于 ";
-                            value = field.substring(field.indexOf("'") + 1, field.length() - 1);
-                        } else if (field.indexOf("<>") > -1) {
-                            operator = " 不等于 ";
-                            value = field.substring(field.indexOf("'") + 1, field.length() - 1);
-                        } else if (field.indexOf("not like") > -1) {
-                            operator = " 不包含 ";
-                            value = field.substring(field.indexOf("'%") + 2, field.indexOf("%'"));
-                        } else if (field.indexOf("like") > -1) {
-
-                            if (field.indexOf("'%") > -1) {
-                                if (field.indexOf("%'") > -1) {
-                                    operator = " 包含 ";
-                                    value = field.substring(field.indexOf("'%") + 2, field.indexOf("%'"));
-                                } else {
-                                    operator = " 以 ";
-                                    value = field.substring(field.indexOf("'%") + 2, field.length() - 1) + " 结尾";
-                                }
-                            } else if (field.indexOf("%'") > -1) {
-                                operator = " 以 ";
-                                value = field.substring(field.indexOf("'") + 1, field.indexOf("%'")) + " 开头";
-                            }
-                        } else if (field.indexOf("is null") > -1) {
-                            operator = " 为空 ";
-                        } else if (field.indexOf("is not null") > -1) {
-                            operator = " 不为空 ";
-                        }
-
-                        queryCondition += name + operator + value + ",";
-
-                    }
-
-                }
-                //page = service.findPageByQuery(page, queryTranslate.toString() + " order by createtime desc", doccategoryid);
-                if (queryCondition.endsWith(",")) {
-                    queryCondition = queryCondition.substring(0, queryCondition.length() - 1);
-                }
-            }
-        } catch (Exception ignore) {
-
+    public String execute() {
+        DocCategory doccategory = docCategoryDao.findUnique("from DocCategory category where category.code = 'guizhangzhidu' and category.issystem is true  and category.parent is null order by category.orderno");
+        if (doccategory != null) {
+            doccategoryid = doccategory.getId();
         }
-        //System.out.println("queryCondition: "+ queryCondition);
-        result = queryCondition;
 
-        return "data";
+        return SUCCESS;
     }
+
 }

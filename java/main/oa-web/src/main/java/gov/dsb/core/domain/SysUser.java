@@ -117,6 +117,26 @@ public class SysUser extends IdEntity {
         this.email = email;
     }
 
+    private String cellphone;
+
+    public String getCellphone() {
+        return cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+    private String subphone;
+
+    public String getSubphone() {
+        return subphone;
+    }
+
+    public void setSubphone(String subphone) {
+        this.subphone = subphone;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

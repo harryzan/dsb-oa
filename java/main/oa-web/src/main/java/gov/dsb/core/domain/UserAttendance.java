@@ -69,6 +69,16 @@ public class UserAttendance extends IdEntity {
         this.noon = noon;
     }
 
+    public String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.EAGER)

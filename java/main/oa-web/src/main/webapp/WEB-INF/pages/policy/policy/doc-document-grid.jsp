@@ -112,15 +112,15 @@
 //            window.open('doc-document?id=' + id,'','width=800px,height=420px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
         }
 
-        function resolveCondition(conditions){
-            var url = "doc-document-grid!resolveCondition?doccategoryid=${doccategoryid}&conditions=" + conditions;
-            url = encodeURI(url);
-            //alert(conditions);
-            doRequest(url, "POST", function(ret){
-                document.getElementById("queryCondition").innerHTML = "符合&nbsp;<font color='red'>" + ret + "</font> 的文档列表";
-            });
+        <%--function resolveCondition(conditions){--%>
+            <%--var url = "doc-document-grid!resolveCondition?doccategoryid=${doccategoryid}&conditions=" + conditions;--%>
+            <%--url = encodeURI(url);--%>
+            <%--//alert(conditions);--%>
+            <%--doRequest(url, "POST", function(ret){--%>
+                <%--document.getElementById("queryCondition").innerHTML = "符合&nbsp;<font color='red'>" + ret + "</font> 的文档列表";--%>
+            <%--});--%>
 
-        }
+        <%--}--%>
 
     </script>
 

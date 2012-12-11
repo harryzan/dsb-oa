@@ -61,6 +61,16 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
     private String atttype;
 
+    private String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
     public String getAttid() {
         return attid;
     }
@@ -138,9 +148,12 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
         String[] ids = attid.split(",");
         String[] types = atttype.split(",");
+        String[] memos = memo.split(",");
+
         for (int i = 0; i < ids.length; i++) {
             UserAttendance attendance = service.get(Long.parseLong(ids[i].trim()));
             attendance.setType(types[i].trim());
+            attendance.setMemo(memos[i]);
             service.save(attendance);
         }
 
@@ -182,9 +195,18 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
         SysUser currentUser = userSessionService.getCurrentSysUser();
 
+        Calendar calendar = Calendar.getInstance();
+
+
         Date d = sdf.parse(day);
         Date now = new Date();
-        if (!d.after(now))
+
+        calendar.setTime(d);
+        int m = calendar.get(Calendar.MONTH);
+        calendar.setTime(now);
+        int _m = calendar.get(Calendar.MONTH);
+
+        if (!d.after(now) && m == _m)
         {
             if (sysUserDao.containRole(currentUser.getId(), "系统管理员"))
                 attendances = service.createDayAttendance(new java.sql.Date(sdf.parse(day).getTime()));
@@ -220,12 +242,12 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
         Date now = new Date();
         if (!d.after(now))
         {
-            if (sysUserDao.containRole(currentUser.getId(), "系统管理员"))
+//            if (sysUserDao.containRole(currentUser.getId(), "系统管理员"))
                 attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()));
-            else if (sysUserDao.containRole(currentUser.getId(), "考勤负责人"))
-                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser.getSysdept());
-            else
-                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser);
+//            else if (sysUserDao.containRole(currentUser.getId(), "考勤负责人"))
+//                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser.getSysdept());
+//            else
+//                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser);
         }
 
         return "record";
@@ -390,7 +412,9 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
                 "        sum(decode(type, 6, 1, 0)) type6,\n" +
                 "        sum(decode(type, 7, 1, 0)) type7,\n" +
                 "        sum(decode(type, 8, 1, 0)) type8,\n" +
-                "        sum(decode(type, 9, 1, 0)) type9\n" +
+                "        sum(decode(type, 9, 1, 0)) type9,\n" +
+                "        sum(decode(type, 10, 1, 0)) type10,\n" +
+                "        sum(decode(type, 0, 1, 0)) type0\n" +
                 "  from userattendance t where substr(checkdate, 0, 7) = '" + day.substring(0, 7) + "' and type is not null group by userid";
 
         records = service.findBySql(sql);

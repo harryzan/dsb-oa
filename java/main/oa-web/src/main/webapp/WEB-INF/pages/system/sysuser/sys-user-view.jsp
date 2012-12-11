@@ -53,8 +53,16 @@
                             <td>&nbsp;${displayname}</td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">电话：</div></td>
+                            <td><div align="right">直线：</div></td>
                             <td>&nbsp;${phonenumber}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">分机：</div></td>
+                              <td>&nbsp;${subphone}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td><div align="right">手机：</div></td>
+                              <td>&nbsp;${cellphone}</td>
                           </tr>
                           <tr class="textone12">
                             <td><div align="right">邮箱：</div></td>

@@ -50,7 +50,9 @@
                 {name:"id",header:"",width:"10%"},
                 {name:"sysdept.name",header:"部门",width:"20%"},
                 {name:"displayname",renderer:checkview,header:"姓名",width:"20%"},
-                {name:"phonenumber",header:"电话号码",width:"20%"},
+                {name:"subphone",header:"分机",width:"20%"},
+                {name:"phonenumber",header:"直线",width:"20%"},
+                {name:"cellphone",header:"手机",width:"20%"},
                 {name:"email",header:"邮件地址",width:"20%"}
 //                {name:"description",header:"内容",width:"40%"}
             ],

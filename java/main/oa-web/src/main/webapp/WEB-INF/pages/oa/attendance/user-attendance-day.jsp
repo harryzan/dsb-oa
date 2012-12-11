@@ -17,9 +17,27 @@
             var value = document.getElementById("day").value;
             window.location = "user-attendance!day?day=" + value;
         }
+
+        function changetype() {
+            var objs = document.getElementsByName("atttype");
+            var memos = document.getElementsByName("memo");
+
+//            alert(objs.length);
+            for (var i = 0; i < objs.length; i++) {
+                var select = objs[i];
+                var option = select.options[select.selectedIndex];
+//                alert(option.value);
+                if (option.value == '0') {
+                    memos[i].style.display = "block";
+                }
+                else {
+                    memos[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </head>
-<body>
+<body onload="changetype();">
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="3" class="line_td_title" align="center">个人考勤</td>
@@ -45,10 +63,10 @@
         <tr>
             <input type="hidden" name="attid" value="${attendance.id}"/>
             <c:if test='${attendance.noon == false}'>
-            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
-            <td rowspan="2" class="line_td_light" width="30%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
+            <td rowspan="2" class="line_td_light" width="20%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
+            <td rowspan="2" class="line_td_light" width="20%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
             </c:if>
-            <td class="line_td_light" width="40%">&nbsp;&nbsp;
+            <td class="line_td_light" width="60%" nowrap="nowrap">&nbsp;&nbsp;
                 <c:if test='${attendance.noon == false}'>
                   上午
                 </c:if>
@@ -56,17 +74,20 @@
                   下午
                 </c:if>
                 &nbsp;&nbsp;
-                <select name="atttype" id="atttype">
+                <select name="atttype" id="atttype" onchange="changetype();">
                     <option value="1" <c:if test='${attendance.type == 1}'>selected</c:if>>出勤</option>
                     <option value="2" <c:if test='${attendance.type == 2}'>selected</c:if>>调休</option>
                     <option value="3" <c:if test='${attendance.type == 3}'>selected</c:if>>事假</option>
                     <option value="4" <c:if test='${attendance.type == 4}'>selected</c:if>>病假</option>
-                    <option value="0" <c:if test='${attendance.type == 5}'>selected</c:if>>产假</option>
-                    <option value="0" <c:if test='${attendance.type == 6}'>selected</c:if>>婚假</option>
-                    <option value="0" <c:if test='${attendance.type == 7}'>selected</c:if>>哺乳假</option>
-                    <option value="0" <c:if test='${attendance.type == 8}'>selected</c:if>>探亲假</option>
-                    <option value="0" <c:if test='${attendance.type == 9}'>selected</c:if>>旷工</option>
-                </select>
+                    <option value="5" <c:if test='${attendance.type == 5}'>selected</c:if>>产假</option>
+                    <option value="6" <c:if test='${attendance.type == 6}'>selected</c:if>>婚假</option>
+                    <option value="7" <c:if test='${attendance.type == 7}'>selected</c:if>>哺乳假</option>
+                    <option value="8" <c:if test='${attendance.type == 8}'>selected</c:if>>探亲假</option>
+                    <option value="9" <c:if test='${attendance.type == 9}'>selected</c:if>>旷工</option>
+                    <option value="10" <c:if test='${attendance.type == 10}'>selected</c:if>>公出</option>
+                    <option value="0" <c:if test='${attendance.type == 0}'>selected</c:if>>其他</option>
+                </select>&nbsp;&nbsp;
+                <input id="memo" name="memo" value="${attendance.memo}" class="input_one" type="text" style="display:none"/>&nbsp;&nbsp;
                     <c:if test='${empty attendance.type }'>
                         &nbsp;<font color="red">请选择</font>
                     </c:if>

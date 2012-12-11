@@ -49,12 +49,13 @@
         <td class="line_td_head">哺乳假</td>
         <td class="line_td_head">探亲假</td>
         <td class="line_td_head">旷工</td>
+        <td class="line_td_head">公出</td>
     </tr>
     <c:forEach items="${records}" var="attendance" varStatus="status">
         <tr>
             <td class="line_td_light" width="10%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.DEPTNAME}</td>
             <td class="line_td_light" width="10%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.USERNAME}</td>
-            <td class="line_td_light" width="8%" align="center">
+            <td class="line_td_light" width="6%" align="center">
                 <%--<c:if test='${attendance.noon == false}'>--%>
                     <%--上午--%>
                 <%--</c:if>--%>
@@ -63,14 +64,16 @@
                 <%--</c:if>--%>
                 ${attendance.TYPE1}
             </td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE2}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE3}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE4}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE5}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE6}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE7}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE8}</td>
-            <td class="line_td_light" width="8%" align="center">${attendance.TYPE9}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE2}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE3}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE4}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE5}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE6}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE7}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE8}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE9}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE10}</td>
+            <td class="line_td_light" width="6%" align="center">${attendance.TYPE0}</td>
         </tr>
     </c:forEach>
     </form>

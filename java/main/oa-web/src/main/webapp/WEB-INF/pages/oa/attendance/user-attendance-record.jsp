@@ -64,6 +64,8 @@
                 <c:if test='${attendance.type == 7}'>哺乳假</c:if>
                 <c:if test='${attendance.type == 8}'>探亲假</c:if>
                 <c:if test='${attendance.type == 9}'>旷工</c:if>
+                <c:if test='${attendance.type == 10}'>公出</c:if>
+                <c:if test='${attendance.type == 0}'>其他: ${attendance.memo}</c:if>
             </td>
         </tr>
     </c:forEach>

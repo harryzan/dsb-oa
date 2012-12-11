@@ -56,8 +56,18 @@
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">电话：</div></td>
-                            <td>&nbsp;<input name="phonenumber" id="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                              <td><div align="right">直线：</div></td>
+                              <td>&nbsp;<input name="phonenumber" id="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                            <td><div align="right">分机：</div></td>
+                            <td>&nbsp;<input name="subphone" id="subphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td><div align="right">手机：</div></td>
+                              <td>&nbsp;<input name="cellphone" id="cellphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone12">

@@ -40,13 +40,14 @@
                 {name:"car.carmodel",header:"车辆型号",width:"10%"},
                 {name:"car.carlicense",header:"车辆牌照",width:"10%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
-                {name:"usedate",header:"使用时间",width:"10%"},
+                {name:"startdate",header:"使用时间",width:"10%"},
                 {name:"checker.displayname",header:"审核者",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"10%"},
                 {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],
+            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
@@ -62,18 +63,23 @@
         };
 
         function checkview(value){
-//            if(result.b01_model_R){
+//            if(result.d02_document_R) {
 //                return value;
 //            }
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
         }
+
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["description"] + "(" + record.data["code"] + ")";
-            var url = '${ctx}/b/b01/model-property?id=' + id;
-//            window.open('model-property?id=' + id,'','width=800px,height=500px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
-            enter(title,url,600,400);
+//            var title = record.data["name"];
+//            var temp = title.split("|");
+//            if(temp.length == 3){
+//                title = temp[2];
+//            }
+            var url = '${ctx}/oa/car/car-complete?id=' + id;
+            window.location = url;
+//            enter(title,url,500,300);
         }
 
     </script>

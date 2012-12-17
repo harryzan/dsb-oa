@@ -39,10 +39,11 @@
                 {name:"id",header:"",width:"10%"},
                 {name:"name",header:"申请内容",width:"10%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
-                {name:"demanddate",header:"使用时间",width:"10%"},
-                {name:"checker.displayname",header:"审核者",width:"10%"},
+                {name:"demanddate",header:"需求时间",width:"10%"},
+                {name:"mainuser.displayname",header:"执行人",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"10%"},
-                {name:"desc",header:"备注",width:"30%"}
+                {name:"opinion",header:"审核意见",width:"30%"}
+//                {name:"desc",header:"备注",width:"30%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

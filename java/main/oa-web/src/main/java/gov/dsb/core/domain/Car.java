@@ -58,6 +58,76 @@ public class Car extends IdEntity {
         this.buydate = buydate;
     }
 
+    private Integer personnum;
+
+    public Integer getPersonnum() {
+        return personnum;
+    }
+
+    public void setPersonnum(Integer personnum) {
+        this.personnum = personnum;
+    }
+
+    private String engineno;
+
+    public String getEngineno() {
+        return engineno;
+    }
+
+    public void setEngineno(String engineno) {
+        this.engineno = engineno;
+    }
+
+    private String carno;
+
+    public String getCarno() {
+        return carno;
+    }
+
+    public void setCarno(String carno) {
+        this.carno = carno;
+    }
+
+    private String fuel;
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+
+    private String usedate;
+
+    public String getUsedate() {
+        return usedate;
+    }
+
+    public void setUsedate(String usedate) {
+        this.usedate = usedate;
+    }
+
+    private Integer carprice;
+
+    public Integer getCarprice() {
+        return carprice;
+    }
+
+    public void setCarprice(Integer carprice) {
+        this.carprice = carprice;
+    }
+
+    private Integer milestone;
+
+    public Integer getMilestone() {
+        return milestone;
+    }
+
+    public void setMilestone(Integer milestone) {
+        this.milestone = milestone;
+    }
+
     private Boolean status;
 
     @Basic
@@ -80,6 +150,17 @@ public class Car extends IdEntity {
         this.type = type;
     }
 
+    private Driver driver;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DRIVERID", referencedColumnName = "ID")
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
 
     private SysUser user;
 

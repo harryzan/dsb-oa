@@ -10,6 +10,6 @@
 </head>
 <frameset rows="38,*" name="parentFrame" border="0" framespacing="1" bordercolor="white" height="auto" frameborder="0">
     <frame name="tab_frame" scrolling="no" src="car!tab"/>
-    <frame name="main_frame" scrolling="auto" src="car-use-grid"/>
+    <frame name="main_frame" scrolling="auto" src="car-use!input"/>
 </frameset>
 </html>

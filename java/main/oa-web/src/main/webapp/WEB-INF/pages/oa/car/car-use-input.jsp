@@ -60,28 +60,40 @@
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
                             <td width="30%"><div align="right">车辆型号：</div></td>
-                            <td width="70%">&nbsp;
-                                <%--<select name="carid" id="carid">--%>
-                                    <%--<option value="1"></option>--%>
-                                <%--</select>--%>
-                                <table style="line-height: 26px">
-                                <s:select name="carid" list="cars" listKey="id"  listValue="carmodel" headerKey="0"/>
-                                </table></td>
+                            <td width="70%" valign="center">&nbsp;
+                                <select name="carid" id="carid">
+                                    <c:forEach items="${cars}" var="car" varStatus="status">
+                                        <option value="${car.id}">${car.carmodel} - ${car.carlicense}</option>
+                                    </c:forEach>
+                                </select>
                           </tr>
-                          <%--<tr class="textone12">--%>
-                              <%--<td width="30%"><div align="right">车辆牌照：</div></td>--%>
-                              <%--<td width="70%">&nbsp;--%>
-                                  <%--<input name="carlicense" type="text" class="input_one" value="${carlicense}">--%>
-                                  <%--<span class="textxing">*</span></td>--%>
-                          <%--</tr>--%>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">使用日期：</div></td>
+                              <td width="30%"><div align="right">申请事由：</div></td>
                               <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="usedate" name="usedate" type="text" class="input_one" value="${usedate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(usedate, 'date');" /></td>
+                                  <input name="name" type="text" class="input_chang" value="${name}">
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">描述：</div></td>
+                              <td width="30%"><div align="right">发车时间：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input id="startdate" name="startdate" type="text" class="input_one" value="${startdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(startdate, 'datetime');" /></td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">返回时间：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">上车地点：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="place" type="text" class="input_one" value="${place}">
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">行驶路线：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="drivingline" type="text" class="input_chang" value="${drivingline}">
+                          </tr>
+                          <tr class="textone1">
+                            <td><div align="right">备注：</div></td>
                             <td height="60">&nbsp;
                                 <textarea name="desc" class="input_five">${desc}</textarea></td>
                           </tr>
@@ -111,7 +123,7 @@
                                   <td width="10%"><div align="center">
                                       <input type="reset" class="button_cc" name="input" value="重 写">
                                   </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-use-grid';"></td>
                                 </tr>
                             </table></td>
                           </tr>

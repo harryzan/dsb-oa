@@ -2,9 +2,11 @@ package gov.dsb.web.action.oa.car;
 
 import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.CarUseDao;
+import gov.dsb.core.dao.DriverDao;
 import gov.dsb.core.dao.SysRoleDao;
 import gov.dsb.core.domain.Car;
 import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.Driver;
 import gov.dsb.core.domain.SysRole;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.web.message.MessageListener;
@@ -28,7 +30,7 @@ import java.util.Date;
 
 @ParentPackage("default")
 @Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-use-grid", type = "chain")})
-public class CarUseAction extends CRUDActionSupport<CarUse>{
+public class CarDriveAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
     private CarUseDao service;
@@ -38,6 +40,9 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
     private CarDao  carDao;
+
+    @Autowired
+    private DriverDao driverDao;
 
     @Autowired
     private UserSessionService userSessionService;
@@ -62,6 +67,16 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         this.cars = cars;
     }
 
+    private Collection<Driver> drivers;
+
+    public Collection<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(Collection<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
     protected Long id;
 
     public void setId(Long id) {
@@ -82,17 +97,31 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         this.carid = carid;
     }
 
+    public Long driverid;
+
+    public Long getDriverid() {
+        return driverid;
+    }
+
+    public void setDriverid(Long driverid) {
+        this.driverid = driverid;
+    }
+
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
         Car car = carDao.get(carid);
         entity.setCar(car);
 
+        Driver driver = driverDao.get(driverid);
+        entity.setDriver(driver);
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
         String day = sdf.format(d);
-        entity.setSubmitdate(day);
-        entity.setUser(userSessionService.getCurrentSysUser());
+        entity.setMemodate(day);
+        entity.setMemor(userSessionService.getCurrentSysUser());
+        entity.setFlag("1");
 
         Long entityId = entity.getId();
 
@@ -125,8 +154,8 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
             }
         }
 
-
         cars = carDao.findAll();
+        drivers = driverDao.findAll();
 //        System.out.println("cars.size() = " + cars.size());
     }
 

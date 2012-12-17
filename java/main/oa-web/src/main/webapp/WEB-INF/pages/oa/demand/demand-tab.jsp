@@ -23,7 +23,7 @@
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
         <td>
-            <input onclick="openFunction('demand-use-grid', this)" type="button" name="button1" id="button1" value="${demandType.name}申请" class="tab_xz" />
+            <input onclick="openFunction('demand-use!input', this)" type="button" name="button1" id="button1" value="${demandType.name}申请" class="tab_xz" />
             <input onclick="openFunction('demand-check-grid', this)" type="button" name="button2" id="button2" value="${demandType.name}审核" class="tab" />
             <input onclick="openFunction('demand-complete-grid', this)" type="button" name="button3" id="button3" value="历史${demandType.name}" class="tab" />
         </td>

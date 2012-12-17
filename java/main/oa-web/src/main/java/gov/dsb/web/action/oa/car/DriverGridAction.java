@@ -1,8 +1,8 @@
 package gov.dsb.web.action.oa.car;
 
-import gov.dsb.core.dao.CarUseDao;
+import gov.dsb.core.dao.DriverDao;
 import gov.dsb.core.dao.base.Page;
-import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.Driver;
 import gov.dsb.core.struts2.PageActionSupport;
 import gov.dsb.core.utils.Nulls;
 import gov.dsb.core.utils.StringHelp;
@@ -26,11 +26,10 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class CarCompleteGridAction extends PageActionSupport<CarUse> {
+public class DriverGridAction extends PageActionSupport<Driver> {
 
     @Autowired
-    private CarUseDao service;
-
+    private DriverDao service;
 
     private String columns;
 
@@ -43,7 +42,6 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
     private List<Row> rows;
 
     private String gridParams;
-
 
     public void setColumns(String columns) {
         this.columns = columns;
@@ -86,10 +84,9 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
 
     public String griddata() throws Exception {
         if (!Nulls.isNull(limit) && limit > 0) {
-            page = new Page<CarUse>(limit, true);
-        }
-        else {
-            page = new Page<CarUse>(10, true);
+            page = new Page<Driver>(limit, true);
+        } else {
+            page = new Page<Driver>(10, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {
@@ -97,13 +94,12 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
             page.setPageNo(pageNo);
         }
         if (!StringHelp.isEmpty(conditions)) {
-            QueryTranslate queryTranslate = new QueryTranslate("from CarUse ", conditions);
+            QueryTranslate queryTranslate = new QueryTranslate("from Driver", conditions);
             page = service.findPageByQuery(page, queryTranslate.toString());
+        } else {
+            page = service.findAll(page);
         }
-        else {
-            page = service.findPageByQuery(page, "from CarUse where status is true and flag='1'");
-        }
-        List<CarUse> list = page.getResult();
+        List<Driver> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);
 
         return GRIDDATA;

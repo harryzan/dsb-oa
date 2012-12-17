@@ -115,9 +115,8 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
             }
         }
 
-
-        cars = carDao.findAll();
-        System.out.println("cars.size() = " + cars.size());
+//        cars = carDao.findAll();
+//        System.out.println("cars.size() = " + cars.size());
     }
 
     public CarUse getModel() {

@@ -105,7 +105,7 @@
             if(temp.length == 3){
                 title = temp[2];
             }
-            var url = '${ctx}/message/bulletin/bulletin!view?id=' + id;
+            var url = '${ctx}/message/bulletin/bulletin?id=' + id;
             enter(title,url,500,300);
         }
 

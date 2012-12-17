@@ -13,12 +13,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>需求信息维护</title>
+<title>车辆信息维护</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="${scriptsPath}/system/calendar.js"></script>
     <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -46,7 +49,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-use!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="car-drive!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -59,20 +62,76 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">名称：</div></td>
-                            <td width="70%">&nbsp;
-                                <input name="name" type="text" class="input_one" value="${name}">
-                                </td>
+                            <td width="30%"><div align="right">申请车辆：</div></td>
+                            <td width="70%" valign="center">&nbsp;
+                                        ${car.carmodel} - ${car.carlicense}
+                                <%--<table style="line-height: 26px">--%>
+                                <%--<s:select name="carid" list="cars" listKey="id"  listValue="carmodel" headerKey="0"/>--%>
+                                <%--</table></td>--%>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">需求日期：</div></td>
+                              <td width="30%"><div align="right">申请事由：</div></td>
                               <td width="70%">&nbsp;
-                                  <input id="demanddate" name="demanddate" type="text" class="input_one" value="${demanddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(demanddate, 'date');" /></td>
+                                  ${name}
+                              </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">描述：</div></td>
+                              <td width="30%"><div align="right">发车时间：</div></td>
+                              <td width="70%">&nbsp;
+                                  ${startdate}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">返回时间：</div></td>
+                              <td width="70%">&nbsp;
+                                  ${enddate}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">上车地点：</div></td>
+                              <td width="70%">&nbsp;
+                                  ${place}
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">行驶路线：</div></td>
+                              <td width="70%">&nbsp;
+                                  ${drivingline}
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                            <td><div align="right">备注：</div></td>
                             <td height="60">&nbsp;
-                                <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
+                                ${desc}
+                            </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">批示意见：</div></td>
+                              <td height="60">&nbsp;
+                                  ${opinion}
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td><div align="right">调度意见：</div></td>
+                              <td height="60">&nbsp;
+                                  <textarea name="memo" class="input_five">${memo}</textarea>
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">分配车辆：</div></td>
+                              <td width="70%" valign="center">&nbsp;
+                                  <select name="carid" id="carid">
+                                      <c:forEach items="${cars}" var="car" varStatus="status">
+                                          <option value="${car.id}">${car.carmodel} - ${car.carlicense}</option>
+                                      </c:forEach>
+                                  </select>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">指定司机：</div></td>
+                              <td width="70%" valign="center">&nbsp;
+                                  <select name="driverid" id="driverid">
+                                      <c:forEach items="${drivers}" var="driver" varStatus="status">
+                                          <option value="${driver.id}">${driver.name}</option>
+                                      </c:forEach>
+                                  </select>
                           </tr>
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>
@@ -95,12 +154,12 @@
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top">
                                   <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="保 存">
+                                      <input type="submit" class="button_bc" name="input" value="同 意">
                                   </div></td>
                                   <td width="10%"><div align="center">
                                       <input type="reset" class="button_cc" name="input" value="重 写">
                                   </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-drive-grid';"></td>
                                 </tr>
                             </table></td>
                           </tr>
@@ -128,7 +187,7 @@
 <%--</table>--%>
 <script type="text/javascript">
     function check_form(afrom){
-        if(afrom.demandmodel.value == ""){
+        if(afrom.carmodel.value == ""){
             Ext.MessageBox.alert("提示", "车辆型号不能为空！");
             return false;
         }

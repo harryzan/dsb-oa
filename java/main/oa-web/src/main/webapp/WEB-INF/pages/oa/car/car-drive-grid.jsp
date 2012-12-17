@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>型号信息</title>
+    <title>派车安排</title>
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 
@@ -15,7 +15,7 @@
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
 //        var addurl = "car-use!input";
-        var modifyurl = "car-check!input";
+        var modifyurl = "car-drive!input";
 //        var deleteurl = "car-use!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -30,7 +30,7 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"car-use-grid!griddata",
+            url:"car-drive-grid!griddata",
 //            addUrl:addurl,
             modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,

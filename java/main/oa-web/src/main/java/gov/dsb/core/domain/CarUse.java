@@ -88,6 +88,46 @@ public class CarUse extends IdEntity {
         this.desc = desc;
     }
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String startdate;
+
+    public String getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(String startdate) {
+        this.startdate = startdate;
+    }
+
+    private String enddate;
+
+    public String getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(String enddate) {
+        this.enddate = enddate;
+    }
+
+    private String drivingline;
+
+    public String getDrivingline() {
+        return drivingline;
+    }
+
+    public void setDrivingline(String drivingline) {
+        this.drivingline = drivingline;
+    }
+
     private Boolean status;
 
     @Basic
@@ -110,6 +150,46 @@ public class CarUse extends IdEntity {
         this.type = type;
     }
 
+    private String place;
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    private String opinion;
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
+
+    private String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    private String memodate;
+
+    public String getMemodate() {
+        return memodate;
+    }
+
+    public void setMemodate(String memodate) {
+        this.memodate = memodate;
+    }
+
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -122,15 +202,25 @@ public class CarUse extends IdEntity {
         this.user = user;
     }
 
-    private SysUser driver;
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    private Driver driver;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DRIVERID", referencedColumnName = "ID")
-    public SysUser getDriver() {
+    public Driver getDriver() {
         return driver;
     }
 
-    public void setDriver(SysUser driver) {
+    public void setDriver(Driver driver) {
         this.driver = driver;
     }
 
@@ -156,5 +246,17 @@ public class CarUse extends IdEntity {
 
     public void setChecker(SysUser checker) {
         this.checker = checker;
+    }
+
+    private SysUser memor;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "MEMORID", referencedColumnName = "ID")
+    public SysUser getMemor() {
+        return memor;
+    }
+
+    public void setMemor(SysUser memor) {
+        this.memor = memor;
     }
 }

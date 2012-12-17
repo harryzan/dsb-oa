@@ -26,7 +26,7 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class CarCompleteGridAction extends PageActionSupport<CarUse> {
+public class CarDriveGridAction extends PageActionSupport<CarUse> {
 
     @Autowired
     private CarUseDao service;
@@ -101,7 +101,7 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from CarUse where status is true and flag='1'");
+            page = service.findPageByQuery(page, "from CarUse where status is true and flag is null");
         }
         List<CarUse> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);

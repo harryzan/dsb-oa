@@ -2,6 +2,7 @@ package gov.dsb.web.action.oa.demand;
 
 import gov.dsb.core.dao.DemandDao;
 import gov.dsb.core.dao.DemandTypeDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.Demand;
 import gov.dsb.core.domain.DemandType;
 import gov.dsb.core.domain.SysUser;
@@ -33,6 +34,9 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
 
     @Autowired
     private DemandDao service;
+
+    @Autowired
+    private SysUserDao sysUserDao;
 
     @Autowired
     private MessageListener messageListener;
@@ -69,6 +73,16 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
         this.type = type;
     }
 
+    private Long mainuserid;
+
+    public Long getMainuserid() {
+        return mainuserid;
+    }
+
+    public void setMainuserid(Long mainuserid) {
+        this.mainuserid = mainuserid;
+    }
+
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
@@ -78,6 +92,11 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
 //            type = demandTypeDao.get(typeid);
 //            entity.setType(type);
 //        }
+
+        if (mainuserid != null) {
+            SysUser mainuser = sysUserDao.get(mainuserid);
+            entity.setMainuser(mainuser);
+        }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();

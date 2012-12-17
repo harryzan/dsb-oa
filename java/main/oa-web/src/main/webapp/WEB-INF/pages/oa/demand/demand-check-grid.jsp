@@ -15,7 +15,7 @@
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
         var addurl = "demand-check!input";
-        var modifyurl = "demand-check!save";
+        var modifyurl = "demand-check!input";
         var deleteurl = "demand-check!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -39,7 +39,7 @@
                 {name:"id",header:"",width:"10%"},
                 {name:"name",header:"申请内容",width:"10%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
-                {name:"demanddate",header:"使用时间",width:"10%"},
+                {name:"demanddate",header:"需求时间",width:"10%"},
                 {name:"submitdate",header:"申请时间",width:"10%"},
                 {name:"desc",header:"备注",width:"20%"}
             ],

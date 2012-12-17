@@ -1,24 +1,23 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2009-5-15
-  Time: 12:10:24
+  Time: 12:21:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ include file="/common/taglibs.jsp"%>
-<%@ include file="/common/metaGrid.jsp" %>
+<%@ include file="/common/metaMocha.jsp" %>
 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>需求信息维护</title>
-
-<link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript" src="${scriptsPath}/system/calendar.js"></script>
-    <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+<title>驾驶员信息查看</title>
+<link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="${scriptsPath}/mootools/noobSlide/web.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="${scriptsPath}/mootools/noobSlide/style.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="${scriptsPath}/mootools/mootools-core.js"></script>
+	<script type="text/javascript" src="${scriptsPath}/mootools/noobSlide/noobSlide_packed.js"></script>
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -36,7 +35,7 @@
         <%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
             <%--<tr>--%>
               <%--<td width="20" class="textone">&nbsp;</td>--%>
-              <%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
+              <%--<td height="23" valign="bottom" class="textone" align="center"><strong>查看型号信息</strong></td>--%>
               <%--<td width="20">&nbsp;</td>--%>
             <%--</tr>--%>
         <%--</table></td>--%>
@@ -46,10 +45,10 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-use!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
-                <input type ="hidden" name="gridParam" value='${gridParam}'>
+
                 <tr>
-                  <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <td valign="top">
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="4" height="4" background="${themesPath}/oldimages/bg/shang.gif"><div align="right"><img src="${themesPath}/oldimages/bg/1.gif" width="4" height="4"></div></td>
                       <td height="4" background="${themesPath}/oldimages/bg/shang.gif"></td>
@@ -57,34 +56,51 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <td valign="top" bgcolor="#FFFFFF">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">名称：</div></td>
-                            <td width="70%">&nbsp;
-                                <input name="name" type="text" class="input_one" value="${name}">
-                                </td>
+                              <td width="30%"><div align="right">姓名：</div></td>
+                              <td width="70%">&nbsp;${name}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">需求日期：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input id="demanddate" name="demanddate" type="text" class="input_one" value="${demanddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(demanddate, 'date');" /></td>
+                              <td width="30%"><div align="right">性别：</div></td>
+                              <td width="70%">&nbsp;${sex}</td>
+                                  <%--<input name="name" type="text" class="input_one" value="${name}">--%>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">描述：</div></td>
-                            <td height="60">&nbsp;
-                                <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
+                              <td width="30%"><div align="right">出生日期：</div></td>
+                              <td width="70%">&nbsp;${birthday}</td>
                           </tr>
-                          <%--<tr class="textone1">--%>
-                            <%--<td><div align="right">其他说明：</div></td>--%>
-                            <%--<td height="60">&nbsp;--%>
-                                <%--<textarea name="note" class="input_four">${note}</textarea></td>--%>
-                          <%--</tr>--%>
-                          <%--<tr class="textone12">--%>
-                            <%--<td><div align="right">照片：</div></td>--%>
-                            <%--<td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">关联图片文档</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>--%>
-                          <%--</tr>--%>
-
-                      </table></td>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">驾龄：</div></td>
+                              <td width="70%">&nbsp;${years}"年</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">驾驶证号：</div></td>
+                              <td width="70%">&nbsp;${license}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">驾照期限：</div></td>
+                              <td width="70%">&nbsp;${licenselimit}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">驾照等级：</div></td>
+                              <td width="70%">&nbsp;${licenselevel}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">手机：</div></td>
+                              <td width="70%">&nbsp;${cellphone}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">电话：</div></td>
+                              <td width="70%">&nbsp;${phone}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">备注：</div></td>
+                              <td height="70">&nbsp;${memo}</td>
+                          </tr>
+                        </table>
+                      </td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>
                     <tr>
@@ -92,23 +108,21 @@
                       <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
                       <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
                     </tr><tr>
-                            <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
-                                <tr valign="top">
-                                  <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="保 存">
-                                  </div></td>
-                                  <td width="10%"><div align="center">
-                                      <input type="reset" class="button_cc" name="input" value="重 写">
-                                  </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
-                                </tr>
-                            </table></td>
-                          </tr>
+                <td colspan="3"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+                    <tr>
+                      <td width="45%"><div align="right">
+                      </div></td>
+                      <td width="10%"><div align="center">
+                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="closewindow('${description}(${code})');">
+                      </div></td>
+                      <td width="45%"></td>
+                    </tr>
+                </table></td>
+              </tr>
                   </table>
                   </td>
                 </tr>
 
-            </form>
         </table>
         <%--</td><td background="${themesPath}/oldimages/bgtub.gif">&nbsp;</td>--%>
       <%--</tr>--%>
@@ -127,13 +141,32 @@
   <%--</tr>--%>
 <%--</table>--%>
 <script type="text/javascript">
-    function check_form(afrom){
-        if(afrom.demandmodel.value == ""){
-            Ext.MessageBox.alert("提示", "车辆型号不能为空！");
-            return false;
+	window.addEvent('domready',function(){
+        var total = 0;
+        <s:iterator value="attachs" status="status">total = ${status.index + 1};</s:iterator>
+        var arr = new Array();
+        for(var i = 0; i < total; i++){
+            arr[i] = i;
         }
-        return true;
-    }
+		//SAMPLE 2 (transition: Bounce.easeOut)
+		new noobSlide({
+			box: $('box2'),
+			items: arr,
+			interval: 3000,
+			fxOptions: {
+				duration: 1000,
+				transition: Fx.Transitions.Bounce.easeOut,
+				wait: false
+			},
+			addButtons: {
+				previous: $('prev1'),
+				play: $('play1'),
+				stop: $('stop1'),
+				next: $('next1')
+			}
+		});
+	});
 </script>
+
 </body>
 </html>

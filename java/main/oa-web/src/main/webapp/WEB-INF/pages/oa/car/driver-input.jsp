@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -13,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>需求信息维护</title>
+<title>驾驶员信息维护</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
@@ -46,7 +45,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-use!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="driver!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -59,31 +58,64 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">名称：</div></td>
+                            <td width="30%"><div align="right">姓名：</div></td>
                             <td width="70%">&nbsp;
-                                <input name="name" type="text" class="input_one" value="${name}">
-                                </td>
+                                <input name="name" type="text" class="input_one" value="${name}"/>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">需求日期：</div></td>
+                              <td width="30%"><div align="right">性别：</div></td>
                               <td width="70%">&nbsp;
-                                  <input id="demanddate" name="demanddate" type="text" class="input_one" value="${demanddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(demanddate, 'date');" /></td>
+                                  <input name="sex" type="radio" value="男"/>男
+                                  <input name="sex" type="radio" value="女"/>女
+                                  </td>
+                                  <%--<input name="name" type="text" class="input_one" value="${name}">--%>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">描述：</div></td>
-                            <td height="60">&nbsp;
-                                <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
+                              <td width="30%"><div align="right">出生日期：</div></td>
+                              <td width="70%">&nbsp;
+                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
+                                  <input id="birthday" name="birthday" type="text" class="input_one" value="${birthday}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(birthday, 'date');" /></td>
                           </tr>
-                          <%--<tr class="textone1">--%>
-                            <%--<td><div align="right">其他说明：</div></td>--%>
-                            <%--<td height="60">&nbsp;--%>
-                                <%--<textarea name="note" class="input_four">${note}</textarea></td>--%>
-                          <%--</tr>--%>
-                          <%--<tr class="textone12">--%>
-                            <%--<td><div align="right">照片：</div></td>--%>
-                            <%--<td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">关联图片文档</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>--%>
-                          <%--</tr>--%>
-
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">驾龄：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="years" type="text" class="input_one2" value="${years}"/>年
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">驾驶证号：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="license" type="text" class="input_one" value="${license}"/>
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">驾照期限：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input id="licenselimit" name="licenselimit" type="text" class="input_one" value="${licenselimit}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(licenselimit, 'date');" /></td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">驾照等级：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="licenselevel" type="text" class="input_one" value="${licenselevel}"/>
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="30%"><div align="right">手机：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="cellphone" type="text" class="input_one" value="${cellphone}"/>
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%"><div align="right">电话：</div></td>
+                              <td width="70%">&nbsp;
+                                  <input name="phone" type="text" class="input_one" value="${phone}"/>
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">备注：</div></td>
+                              <td height="70">&nbsp;
+                                  <textarea name="memo" class="input_four">${memo}</textarea></td>
+                          </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>
@@ -128,7 +160,7 @@
 <%--</table>--%>
 <script type="text/javascript">
     function check_form(afrom){
-        if(afrom.demandmodel.value == ""){
+        if(afrom.drivermodel.value == ""){
             Ext.MessageBox.alert("提示", "车辆型号不能为空！");
             return false;
         }

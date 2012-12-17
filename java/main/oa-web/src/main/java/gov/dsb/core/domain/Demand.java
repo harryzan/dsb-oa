@@ -99,6 +99,88 @@ public class Demand extends IdEntity {
         this.status = status;
     }
 
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    private String startdate;
+
+    public String getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(String startdate) {
+        this.startdate = startdate;
+    }
+
+    private String enddate;
+
+    public String getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(String enddate) {
+        this.enddate = enddate;
+    }
+
+    private String room;
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    private String attendance;
+
+    public String getAttendance() {
+        return attendance;
+    }
+
+    public void setAttendance(String attendance) {
+        this.attendance = attendance;
+    }
+
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    private String opinion;
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
+
+    private SysUser mainuser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MAINUSERID", referencedColumnName = "ID")
+    public SysUser getMainuser() {
+        return mainuser;
+    }
+
+    public void setMainuser(SysUser mainuser) {
+        this.mainuser = mainuser;
+    }
+
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.LAZY)

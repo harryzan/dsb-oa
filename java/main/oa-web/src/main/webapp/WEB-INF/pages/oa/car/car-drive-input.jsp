@@ -62,62 +62,77 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">申请车辆：</div></td>
-                            <td width="70%" valign="center">&nbsp;
-                                        ${car.carmodel} - ${car.carlicense}
-                                <%--<table style="line-height: 26px">--%>
-                                <%--<s:select name="carid" list="cars" listKey="id"  listValue="carmodel" headerKey="0"/>--%>
-                                <%--</table></td>--%>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">申请事由：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">申请事由：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${name}
                               </td>
                           </tr>
+                          <tr class="textone12">
+                              <td width="15%"><div align="right">申请车别：</div></td>
+                              <td width="35%">&nbsp;${cardesc}
+                              </td>
+                              <td width="15%"><div align="right">人  数：</div></td>
+                              <td width="35%">&nbsp;${usercount}
+                              </td>
+                          </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">发车时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">发车时间：</div></td>
+                              <td width="85%"  colspan="3">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">返回时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">返回时间：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">上车地点：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">上车地点：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${place}
                               </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">行驶路线：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">行驶路线：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${drivingline}
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">备注：</div></td>
-                            <td height="60">&nbsp;
-                                ${desc}
-                            </td>
+                              <td width="15%"><div align="right">备注：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
+                                  ${desc}
+                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">批示意见：</div></td>
-                              <td height="60">&nbsp;
-                                  ${opinion}
+                              <td width="15%"><div align="right">申请人：</div></td>
+                              <td width="35%">&nbsp;${user.displayname}
+                              </td>
+                              <td width="15%"><div align="right">申请时间：</div></td>
+                              <td width="35%">&nbsp;${submitdate}
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="15%"><div align="right">批示意见：</div></td>
+                              <td width="85%" colspan="3">&nbsp;${opinion}
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="15%"><div align="right">批示人：</div></td>
+                              <td width="35%">&nbsp;${checker.displayname}
+                              </td>
+                              <td width="15%"><div align="right">批示时间：</div></td>
+                              <td width="35%">&nbsp;${checkdate}
                               </td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">调度意见：</div></td>
-                              <td height="60">&nbsp;
+                              <td  colspan="3">&nbsp;
                                   <textarea name="memo" class="input_five">${memo}</textarea>
                               </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">分配车辆：</div></td>
-                              <td width="70%" valign="center">&nbsp;
+                              <td width="15%"><div align="right">分配车辆：</div></td>
+                              <td width="85%" valign="center"  colspan="3">&nbsp;
                                   <select name="carid" id="carid">
                                       <c:forEach items="${cars}" var="car" varStatus="status">
                                           <option value="${car.id}">${car.carmodel} - ${car.carlicense}</option>
@@ -125,8 +140,8 @@
                                   </select>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">指定司机：</div></td>
-                              <td width="70%" valign="center">&nbsp;
+                              <td width="15%"><div align="right">指定司机：</div></td>
+                              <td width="85%" valign="center" colspan="3">&nbsp;
                                   <select name="driverid" id="driverid">
                                       <c:forEach items="${drivers}" var="driver" varStatus="status">
                                           <option value="${driver.id}">${driver.name}</option>
@@ -154,12 +169,12 @@
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top">
                                   <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="同 意">
+                                      <input type="submit" class="button_bc" name="input" value="安 排">
                                   </div></td>
                                   <td width="10%"><div align="center">
                                       <input type="reset" class="button_cc" name="input" value="重 写">
                                   </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-drive-grid';"></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>
                           </tr>

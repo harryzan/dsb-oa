@@ -59,51 +59,59 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">车辆型号：</div></td>
-                            <td width="70%" valign="center">&nbsp;
-                                        ${car.carmodel} - ${car.carlicense}
-                                <%--<table style="line-height: 26px">--%>
-                                <%--<s:select name="carid" list="cars" listKey="id"  listValue="carmodel" headerKey="0"/>--%>
-                                <%--</table></td>--%>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">申请事由：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">申请事由：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${name}
                               </td>
                           </tr>
+                          <tr class="textone12">
+                              <td width="15%"><div align="right">申请车别：</div></td>
+                              <td width="35%">&nbsp;${cardesc}
+                              </td>
+                              <td width="15%"><div align="right">人  数：</div></td>
+                              <td width="35%">&nbsp;${usercount}
+                              </td>
+                          </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">发车时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">发车时间：</div></td>
+                              <td width="85%"  colspan="3">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">返回时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">返回时间：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">上车地点：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">上车地点：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${place}
                               </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">行驶路线：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="15%"><div align="right">行驶路线：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
                                   ${drivingline}
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">备注：</div></td>
-                            <td height="60">&nbsp;
+                            <td width="15%"><div align="right">备注：</div></td>
+                            <td width="85%" colspan="3">&nbsp;
                                 ${desc}
                             </td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">批示意见：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="opinion" class="input_five">${opinion}</textarea>
+                              <td width="15%"><div align="right">申请人：</div></td>
+                              <td width="35%">&nbsp;${user.displayname}
+                              </td>
+                              <td width="15%"><div align="right">申请时间：</div></td>
+                              <td width="35%">&nbsp;${submitdate}
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="15%"><div align="right">批示意见：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
+                                  <textarea name="opinion" class="input_long">${opinion}</textarea>
                               </td>
                           </tr>
                           <%--<tr class="textone1">--%>
@@ -124,15 +132,15 @@
                       <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
                       <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
                     </tr><tr>
-                            <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+                            <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top">
                                   <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="同 意">
+                                      <input type="submit" class="button_bc" name="input" value="审 核">
                                   </div></td>
                                   <td width="10%"><div align="center">
                                       <input type="reset" class="button_cc" name="input" value="重 写">
                                   </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-use-grid';"></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>
                           </tr>

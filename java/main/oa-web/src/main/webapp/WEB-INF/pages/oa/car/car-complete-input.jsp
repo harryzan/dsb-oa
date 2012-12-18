@@ -49,7 +49,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="car-drive!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="car-complete!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -107,28 +107,19 @@
                           </tr>
                           <tr class="textone12">
                               <td width="15%" rowspan="2"><div align="right">往返路码数：</div></td>
-                              <td width="35%">起点:&nbsp;${gotrip}
+                              <td width="35%">起点:&nbsp;<input name="gotrip" type="text" class="input_one" value="${gotrip}"/>
                               </td>
                               <td width="15%"><div align="right">实际油耗：</div></td>
-                              <td width="35%">&nbsp;${fuel}
+                              <td width="35%">&nbsp;<input name="fuel" type="text" class="input_one" value="${fuel}"/>
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="35%">终点:&nbsp;${returntrip}
+                              <td width="35%">终点:&nbsp;<input name="returntrip" type="text" class="input_one" value="${returntrip}"/>
                               </td>
                               <td width="15%"><div align="right">实际里程：</div></td>
-                              <td width="35%">&nbsp;${kilometer}
+                              <td width="35%">&nbsp;<input name="kilometer" type="text" class="input_one" value="${kilometer}"/>
                               </td>
                           </tr>
-                          <tr class="textone12">
-                              <td width="15%"><div align="right">登记人：</div></td>
-                              <td width="35%">&nbsp;${reminder.displayname}
-                              </td>
-                              <td width="15%"><div align="right">登记时间：</div></td>
-                              <td width="35%">&nbsp;${reminddate}
-                              </td>
-                          </tr>
-
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>
                             <%--<td height="60">&nbsp;--%>
@@ -149,13 +140,13 @@
                     </tr><tr>
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top">
-                                  <%--<td width="45%"><div align="right">--%>
-                                      <%--<input type="submit" class="button_bc" name="input" value="同 意">--%>
-                                  <%--</div></td>--%>
-                                  <%--<td width="10%"><div align="center">--%>
-                                      <%--<input type="reset" class="button_cc" name="input" value="重 写">--%>
-                                  <%--</div></td>--%>
-                                  <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-complete-grid';"></td>
+                                  <td width="45%"><div align="right">
+                                      <input type="submit" class="button_bc" name="input" value="登 记">
+                                  </div></td>
+                                  <td width="10%"><div align="center">
+                                      <input type="reset" class="button_cc" name="input" value="重 写">
+                                  </div></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>
                           </tr>

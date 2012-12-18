@@ -37,8 +37,8 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"car.carmodel",header:"车辆型号",width:"15%"},
-                {name:"car.carlicense",header:"车辆牌照",width:"15%"},
+                {name:"cardesc",header:"申请车别",width:"15%"},
+                {name:"name",header:"申请事由",width:"25%"},
                 {name:"user.displayname",header:"申请人",width:"15%"},
                 {name:"startdate",header:"使用时间",width:"20%"},
                 {name:"submitdate",header:"提交时间",width:"20%"},

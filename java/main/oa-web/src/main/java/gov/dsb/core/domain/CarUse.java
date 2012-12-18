@@ -190,6 +190,76 @@ public class CarUse extends IdEntity {
         this.memodate = memodate;
     }
 
+    private String cardesc;
+
+    public String getCardesc() {
+        return cardesc;
+    }
+
+    public void setCardesc(String cardesc) {
+        this.cardesc = cardesc;
+    }
+
+    private String comment;
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    private String gotrip;
+
+    public String getGotrip() {
+        return gotrip;
+    }
+
+    public void setGotrip(String gotrip) {
+        this.gotrip = gotrip;
+    }
+
+    private String returntrip;
+
+    public String getReturntrip() {
+        return returntrip;
+    }
+
+    public void setReturntrip(String returntrip) {
+        this.returntrip = returntrip;
+    }
+
+    private String fuel;
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+
+    private String kilometer;
+
+    public String getKilometer() {
+        return kilometer;
+    }
+
+    public void setKilometer(String kilometer) {
+        this.kilometer = kilometer;
+    }
+
+    private String reminddate;
+
+    public String getReminddate() {
+        return reminddate;
+    }
+
+    public void setReminddate(String reminddate) {
+        this.reminddate = reminddate;
+    }
+
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -258,5 +328,17 @@ public class CarUse extends IdEntity {
 
     public void setMemor(SysUser memor) {
         this.memor = memor;
+    }
+
+    private SysUser reminder;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "REMINDERID", referencedColumnName = "ID")
+    public SysUser getReminder() {
+        return reminder;
+    }
+
+    public void setReminder(SysUser reminder) {
+        this.reminder = reminder;
     }
 }

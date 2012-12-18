@@ -66,16 +66,12 @@
                           </tr>
                           <tr class="textone12">
                               <td width="30%"><div align="right">周数：</div></td>
-                              <td width="70%">&nbsp;${week}
+                              <td width="70%">&nbsp;第${week}周
                                   <input id="week" name="week" type="hidden" class="input_one" value="${week}"></td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">开始时间：</div></td>
-                              <td width="70%">&nbsp;${starttime}</td>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">结束时间：</div></td>
-                              <td width="70%">&nbsp;${endtime}</td>
+                              <td width="30%"><div align="right"></div></td>
+                              <td width="70%">&nbsp;周${dow}</td>
                           </tr>
                           <tr class="textone12">
                             <td><div align="right">内容：</div></td>

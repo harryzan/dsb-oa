@@ -101,7 +101,7 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from CarUse where status is true and flag='1'");
+            page = service.findPageByQuery(page, "from CarUse where status is true and flag is not null");
         }
         List<CarUse> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);

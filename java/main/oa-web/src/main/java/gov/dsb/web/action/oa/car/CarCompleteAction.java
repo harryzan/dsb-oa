@@ -29,7 +29,7 @@ import java.util.Date;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-use-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-complete-grid", type = "chain")})
 public class CarCompleteAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
@@ -87,41 +87,21 @@ public class CarCompleteAction extends CRUDActionSupport<CarUse>{
         return id;
     }
 
-    public Long carid;
-
-    public Long getCarid() {
-        return carid;
-    }
-
-    public void setCarid(Long carid) {
-        this.carid = carid;
-    }
-
-    public Long driverid;
-
-    public Long getDriverid() {
-        return driverid;
-    }
-
-    public void setDriverid(Long driverid) {
-        this.driverid = driverid;
-    }
-
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
-        Car car = carDao.get(carid);
-        entity.setCar(car);
+//        Car car = carDao.get(carid);
+//        entity.setCar(car);
 
-        Driver driver = driverDao.get(driverid);
-        entity.setDriver(driver);
+//        Driver driver = driverDao.get(driverid);
+//        entity.setDriver(driver);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
         String day = sdf.format(d);
-        entity.setMemodate(day);
-        entity.setMemor(userSessionService.getCurrentSysUser());
-        entity.setFlag("1");
+        entity.setReminddate(day);
+        entity.setReminder(userSessionService.getCurrentSysUser());
+        entity.setFlag("已完成");
 
         Long entityId = entity.getId();
 

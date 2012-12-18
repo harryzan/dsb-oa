@@ -37,12 +37,12 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"car.carmodel",header:"车辆型号",width:"15%"},
-                {name:"car.carlicense",header:"车辆牌照",width:"15%"},
-                {name:"user.displayname",header:"申请人",width:"15%"},
-                {name:"startdate",header:"使用时间",width:"20%"},
-                {name:"submitdate",header:"提交时间",width:"20%"},
-                {name:"desc",header:"备注",width:"30%"}
+                {name:"name",header:"申请事由",width:"35%"},
+                {name:"user.displayname",header:"申请人",width:"10%"},
+                {name:"startdate",header:"使用时间",width:"10%"},
+                {name:"checker.displayname",header:"审核者",width:"10%"},
+                {name:"checkdate",header:"审核时间",width:"10%"},
+                {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

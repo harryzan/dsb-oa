@@ -48,6 +48,7 @@
                 <c:if test="${pageno < totalpages}">
                 <a href="main?pageno=${pageno+1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </c:if>
+                <a href="${ctx}/message/bulletin/bulletin-grid-record" target="_blank">查看全部</a>
             </td>
         </tr>
         <tr>
@@ -87,7 +88,8 @@
             <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
             <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
             <input type="button" name="search" id="search" value="转到" class="search_but" onclick="changeday();"/>
-            <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;下周&nbsp;→</a>
+            <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;下周&nbsp;→</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="${ctx}/message/workarrange/work-arrange!record" target="_blank">查看全部</a>
         </td>
     </tr>
     <tr>

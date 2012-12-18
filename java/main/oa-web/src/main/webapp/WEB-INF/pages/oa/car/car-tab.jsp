@@ -29,7 +29,7 @@
                 <input onclick="openFunction('driver-grid', this)" type="button" name="button3" id="button3" value="驾驶员管理" class="tab" />
                 <input onclick="openFunction('car-check-grid', this)" type="button" name="button4" id="button4" value="申请审核" class="tab" />
                 <input onclick="openFunction('car-drive-grid', this)" type="button" name="button5" id="button5" value="派车安排" class="tab" />
-                <input onclick="openFunction('car-complete-grid', this)" type="button" name="button6" id="button6" value="历史记录" class="tab" />
+                <input onclick="openFunction('car-complete-grid', this)" type="button" name="button6" id="button6" value="用车信息" class="tab" />
             </c:if>
         </td>
     </tr>

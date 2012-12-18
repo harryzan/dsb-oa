@@ -85,8 +85,8 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
-        Car car = carDao.get(carid);
-        entity.setCar(car);
+//        Car car = carDao.get(carid);
+//        entity.setCar(car);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();

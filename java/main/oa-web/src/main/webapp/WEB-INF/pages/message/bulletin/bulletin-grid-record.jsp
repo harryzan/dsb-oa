@@ -1,78 +1,112 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: cxs
+  Date: 2010-4-1
+  Time: 14:19:39
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>型号信息</title>
+    <title>公告信息</title>
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 
-      <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
+    <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
     <script type="text/javascript">
         //扩展参数,备用
         var pageParam = "";
-//        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
+//        var privilegecode = "s07_bulletin_D,s07_bulletin_R,s07_bulletin_U,s07_bulletin_C";
 //        var result = doPrivilege(privilegecode);
-        var addurl = "car-use!input";
-        var modifyurl = "car-use!input";
-        var deleteurl = "car-use!delete";
-//        if(result.b01_model_D){
+        <%--var addurl = "bulletin!input?bulletinstatus=${bulletinstatus}";--%>
+        <%--var modifyurl = "bulletin!input?bulletinstatus=${bulletinstatus}";--%>
+//        var deleteurl = "bulletin!delete";
+//        addurl = false; // 目前的系统公告功能仅供报警推送之用
+//        deleteurl = false;
+//        modifyurl = false;
+//        if(result.s07_bulletin_C){
+//            addurl = false;
+//        }
+//        if(result.s07_bulletin_D){
 //            deleteurl = false;
 //        }
-//        if(result.b01_model_U){
+//        if(result.s07_bulletin_U){
 //            modifyurl = false;
-//        }
-//        if(result.b01_model_C){
-//            addurl = false;
 //        }
         //grid 参数配置
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"car-use-grid!griddata",
-            addUrl:addurl,
+            url:"bulletin-grid!griddata",
+//            addUrl:addurl,
 //            modifyUrl:modifyurl,
-            deleteUrl:deleteurl,
+//            deleteUrl:deleteurl,
+
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"cardesc",header:"申请车别",width:"15%"},
-                {name:"name",header:"申请事由",width:"35%"},
-                {name:"user.displayname",header:"申请人",width:"20%"},
-                {name:"usedate",header:"使用时间",width:"20%"},
-                {name:"submitdate",header:"提交时间",width:"20%"},
-                {name:"desc",header:"备注",width:"20%"}
+                {name:"name",renderer:checkview,header:"标题",width:"20%"}
+//                {name:"starttime",header:"发布时间",width:"20%"},
+//                {name:"endtime",header:"结束时间",width:"10%"},
+//                {name:"adduser.displayname",header:"发布人",width:"10%"}
+//                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],
+            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
-//                ["编码","","String","code"],
-//                ["描述","","String","description"],
-//                ["生产厂商","","String","manufacturer"]
+                ["内容","","String","description"],
+                ["标题","","String","name"]
             ],
             //每页显示的记录条数
-            pageSize:30,
+            pageSize:15,
          //title:"设备型号",
            //frame:true,
             div:"list"
         };
 
+        function goResult(id, name){
+            <%--enter(name, '${ctx}/f/f08/alarm-push-result?id=' + id,700,400,null);--%>
+            var record = Ext.getCmp("grid").getSelectionModel().getSelected();
+            var bulletinId = record.data["id"];
+            doRequest("${ctx}/s/s07/bulletin!changeStatus?id=" + bulletinId, "POST", null);
+        }
+
+        function check(value){
+            if(value && value.indexOf("true") >= 0){
+                return "已确认";
+            }
+            else {
+                return "未确认";
+            }
+        }
+
         function checkview(value){
-//            if(result.b01_model_R){
-//                return value;
+//            if(result.s07_bulletin_R){
+                return value;
 //            }
-            return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
+
+//            var temp = value.split("|");
+//            if(temp.length == 3){
+//                value = "[<a style='cursor:pointer;'onclick='goResult("+ temp[0] +", \""+temp[1]+"\")'>推送结果</a>]" + temp[2];
+//            }
+//            return value;
         }
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["description"] + "(" + record.data["code"] + ")";
-            var url = '${ctx}/b/b01/model-property?id=' + id;
-//            window.open('model-property?id=' + id,'','width=800px,height=500px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
-            enter(title,url,600,400);
+            var title = record.data["name"];
+            var temp = title.split("|");
+            if(temp.length == 3){
+                title = temp[2];
+            }
+            var url = '${ctx}/message/bulletin/bulletin?id=' + id;
+            enter(title,url,500,300);
         }
 
     </script>

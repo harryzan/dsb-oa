@@ -438,7 +438,7 @@ a:active { color: #333;}
 
 .sy_line{
     height: auto;
-    line-height: 22px;
+    line-height: 20px;
     background-image: url(../images/sy_bg.jpg);
     background-repeat: repeat-x;
     border-right-width: 1px;

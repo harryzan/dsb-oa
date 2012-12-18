@@ -57,74 +57,76 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
-                          <tr class="textone1">
-                            <td width="30%"><div align="right">车辆型号：</div></td>
-                            <td width="70%" valign="center">&nbsp;
-                                <select name="carid" id="carid">
-                                    <c:forEach items="${cars}" var="car" varStatus="status">
-                                        <option value="${car.id}">${car.carmodel} - ${car.carlicense}</option>
-                                    </c:forEach>
-                                </select>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">申请事由：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input name="name" type="text" class="input_chang" value="${name}">
-                          </tr>
-                          <tr class="textone1">
-                              <td width="30%"><div align="right">发车时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input id="startdate" name="startdate" type="text" class="input_one" value="${startdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(startdate, 'datetime');" /></td>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">返回时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
-                          </tr>
-                          <tr class="textone1">
-                              <td width="30%"><div align="right">上车地点：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input name="place" type="text" class="input_one" value="${place}">
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">行驶路线：</div></td>
-                              <td width="70%">&nbsp;
-                                  <input name="drivingline" type="text" class="input_chang" value="${drivingline}">
-                          </tr>
-                          <tr class="textone1">
-                            <td><div align="right">备注：</div></td>
-                            <td height="60">&nbsp;
-                                <textarea name="desc" class="input_five">${desc}</textarea></td>
-                          </tr>
-                          <%--<tr class="textone1">--%>
+                        <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                            <tr class="textone1">
+                                <td width="15%"><div align="right">申请事由：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <input name="name" type="text" class="input_chang" value="${name}">
+                                </td>
+                            </tr>
+                            <tr class="textone12">
+                                <td width="15%"><div align="right">申请车别：</div></td>
+                                <td width="35%">&nbsp;
+                                    <input name="cardesc" type="text" class="input_one" value="${cardesc}">
+                                </td>
+                                <td width="15%"><div align="right">人  数：</div></td>
+                                <td width="35%">&nbsp;
+                                    <input name="usercount" type="text" class="input_one" value="${usercount}">
+                                </td>
+                            </tr>
+                            <tr class="textone1">
+                                <td width="15%"><div align="right">发车时间：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <input id="startdate" name="startdate" type="text" class="input_one" value="${startdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(startdate, 'datetime');" /></td>
+                            </tr>
+                            <tr class="textone12">
+                                <td width="15%"><div align="right">返回时间：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
+                            </tr>
+                            <tr class="textone1">
+                                <td width="15%"><div align="right">上车地点：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <input name="place" type="text" class="input_chang" value="${place}">
+                            </tr>
+                            <tr class="textone12">
+                                <td width="15%"><div align="right">行驶路线：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <input name="drivingline" type="text" class="input_chang" value="${drivingline}">
+                            </tr>
+                            <tr class="textone1">
+                                <td width="15%"><div align="right">备注：</div></td>
+                                <td width="85%" colspan="3">&nbsp;
+                                    <textarea name="desc" class="input_long">${desc}</textarea></td>
+                            </tr>
+                            <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>
                             <%--<td height="60">&nbsp;--%>
-                                <%--<textarea name="note" class="input_four">${note}</textarea></td>--%>
-                          <%--</tr>--%>
-                          <%--<tr class="textone12">--%>
+                            <%--<textarea name="note" class="input_four">${note}</textarea></td>--%>
+                            <%--</tr>--%>
+                            <%--<tr class="textone12">--%>
                             <%--<td><div align="right">照片：</div></td>--%>
                             <%--<td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">关联图片文档</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>--%>
-                          <%--</tr>--%>
+                            <%--</tr>--%>
 
-                      </table></td>
-                      <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
+                        </table></td>
+                        <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>
-                    <tr>
-                      <td width="4" height="4" background="${themesPath}/oldimages/bg/xia.gif"><div align="right"><img src="${themesPath}/oldimages/bg/3.gif" width="4" height="4"></div></td>
-                      <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
-                      <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
-                    </tr><tr>
-                            <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
-                                <tr valign="top">
-                                  <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="保 存">
-                                  </div></td>
-                                  <td width="10%"><div align="center">
-                                      <input type="reset" class="button_cc" name="input" value="重 写">
-                                  </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-use-grid';"></td>
-                                </tr>
+                      <tr>
+                          <td width="4" height="4" background="${themesPath}/oldimages/bg/xia.gif"><div align="right"><img src="${themesPath}/oldimages/bg/3.gif" width="4" height="4"></div></td>
+                          <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
+                          <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
+                      </tr><tr>
+                      <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr valign="top">
+                              <td width="45%"><div align="right">
+                                  <input type="submit" class="button_bc" name="input" value="保 存">
+                              </div></td>
+                              <td width="10%"><div align="center">
+                                  <input type="reset" class="button_cc" name="input" value="重 写">
+                              </div></td>
+                              <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-use-grid';"></td>
+                          </tr>
                             </table></td>
                           </tr>
                   </table>

@@ -30,7 +30,7 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class DemandCompleteGridAction extends PageActionSupport<Demand> {
+public class DemandCheckGridAction extends PageActionSupport<Demand> {
 
     @Autowired
     private DemandDao service;
@@ -122,7 +122,7 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from Demand where status is true and type.id=?", typeid);
+            page = service.findPageByQuery(page, "from Demand where status is false and type.id=?", typeid);
         }
         List<Demand> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);

@@ -202,7 +202,7 @@
             <td colspan="2"><div class="sy_line">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                        <td height="80"><table width="80%" border="0" align="center">
+                        <td height="30"><table width="80%" border="0" align="center">
                             <tr>
                                 <td><table width="50%" border="0">
                                     <tr>
@@ -243,9 +243,6 @@
         </tr>
     </table></td>
 <td width="280" valign="top" class="sy_right_bg"><table width="280" border="0" cellpadding="0" cellspacing="0">
-<tr>
-    <td height="30">&nbsp;</td>
-</tr>
 <tr>
 <td><table align="center" cellpadding="0" cellspacing="0"  id="1">
     <tr>

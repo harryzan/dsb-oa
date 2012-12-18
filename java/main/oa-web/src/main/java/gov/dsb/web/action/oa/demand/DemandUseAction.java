@@ -1,9 +1,6 @@
 package gov.dsb.web.action.oa.demand;
 
-import gov.dsb.core.dao.CarDao;
-import gov.dsb.core.dao.DemandDao;
-import gov.dsb.core.dao.DemandTypeDao;
-import gov.dsb.core.dao.SysRoleDao;
+import gov.dsb.core.dao.*;
 import gov.dsb.core.domain.*;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.web.message.MessageListener;
@@ -42,6 +39,9 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
     private SysRoleDao sysRoleDao;
 
     @Autowired
+    private SysUserDao sysUserDao;
+
+    @Autowired
     private DemandTypeDao demandTypeDao;
 
     @Autowired
@@ -73,6 +73,16 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
         this.type = type;
     }
 
+    public Long moderatorid;
+
+    public Long getModeratorid() {
+        return moderatorid;
+    }
+
+    public void setModeratorid(Long moderatorid) {
+        this.moderatorid = moderatorid;
+    }
+
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
@@ -81,6 +91,11 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
         if (typeid != null){
             type = demandTypeDao.get(typeid);
             entity.setType(type);
+        }
+
+        if (moderatorid != null) {
+            SysUser moderator = sysUserDao.get(moderatorid);
+            entity.setModerator(moderator);
         }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -111,6 +126,12 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
                 entity = new Demand();
                 entity.setStatus(false);
             }
+        }
+        UserSession userSession = userSessionService.getUserSession();
+        Long typeid= typeid = (Long) userSession.get("typeid");
+        if (typeid != null){
+            type = demandTypeDao.get(typeid);
+            entity.setType(type);
         }
     }
 

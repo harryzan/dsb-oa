@@ -169,6 +169,38 @@ public class Demand extends IdEntity {
         this.opinion = opinion;
     }
 
+    private String personnum;
+
+    public String getPersonnum() {
+        return personnum;
+    }
+
+    public void setPersonnum(String personnum) {
+        this.personnum = personnum;
+    }
+
+    private String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    private SysUser moderator;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MODERATORID", referencedColumnName = "ID")
+    public SysUser getModerator() {
+        return moderator;
+    }
+
+    public void setModerator(SysUser moderator) {
+        this.moderator = moderator;
+    }
+
     private SysUser mainuser;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -19,6 +19,15 @@
 
     <script type="text/javascript" src="${scriptsPath}/system/calendar.js"></script>
     <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
+    <script type="text/javascript">
+        function moderator(){
+            var returnvalue = window.showModalDialog("${ctx}/common/tree/sys-user-tree", 1);
+            if(returnvalue){
+                document.getElementById("moderatorname").value = returnvalue.split(",")[0];
+                document.getElementById("moderatorid").value = returnvalue.split(",")[1];
+            }
+        }
+    </script>
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -58,6 +67,8 @@
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+
+                          <c:if test="${type.name != '会议'}">
                           <tr class="textone1">
                             <td width="30%"><div align="right">名称：</div></td>
                             <td width="70%">&nbsp;
@@ -74,6 +85,71 @@
                             <td height="60">&nbsp;
                                 <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
                           </tr>
+                          </c:if>
+
+                          <c:if test="${type.name == '会议'}">
+                              <tr class="textone12">
+                                  <td width="30%"><div align="right">会议名称：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input name="name" type="text" class="input_one" value="${name}">
+                                  </td>
+                              </tr>
+                              <tr class="textone1">
+                                  <td width="30%"><div align="right">会议主题：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input name="title" type="text" class="input_chang" value="${title}">
+                                  </td>
+                              </tr>
+                              <tr class="textone12">
+                                  <td><div align="right">主持人：</div></td>
+                                  <td height="60">&nbsp;
+                                      <input type="hidden" name="moderatorid" id="moderatorid" value="${moderator.id}"/>
+                                      <input name="moderatorname" id="moderatorname" value="${moderator.displayname}" type="text" class="input_one" readonly />
+                                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="moderator()" >
+                                  </td>
+                              </tr>
+                              <tr class="textone1">
+                                  <td width="30%"><div align="right">使用日期：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input id="demanddate" name="demanddate" type="text" class="input_one" value="${demanddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(demanddate, 'datetime');" />
+                                  至<input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
+                              </tr>
+                              <tr class="textone12">
+                                  <td width="30%"><div align="right">会议主题：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input name="title" type="text" class="input_chang" value="${title}">
+                                  </td>
+                              </tr>
+                              <tr class="textone1">
+                                  <td width="30%"><div align="right">参加人员：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input name="attendance" type="text" class="input_chang" value="${attendance}">
+                                  </td>
+                              </tr>
+                              <tr class="textone12">
+                                  <td width="30%"><div align="right">会议人数：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <input name="personnum" type="text" class="input_one" value="${personnum}">
+                                  </td>
+                              </tr>
+                              <tr class="textone1">
+                                  <td width="30%"><div align="right">会议地点：</div></td>
+                                  <td width="70%">&nbsp;
+                                      <select name="room" id="room">
+                                          <option value="一楼会议室">一楼会议室</option>
+                                          <option value="二楼会议室">二楼会议室</option>
+                                          <option value="四楼会议室">四楼会议室</option>
+                                      </select>
+                                  </td>
+                              </tr>
+                              <tr class="textone12">
+                                  <td><div align="right">会务要求：</div></td>
+                                  <td height="60">&nbsp;
+                                      <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
+                              </tr>
+                          </c:if>
+
+
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>
                             <%--<td height="60">&nbsp;--%>
@@ -100,7 +176,7 @@
                                   <td width="10%"><div align="center">
                                       <input type="reset" class="button_cc" name="input" value="重 写">
                                   </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back()"></td>
+                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='demand-use-grid';"></td>
                                 </tr>
                             </table></td>
                           </tr>

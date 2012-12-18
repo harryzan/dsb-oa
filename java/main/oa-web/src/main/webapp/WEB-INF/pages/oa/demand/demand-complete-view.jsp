@@ -135,26 +135,15 @@
                           </c:if>
                           <tr class="textone12">
                               <td><div align="right">审核意见：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="opinion" class="input_five" rows="10">${opinion}</textarea></td>
+                              <td height="60">&nbsp;${opinion}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">安排情况：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="memo" class="input_five" rows="10">${memo}</textarea></td>
+                              <td height="60">&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">执行人：</div></td>
-                              <td height="60">&nbsp;
-                                  <input type="hidden" name="mainuserid" id="mainuserid" value="${mainuser.id}"/>
-                                  <input name="mainusername" id="mainusername" value="${mainuser.displayname}" type="text" class="input_one" readonly />
-                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="mainuser()" >
-                              </td>
-                          </tr>
-                          <tr class="textone1">
-                              <td><div align="right">是否完成：</div></td>
-                              <td height="60">&nbsp;
-                                <input type="checkbox" id="complete" name="complete" value="1"/>
+                              <td height="60">&nbsp;${mainuser.displayname}
                               </td>
                           </tr>
                           <%--<tr class="textone12">--%>
@@ -172,13 +161,7 @@
                     </tr><tr>
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top">
-                                  <td width="45%"><div align="right">
-                                      <input type="submit" class="button_bc" name="input" value="保 存">
-                                  </div></td>
-                                  <td width="10%"><div align="center">
-                                      <input type="reset" class="button_cc" name="input" value="重 写">
-                                  </div></td>
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
+                                  <td width="100%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>
                           </tr>

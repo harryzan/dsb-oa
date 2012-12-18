@@ -1,5 +1,5 @@
-body {
-	font-family: "΢���ź�";
+﻿body {
+	font-family: "微软雅黑";
 	font-size:14px;
 	color:#204498;
 	margin: 0;
@@ -150,7 +150,7 @@ a:active { color: #333;}
 .main_title{
 	height: 33px;
 	background-position: left;
-	font-family: "΢���ź�";
+	font-family: "微软雅黑";
 	font-size: 14px;
 	color: #053c52;
 	line-height: 25px;
@@ -449,10 +449,10 @@ a:active { color: #333;}
     border-left-color: #dddee1;
 }
 .sy_text_1{
-	font-family: "����";
+	font-family: "宋体";
 	font-size: 14px;
 	font-weight: bold;
-	color: #ae0407;
+	color: #d28080;
 }
 .sy_right_bg{
     background-image: url(../images/sy_7.jpg);

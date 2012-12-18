@@ -31,7 +31,7 @@ import java.util.List;
 
 @ParentPackage("default")
 @Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-check-grid", type = "chain")})
-public class DemandCheckAction extends CRUDActionSupport<Demand>{
+public class DemandCompleteAction extends CRUDActionSupport<Demand>{
 
     @Autowired
     private DemandDao service;

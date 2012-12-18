@@ -30,18 +30,28 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"demand-use-grid!griddata",
+            url:"demand-check-grid!griddata",
             addUrl:addurl,
             modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
+                <c:if test="${type.name != '会议'}">
                 {name:"name",header:"申请内容",width:"10%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"demanddate",header:"需求时间",width:"10%"},
                 {name:"submitdate",header:"申请时间",width:"10%"},
                 {name:"desc",header:"备注",width:"20%"}
+                </c:if>
+                <c:if test="${type.name == '会议'}">
+                {name:"name",header:"会议名称",width:"10%"},
+                {name:"user.displayname",header:"申请人",width:"10%"},
+                {name:"demanddate",header:"会议时间",width:"10%"},
+                {name:"moderator.displayname",header:"主持人",width:"10%"},
+                {name:"submitdate",header:"申请时间",width:"10%"},
+                {name:"desc",header:"会务要求",width:"20%"}
+                </c:if>
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

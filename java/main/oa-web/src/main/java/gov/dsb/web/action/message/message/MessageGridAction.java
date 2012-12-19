@@ -146,6 +146,8 @@ public class MessageGridAction extends PageActionSupport<Message> {
         else {
             hql += " and (status is null or status is false) ";
         }
+
+        System.out.println("************** hql = " + hql);
 //        if (bulletinstatus)
 //            hql += " where endtime < to_char(sysdate)";
 //        else

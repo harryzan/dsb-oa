@@ -87,7 +87,7 @@ public class CarAction extends CRUDActionSupport<Car>{
         SysUser currentUser = userSessionService.getCurrentSysUser();
 
         if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
-                sysUserDao.containRole(currentUser.getId(), "车辆负责人")) {
+                sysUserDao.containRole(currentUser.getId(), "车辆负责人") || currentUser.getLoginname().equals("admin")) {
             isadmin = true;
         }
         return "tab";

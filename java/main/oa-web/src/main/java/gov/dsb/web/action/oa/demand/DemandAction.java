@@ -127,7 +127,7 @@ public class DemandAction extends CRUDActionSupport<Demand>{
         SysUser currentUser = userSessionService.getCurrentSysUser();
 
         if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
-                demandType.getUser().getId().equals(currentUser.getId())) {
+                demandType.getUser().getId().equals(currentUser.getId()) || currentUser.getLoginname().equals("admin")) {
             isadmin = true;
         }
         return "tab";

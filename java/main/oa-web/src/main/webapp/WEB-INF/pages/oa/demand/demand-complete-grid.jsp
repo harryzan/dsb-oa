@@ -15,7 +15,7 @@
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
 //        var addurl = "demand-check!input";
-//        var modifyurl = "demand-check!save";
+        var modifyurl = "demand-complete!input";
 //        var deleteurl = "demand-check!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -32,7 +32,7 @@
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"demand-complete-grid!griddata",
 //            addUrl:addurl,
-//            modifyUrl:modifyurl,
+            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
@@ -53,7 +53,7 @@
                 {name:"checkdate",header:"审核时间",width:"15%"},
                 {name:"memodate",header:"安排时间",width:"15%"},
                 </c:if>
-                {name:"状态",header:"flag",width:"10%"}
+                {name:"flag",header:"状态",width:"10%"}
 //                {name:"desc",header:"备注",width:"30%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列

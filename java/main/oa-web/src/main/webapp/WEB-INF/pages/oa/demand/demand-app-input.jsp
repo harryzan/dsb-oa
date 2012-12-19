@@ -55,7 +55,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-check!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+            <form action="demand-app!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">

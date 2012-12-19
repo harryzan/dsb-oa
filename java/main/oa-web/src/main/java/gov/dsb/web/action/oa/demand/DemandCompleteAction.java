@@ -115,7 +115,7 @@ public class DemandCompleteAction extends CRUDActionSupport<Demand>{
         entity.setReminddate(day);
         entity.setReminder(userSessionService.getCurrentSysUser());
 
-            entity.setFlag("已反馈");
+        entity.setFlag("已反馈");
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

@@ -156,8 +156,7 @@
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">反馈意见：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="remind" class="input_five" rows="10">${remind}</textarea></td>
+                              <td height="60">&nbsp;${remind}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">反馈人：</div></td>
@@ -177,8 +176,8 @@
                       <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
                       <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
                     </tr><tr>
-                            <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
-                                <tr valign="top">
+                            <td colspan="4" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+                                <tr valign="top" align="center">
                                   <td width="100%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>

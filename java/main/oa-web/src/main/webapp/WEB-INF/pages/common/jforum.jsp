@@ -15,6 +15,7 @@
             var password = '';
             if (username == 'admin') {
                 password = 'admin';
+
             }
 
             var paramData = "username=" + username + "&password=" + password + "&action=validateLogin&module=user";

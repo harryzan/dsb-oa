@@ -189,6 +189,26 @@ public class Demand extends IdEntity {
         this.memo = memo;
     }
 
+    private String remind;
+
+    public String getRemind() {
+        return remind;
+    }
+
+    public void setRemind(String remind) {
+        this.remind = remind;
+    }
+
+    private String reminddate;
+
+    public String getReminddate() {
+        return reminddate;
+    }
+
+    public void setReminddate(String reminddate) {
+        this.reminddate = reminddate;
+    }
+
     private SysUser moderator;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -199,6 +219,16 @@ public class Demand extends IdEntity {
 
     public void setModerator(SysUser moderator) {
         this.moderator = moderator;
+    }
+
+    private String memodate;
+
+    public String getMemodate() {
+        return memodate;
+    }
+
+    public void setMemodate(String memodate) {
+        this.memodate = memodate;
     }
 
     private SysUser mainuser;
@@ -235,6 +265,30 @@ public class Demand extends IdEntity {
 
     public void setChecker(SysUser checker) {
         this.checker = checker;
+    }
+
+    private SysUser memor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MEMORID", referencedColumnName = "ID")
+    public SysUser getMemor() {
+        return memor;
+    }
+
+    public void setMemor(SysUser memor) {
+        this.memor = memor;
+    }
+
+    private SysUser reminder;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "REMINDERID", referencedColumnName = "ID")
+    public SysUser getReminder() {
+        return reminder;
+    }
+
+    public void setReminder(SysUser reminder) {
+        this.reminder = reminder;
     }
 
     private DemandType type;

@@ -30,8 +30,8 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-complete-grid", type = "chain")})
-public class DemandCompleteAction extends CRUDActionSupport<Demand>{
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-app-grid", type = "chain")})
+public class DemandAppAction extends CRUDActionSupport<Demand>{
 
     @Autowired
     private DemandDao service;
@@ -104,18 +104,21 @@ public class DemandCompleteAction extends CRUDActionSupport<Demand>{
 //            entity.setType(type);
 //        }
 
-//        if (mainuserid != null) {
-//            SysUser mainuser = sysUserDao.get(mainuserid);
-//            entity.setMainuser(mainuser);
-//        }
+        if (mainuserid != null) {
+            SysUser mainuser = sysUserDao.get(mainuserid);
+            entity.setMainuser(mainuser);
+        }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d = new Date();
         String day = sdf.format(d);
-        entity.setReminddate(day);
-        entity.setReminder(userSessionService.getCurrentSysUser());
+        entity.setMemodate(day);
+        entity.setMemor(userSessionService.getCurrentSysUser());
 
-            entity.setFlag("已反馈");
+        if (StringHelp.isNotEmpty(complete)) {
+            entity.setFlag("已安排");
+            entity.setStatus(true);
+        }
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

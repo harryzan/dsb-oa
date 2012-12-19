@@ -35,9 +35,10 @@
                 }
             }
         }
+
     </script>
 </head>
-<body onload="changetype();">
+<body>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="3" class="line_td_title" align="center">个人考勤</td>
@@ -97,4 +98,7 @@
     </form>
 </table>
 </body>
+<script type="text/javascript">
+    changetype();
+</script>
 </html>

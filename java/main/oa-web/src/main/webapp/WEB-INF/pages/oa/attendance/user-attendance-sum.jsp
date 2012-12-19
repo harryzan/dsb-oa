@@ -23,17 +23,17 @@
 <body>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
-        <td colspan="12" class="line_td_title" align="center">考勤月报</td>
+        <td colspan="13" class="line_td_title" align="center">考勤月报</td>
     </tr>
     <form action="user-attendance!sum" method="post">
         <tr class="noprint">
-            <td colspan="12" class="line_td_search" align="center">
+            <td colspan="13" class="line_td_search" align="center">
                 <a href="user-attendance!sum?month=${beforemonth}&year=${beforeyear}">←${beforeyear}年&nbsp;第${beforemonth}月&nbsp;</a>
                 日期：
                 <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
                 <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
                 <input type="button" name="search" id="search" value="搜索" class="search_but" onclick="changeday();"/>
-                <a href="work-arrange!month?month=${aftermonth}&year=${afteryear}">&nbsp;${afteryear}年&nbsp;第${aftermonth}月→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="work-arrange!sum?month=${aftermonth}&year=${afteryear}">&nbsp;${afteryear}年&nbsp;第${aftermonth}月→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" name="add" id="add" value="打印" onclick="window.print();" class="confirm_but"/>
             </td>
         </tr>
@@ -50,6 +50,7 @@
         <td class="line_td_head">探亲假</td>
         <td class="line_td_head">旷工</td>
         <td class="line_td_head">公出</td>
+        <td class="line_td_head">其他</td>
     </tr>
     <c:forEach items="${records}" var="attendance" varStatus="status">
         <tr>

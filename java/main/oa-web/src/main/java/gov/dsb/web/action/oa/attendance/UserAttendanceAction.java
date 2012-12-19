@@ -424,8 +424,12 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
             SysUser user = sysUserDao.get(userid.longValue());
 
             map.put("USERNAME", user.getDisplayname());
+            map.put("ORDERNO", user.getSysdept().getOrderno());
             map.put("DEPTNAME", user.getSysdept().getName());
         }
+
+        Collections.sort(records, new UserAttendanceComparator());
+
         System.out.println("records.size() = " + records.size());
 
         return "sum";
@@ -439,5 +443,30 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
     public void setRecords(List<Map> records) {
         this.records = records;
+    }
+
+    class UserAttendanceComparator implements Comparator {
+
+        public final int compare(Object pFirst, Object pSecond) {
+            Long forderno = (Long) ((Map) pFirst).get("ORDERNO");
+            Long sorderno = (Long) ((Map) pSecond).get("ORDERNO");
+            BigInteger fuserid = (BigInteger) ((Map) pFirst).get("USERID");
+            BigInteger suserid = (BigInteger) ((Map) pSecond).get("USERID");
+
+            if (forderno < sorderno) {
+                return 1;
+            }
+            else if (forderno > sorderno) {
+                return -1;
+            }
+            else {
+                if (fuserid.longValue() < suserid.longValue()) {
+                    return 1;
+                }
+                else {
+                    return -1;
+                }
+            }
+        }
     }
 }

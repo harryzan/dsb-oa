@@ -8,9 +8,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.sql.Date;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -69,6 +69,8 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             save(userAttendance);
             attendances.add(userAttendance);
         }
+
+        Collections.sort(attendances, new UserAttendanceComparator());
         return attendances;
     }
 
@@ -99,6 +101,8 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             save(userAttendance);
             attendances.add(userAttendance);
         }
+
+        Collections.sort(attendances, new UserAttendanceComparator());
         return attendances;
     }
 
@@ -120,6 +124,43 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             save(userAttendance);
             attendances.add(userAttendance);
         }
+
+        Collections.sort(attendances, new UserAttendanceComparator());
         return attendances;
+    }
+
+    class UserAttendanceComparator implements Comparator {
+
+        public final int compare(Object pFirst, Object pSecond) {
+            Long puserid = ((UserAttendance) pFirst).getUser().getId();
+            Long suserid = ((UserAttendance) pSecond).getUser().getId();
+            Long porderno = ((UserAttendance) pFirst).getUser().getSysdept().getOrderno();
+            Long sorderno = ((UserAttendance) pSecond).getUser().getSysdept().getOrderno();
+            Boolean pnoon = ((UserAttendance) pFirst).getNoon();
+            Boolean snoon = ((UserAttendance) pSecond).getNoon();
+
+            if (porderno < sorderno) {
+                return 1;
+            }
+            else if (porderno > sorderno) {
+                return -1;
+            }
+            else {
+                if (puserid < suserid) {
+                    return 1;
+                }
+                else if (puserid > suserid) {
+                    return -1;
+                }
+                else {
+                    if (snoon) {
+                        return 1;
+                    }
+                    else {
+                        return -1;
+                    }
+                }
+            }
+        }
     }
 }

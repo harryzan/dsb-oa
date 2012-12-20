@@ -27,10 +27,10 @@
             <tr bgcolor=<%=tablebodycolor%>>
           <td width="100%" valign=top><font color="<%=TableContentColor%>"> 
             <CENTER>
-              <B>欢迎您使用长江隧桥</B> 
+              <B>欢迎您使用党史办</B> 
             </CENTER>
             <BR>
-            <B>以下为长江隧桥基本信息，管理操作请点击左边相应连接</B><br>
+            <B>以下为党史办基本信息，管理操作请点击左边相应连接</B><br>
             <br>
             <BR>
             ***************************************************************<br>

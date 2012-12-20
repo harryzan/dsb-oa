@@ -115,10 +115,10 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
         entity.setMemodate(day);
         entity.setMemor(userSessionService.getCurrentSysUser());
 
-        if (StringHelp.isNotEmpty(complete)) {
+//        if (StringHelp.isNotEmpty(complete)) {
             entity.setFlag("已安排");
             entity.setStatus(true);
-        }
+//        }
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

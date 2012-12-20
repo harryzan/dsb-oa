@@ -130,7 +130,7 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">会务要求：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <tr class="textone12">
@@ -151,12 +151,12 @@
                                   <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="mainuser()" >--%>
                               <%--</td>--%>
                           <%--</tr>--%>
-                          <tr class="textone1">
-                              <td><div align="right">是否完成审核：</div></td>
-                              <td height="60">&nbsp;
-                                <input type="checkbox" id="complete" name="complete" value="1"/>
-                              </td>
-                          </tr>
+                          <%--<tr class="textone1">--%>
+                              <%--<td><div align="right">是否完成审核：</div></td>--%>
+                              <%--<td height="60">&nbsp;--%>
+                                <%--<input type="checkbox" id="complete" name="complete" value="1"/>--%>
+                              <%--</td>--%>
+                          <%--</tr>--%>
                           <%--<tr class="textone12">--%>
                             <%--<td><div align="right">照片：</div></td>--%>
                             <%--<td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">关联图片文档</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>--%>

@@ -130,28 +130,28 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">会务要求：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <tr class="textone12">
                               <td><div align="right">审核意见：</div></td>
-                              <td height="60">${opinion}</td>
+                              <td>${opinion}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">审核人：</div></td>
-                              <td height="60">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">安排情况：</div></td>
-                              <td height="60">&nbsp;${memo}</td>
+                              <td>&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">安排人：</div></td>
-                              <td height="60">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td>${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">执行人：</div></td>
-                              <td height="60">&nbsp;${mainuser.displayname}
+                              <td>&nbsp;${mainuser.displayname}
                               </td>
                           </tr>
                           <tr class="textone12">

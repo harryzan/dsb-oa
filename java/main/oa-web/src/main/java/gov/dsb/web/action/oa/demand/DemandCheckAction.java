@@ -115,7 +115,7 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
         entity.setCheckdate(day);
         entity.setChecker(userSessionService.getCurrentSysUser());
 
-        if (StringHelp.isNotEmpty(complete))
+//        if (StringHelp.isNotEmpty(complete))
             entity.setStatus(true);
         service.save(entity);
 

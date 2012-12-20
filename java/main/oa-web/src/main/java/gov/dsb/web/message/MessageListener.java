@@ -1,8 +1,10 @@
 package gov.dsb.web.message;
 
 import gov.dsb.core.dao.MessageDao;
+import gov.dsb.core.dao.SysRoleDao;
 import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.*;
+import gov.dsb.core.utils.StringHelp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,15 @@ public class MessageListener implements Listener {
 
     @Autowired
     public MessageDao messageDao;
+
+    @Autowired
+    private SysRoleDao sysRoleDao;
+
+    @Override
+    public void notice(Collection<SysUser> sysUsers, String content) {
+
+
+    }
 
     @Override
     public void notice(Collection<SysUser> sysUsers, Bulletin bulletin) {
@@ -66,22 +77,45 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
-            message.setType("车辆申请");
+            message.setType("用车申请");
+            message.setFlag("caruse");
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
-            if (carUse.getStatus()) {
-                message.setName("车辆申请审核");
-                message.setDescription("/oa/car/car-check-grid");
-            }
-            else {
-                message.setName("车辆申请通过");
-                message.setDescription("/oa/car/car-complete-grid");
-            }
             message.setReceiver(sysUser);
-
             message.setSystem(true);
 
-            messageDao.save(message);
+            if (!carUse.getStatus()) {
+                message.setName("用车申请待处理");
+                message.setDescription("/oa/car/car-check!input?id=" + carUse.getId());
+                messageDao.save(message);
+            }
+            else {
+                if (StringHelp.isEmpty(carUse.getFlag())) {
+                    message.setName("用车申请已通过");
+                    message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
+                    messageDao.save(message);
+
+
+                    SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
+                    Collection<SysUser> users = role.getSysuserroles();
+                    for (SysUser user : users) {
+                        message = new Message();
+                        message.setType("用车申请");
+                        message.setFlag("caruse");
+                        message.setStarttime(new Timestamp(current));
+                        message.setReceiver(user);
+                        message.setSystem(true);
+                        message.setName("用车申请待安排");
+                        message.setDescription("/oa/car/car-drive!input?id=" + carUse.getId());
+                        messageDao.save(message);
+                    }
+                }
+                else {
+                    message.setName("用车申请已安排");
+                    message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
+                    messageDao.save(message);
+                }
+            }
         }
     }
 

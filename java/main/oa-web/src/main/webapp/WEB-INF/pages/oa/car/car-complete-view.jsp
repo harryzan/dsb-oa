@@ -97,6 +97,24 @@
                                   ${drivingline}
                               </td>
                           </tr>
+                          <tr class="textone12">
+                              <td width="15%"><div align="right">备注：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
+                                  ${desc}
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">批示意见：</div></td>
+                              <td>${opinion}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">审核人：</div></td>
+                              <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">调度意见：</div></td>
+                              <td>${memo}</td>
+                          </tr>
                           <tr class="textone1">
                               <td width="15%"><div align="right">使用车辆：</div></td>
                               <td width="35%">&nbsp;${car.carmodel}-${car.carlicense}
@@ -104,6 +122,10 @@
                               <td width="15%"><div align="right">驾驶员：</div></td>
                               <td width="35%">&nbsp;${driver.name}
                               </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">安排人：</div></td>
+                              <td>${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone12">
                               <td width="15%" rowspan="2"><div align="right">往返路码数：</div></td>

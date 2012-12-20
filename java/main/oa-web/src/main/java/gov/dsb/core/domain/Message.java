@@ -133,6 +133,16 @@ public class Message extends IdEntity {
         this.system = system;
     }
 
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

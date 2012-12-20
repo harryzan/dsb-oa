@@ -292,19 +292,101 @@ public class MainAction extends PageActionSupport<DemandType> {
 
         totalpages = page.getTotalPages();
 
-        List<Message> query = messageDao.findByQuery("from Message where type = '发文管理' and receiver.id=? and (status is null or status is false) ", user.getId());
-        count1 = query.size();
+        query1 = messageDao.findByQuery("from Message where flag = '发文管理' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count1 = query1.size();
 
-        query = messageDao.findByQuery("from Message where type = '车辆申请' and receiver.id=? and (status is null or status is false) ", user.getId());
-        count2 = query.size();
+        query2 = messageDao.findByQuery("from Message where flag = 'caruse' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count2 = query2.size();
+        if (count2 > 0){
+            Message message = query2.get(0);
+            url2 = message.getId();
+        }
 
-        query = messageDao.findByQuery("from Message where type = '车辆需求' and receiver.id=? and (status is null or status is false) ", user.getId());
-        count3 = query.size();
+        query3 = messageDao.findByQuery("from Message where flag = 'demand' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count3 = query3.size();
+        if (count3 > 0){
+            Message message = query3.get(0);
+            url3 = message.getId();
+        }
 
-        query = messageDao.findByQuery("from Message where type = '一周工作安排' and receiver.id=? and (status is null or status is false) ", user.getId());
-        count4 = query.size();
+        query4 = messageDao.findByQuery("from Message where flag = '一周工作安排' and receiver.id=? and (status is null or status is false) ", user.getId());
+        count4 = query4.size();
 
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
+    }
+
+    private List<Message> query1;
+    private List<Message> query2;
+    private List<Message> query3;
+    private List<Message> query4;
+
+    private Long url1;
+    private Long url2;
+    private Long url3;
+    private Long url4;
+
+    public Long getUrl1() {
+        return url1;
+    }
+
+    public void setUrl1(Long url1) {
+        this.url1 = url1;
+    }
+
+    public Long getUrl2() {
+        return url2;
+    }
+
+    public void setUrl2(Long url2) {
+        this.url2 = url2;
+    }
+
+    public Long getUrl3() {
+        return url3;
+    }
+
+    public void setUrl3(Long url3) {
+        this.url3 = url3;
+    }
+
+    public Long getUrl4() {
+        return url4;
+    }
+
+    public void setUrl4(Long url4) {
+        this.url4 = url4;
+    }
+
+    public List<Message> getQuery1() {
+        return query1;
+    }
+
+    public void setQuery1(List<Message> query1) {
+        this.query1 = query1;
+    }
+
+    public List<Message> getQuery2() {
+        return query2;
+    }
+
+    public void setQuery2(List<Message> query2) {
+        this.query2 = query2;
+    }
+
+    public List<Message> getQuery3() {
+        return query3;
+    }
+
+    public void setQuery3(List<Message> query3) {
+        this.query3 = query3;
+    }
+
+    public List<Message> getQuery4() {
+        return query4;
+    }
+
+    public void setQuery4(List<Message> query4) {
+        this.query4 = query4;
     }
 
     private Integer count1;

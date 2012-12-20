@@ -159,6 +159,11 @@ public class MessageAction extends CRUDActionSupport<Message> {
         return VIEW;
     }
 
+    public String act() throws Exception {
+        prepareModel();
+        read();
+        return "act";
+    }
 
     public String mainMsg() throws Exception {
         result = "";

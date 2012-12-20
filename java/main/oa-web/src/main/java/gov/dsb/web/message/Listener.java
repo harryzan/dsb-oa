@@ -14,6 +14,8 @@ import java.util.Collection;
  */
 public interface Listener {
 
+    public void notice(Collection<SysUser> sysUsers, String content);
+
     public void notice(Collection<SysUser> sysUsers, Bulletin bulletin);
 
     public void notice(Collection<SysUser> sysUsers, DocDocument docDocument);

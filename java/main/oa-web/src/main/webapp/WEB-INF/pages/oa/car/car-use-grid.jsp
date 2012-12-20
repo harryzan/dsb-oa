@@ -45,7 +45,7 @@
                 {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
+//            buttonParams:[{header:"操作",renderer:"displayButton"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[

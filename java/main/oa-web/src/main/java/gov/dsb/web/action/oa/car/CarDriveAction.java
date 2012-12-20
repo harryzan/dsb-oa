@@ -4,10 +4,7 @@ import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.CarUseDao;
 import gov.dsb.core.dao.DriverDao;
 import gov.dsb.core.dao.SysRoleDao;
-import gov.dsb.core.domain.Car;
-import gov.dsb.core.domain.CarUse;
-import gov.dsb.core.domain.Driver;
-import gov.dsb.core.domain.SysRole;
+import gov.dsb.core.domain.*;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
@@ -17,8 +14,10 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,7 +28,7 @@ import java.util.Date;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-use-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-drive-grid", type = "chain")})
 public class CarDriveAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
@@ -127,13 +126,9 @@ public class CarDriveAction extends CRUDActionSupport<CarUse>{
 
         service.save(entity);
 
-        if (entityId == null) {
-
-            SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
-            if (role != null) {
-                messageListener.notice(role.getSysuserroles(), entity);
-            }
-        }
+        List<SysUser> sysUsers = new ArrayList<SysUser>();
+        sysUsers.add(entity.getUser());
+        messageListener.notice(sysUsers, entity);
 
         return RELOAD;
     }

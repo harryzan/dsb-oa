@@ -56,7 +56,7 @@
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],
-            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
+//            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
@@ -100,13 +100,14 @@
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["name"];
-            var temp = title.split("|");
-            if(temp.length == 3){
-                title = temp[2];
-            }
+//            var title = record.data["name"];
+//            var temp = title.split("|");
+//            if(temp.length == 3){
+//                title = temp[2];
+//            }
             var url = '${ctx}/message/bulletin/bulletin?id=' + id;
-            enter(title,url,500,300);
+            window.location=url;
+//            enter(title,url,500,300);
         }
 
     </script>

@@ -24,7 +24,8 @@
     </tr>
     <tr>
         <td width="96" background="${themesPath}/images/gdmp_2.jpg">&nbsp;</td>
-        <td width="634" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <td width="634" valign="top">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>

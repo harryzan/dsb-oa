@@ -48,7 +48,7 @@
                 <c:if test="${pageno < totalpages}">
                 <a href="main?pageno=${pageno+1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </c:if>
-                <a href="${ctx}/message/bulletin/bulletin-grid-record" target="_blank">查看全部</a>
+                <a href="${ctx}/message/bulletin/bulletin-grid-record">查看全部</a>
             </td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@
                             <s:iterator value="bulletins">
                                 <tr>
                                         <%--<td width="20%">${starttime}</td>--%>
-                                    <td width="98%" align="left">&nbsp;<a href="${ctx}/message/bulletin/bulletin!view?id=${id}" target="_blank">${name}</a></td>
+                                    <td width="98%" align="left">&nbsp;<a href="bulletin!view?id=${id}">${name}</a></td>
                                 </tr>
                             </s:iterator>
                         </table></td>
@@ -89,7 +89,7 @@
             <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
             <input type="button" name="search" id="search" value="转到" class="search_but" onclick="changeday();"/>
             <a href="main?nweek=${afterweek}&nyear=${afteryear}">&nbsp;下周&nbsp;→</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="${ctx}/message/workarrange/work-arrange!record" target="_blank">查看全部</a>
+            <a href="${ctx}/message/workarrange/work-arrange!record">查看全部</a>
         </td>
     </tr>
     <tr>

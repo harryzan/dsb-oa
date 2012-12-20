@@ -39,8 +39,9 @@
                 {name:"id",header:"",width:"10%"},
                 {name:"name",renderer:checkview,header:"姓名",width:"20%"},
                 {name:"sex",header:"性别",width:"25%"},
-                {name:"birthday",header:"生日",width:"20%"},
-                {name:"license",header:"驾驶证号",width:"20%"}
+//                {name:"birthday",header:"生日",width:"20%"},
+                {name:"license",header:"驾驶证号",width:"20%"},
+                {name:"licenselevel",header:"驾照等级",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

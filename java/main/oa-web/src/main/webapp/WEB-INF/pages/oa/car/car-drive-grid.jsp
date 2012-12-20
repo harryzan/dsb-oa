@@ -32,20 +32,21 @@
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"car-drive-grid!griddata",
 //            addUrl:addurl,
-            modifyUrl:modifyurl,
+//            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"name",header:"申请事由",width:"35%"},
+                {name:"name",renderer:checkview,header:"申请事由",width:"25%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
+                {name:"cardesc",header:"申请车别",width:"15%"},
                 {name:"startdate",header:"使用时间",width:"10%"},
                 {name:"checker.displayname",header:"审核者",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"10%"},
                 {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
+//            buttonParams:[{header:"操作",renderer:"displayButton"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
@@ -61,18 +62,13 @@
         };
 
         function checkview(value){
-//            if(result.b01_model_R){
-//                return value;
-//            }
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
         }
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["description"] + "(" + record.data["code"] + ")";
-            var url = '${ctx}/b/b01/model-property?id=' + id;
-//            window.open('model-property?id=' + id,'','width=800px,height=500px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
-            enter(title,url,600,400);
+            var modifyurl = "car-drive!input?id=" + id;
+            window.location = modifyurl;
         }
 
     </script>

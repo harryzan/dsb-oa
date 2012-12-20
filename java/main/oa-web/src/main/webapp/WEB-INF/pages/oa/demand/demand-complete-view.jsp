@@ -87,7 +87,7 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">描述：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <c:if test="${type.name == '会议'}">
@@ -107,7 +107,7 @@
                               </tr>
                               <tr class="textone12">
                                   <td width="30%"><div align="right">主持人：</div></td>
-                                  <td width="70%">&nbsp;${moderator.displayname}</td>
+                                  <td width="70%">&nbsp;${moderater}</td>
                               </tr>
                               <tr class="textone1">
                                   <td width="30%"><div align="right">使用时间：</div></td>
@@ -130,39 +130,39 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">会务要求：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <tr class="textone12">
                               <td><div align="right">审核意见：</div></td>
-                              <td height="60">${opinion}</td>
+                              <td>${opinion}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">审核人：</div></td>
-                              <td height="60">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">安排情况：</div></td>
-                              <td height="60">&nbsp;${memo}</td>
+                              <td>&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">安排人：</div></td>
-                              <td height="60">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td>${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone1">
                               <td><div align="right">执行人：</div></td>
-                              <td height="60">&nbsp;${mainuser.displayname}
+                              <td>&nbsp;${mainuser.displayname}
                               </td>
                           </tr>
-                          <tr class="textone12">
-                              <td><div align="right">反馈意见：</div></td>
-                              <td height="60">&nbsp;${remind}</td>
-                          </tr>
-                          <tr class="textone1">
-                              <td><div align="right">反馈人：</div></td>
-                              <td height="60">&nbsp;${reminder.displayname}
-                              </td>
-                          </tr>
+                          <%--<tr class="textone12">--%>
+                              <%--<td><div align="right">反馈意见：</div></td>--%>
+                              <%--<td>&nbsp;${remind}</td>--%>
+                          <%--</tr>--%>
+                          <%--<tr class="textone1">--%>
+                              <%--<td><div align="right">反馈人：</div></td>--%>
+                              <%--<td>&nbsp;${reminder.displayname}--%>
+                              <%--</td>--%>
+                          <%--</tr>--%>
                           <%--<tr class="textone12">--%>
                             <%--<td><div align="right">照片：</div></td>--%>
                             <%--<td>&nbsp;<span class="textxing" style ="cursor:pointer;" onclick="docdocument();">关联图片文档</span><input type ="hidden" name="documentid" value="${docdocument.id}" ></td>--%>

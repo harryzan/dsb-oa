@@ -32,14 +32,14 @@
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"car-use-grid!griddata",
 //            addUrl:addurl,
-            modifyUrl:modifyurl,
+//            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"cardesc",header:"申请车别",width:"15%"},
-                {name:"name",header:"申请事由",width:"25%"},
+                {name:"name",renderer:checkview,header:"申请事由",width:"25%"},
                 {name:"user.displayname",header:"申请人",width:"15%"},
+                {name:"cardesc",header:"申请车别",width:"15%"},
                 {name:"startdate",header:"使用时间",width:"20%"},
                 {name:"submitdate",header:"提交时间",width:"20%"},
                 {name:"desc",header:"备注",width:"30%"}
@@ -61,18 +61,13 @@
         };
 
         function checkview(value){
-//            if(result.b01_model_R){
-//                return value;
-//            }
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
         }
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["description"] + "(" + record.data["code"] + ")";
-            var url = '${ctx}/b/b01/model-property?id=' + id;
-//            window.open('model-property?id=' + id,'','width=800px,height=500px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
-            enter(title,url,600,400);
+            var modifyurl = "car-check!input?id=" + id;
+            window.location = modifyurl;
         }
 
     </script>

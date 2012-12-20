@@ -103,9 +103,7 @@
                               <tr class="textone12">
                                   <td><div align="right">主持人：</div></td>
                                   <td height="60">&nbsp;
-                                      <input type="hidden" name="moderatorid" id="moderatorid" value="${moderator.id}"/>
-                                      <input name="moderatorname" id="moderatorname" value="${moderator.displayname}" type="text" class="input_one" readonly />
-                                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="moderator()" >
+                                      <input name="name" type="text" class="input_one2" value="${name}">
                                   </td>
                               </tr>
                               <tr class="textone1">
@@ -129,7 +127,7 @@
                               <tr class="textone12">
                                   <td width="30%"><div align="right">会议人数：</div></td>
                                   <td width="70%">&nbsp;
-                                      <input name="personnum" type="text" class="input_one" value="${personnum}">
+                                      <input name="personnum" type="text" class="input_one2" value="${personnum}">
                                   </td>
                               </tr>
                               <tr class="textone1">
@@ -145,7 +143,7 @@
                               <tr class="textone12">
                                   <td><div align="right">会务要求：</div></td>
                                   <td height="60">&nbsp;
-                                      <textarea name="desc" class="input_five" rows="10">${desc}</textarea></td>
+                                      <textarea name="desc" class="input_long" rows="10">${desc}</textarea></td>
                               </tr>
                           </c:if>
 

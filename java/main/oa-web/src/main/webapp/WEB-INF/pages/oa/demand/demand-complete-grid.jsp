@@ -15,7 +15,7 @@
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
 //        var addurl = "demand-check!input";
-        var modifyurl = "demand-complete!input";
+//        var modifyurl = "demand-complete!input";
 //        var deleteurl = "demand-check!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -32,13 +32,13 @@
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"demand-complete-grid!griddata",
 //            addUrl:addurl,
-            modifyUrl:modifyurl,
+//            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 <c:if test="${type.name != '会议'}">
-                {name:"name",header:"申请内容",width:"15%"},
+                {name:"name",renderer:checkview,header:"申请内容",width:"15%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"demanddate",header:"需求时间",width:"15%"},
                 {name:"mainuser.displayname",header:"执行人",width:"10%"},
@@ -46,9 +46,10 @@
                 {name:"memodate",header:"安排时间",width:"15%"},
                 </c:if>
                 <c:if test="${type.name == '会议'}">
-                {name:"name",header:"会议名称",width:"15%"},
+                {name:"name",renderer:checkview,header:"会议名称",width:"15%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"demanddate",header:"会议时间",width:"15%"},
+                {name:"moderater",header:"主持人",width:"15%"},
                 {name:"mainuser.displayname",header:"执行人",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"15%"},
                 {name:"memodate",header:"安排时间",width:"15%"},
@@ -57,8 +58,8 @@
 //                {name:"desc",header:"备注",width:"30%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
-            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
+//            buttonParams:[{header:"操作",renderer:"displayButton"}],
+//            customButtons:[{name:"",value:"", css:"button_bssdetail", event:"viewwindow", title:"查看"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[

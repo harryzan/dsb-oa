@@ -67,11 +67,11 @@
                             <tr class="textone12">
                                 <td width="15%"><div align="right">申请车别：</div></td>
                                 <td width="35%">&nbsp;
-                                    <input name="cardesc" type="text" class="input_one" value="${cardesc}">
+                                    <input name="cardesc" type="text" class="input_one2" value="${cardesc}">
                                 </td>
                                 <td width="15%"><div align="right">人  数：</div></td>
                                 <td width="35%">&nbsp;
-                                    <input name="usercount" type="text" class="input_one" value="${usercount}">
+                                    <input name="usercount" type="text" class="input_one2" value="${usercount}">
                                 </td>
                             </tr>
                             <tr class="textone1">

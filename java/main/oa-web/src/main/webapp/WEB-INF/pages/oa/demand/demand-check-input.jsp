@@ -107,7 +107,7 @@
                               </tr>
                               <tr class="textone12">
                                   <td width="30%"><div align="right">主持人：</div></td>
-                                  <td width="70%">&nbsp;${moderator.displayname}</td>
+                                  <td width="70%">&nbsp;${moderater}</td>
                               </tr>
                               <tr class="textone1">
                                   <td width="30%"><div align="right">使用时间：</div></td>
@@ -136,7 +136,7 @@
                           <tr class="textone12">
                               <td><div align="right">审核意见：</div></td>
                               <td height="60">&nbsp;
-                                  <textarea name="opinion" class="input_five" rows="10">${opinion}</textarea></td>
+                                  <textarea name="opinion" class="input_long" rows="10">${opinion}</textarea></td>
                           </tr>
                           <%--<tr class="textone1">--%>
                               <%--<td><div align="right">安排情况：</div></td>--%>

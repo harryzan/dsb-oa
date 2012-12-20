@@ -209,6 +209,16 @@ public class Demand extends IdEntity {
         this.reminddate = reminddate;
     }
 
+    private String moderater;
+
+    public String getModerater() {
+        return moderater;
+    }
+
+    public void setModerater(String moderater) {
+        this.moderater = moderater;
+    }
+
     private SysUser moderator;
 
     @ManyToOne(fetch = FetchType.LAZY)

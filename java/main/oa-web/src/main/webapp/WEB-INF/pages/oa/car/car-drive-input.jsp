@@ -127,7 +127,7 @@
                           <tr class="textone1">
                               <td><div align="right">调度意见：</div></td>
                               <td  colspan="3">&nbsp;
-                                  <textarea name="memo" class="input_five">${memo}</textarea>
+                                  <textarea name="memo" class="input_long">${memo}</textarea>
                               </td>
                           </tr>
                           <tr class="textone12">

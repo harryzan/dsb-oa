@@ -65,7 +65,7 @@
                 <td colspan="3"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                   <tr>
                     <td width="45%"><div align="right">
-                      <input type="submit" class="button_bc" name="" value="保 存">
+                      <input type="submit" class="button_bc" name="" value="完 成">
 					  </div></td>
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">

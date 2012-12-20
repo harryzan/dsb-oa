@@ -31,7 +31,7 @@
             <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
             <input type="button" name="search" id="search" value="搜索" class="search_but" onclick="changeday();"/>
             <a href="work-arrange!record?nweek=${afterweek}&nyear=${afteryear}">&nbsp;${afteryear}年&nbsp;第${afterweek}周→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <%--<input type="submit" name="add" id="add" value="保存" class="confirm_but"/>--%>
+            <%--<input type="submit" name="add" id="add" value="完成" class="confirm_but"/>--%>
         </td>
     </tr>
         <c:forEach items="${arranges}" var="arrange" varStatus="status">

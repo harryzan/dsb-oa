@@ -90,7 +90,7 @@ strFrame+='<span id=tmpSelectYearLayer  style="z-index: 9999;position: absolute;
 strFrame+='<span id=tmpSelectMonthLayer  style="z-index: 9999;position: absolute;top: 3; left: 78;display: none"></span>';
 strFrame+='<span id=tmpSelectHourLayer  style="z-index: 9999;position: absolute;top: 188; left: 35px;display: none"></span>';
 strFrame+='<span id=tmpSelectMinuteLayer style="z-index:9999;position:absolute;top: 188; left: 77px;display: none"></span>';
-strFrame+='<span id=tmpSelectSecondLayer style="z-index:9999;position:absolute;top: 188; left: 119px;display: none"></span>';
+//strFrame+='<span id=tmpSelectSecondLayer style="z-index:9999;position:absolute;top: 188; left: 119px;display: none"></span>';
 strFrame+='<table border=1 cellspacing=0 cellpadding=0 width=142 height=160 bordercolor=#99BBE8 bgcolor=#CECBCE>';
 strFrame+='    <tr><td width=142 height=23  bgcolor=#FFFFFF>';
 strFrame+='        <table border=0 cellspacing=1 cellpadding=0 width=158  height=23>';
@@ -146,9 +146,7 @@ strFrame+='             <td style="cursor:pointer" onmousedown="timeClick(this, 
 strFrame+=' onmouseover="style.backgroundColor=\'#DAE7F6\'" onmouseout="style.backgroundColor=\'#F7F7F7\'"';
 strFrame+=' title="点击这里选择分钟\nctrl+鼠标点击=59\nshift+鼠标点击=0" align=center width=42>' ;
 strFrame+='					<span id=meizzMinuteHead></span></td>';
-strFrame+='             <td style="cursor:pointer" onmousedown="timeClick(this, \'second\')"';
-strFrame+=' onmouseover="style.backgroundColor=\'#DAE7F6\'" onmouseout="style.backgroundColor=\'#F7F7F7\'"';
-strFrame+=' title="点击这里选择秒钟\nctrl+鼠标点击=59\nshift+鼠标点击=0" align=center width=42>' ;
+strFrame+='             <td style="cursor:pointer" align=center width=42>' ;
 strFrame+='					<span id=meizzSecondHead></span></td>';
 strFrame+='			 </tr></table></td></tr></table></div>';
 
@@ -230,7 +228,7 @@ function setday(tt,obj, useTime) //主调函数
 	//根据当前输入框的日期显示日历的年月和时间
 	var reg = /^(\d+)-(\d{1,2})-(\d{1,2})/;		//不含时间
 	if (bUseTime)
-		reg = /^(\d+)-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})/;		//含时间
+		reg = /^(\d+)-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2})/;		//含时间
 	var r = outObject.value.match(reg);
 	if(r!=null)
 	{
@@ -254,7 +252,7 @@ function setday(tt,obj, useTime) //主调函数
 		{
             meizzTheHour = r[4];
 			meizzTheMinute = r[5];
-			meizzTheSecond = r[6];
+//			meizzTheSecond = r[6];
             evaSetTime();
 		}
 	}
@@ -315,7 +313,7 @@ function meizzWriteHead(yy,mm,ss)	//往 head 中写入当前的年与月
 		odatelayer.bUseTimeTable.style.display="block";
 		odatelayer.meizzHourHead.innerText=bUseTime?(meizzTheHour+" 时"):"";
 		odatelayer.meizzMinuteHead.innerText=bUseTime?(meizzTheMinute+" 分"):"";
-		odatelayer.meizzSecondHead.innerText=bUseTime?(meizzTheSecond+" 秒"):"";
+//		odatelayer.meizzSecondHead.innerText=bUseTime?(meizzTheSecond+" 秒"):"";
 	}
 }
 
@@ -408,27 +406,27 @@ function tmpSelectMinuteInnerHTML(strMinute) //分钟的下拉框
 	odatelayer.tmpSelectMinute.focus();
 }
 
-function tmpSelectSecondInnerHTML(strSecond) //秒的下拉框
-{
-	if (!bUseTime){return;}
-
-	if (strSecond.match(/\D/)!=null){alert("分钟输入参数不是数字！");return;}
-	var m = (strSecond) ? strSecond : new Date().getMinutes();
-	var s = "<select name=tmpSelectSecond style='font-size: 12px' "
-	s += "onblur='document.all.tmpSelectSecondLayer.style.display=\"none\"' "
-	s += "onchange='document.all.tmpSelectSecondLayer.style.display=\"none\";"
-	s += "parent.meizzTheSecond = this.value; parent.evaSetTime(parent.meizzTheHour,parent.meizzTheMinute,parent.meizzTheSecond);'>\r\n";
-	var selectInnerHTML = s;
-	for (var i = 0; i < 60; i++)
-	{
-		if (i == m) { selectInnerHTML += "<option value='"+i+"' selected>"+i+"</option>\r\n"; }
-		else { selectInnerHTML += "<option value='"+i+"'>"+i+"</option>\r\n"; }
-	}
-	selectInnerHTML += "</select>";
-	odatelayer.tmpSelectSecondLayer.style.display="";
-	odatelayer.tmpSelectSecondLayer.innerHTML = selectInnerHTML;
-	odatelayer.tmpSelectSecond.focus();
-}
+//function tmpSelectSecondInnerHTML(strSecond) //秒的下拉框
+//{
+//	if (!bUseTime){return;}
+//
+//	if (strSecond.match(/\D/)!=null){alert("分钟输入参数不是数字！");return;}
+//	var m = (strSecond) ? strSecond : new Date().getMinutes();
+//	var s = "<select name=tmpSelectSecond style='font-size: 12px' "
+//	s += "onblur='document.all.tmpSelectSecondLayer.style.display=\"none\"' "
+//	s += "onchange='document.all.tmpSelectSecondLayer.style.display=\"none\";"
+//	s += "parent.meizzTheSecond = this.value; parent.evaSetTime(parent.meizzTheHour,parent.meizzTheMinute,parent.meizzTheSecond);'>\r\n";
+//	var selectInnerHTML = s;
+//	for (var i = 0; i < 60; i++)
+//	{
+//		if (i == m) { selectInnerHTML += "<option value='"+i+"' selected>"+i+"</option>\r\n"; }
+//		else { selectInnerHTML += "<option value='"+i+"'>"+i+"</option>\r\n"; }
+//	}
+//	selectInnerHTML += "</select>";
+//	odatelayer.tmpSelectSecondLayer.style.display="";
+//	odatelayer.tmpSelectSecondLayer.innerHTML = selectInnerHTML;
+//	odatelayer.tmpSelectSecond.focus();
+//}
 
 function closeLayer()	//这个层的关闭
 {
@@ -505,7 +503,8 @@ function meizzToday()	//Today Button
 		{
 			outObject.value= parent.meizzTheYear + "-" + format( parent.meizzTheMonth) + "-" +
 							format(parent.meizzTheDate) + " " + format(parent.meizzTheHour) + ":" +
-							format(parent.meizzTheMinute) + ":" + format(parent.meizzTheSecond);
+							format(parent.meizzTheMinute);
+//							format(parent.meizzTheMinute) + ":" + format(parent.meizzTheSecond);
 							//注：在这里你可以输出改成你想要的格式
 		}
 		else
@@ -643,7 +642,7 @@ function meizzDayClick(n,ex)	//点击显示框选取日期，主输入函数****
 	var mm = parseInt(meizzTheMonth)+ex;	//ex表示偏移量，用于选择上个月份和下个月份的日期
 	var hh=meizzTheHour;
 	var mi=meizzTheMinute;
-	var se=meizzTheSecond;
+//	var se=meizzTheSecond;
 	//判断月份，并进行对应的处理
 
 	if(mm<1){
@@ -658,7 +657,7 @@ function meizzDayClick(n,ex)	//点击显示框选取日期，主输入函数****
 	if (mm.length<2)	{mm = "0" + mm;}
 	if (hh.length<2)	{hh="0" + hh;}	//时
 	if (mi.length<2)	{mi="0" + mi;}	//分
-	if (se.length<2)	{se="0" + se;}	//秒
+//	if (se.length<2)	{se="0" + se;}	//秒
 
 	if (outObject)
 	{
@@ -666,7 +665,7 @@ function meizzDayClick(n,ex)	//点击显示框选取日期，主输入函数****
 			return;}
 		if ( n < 10){n = "0" + n;}
 
-		WriteDateTo(yy,mm,n,hh,mi,se);
+		WriteDateTo(yy,mm,n,hh,mi);
 
 		closeLayer();
 		if (bUseTime)
@@ -703,8 +702,9 @@ function evaSetTime()		//设置用户选择的小时、分钟
 {
 	odatelayer.meizzHourHead.innerText=meizzTheHour+" 时";
 	odatelayer.meizzMinuteHead.innerText=meizzTheMinute+" 分";
-	odatelayer.meizzSecondHead.innerText=meizzTheSecond+" 秒";
-	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
+//	odatelayer.meizzSecondHead.innerText=meizzTheSecond+" 秒";
+	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute)
+//	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
 }
 
 function evaSetTimeNothing()	//设置时间控件为空
@@ -712,18 +712,20 @@ function evaSetTimeNothing()	//设置时间控件为空
 	odatelayer.meizzHourHead.innerText="";
 	odatelayer.meizzMinuteHead.innerText="";
 	odatelayer.meizzSecondHead.innerText="";
-	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
+	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute)
+//	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
 }
 
 function evaSetTimeNow()	//设置时间控件为当前时间
 {
 	odatelayer.meizzHourHead.innerText=new Date().getHours()+" 时";
 	odatelayer.meizzMinuteHead.innerText=new Date().getMinutes()+" 分";
-	odatelayer.meizzSecondHead.innerText=new Date().getSeconds()+" 秒";
+//	odatelayer.meizzSecondHead.innerText=new Date().getSeconds()+" 秒";
 	meizzTheHour = new Date().getHours();
 	meizzTheMinute = new Date().getMinutes();
-	meizzTheSecond = new Date().getSeconds();
-	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
+//	meizzTheSecond = new Date().getSeconds();
+//	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute,meizzTheSecond)
+	WriteDateTo(meizzTheYear,meizzTheMonth,meizzTheDate,meizzTheHour,meizzTheMinute)
 }
 
 function UseTime(ctl)
@@ -744,11 +746,12 @@ function UseTime(ctl)
 	}
 }
 
-function WriteDateTo(yy,mm,n,hh,mi,se)
+function WriteDateTo(yy,mm,n,hh,mi)
 {
 	if (bUseTime)
 	{
-		outObject.value= yy + "-" + format(mm) + "-" + format(n) + " " + format(hh) + ":" + format(mi) + ":" + format(se); //注：在这里你可以输出改成你想要的格式
+		outObject.value= yy + "-" + format(mm) + "-" + format(n) + " " + format(hh) + ":" + format(mi); //注：在这里你可以输出改成你想要的格式
+//		outObject.value= yy + "-" + format(mm) + "-" + format(n) + " " + format(hh) + ":" + format(mi) + ":" + format(se); //注：在这里你可以输出改成你想要的格式
 	}
 	else
 	{
@@ -799,7 +802,7 @@ Date.prototype.toDateString = function(){
 Date.prototype.dateAdd = function(strInterval, Number) {
     var dtTmp = this;
     switch (strInterval) {
-        case 's' :return new Date(Date.parse(dtTmp) + (1000 * Number));
+//        case 's' :return new Date(Date.parse(dtTmp) + (1000 * Number));
         case 'n' :return new Date(Date.parse(dtTmp) + (60000 * Number));
         case 'h' :return new Date(Date.parse(dtTmp) + (3600000 * Number));
         case 'd' :return new Date(Date.parse(dtTmp) + (86400000 * Number));

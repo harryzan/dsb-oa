@@ -33,7 +33,7 @@
                 <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
                 <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
                 <input type="button" name="search" id="search" value="搜索" class="search_but" onclick="changeday();"/>
-                <a href="work-arrange!sum?month=${aftermonth}&year=${afteryear}">&nbsp;${afteryear}年&nbsp;第${aftermonth}月→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="user-attendance!sum?month=${aftermonth}&year=${afteryear}">&nbsp;${afteryear}年&nbsp;第${aftermonth}月→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" name="add" id="add" value="打印" onclick="window.print();" class="confirm_but"/>
             </td>
         </tr>
@@ -54,8 +54,8 @@
     </tr>
     <c:forEach items="${records}" var="attendance" varStatus="status">
         <tr>
-            <td class="line_td_light" width="10%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.DEPTNAME}</td>
-            <td class="line_td_light" width="10%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.USERNAME}</td>
+            <td class="line_td_light" width="10%" nowrap="nowrap">${attendance.DEPTNAME}</td>
+            <td class="line_td_light" width="10%" nowrap="nowrap">${attendance.USERNAME}</td>
             <td class="line_td_light" width="6%" align="center">
                 <%--<c:if test='${attendance.noon == false}'>--%>
                     <%--上午--%>

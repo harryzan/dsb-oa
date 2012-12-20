@@ -477,7 +477,7 @@
                       </div></td>
                   </c:if>
                   <td width="30%"><div align="right">
-                      <input type="submit" class="button_bc" name="input" value="保 存">
+                      <input type="submit" class="button_bc" name="input" value="完 成">
                   </div></td>
                   <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="input" value="重 写">

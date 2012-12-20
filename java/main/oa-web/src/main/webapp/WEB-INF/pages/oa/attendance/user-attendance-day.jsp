@@ -52,7 +52,7 @@
             <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
             <input type="button" name="button" id="button" value="搜索" class="search_but" onclick="changeday();"/>
             <a href="user-attendance!day?day=${afterday}">${afterday}→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="submit" name="submit" id="save" value="保存" class="confirm_but" onclick="return confirm('是否保存?');"/>
+            <input type="submit" name="submit" id="save" value="完成" class="confirm_but" onclick="return confirm('是否完成?');"/>
         </td>
     </tr>
     <tr>

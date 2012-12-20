@@ -111,9 +111,11 @@ public class MessageListener implements Listener {
                     }
                 }
                 else {
+                    System.out.println("***************************** ");
                     message.setName("用车申请已安排");
                     message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
                     messageDao.save(message);
+                    System.out.println("************** message = " + message.getId());
                 }
             }
         }

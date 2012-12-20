@@ -105,15 +105,15 @@
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">批示意见：</div></td>
-                              <td>${opinion}</td>
+                              <td colspan="3">${opinion}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">审核人：</div></td>
-                              <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td colspan="3">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">调度意见：</div></td>
-                              <td>${memo}</td>
+                              <td colspan="3">${memo}</td>
                           </tr>
                           <tr class="textone1">
                               <td width="15%"><div align="right">使用车辆：</div></td>
@@ -125,7 +125,7 @@
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">安排人：</div></td>
-                              <td>${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td colspan="3">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone12">
                               <td width="15%" rowspan="2"><div align="right">往返路码数：</div></td>

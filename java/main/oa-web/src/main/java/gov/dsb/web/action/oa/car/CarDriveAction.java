@@ -122,8 +122,6 @@ public class CarDriveAction extends CRUDActionSupport<CarUse>{
         entity.setMemor(userSessionService.getCurrentSysUser());
         entity.setFlag("已安排");
 
-        Long entityId = entity.getId();
-
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

@@ -200,16 +200,6 @@ public class CarUse extends IdEntity {
         this.cardesc = cardesc;
     }
 
-    private String comment;
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     private String gotrip;
 
     public String getGotrip() {

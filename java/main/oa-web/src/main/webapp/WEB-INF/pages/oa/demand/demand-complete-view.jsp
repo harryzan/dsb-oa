@@ -154,6 +154,17 @@
                               <td>&nbsp;${mainuser.displayname}
                               </td>
                           </tr>
+                          <tr class="textone12">
+                              <td width="15%"><div align="right">状态：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
+                                  <c:if test="${empty flag}">
+                                      已审核
+                                  </c:if>
+                                  <c:if test="${not empty flag}">
+                                      ${flag}
+                                  </c:if>
+                              </td>
+                          </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td><div align="right">反馈意见：</div></td>--%>
                               <%--<td>&nbsp;${remind}</td>--%>

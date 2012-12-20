@@ -130,25 +130,25 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">会务要求：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <tr class="textone12">
                               <td><div align="right">审核意见：</div></td>
-                              <td height="60">${opinion}</td>
-                          </tr>
-                          <tr class="textone12">
-                              <td><div align="right">审核人：</div></td>
-                              <td height="60">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td>${opinion}</td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">安排情况：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="memo" class="input_long" rows="10">${memo}</textarea></td>
+                              <td><div align="right">审核人：</div></td>
+                              <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone12">
+                              <td><div align="right">安排情况：</div></td>
+                              <td>&nbsp;
+                                  <textarea name="memo" class="input_long" rows="10">${memo}</textarea></td>
+                          </tr>
+                          <tr class="textone1">
                               <td><div align="right">执行人：</div></td>
-                              <td height="60">&nbsp;
+                              <td>&nbsp;
                                   <input type="hidden" name="mainuserid" id="mainuserid" value="${mainuser.id}"/>
                                   <input name="mainusername" id="mainusername" value="${mainuser.displayname}" type="text" class="input_one" readonly />
                                   <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="mainuser()" >

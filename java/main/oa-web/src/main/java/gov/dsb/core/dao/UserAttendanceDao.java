@@ -38,8 +38,21 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
         return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id, noon", date, sysDept.getId());
     }
 
+    public List<UserAttendance> getDayAttendance(Date[] dates, SysDept sysDept) {
+        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.sysdept.id=? order by user.id, checkdate, noon",
+                dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], dates[6], sysDept.getId());
+//        return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id, noon", date, sysDept.getId());
+    }
+
     public List<UserAttendance> getDayAttendance(Date date, SysUser sysUser) {
         return findByQuery("from UserAttendance where checkdate=? and user.id=? order by noon", date, sysUser.getId());
+    }
+
+    public List<UserAttendance> getDayAttendance(Date[] dates, SysUser sysUser) {
+//        String s = Arrays.toString(dates);
+//        System.out.println("******************* s = " + s);
+        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.id=? order by checkdate, noon",
+                dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], dates[6], sysUser.getId());
     }
 
     synchronized public List<UserAttendance> createDayAttendance(Date date) {

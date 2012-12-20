@@ -334,6 +334,9 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 //        }
 
         service.save(entity);
+
+        messageListener.notice(entity.getTargetuser(), entity);
+
 //        System.out.println("*********** save success");
         return RELOAD;
     }

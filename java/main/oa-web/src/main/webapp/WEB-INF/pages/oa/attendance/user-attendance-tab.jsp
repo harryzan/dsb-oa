@@ -10,7 +10,7 @@
     <script type="text/javascript">
         function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
-            var count = 2;
+            var count = 4;
             for (var i = 1; i <= count; i++) {
                 var button = document.getElementById('button' + i);
                 button.className = 'tab';
@@ -29,9 +29,10 @@
             <c:if test='${isadmin}'>
                 <input onclick="openFunction('user-attendance!day',this)" type="button" name="button1" id="button1" value="考勤管理" class="tab" />
             </c:if>
-            <input onclick="openFunction('user-attendance!record', this)" type="button" name="button2" id="button2" value="考勤记录" class="tab_xz" />
+            <input onclick="openFunction('user-attendance!record', this)" type="button" name="button2" id="button2" value="时间统计" class="tab" />
+            <input onclick="openFunction('sys-user-main', this)" type="button" name="button3" id="button3" value="部门人员统计" class="tab" />
             <c:if test='${isadmin}'>
-                <input onclick="openFunction('user-attendance!sum', this)" type="button" name="button3" id="button3" value="考勤月报" class="tab" />
+                <input onclick="openFunction('user-attendance!sum', this)" type="button" name="button4" id="button4" value="考勤月报" class="tab" />
             </c:if>
         </td>
     </tr>

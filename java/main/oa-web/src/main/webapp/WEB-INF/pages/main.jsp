@@ -215,21 +215,21 @@
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_2.jpg" width="41" height="22" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${url2}">用车申请<span class="STYLE1">（${count2}）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${message2.id}" alt="${message2.name}">用车申请<span class="STYLE1">（${count2}）</span></a></td>
                                     </tr>
                                 </table></td>
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_3.jpg" width="31" height="24" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${url3}">需求申请<span class="STYLE1">（${count3}）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${message3.id}" alt="${message3.name}">需求申请<span class="STYLE1">（${count3}）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="50%" border="0">
-                                    <tr>
-                                        <td><img src="${themesPath}/images/sy_icon_4.jpg" width="27" height="28" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&flag=一周工作安排">工作安排<span class="STYLE1">（${count4}）</span></a></td>
-                                    </tr>
-                                </table></td>
+                                <%--<td><table width="50%" border="0">--%>
+                                    <%--<tr>--%>
+                                        <%--<td><img src="${themesPath}/images/sy_icon_4.jpg" width="27" height="28" /><a href="#"></a></td>--%>
+                                        <%--<td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&flag=一周工作安排">工作安排<span class="STYLE1">（${count4}）</span></a></td>--%>
+                                    <%--</tr>--%>
+                                <%--</table></td>--%>
                             </tr>
                         </table></td>
                     </tr>

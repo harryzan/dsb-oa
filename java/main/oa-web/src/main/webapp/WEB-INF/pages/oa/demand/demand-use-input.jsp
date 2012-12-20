@@ -103,7 +103,7 @@
                               <tr class="textone12">
                                   <td><div align="right">主持人：</div></td>
                                   <td height="60">&nbsp;
-                                      <input name="name" type="text" class="input_one2" value="${name}">
+                                      <input name="moderater" type="text" class="input_one2" value="${moderater}">
                                   </td>
                               </tr>
                               <tr class="textone1">
@@ -113,24 +113,18 @@
                                   至<input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">会议主题：</div></td>
-                                  <td width="70%">&nbsp;
-                                      <input name="title" type="text" class="input_chang" value="${title}">
-                                  </td>
-                              </tr>
-                              <tr class="textone1">
                                   <td width="30%"><div align="right">参加人员：</div></td>
                                   <td width="70%">&nbsp;
                                       <input name="attendance" type="text" class="input_chang" value="${attendance}">
                                   </td>
                               </tr>
-                              <tr class="textone12">
+                              <tr class="textone1">
                                   <td width="30%"><div align="right">会议人数：</div></td>
                                   <td width="70%">&nbsp;
                                       <input name="personnum" type="text" class="input_one2" value="${personnum}">
                                   </td>
                               </tr>
-                              <tr class="textone1">
+                              <tr class="textone12">
                                   <td width="30%"><div align="right">会议地点：</div></td>
                                   <td width="70%">&nbsp;
                                       <select name="room" id="room">
@@ -140,7 +134,7 @@
                                       </select>
                                   </td>
                               </tr>
-                              <tr class="textone12">
+                              <tr class="textone1">
                                   <td><div align="right">会务要求：</div></td>
                                   <td height="60">&nbsp;
                                       <textarea name="desc" class="input_long" rows="10">${desc}</textarea></td>

@@ -9,6 +9,7 @@ import gov.dsb.core.domain.UserAttendance;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.security.UserSessionService;
+import org.apache.axis.encoding.ser.DateSerializer;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
@@ -221,36 +222,107 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
     public String record() throws Exception {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
 
-        if (day == null || "".equals(day)) {
+        if (week != null && year != null) {
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.WEEK_OF_YEAR, week);
+            Date d = calendar.getTime();
+            day = sdf.format(d);
+        }
+        else if (day == null || "".equals(day)) {
             Date d = new Date();
             day = sdf.format(d);
             beforeday = sdf.format(new Date(d.getTime() - 24 * 3600 * 1000L));
             afterday = sdf.format(new Date(d.getTime() + 24 * 3600 * 1000L));
+            calendar.setTime(d);
+            setWeek(calendar.get(Calendar.WEEK_OF_YEAR));
+            setYear(calendar.get(Calendar.YEAR));
         }
         else {
             Date d = sdf.parse(day);
             day = sdf.format(d);
             beforeday = sdf.format(new Date(d.getTime() - 24 * 3600 * 1000L));
             afterday = sdf.format(new Date(d.getTime() + 24 * 3600 * 1000L));
+            calendar.setTime(d);
+            setWeek(calendar.get(Calendar.WEEK_OF_YEAR));
+            setYear(calendar.get(Calendar.YEAR));
         }
 
+        setBeforeweek(week - 1);
+        setBeforeyear(year);
+        setAfterweek(week + 1);
+        setAfteryear(year);
+//        setWeek("" + _week);
+        if (week == 1) {
+            setBeforeweek(52);
+            setBeforeyear(year - 1);
+        } else if (week == 52) {
+            setAfterweek(1);
+            setAfteryear(year + 1);
+        }
 
-        SysUser currentUser = userSessionService.getCurrentSysUser();
+        java.sql.Date[] dates = new java.sql.Date[7];
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        dates[0] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        dates[1] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+        dates[2] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+        dates[3] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+        dates[4] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+        dates[5] = new java.sql.Date(calendar.getTime().getTime());
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+        dates[6] = new java.sql.Date(calendar.getTime().getTime());
 
-        Date d = sdf.parse(day);
-        Date now = new Date();
-        if (!d.after(now))
-        {
+//        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+//        Date d = sdf.parse(day);
+//        Date now = new Date();
+//        if (!d.after(now))
+//        {
 //            if (sysUserDao.containRole(currentUser.getId(), "系统管理员"))
-                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()));
+        if (deptid != null) {
+            attendances = service.getDayAttendance(dates, sysDeptDao.get(deptid));
+            return "dept";
+        }
+        else if (userid != null) {
+            attendances = service.getDayAttendance(dates, sysUserDao.get(userid));
+            return "user";
+        }
+        else {
+            attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()));
+        }
 //            else if (sysUserDao.containRole(currentUser.getId(), "考勤负责人"))
 //                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser.getSysdept());
 //            else
 //                attendances = service.getDayAttendance(new java.sql.Date(sdf.parse(day).getTime()), currentUser);
-        }
+//        }
 
         return "record";
+    }
+
+    private Long userid;
+
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userid) {
+        this.userid = userid;
+    }
+
+    private Long deptid;
+
+    public Long getDeptid() {
+        return deptid;
+    }
+
+    public void setDeptid(Long deptid) {
+        this.deptid = deptid;
     }
 
     public String month() throws Exception {
@@ -310,11 +382,41 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
     private Integer aftermonth;
 
+    private Integer week;
+
+    private Integer beforeweek;
+
+    private Integer afterweek;
+
     private Integer beforeyear;
 
     private Integer afteryear;
 
     private Integer year;
+
+    public Integer getWeek() {
+        return week;
+    }
+
+    public void setWeek(Integer week) {
+        this.week = week;
+    }
+
+    public Integer getBeforeweek() {
+        return beforeweek;
+    }
+
+    public void setBeforeweek(Integer beforeweek) {
+        this.beforeweek = beforeweek;
+    }
+
+    public Integer getAfterweek() {
+        return afterweek;
+    }
+
+    public void setAfterweek(Integer afterweek) {
+        this.afterweek = afterweek;
+    }
 
     public Integer getMonth() {
         return month;

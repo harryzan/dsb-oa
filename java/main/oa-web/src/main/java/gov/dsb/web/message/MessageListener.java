@@ -111,11 +111,9 @@ public class MessageListener implements Listener {
                     }
                 }
                 else {
-                    System.out.println("***************************** ");
                     message.setName("用车申请已安排");
                     message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
                     messageDao.save(message);
-                    System.out.println("************** message = " + message.getId());
                 }
             }
         }
@@ -126,22 +124,42 @@ public class MessageListener implements Listener {
         for (SysUser sysUser : sysUsers) {
             Message message = new Message();
 
-            message.setType("需求申请");
+            message.setType(demand.getType().getName() + "申请");
+            message.setFlag("demand");
             long current = System.currentTimeMillis();
             message.setStarttime(new Timestamp(current));
-            if (demand.getStatus()) {
-                message.setName(demand.getName() + "申请审核");
-                message.setDescription("/oa/demand/demand-check-grid");
-            }
-            else {
-                message.setName(demand.getName() + "申请通过");
-                message.setDescription("/oa/demand/demand-complete-grid");
-            }
             message.setReceiver(sysUser);
-
             message.setSystem(true);
 
-            messageDao.save(message);
+            if (!demand.getStatus()) {
+                message.setName(demand.getType().getName() + "申请待处理");
+                message.setDescription("/oa/demand/demand-check!input?id=" + demand.getId());
+                messageDao.save(message);
+            }
+            else {
+                if (StringHelp.isEmpty(demand.getFlag())) {
+                    message.setName(demand.getType().getName() + "申请已通过");
+                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
+                    messageDao.save(message);
+
+
+                    SysUser user = demand.getType().getUser();
+                    message = new Message();
+                    message.setType(demand.getType().getName() + "申请");
+                    message.setFlag("demand");
+                    message.setStarttime(new Timestamp(current));
+                    message.setReceiver(user);
+                    message.setSystem(true);
+                    message.setName(demand.getType().getName() + "申请待安排");
+                    message.setDescription("/oa/demand/demand-app!input?id=" + demand.getId());
+                    messageDao.save(message);
+                }
+                else {
+                    message.setName(demand.getType().getName() + "申请已安排");
+                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
+                    messageDao.save(message);
+                }
+            }
         }
     }
 
@@ -172,17 +190,17 @@ public class MessageListener implements Listener {
 
     @Override
     public void notice(SysUser sysUser, WorkFlow workFlow) {
-            Message message = new Message();
+        Message message = new Message();
 
-            message.setType("发文管理");
-            message.setName(workFlow.getWorkno() + " " + workFlow.getTitle());
-            long current = System.currentTimeMillis();
-            message.setStarttime(new Timestamp(current));
-            message.setDescription("/offical/workflow/work-flow!input?id=" + workFlow.getId());
-            message.setReceiver(sysUser);
+        message.setType("发文管理");
+        message.setFlag("workflow");
+        message.setName("处理 " + workFlow.getTitle());
+        long current = System.currentTimeMillis();
+        message.setStarttime(new Timestamp(current));
+        message.setDescription("/offical/workflow/work-flow!input?id=" + workFlow.getId());
+        message.setReceiver(sysUser);
 
-            message.setSystem(true);
-
-            messageDao.save(message);
+        message.setSystem(true);
+        messageDao.save(message);
     }
 }

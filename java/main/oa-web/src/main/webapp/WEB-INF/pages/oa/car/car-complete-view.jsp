@@ -97,7 +97,7 @@
                                   ${drivingline}
                               </td>
                           </tr>
-                          <tr class="textone12">
+                          <tr class="textone1">
                               <td width="15%"><div align="right">备注：</div></td>
                               <td width="85%" colspan="3">&nbsp;
                                   ${desc}
@@ -105,15 +105,15 @@
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">批示意见：</div></td>
-                              <td colspan="3">${opinion}</td>
+                              <td colspan="3">&nbsp;${opinion}</td>
                           </tr>
-                          <tr class="textone12">
+                          <tr class="textone1">
                               <td><div align="right">审核人：</div></td>
-                              <td colspan="3">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td colspan="3">&nbsp;${checker.displayname}&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">调度意见：</div></td>
-                              <td colspan="3">${memo}</td>
+                              <td colspan="3">&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone1">
                               <td width="15%"><div align="right">使用车辆：</div></td>
@@ -125,18 +125,18 @@
                           </tr>
                           <tr class="textone12">
                               <td><div align="right">安排人：</div></td>
-                              <td colspan="3">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td colspan="3">&nbsp;${memor.displayname}&nbsp;${memodate}</td>
                           </tr>
-                          <tr class="textone12">
+                          <tr class="textone1">
                               <td width="15%" rowspan="2"><div align="right">往返路码数：</div></td>
-                              <td width="35%">起点:&nbsp;${gotrip}
+                              <td width="35%">&nbsp;起点:&nbsp;${gotrip}
                               </td>
                               <td width="15%"><div align="right">实际油耗：</div></td>
                               <td width="35%">&nbsp;${fuel}
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="35%">终点:&nbsp;${returntrip}
+                              <td width="35%">&nbsp;终点:&nbsp;${returntrip}
                               </td>
                               <td width="15%"><div align="right">实际里程：</div></td>
                               <td width="35%">&nbsp;${kilometer}
@@ -148,6 +148,17 @@
                               </td>
                               <td width="15%"><div align="right">登记时间：</div></td>
                               <td width="35%">&nbsp;${reminddate}
+                              </td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="15%"><div align="right">状态：</div></td>
+                              <td width="85%" colspan="3">&nbsp;
+                                  <c:if test="${empty flag}">
+                                        已审核
+                                  </c:if>
+                                  <c:if test="${not empty flag}">
+                                      ${flag}
+                                  </c:if>
                               </td>
                           </tr>
 

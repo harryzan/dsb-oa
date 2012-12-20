@@ -280,33 +280,43 @@ public class MainAction extends PageActionSupport<DemandType> {
         sunarranges = workArrangeDao.findByQuery("from WorkArrange where week=? and year=? and dow=? order by starttime", week.toString(), year.toString(), "1");
 
 
-        Page<Bulletin> page = new Page<Bulletin>(5);
+        Page<Bulletin> page = new Page<Bulletin>(5, true);
         if (null != pageno) {
             page.setPageNo(pageno);
         }
         else {
             pageno = page.getPageNo();
         }
-        bulletinDao.findPageByQuery(page, "from Bulletin order by starttime desc");
+        page = bulletinDao.findPageByQuery(page, "from Bulletin order by starttime desc");
         bulletins = page.getResult();
 
         totalpages = page.getTotalPages();
 
-        query1 = messageDao.findByQuery("from Message where flag = '发文管理' and receiver.id=? and (status is null or status is false) ", user.getId());
+        query1 = messageDao.findByQuery("from Message where flag = 'workflow' and receiver.id=? and (status is null or status is false) ", user.getId());
         count1 = query1.size();
+        if (count1 > 0) {
+            message1 = query1.get(0);
+        }
+        else {
+            message1 = new Message();
+        }
 
         query2 = messageDao.findByQuery("from Message where flag = 'caruse' and receiver.id=? and (status is null or status is false) ", user.getId());
         count2 = query2.size();
         if (count2 > 0){
-            Message message = query2.get(0);
-            url2 = message.getId();
+            message2 = query2.get(0);
+        }
+        else {
+            message2 = new Message();
         }
 
         query3 = messageDao.findByQuery("from Message where flag = 'demand' and receiver.id=? and (status is null or status is false) ", user.getId());
         count3 = query3.size();
         if (count3 > 0){
-            Message message = query3.get(0);
-            url3 = message.getId();
+            message3 = query3.get(0);
+        }
+        else {
+            message3 = new Message();
         }
 
         query4 = messageDao.findByQuery("from Message where flag = '一周工作安排' and receiver.id=? and (status is null or status is false) ", user.getId());
@@ -320,41 +330,41 @@ public class MainAction extends PageActionSupport<DemandType> {
     private List<Message> query3;
     private List<Message> query4;
 
-    private Long url1;
-    private Long url2;
-    private Long url3;
-    private Long url4;
+    Message message1;
+    Message message2;
+    Message message3;
+    Message message4;
 
-    public Long getUrl1() {
-        return url1;
+    public Message getMessage1() {
+        return message1;
     }
 
-    public void setUrl1(Long url1) {
-        this.url1 = url1;
+    public void setMessage1(Message message1) {
+        this.message1 = message1;
     }
 
-    public Long getUrl2() {
-        return url2;
+    public Message getMessage2() {
+        return message2;
     }
 
-    public void setUrl2(Long url2) {
-        this.url2 = url2;
+    public void setMessage2(Message message2) {
+        this.message2 = message2;
     }
 
-    public Long getUrl3() {
-        return url3;
+    public Message getMessage3() {
+        return message3;
     }
 
-    public void setUrl3(Long url3) {
-        this.url3 = url3;
+    public void setMessage3(Message message3) {
+        this.message3 = message3;
     }
 
-    public Long getUrl4() {
-        return url4;
+    public Message getMessage4() {
+        return message4;
     }
 
-    public void setUrl4(Long url4) {
-        this.url4 = url4;
+    public void setMessage4(Message message4) {
+        this.message4 = message4;
     }
 
     public List<Message> getQuery1() {

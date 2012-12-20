@@ -242,16 +242,16 @@ a:active { color: #333;}
 	border-right-color: #9fbdd5;
 }
 .line_td_light{
-	border-top-width: 1px;
+	border-top-width: 0px;
 	border-top-style: solid;
-	border-top-color: #9fbdd5;
-	height: 31px;
-	background-color: #e9f5ff;
-	line-height: 31px;
+	/*border-top-color: #9fbdd5;*/
+	height: 20px;
+	/*background-color: #e9f5ff;*/
+	line-height: 20px;
 	text-indent: 10px;
-		border-right-width: 1px;
+		border-right-width: 0px;
 	border-right-style: solid;
-	border-right-color: #9fbdd5;
+	/*border-right-color: #9fbdd5;*/
 }
 .line_td_search{
 	border-top-width: 1px;
@@ -279,7 +279,7 @@ a:active { color: #333;}
 	line-height: 37px;
 }
 .table_line{
-	border: 1px solid #9fbdd6;
+	border: 0px solid #9fbdd6;
 }
 
 .search_but{

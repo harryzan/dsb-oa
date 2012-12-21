@@ -87,7 +87,7 @@
                               </tr>
                               <tr class="textone1">
                                   <td><div align="right">描述：</div></td>
-                                  <td height="60">&nbsp;${desc}</td>
+                                  <td>&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <c:if test="${type.name == '会议'}">

@@ -18,7 +18,7 @@
     </script>
 </head>
 <body>
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="2" class="line_td_title" align="center">考勤统计（一周）</td>
     </tr>
@@ -40,7 +40,7 @@
                 <c:if test='${attendance.noon == false}'>
                     <%--<td rowspan="2" class="line_td_light" width="30%">${attendance.user.sysdept.name}</td>--%>
                     <%--<td rowspan="2" class="line_td_light" width="20%">${attendance.user.displayname}</td>--%>
-                    <td rowspan="2" class="line_td_light" width="5%" align="right" valign="top">${attendance.checkdate}</td>
+                    <td rowspan="2" class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">${attendance.checkdate}</td>
                 </c:if>
                 <td class="line_td_light" width="40%">&nbsp;
                     <c:if test='${attendance.noon == false}'>

@@ -35,15 +35,15 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
 //                {name:"origincode",header:"原始编号",width:"15%"},
-                {name:"name",renderer:checkview,header:"标题",width:"20%"} ,
+                {name:"description",renderer:getattachs,header:"标题",width:"20%"} ,
                 {name:"createtime",renderer:checktime,header:"创建时间",width:"20%"} ,
 //                {name:"sysdept.name",header:"单位",width:"20%"},
-                {name:"abstractcontent",header:"摘要",width:"20%"},
-                {name:"description",renderer:getattachs,header:"&nbsp;&nbsp;&nbsp;&nbsp;附件列表",width:"15%"}
+                {name:"abstractcontent",header:"摘要",width:"20%"}
+//                {name:"description",renderer:getattachs,header:"&nbsp;&nbsp;&nbsp;&nbsp;附件列表",width:"15%"}
 //                {name:"docdocumentattaches[0].filename",renderer:checktime,header:"附件",width:"20%"} ,
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
+            buttonParams:[{header:" ",renderer:"displayButton"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
@@ -75,8 +75,10 @@
 
             var attachs = new String(value);
             var list;
+            var name;
             if(attachs.indexOf("?") > -1){
                 list = attachs.substring(attachs.indexOf("?") + 1).split(",");
+                name = attachs.substring(0, attachs.indexOf("?")-1);
             }
             else{
                 list = "";
@@ -89,10 +91,13 @@
                 var s = new String(list[i]);
 
                 attachs += "<a href='${ctx}/common/document/doc-attach!download?id=" +
-                           s.substring(0, s.indexOf(":")) + "' target='_blank'>" +
-                           "<img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:hand' alt='" +
-                           s.substring(s.indexOf(":") + 1) + "'></a>&nbsp;&nbsp;";
+                           s + "' target='_blank'>" +
+                           name + "</a>&nbsp;&nbsp;";
 
+            }
+            if (attachs == '')
+            {
+                return value;
             }
             return attachs;
         }

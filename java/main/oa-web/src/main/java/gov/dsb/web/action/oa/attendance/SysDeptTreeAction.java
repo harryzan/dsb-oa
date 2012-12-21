@@ -98,7 +98,7 @@ public class SysDeptTreeAction extends TreeActionSupport {
 
                 treeBranch.addTreeNode(treeNode);
             }
-            Collection<SysUser> sysusers = sysUserEntityService.findByQuery("from SysUser s where s.sysdept.id=?", parentid);
+            Collection<SysUser> sysusers = sysUserEntityService.findByQuery("from SysUser s where s.sysdept.id=? order by id", parentid);
             for(SysUser sysuser : sysusers){
                 TreeNode treeNode = new TreeNode();
                 treeNode.setText(sysuser.getDisplayname());

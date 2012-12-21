@@ -100,7 +100,7 @@
                     <td width="86%"><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${monarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -113,7 +113,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${tusarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -126,7 +126,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${wedarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -139,7 +139,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${thearranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -152,7 +152,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${friarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -165,7 +165,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${satarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>
@@ -178,7 +178,7 @@
                     <td><table width="99%" border="0" align="center" cellpadding="0" cellspacing="0">
                         <c:forEach items="${sunarranges}" var="arrange" varStatus="status">
                             <tr>
-                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" target="_blank">${fn:substring(arrange.content, 0, 40)}...</a></td>
+                                <td title="${arrange.content}"><a href="${ctx}/message/workarrange/work-arrange!view?id=${arrange.id}" >${fn:substring(arrange.content, 0, 40)}...</a></td>
                             </tr>
                         </c:forEach>
                     </table></td>

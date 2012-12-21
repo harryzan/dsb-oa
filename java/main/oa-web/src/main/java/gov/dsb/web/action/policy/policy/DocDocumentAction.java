@@ -354,11 +354,6 @@ public class DocDocumentAction extends CRUDActionSupport<DocDocument> {
     }
 
     public String delete() throws Exception {
-        DocDocument docDocument = service.get(id);
-        Collection<DocDocumentAttach> docdocumentattaches = docDocument.getDocdocumentattaches();
-        for (DocDocumentAttach docdocumentattach : docdocumentattaches) {
-            docDocumentAttachDao.delete(docdocumentattach);
-        }
         service.delete(id);
         return RELOAD;
     }

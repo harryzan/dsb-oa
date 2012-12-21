@@ -18,7 +18,7 @@
     </script>
 </head>
 <body>
-<table width="600px" border="0" align="left" cellpadding="0" cellspacing="0" class="table_line">
+<table width="95%" border="0" align="left" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="4" class="line_td_title" align="center">考勤统计（一周）</td>
     </tr>
@@ -40,12 +40,12 @@
                 <%--<input type="hidden" name="attid" value="${attendance.id}"/>--%>
                 <c:if test='${attendance.noon == false}'>
                     <%--<td rowspan="2" class="line_td_light" width="30%">${attendance.user.sysdept.name}</td>--%>
-                    <td rowspan="2" class="line_td_light" width="5%" align="right" valign="top">
+                    <td rowspan="2" class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">
                         <c:if test="${attendance.user.displayname != name}">
                               <font color="blue">${attendance.user.displayname}</font>
                         </c:if>
                     </td>
-                    <td rowspan="2" class="line_td_light" width="5%" align="right" valign="top">${attendance.checkdate}</td>
+                    <td rowspan="2" class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">${attendance.checkdate}</td>
                     <c:set var="name" value="${attendance.user.displayname}"/>
                 </c:if>
                 <td class="line_td_light" width="40%">&nbsp;&nbsp;

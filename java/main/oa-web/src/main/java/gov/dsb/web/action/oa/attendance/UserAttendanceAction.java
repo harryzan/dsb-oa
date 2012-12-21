@@ -556,17 +556,17 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
             BigInteger suserid = (BigInteger) ((Map) pSecond).get("USERID");
 
             if (forderno < sorderno) {
-                return 1;
+                return -1;
             }
             else if (forderno > sorderno) {
-                return -1;
+                return 1;
             }
             else {
                 if (fuserid.longValue() < suserid.longValue()) {
-                    return 1;
+                    return -1;
                 }
                 else {
-                    return -1;
+                    return 1;
                 }
             }
         }

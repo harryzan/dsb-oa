@@ -60,12 +60,20 @@
         <td class="line_td_head">姓名</td>
         <td class="line_td_head">考勤状态</td>
     </tr>
-    <c:forEach items="${attendances}" var="attendance" varStatus="status">
+        <c:set var="name" value=""/>
+        <c:forEach items="${attendances}" var="attendance" varStatus="status">
         <tr>
             <input type="hidden" name="attid" value="${attendance.id}"/>
             <c:if test='${attendance.noon == false}'>
-            <td rowspan="2" class="line_td_light" width="20%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.sysdept.name}</td>
-            <td rowspan="2" class="line_td_light" width="20%">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.user.displayname}</td>
+            <td rowspan="2" class="line_td_light" width="10%" nowrap="nowrap">
+                <c:if test="${attendance.user.sysdept.name != name}">
+                    <font color="purple">${attendance.user.sysdept.name}</font>
+                </c:if>
+                <c:set var="name" value="${attendance.user.sysdept.name}"/>
+            </td>
+            <td rowspan="2" class="line_td_light" width="10%" nowrap="nowrap">
+                <font color="blue">${attendance.user.displayname}</font>
+            </td>
             </c:if>
             <td class="line_td_light" width="60%" nowrap="nowrap">&nbsp;&nbsp;
                 <c:if test='${attendance.noon == false}'>

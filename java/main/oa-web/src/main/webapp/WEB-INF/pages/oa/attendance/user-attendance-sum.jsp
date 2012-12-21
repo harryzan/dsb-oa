@@ -52,10 +52,18 @@
         <td class="line_td_head">公出</td>
         <td class="line_td_head">其他</td>
     </tr>
-    <c:forEach items="${records}" var="attendance" varStatus="status">
+        <c:set var="name" value=""/>
+        <c:forEach items="${records}" var="attendance" varStatus="status">
         <tr>
-            <td class="line_td_light" width="10%" nowrap="nowrap">${attendance.DEPTNAME}</td>
-            <td class="line_td_light" width="10%" nowrap="nowrap">${attendance.USERNAME}</td>
+            <td class="line_td_light" width="10%" nowrap="nowrap">
+                <c:if test="${attendance.DEPTNAME != name}">
+                    <font color="purple">${attendance.DEPTNAME}</font>
+                </c:if>
+                <c:set var="name" value="${attendance.DEPTNAME}"/>
+            </td>
+            <td class="line_td_light" width="10%" nowrap="nowrap">
+                <font color="blue">${attendance.USERNAME}</font>
+            </td>
             <td class="line_td_light" width="6%" align="center">
                 <%--<c:if test='${attendance.noon == false}'>--%>
                     <%--上午--%>

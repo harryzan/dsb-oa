@@ -31,27 +31,27 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
     }
 
     public List<UserAttendance> getDayAttendance(Date date) {
-        return findByQuery("from UserAttendance where checkdate=? order by user.sysdept.orderno, user.id, noon", date);
+        return findByQuery("from UserAttendance where checkdate=? and type is not null order by user.sysdept.orderno, user.id, noon", date);
     }
 
     public List<UserAttendance> getDayAttendance(Date date, SysDept sysDept) {
-        return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id, noon", date, sysDept.getId());
+        return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? and type is not null order by user.id, noon", date, sysDept.getId());
     }
 
     public List<UserAttendance> getDayAttendance(Date[] dates, SysDept sysDept) {
-        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.sysdept.id=? order by user.id, checkdate, noon",
+        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.sysdept.id=? and type is not null order by user.id, checkdate, noon",
                 dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], dates[6], sysDept.getId());
 //        return findByQuery("from UserAttendance where checkdate=? and user.sysdept.id=? order by user.id, noon", date, sysDept.getId());
     }
 
     public List<UserAttendance> getDayAttendance(Date date, SysUser sysUser) {
-        return findByQuery("from UserAttendance where checkdate=? and user.id=? order by noon", date, sysUser.getId());
+        return findByQuery("from UserAttendance where checkdate=? and user.id=? and type is not null order by noon", date, sysUser.getId());
     }
 
     public List<UserAttendance> getDayAttendance(Date[] dates, SysUser sysUser) {
 //        String s = Arrays.toString(dates);
 //        System.out.println("******************* s = " + s);
-        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.id=? order by checkdate, noon",
+        return findByQuery("from UserAttendance where (checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=? or checkdate=?) and user.id=? and type is not null order by checkdate, noon",
                 dates[0], dates[1], dates[2], dates[3], dates[4], dates[5], dates[6], sysUser.getId());
     }
 
@@ -153,24 +153,24 @@ public class UserAttendanceDao extends EntityService<UserAttendance, Long> {
             Boolean snoon = ((UserAttendance) pSecond).getNoon();
 
             if (porderno < sorderno) {
-                return 1;
+                return -1;
             }
             else if (porderno > sorderno) {
-                return -1;
+                return 1;
             }
             else {
                 if (puserid < suserid) {
-                    return 1;
+                    return -1;
                 }
                 else if (puserid > suserid) {
-                    return -1;
+                    return 1;
                 }
                 else {
                     if (snoon) {
-                        return 1;
+                        return -1;
                     }
                     else {
-                        return -1;
+                        return 1;
                     }
                 }
             }

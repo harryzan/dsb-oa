@@ -158,6 +158,17 @@ public class MessageListener implements Listener {
                     message.setName(demand.getType().getName() + "申请已安排");
                     message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
                     messageDao.save(message);
+
+                    SysUser user = demand.getMainuser();
+                    message = new Message();
+                    message.setType(demand.getType().getName() + "申请");
+                    message.setFlag("demand");
+                    message.setStarttime(new Timestamp(current));
+                    message.setReceiver(user);
+                    message.setSystem(true);
+                    message.setName(demand.getType().getName() + "申请已安排");
+                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
+                    messageDao.save(message);
                 }
             }
         }

@@ -36,7 +36,7 @@
     </tr>
         <c:forEach items="${arranges}" var="arrange" varStatus="status">
             <tr>
-                <td width="14%" align="center" class="sy_text_1">
+                <td width="15%" align="left" class="sy_text_1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <c:if test='${arrange.dow == 1}'>星期日</c:if>
                         <c:if test='${arrange.dow == 2}'>星期一</c:if>
                         <c:if test='${arrange.dow == 3}'>星期二</c:if>
@@ -45,7 +45,7 @@
                         <c:if test='${arrange.dow == 6}'>星期五</c:if>
                         <c:if test='${arrange.dow == 7}'>星期六</c:if>
                 </td>
-                <td height="60px">
+                <td width="85%" height="60px">
                     ${arrange.content}
                 </td>
             </tr>

@@ -117,7 +117,7 @@
                       <td width="45%"><div align="right">
                       </div></td>
                       <td width="10%"><div align="center">
-                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="closewindow('${description}(${code})');">
+                          <input type="button" class="button_cc" name="input" value="返 回" onClick="window.back();">
                       </div></td>
                       <td width="45%"></td>
                     </tr>

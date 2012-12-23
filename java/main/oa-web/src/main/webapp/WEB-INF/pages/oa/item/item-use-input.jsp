@@ -45,8 +45,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="item-use!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="item-use!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -59,14 +59,17 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">日常用品：</div></td>
-                            <td width="70%">&nbsp;
-                                <%--<select name="itemid" id="itemid">--%>
-                                    <%--<option value="1"></option>--%>
-                                <%--</select>--%>
-                                <table style="line-height: 26px">
+                            <td colspan="2" class="text_title"><div align="center">日常用品领用</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="30%" align="right" class="textone1">日常用品：</td>
+                            <td width="70%" class="textone1">
+                              <table style="line-height: 26px">
                                 <s:select name="itemid" list="items" listKey="id"  listValue="name" headerKey="0"/>
-                                </table></td>
+                              </table>
+                              <%--<select name="itemid" id="itemid">--%>
+                              <%--<option value="1"></option>--%>
+                            <%--</select>--%></td>
                           </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td width="30%"><div align="right">车辆牌照：</div></td>--%>
@@ -81,15 +84,15 @@
                                   <%--<input id="usedate" name="usedate" type="text" class="input_one" value="${usedate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(usedate, 'date');" /></td>--%>
                           <%--</tr>--%>
                           <tr class="textone12">
-                              <td><div align="right">领用数量：</div></td>
-                              <td height="60">&nbsp;
+                              <td class="textone1"><div align="right">领用数量：</div></td>
+                              <td height="60" class="textone1">&nbsp;
                                   <input name="usecount" type="text" class="input_one" value="${usecount}">
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">描述：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="desc" class="input_five">${desc}</textarea></td>
+                              <td class="textone1"><div align="right">描述：</div></td>
+                              <td height="60" class="textone1">&nbsp;
+                                  <textarea name="desc" cols="60%" rows="5" class="input_five">${desc}</textarea></td>
                           </tr>
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>

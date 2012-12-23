@@ -45,8 +45,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="person-arrange!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="person-arrange!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <input type ="hidden" name="bulletinstatus" value="${bulletinstatus}"> 
                 <tr>
@@ -60,26 +60,29 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                              <td width="30%"><div align="right">年份：</div></td>
-                              <td width="70%">&nbsp;${year}
-                                  <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
+                              <td colspan="2" class="text_title"><div align="center">待办事项查看</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td align="right" class="textone1">年份：</td>
+                            <td width="70%" class="textone1">&nbsp;${year}
+                            <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">周数：</div></td>
-                              <td width="70%">&nbsp;${week}
+                              <td width="30%" class="textone1"><div align="right">周数：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${week}
                                   <input id="week" name="week" type="hidden" class="input_one" value="${week}"></td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">开始时间：</div></td>
-                              <td width="70%">&nbsp;${starttime}</td>
+                              <td width="30%" class="textone1"><div align="right">开始时间：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${starttime}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">结束时间：</div></td>
-                              <td width="70%">&nbsp;${endtime}</td>
+                              <td width="30%" class="textone1"><div align="right">结束时间：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${endtime}</td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;${content}</td>
+                            <td class="textone1"><div align="right">内容：</div></td>
+                            <td height="60" colspan="2" class="textone1">&nbsp;${content}</td>
                           </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

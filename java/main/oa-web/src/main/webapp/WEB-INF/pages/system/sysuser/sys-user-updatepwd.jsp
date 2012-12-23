@@ -83,7 +83,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="" value="关 闭" onclick="closewindow('修改密码');"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="" value="关 闭" onclick="window.close();"></td>
                   </tr>
                 </table></td>
               </tr>

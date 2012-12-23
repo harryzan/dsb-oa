@@ -18,7 +18,7 @@
 </head>
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 
                 <tr>
                   <td valign="top">
@@ -33,8 +33,11 @@
                       <td valign="top" bgcolor="#FFFFFF">
                       <table width="100%" border="0" cellpadding="0" cellspacing="1">
                             <tr class="textone1">
-                              <td width="30%"><div align="right">标题：</div></td>
-                              <td width="70%">&nbsp;${name}</td>
+                              <td colspan="2" class="text_title"><div align="center">信息查看</div></td>
+                            </tr>
+                            <tr class="textone1">
+                              <td width="30%" align="right" class="textone1">标题：</td>
+                              <td width="70%" class="textone1">&nbsp;${name}</td>
                             </tr>
                             <%--<tr class="textone12">--%>
                               <%--<td><div align="right">发布时间：</div></td>--%>
@@ -45,8 +48,8 @@
                               <%--<td>&nbsp;${endtime}</td>--%>
                           <%--</tr>--%>
                           <tr class="textone12">
-                              <td><div align="right">内容：</div></td>
-                              <td>&nbsp;${description}</td>
+                              <td class="textone1"><div align="right">内容：</div></td>
+                              <td class="textone1">&nbsp;${description}</td>
                             </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td><div align="right">状态：</div></td>--%>
@@ -54,8 +57,8 @@
                             <%--</tr>--%>
 
                           <tr class="textone1">
-                              <td><div align="right">发布人：</div></td>
-                              <td>&nbsp;${createuser.displayname}</td>
+                              <td class="textone1"><div align="right">发布人：</div></td>
+                              <td class="textone1">&nbsp;${createuser.displayname}</td>
                             </tr>
                           <%--<s:if test="map.myuser == adduser.id">--%>
                           <%--<tr class="textone1">--%>

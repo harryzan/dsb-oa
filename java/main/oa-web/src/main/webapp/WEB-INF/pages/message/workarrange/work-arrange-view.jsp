@@ -23,30 +23,31 @@
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
-  <%--<tr>--%>
-    <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
-    <%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
-    <%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
-  <%--</tr>--%>
-  <%--<tr>--%>
-    <%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
-    <%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
-      <%--<tr>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
-        <%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
-            <%--<tr>--%>
-              <%--<td width="20" class="textone">&nbsp;</td>--%>
-              <%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
-              <%--<td width="20">&nbsp;</td>--%>
-            <%--</tr>--%>
-        <%--</table></td>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
-      <%--</tr>--%>
-      <%--<tr>--%>
-        <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
-        <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="work-arrange!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+<%--<tr>--%>
+<%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
+<%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
+<%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
+<%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
+<%--<tr>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
+<%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
+<%--<tr>--%>
+<%--<td width="20" class="textone">&nbsp;</td>--%>
+<%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
+<%--<td width="20">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--</table></td>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
+<%--<td valign="top" bgcolor="#eff6fe">--%>
+<br>
+<table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="work-arrange!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <input type ="hidden" name="bulletinstatus" value="${bulletinstatus}"> 
                 <tr>
@@ -58,24 +59,24 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                           <tr class="textone1">
-                              <td width="30%"><div align="right">年份：</div></td>
-                              <td width="70%">&nbsp;${year}
-                                  <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
+                              <td colspan="2" align="center" class="text_title">工作安排</td>
                           </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">周数：</div></td>
-                              <td width="70%">&nbsp;第${week}周
-                                  <input id="week" name="week" type="hidden" class="input_one" value="${week}"></td>
+                          <tr >
+                            <td align="right" class="textone1">日期：</td>
+                            <td width="70%" class="textone1">&nbsp;${year}
+                            <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
                           </tr>
-                          <tr class="textone1">
-                              <td width="30%"><div align="right"></div></td>
-                              <td width="70%">&nbsp;周${dow}</td>
+                          <tr>
+                              <td width="30%" class="textone1"><div align="right">周数：</div></td>
+                              <td width="70%" class="textone1">&nbsp;第${week}周
+                                  <input id="week" name="week" type="hidden" class="input_one" value="${week}">
+                                  星期${dow}</td>
                           </tr>
-                          <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;${content}</td>
+                          <tr>
+                            <td class="textone1"><div align="right" >工作内容：</div></td>
+                            <td height="60" colspan="2" class="textone1">&nbsp;${content}</td>
                           </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -87,8 +88,8 @@
                     </tr><tr>
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top" align="center">
-                                  <td width="45%"><input type="button" class="button_cc" name="input" value="关 闭" onClick="window.close();" align="center"></td>
-                                </tr>
+                                  <td width="45%"><br>
+                                  <input type="button" class="button_cc" name="input" value="关 闭" onClick="window.close();" align="center"></td></tr>
                             </table></td>
                           </tr>
                   </table>
@@ -96,7 +97,7 @@
                 </tr>
 
             </form>
-        </table>
+</table>
 <script type="text/javascript">
     function check_form(afrom){
         if(afrom.name.value == ""){

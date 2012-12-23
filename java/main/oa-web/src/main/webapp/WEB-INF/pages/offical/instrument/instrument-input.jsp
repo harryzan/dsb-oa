@@ -67,7 +67,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
             <form action="instrument!save?id=${id}" method="post">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <%--<input type ="hidden" name="status" value="${status}">--%>
@@ -82,10 +82,13 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">标题：</div></td>
-                            <td width="70%" colspan="2">&nbsp;
-                                <input name="title" id="title" type="text" class="input_one" value="${title}"> &nbsp;<span class="textxing">*</span>
-                                </td>
+                            <td colspan="3" class="text_title"><div align="center">办文信息维护</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="30%" align="right" class="textone1">标题：</td>
+                            <td width="70%" colspan="2" class="textone1">&nbsp;
+                              <input name="title" type="text" class="input_one" id="title" value="${title}" size="60%">
+&nbsp;<span class="textxing">*</span></td>
                           </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td width="30%"><div align="right">发布时间：</div></td>--%>
@@ -100,31 +103,31 @@
                                   <%--<input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>--%>
                           <%--</tr>--%>
                           <tr class="textone12">
-                              <td><div align="right">内容：</div></td>
-                              <td height="60" colspan="2">&nbsp;
-                                  <textarea name="content" id="content" class="input_three" >${content}</textarea></td>
+                              <td class="textone1"><div align="right">内容：</div></td>
+                              <td height="60" colspan="2" class="textone1">&nbsp;
+                                  <textarea name="content" cols="%" rows="5" class="input_three" id="content" >${content}</textarea></td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">文书附件：</div></td>
-                              <td height="60" colspan="2">&nbsp;
+                              <td class="textone1"><div align="right">文书附件：</div></td>
+                              <td height="60" colspan="2" class="textone1">&nbsp;
                                   <s:iterator value ="attachs">
                                   <a href='${ctx}/common/document/doc-attach!download?id=${id}' target='_blank'>
                                       <img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:pointer' alt='${filename}'></a>
                                     </s:iterator>&nbsp;&nbsp;
-                                  <span class="textxing" style ="cursor:pointer;" onclick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${docdocument.id}">
+                                  <span class="textxing" style ="cursor:pointer;" onClick="docdocument();">附件</span><input type ="hidden" name="documentid" id="documentid" value="${docdocument.id}">
                               </td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">提交给：</div></td>
-                              <td height="60" colspan="2">&nbsp;
+                              <td class="textone1"><div align="right">提交给：</div></td>
+                              <td height="60" colspan="2" class="textone1">&nbsp;
                                 <input type="hidden" name="tuserid" id="tuserid"/>
-                                <input name="targetusername" id="targetusername" type="text" class="input_one" readonly />
-                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="targetuser()" >
+                                <input name="targetusername" type="text" class="input_one" id="targetusername" size="60%" readonly />
+                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onClick="targetuser()" >
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">是否结束：</div></td>
-                              <td height="60" colspan="2">&nbsp;
+                              <td class="textone1"><div align="right">是否结束：</div></td>
+                              <td class="textone1" height="60" colspan="2">&nbsp;
                                   <input type="checkbox" name="sstatus" id="sstatus"/>
                           </tr>
 

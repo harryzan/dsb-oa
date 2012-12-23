@@ -1,9 +1,8 @@
-package gov.dsb.web.action.oa.car;
+package gov.dsb.web.action;
 
-import gov.dsb.core.dao.CarUseDao;
-import gov.dsb.core.dao.SysUserDao;
+import gov.dsb.core.dao.BulletinDao;
 import gov.dsb.core.dao.base.Page;
-import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.Bulletin;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.PageActionSupport;
 import gov.dsb.core.utils.Nulls;
@@ -21,19 +20,31 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Administrator
- * Date: 2009-7-5
- * Time: 10:17:16
+ * User: cxs
+ * Date: 2010-4-1
+ * Time: 14:15:48
  * To change this template use File | Settings | File Templates.
  */
 
 @ParentPackage("default")
 @Results({@Result(name = PageActionSupport.GRIDDATA, location = "/WEB-INF/pages/common/gridData.jsp")})
-public class CarCompleteGridAction extends PageActionSupport<CarUse> {
+public class BulletinGridAction extends PageActionSupport<Bulletin> {
 
     @Autowired
-    private CarUseDao service;
+    private BulletinDao service;
 
+    @Autowired
+    private UserSessionService userSessionService;
+
+//    private Boolean bulletinstatus;
+
+//    public Boolean getBulletinstatus() {
+//        return bulletinstatus;
+//    }
+
+//    public void setBulletinstatus(Boolean bulletinstatus) {
+//        this.bulletinstatus = bulletinstatus;
+//    }
 
     private String columns;
 
@@ -46,7 +57,6 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
     private List<Row> rows;
 
     private String gridParams;
-
 
     public void setColumns(String columns) {
         this.columns = columns;
@@ -89,56 +99,38 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
 
     public String griddata() throws Exception {
         if (!Nulls.isNull(limit) && limit > 0) {
-            page = new Page<CarUse>(limit, true);
-        }
-        else {
-            page = new Page<CarUse>(10, true);
+            page = new Page<Bulletin>(limit, true);
+        } else {
+            page = new Page<Bulletin>(10, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {
             int pageNo = start / limit + 1;
             page.setPageNo(pageNo);
         }
+        SysUser user = userSessionService.getCurrentSysUser();
+        if (user == null) {
+            throw new RuntimeException("注意：请先登录系统！");
+        }
+
+//        String s = "Select t from Student t left join t.books b where   \n" +
+//                "exists　( select b.new from b where b.student = t )    \n" +
+//                "and true=all( select b.new from b where b.student = t )";
+
+        String hql = "from Bulletin";
+//        if (bulletinstatus)
+//            hql += " where endtime < to_char(sysdate)";
+//        else
+//            hql += " where endtime >= to_char(sysdate)";
         if (!StringHelp.isEmpty(conditions)) {
-            QueryTranslate queryTranslate = new QueryTranslate("from CarUse ", conditions);
-            page = service.findPageByQuery(page, queryTranslate.toString());
+            QueryTranslate queryTranslate = new QueryTranslate(hql, conditions);
+            page = service.findPageByQuery(page, queryTranslate.toString() + " order by starttime desc");
+        } else {
+            page = service.findPageByQuery(page, hql + " order by starttime desc");
         }
-        else {
-            page = service.findPageByQuery(page, "from CarUse order by startdate desc");
-        }
-        List<CarUse> list = page.getResult();
+        List<Bulletin> list = page.getResult();
+
         rows = Grid.gridValue2Rows(list, columns);
-
         return GRIDDATA;
-    }
-
-    private boolean isadmin;
-
-    public boolean getIsadmin() {
-        return isadmin;
-    }
-
-    public void setIsadmin(boolean isadmin) {
-        this.isadmin = isadmin;
-    }
-
-
-    @Autowired
-    private UserSessionService userSessionService;
-
-
-    @Autowired
-    private SysUserDao sysUserDao;
-
-    @Override
-    public String execute() throws Exception {
-        SysUser currentUser = userSessionService.getCurrentSysUser();
-
-        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
-                sysUserDao.containRole(currentUser.getId(), "车辆负责人") || currentUser.getLoginname().equals("admin")) {
-            isadmin = true;
-        }
-
-        return SUCCESS;    //To change body of overridden methods use File | Settings | File Templates.
     }
 }

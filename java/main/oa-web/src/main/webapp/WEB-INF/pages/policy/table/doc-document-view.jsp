@@ -39,7 +39,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -51,67 +51,70 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                         <tr class="textone1">
-                          <td width="20%"><div align="right">原始编号：</div></td>
-                          <td width="20%">&nbsp;${origincode}</td>
-                          <td width="15%"><div align="right">编号：</div></td>
-                          <td width="30%">&nbsp;${code}</td>
-                          </tr>
-                        <tr class="textone12">
-                          <td><div align="right">标题：</div></td>
-                          <td colspan="3">&nbsp;${name}</td>
+                          <td colspan="4" class="text_title"><div align="center">信息查看</div>                            <div align="right"></div></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">作者：</div></td>
-                          <td>&nbsp;${author}</td>
-                          <td><div align="right">文档性质：
+                          <td width="20%" align="right" class="textone1">原始编号：</td>
+                          <td width="20%" class="textone1">${origincode}</td>
+                          <td width="15%" align="right" class="textone1">编号：</td>
+                          <td width="30%" class="textone1">&nbsp;${code}</td>
+                        </tr>
+                        <tr class="textone12">
+                          <td class="textone1"><div align="right">标题：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${name}</td>
+                          </tr>
+                        <tr class="textone1">
+                          <td class="textone1"><div align="right">作者：</div></td>
+                          <td class="textone1">&nbsp;${author}</td>
+                          <td class="textone1"><div align="right">文档性质：
                             </div></td>
-                          <td>&nbsp;${property.listname}</td>
+                          <td class="textone1">&nbsp;${property.listname}</td>
                           </tr>
                         <tr class="textone12">
-                          <td><div align="right">创建者：</div></td>
-                          <td>&nbsp;${createuser.displayname}</td>
-                          <td><div align="right">创建时间：</div></td>
-                          <td>&nbsp;<fmt:formatDate value="${createtime}" pattern="yyyy-MM-dd"/> </td>
+                          <td class="textone1"><div align="right">创建者：</div></td>
+                          <td class="textone1">&nbsp;${createuser.displayname}</td>
+                          <td class="textone1"><div align="right">创建时间：</div></td>
+                          <td class="textone1">&nbsp;<fmt:formatDate value="${createtime}" pattern="yyyy-MM-dd"/> </td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">最后修改者：</div></td>
-                          <td nowrap>&nbsp;${updateuser.displayname}</td>
-                          <td><div align="right">最后修改时间：</div></td>
-                          <td>&nbsp;<fmt:formatDate value="${updatetime}" pattern="yyyy-MM-dd"/></td>
+                          <td class="textone1"><div align="right">最后修改者：</div></td>
+                          <td class="textone1" nowrap>&nbsp;${updateuser.displayname}</td>
+                          <td class="textone1"><div align="right">最后修改时间：</div></td>
+                          <td class="textone1">&nbsp;<fmt:formatDate value="${updatetime}" pattern="yyyy-MM-dd"/></td>
                           </tr>
                         <tr class="textone12">
-                          <td><div align="right">关键字：</div></td>
-                          <td>&nbsp;${keywords}</td>
-                          <td><div align="right">文档格式：</div></td>
-                          <td>&nbsp;${format.listname}</td>
+                          <td class="textone1"><div align="right">关键字：</div></td>
+                          <td class="textone1">&nbsp;${keywords}</td>
+                          <td class="textone1"><div align="right">文档格式：</div></td>
+                          <td class="textone1">&nbsp;${format.listname}</td>
                         </tr>
                         <tr class="textone1">
-                          <td><div align="right">单位：</div></td>
-                          <td colspan="3">&nbsp;${sysdept.name}</td>
+                          <td class="textone1"><div align="right">单位：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${sysdept.name}</td>
                           </tr>
                         <tr class="textone12">
-                          <td><div align="right">摘要：</div></td>
-                          <td colspan="3">&nbsp;${abstractcontent}</td>
+                          <td class="textone1"><div align="right">摘要：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${abstractcontent}</td>
                         </tr>
                         <tr class="textone1">
-                          <td><div align="right">描述：</div></td>
-                          <td colspan="3">&nbsp;${description}</td>
+                          <td class="textone1"><div align="right">描述：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${description}</td>
                         </tr>
                       </table>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td height="25" colspan="4"><div align="center" class="text"><strong>附件列表</strong></div></td>
+                            <td class="textone1" height="25" colspan="4"><div align="center" class="text"><strong>附件列表</strong></div></td>
                             </tr>
                           <tr class="textoneA">
-                            <td width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称</div></td>
-                            <td width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
-                            <td width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
+                            <td class="textone1" width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称</div></td>
+                            <td class="textone1" width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
+                            <td class="textone1" width="33%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
                             </tr>
                             <s:iterator value ="attachs">
                           <tr class="textoneA">
-                            <td><div align="center"><a href="${ctx}/common/document/doc-attach!download?id=${id}" target="_blank">${filename}</a></div></td>
-                            <td><div align="center">${content}</div></td>
-                            <td><div align="center">${description}</div></td>
+                            <td class="textone1"><div align="center"><a href="${ctx}/common/document/doc-attach!download?id=${id}" target="_blank">${filename}</a></div></td>
+                            <td class="textone1"><div align="center">${content}</div></td>
+                            <td class="textone1"><div align="center">${description}</div></td>
                             </tr>
                             </s:iterator>
                         </table></td>
@@ -127,7 +130,7 @@
                       <td width="45%"><div align="right">
                       </div></td>
                       <td width="10%"><div align="center">
-                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="closewindow('${name}');">
+                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="window.close();">
                       </div></td>
                       <td width="45%"></td>
                     </tr>

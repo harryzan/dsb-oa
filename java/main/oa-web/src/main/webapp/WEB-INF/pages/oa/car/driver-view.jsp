@@ -22,29 +22,30 @@
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
-  <%--<tr>--%>
-    <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
-    <%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
-    <%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
-  <%--</tr>--%>
-  <%--<tr>--%>
-    <%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
-    <%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
-      <%--<tr>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
-        <%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
-            <%--<tr>--%>
-              <%--<td width="20" class="textone">&nbsp;</td>--%>
-              <%--<td height="23" valign="bottom" class="textone" align="center"><strong>查看型号信息</strong></td>--%>
-              <%--<td width="20">&nbsp;</td>--%>
-            <%--</tr>--%>
-        <%--</table></td>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
-      <%--</tr>--%>
-      <%--<tr>--%>
-        <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
-        <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+<%--<tr>--%>
+<%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
+<%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
+<%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
+<%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
+<%--<tr>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
+<%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
+<%--<tr>--%>
+<%--<td width="20" class="textone">&nbsp;</td>--%>
+<%--<td height="23" valign="bottom" class="textone" align="center"><strong>查看型号信息</strong></td>--%>
+<%--<td width="20">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--</table></td>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
+<%--<td valign="top" bgcolor="#eff6fe">--%>
+<br>
+<table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 
                 <tr>
                   <td valign="top">
@@ -57,47 +58,50 @@
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF">
-                      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0">
                           <tr class="textone1">
-                              <td width="30%"><div align="right">姓名：</div></td>
-                              <td width="70%">&nbsp;${name}</td>
+                              <td colspan="2" class="text_title"><div align="center">驾驶员信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td align="right" class="textone1">姓名：</td>
+                            <td width="70%" class="textone1">&nbsp;${name}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">性别：</div></td>
-                              <td width="70%">&nbsp;${sex}</td>
+                              <td width="30%"class="textone1"><div align="right">性别：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${sex}</td>
                                   <%--<input name="name" type="text" class="input_one" value="${name}">--%>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">出生日期：</div></td>
-                              <td width="70%">&nbsp;${birthday}</td>
+                              <td width="30%" class="textone1"><div align="right">出生日期：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${birthday}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">驾龄：</div></td>
-                              <td width="70%">&nbsp;${years}"年</td>
+                              <td width="30%" class="textone1"><div align="right">驾龄：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${years}"年</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">驾驶证号：</div></td>
-                              <td width="70%">&nbsp;${license}</td>
+                              <td width="30%" class="textone1"><div align="right">驾驶证号：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${license}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">驾照期限：</div></td>
-                              <td width="70%">&nbsp;${licenselimit}</td>
+                              <td width="30%" class="textone1"><div align="right">驾照期限：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${licenselimit}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">驾照等级：</div></td>
-                              <td width="70%">&nbsp;${licenselevel}</td>
+                              <td width="30%" class="textone1"><div align="right">驾照等级：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${licenselevel}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">手机：</div></td>
-                              <td width="70%">&nbsp;${cellphone}</td>
+                              <td width="30%" class="textone1"><div align="right">手机：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${cellphone}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">电话：</div></td>
-                              <td width="70%">&nbsp;${phone}</td>
+                              <td width="30%" class="textone1"><div align="right">电话：</div></td>
+                              <td width="70%" class="textone1">&nbsp;${phone}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">备注：</div></td>
-                              <td height="70">&nbsp;${memo}</td>
+                              <td class="textone1"><div align="right">备注：</div></td>
+                              <td height="70" class="textone1">&nbsp;${memo}</td>
                           </tr>
                         </table>
                       </td>
@@ -113,7 +117,7 @@
                       <td width="45%"><div align="right">
                       </div></td>
                       <td width="10%"><div align="center">
-                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="closewindow('${description}(${code})');">
+                          <input type="button" class="button_cc" name="input" value="返 回" onClick="window.back();">
                       </div></td>
                       <td width="45%"></td>
                     </tr>
@@ -123,7 +127,7 @@
                   </td>
                 </tr>
 
-        </table>
+</table>
         <%--</td><td background="${themesPath}/oldimages/bgtub.gif">&nbsp;</td>--%>
       <%--</tr>--%>
       <%--<tr>--%>

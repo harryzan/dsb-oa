@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-use-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-complete-grid", type = "redirect")})
 public class DemandUseAction extends CRUDActionSupport<Demand>{
 
     @Autowired
@@ -103,6 +103,7 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
+        entity.setFlag("待审核");
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();
@@ -127,11 +128,16 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
                 entity.setStatus(false);
             }
         }
-        UserSession userSession = userSessionService.getUserSession();
-        Long typeid= typeid = (Long) userSession.get("typeid");
-        if (typeid != null){
-            type = demandTypeDao.get(typeid);
-            entity.setType(type);
+        if (entity.getId() == null) {
+            UserSession userSession = userSessionService.getUserSession();
+            Long typeid= typeid = (Long) userSession.get("typeid");
+            if (typeid != null){
+                type = demandTypeDao.get(typeid);
+                entity.setType(type);
+            }
+        }
+        else {
+            type = entity.getType();
         }
     }
 

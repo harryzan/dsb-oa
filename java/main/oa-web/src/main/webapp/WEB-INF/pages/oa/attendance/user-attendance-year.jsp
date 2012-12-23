@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,7 +13,7 @@
     <script type="text/javascript">
         function changeday() {
             var value = document.getElementById("day").value;
-            window.location = "user-attendance!sum?day=" + value;
+            window.location = "user-attendance!year?day=" + value;
         }
     </script>
     <style media=print type="text/css">
@@ -23,17 +23,17 @@
 <body>
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
-        <td colspan="13" class="line_td_title" align="center">${year}年${month}月&nbsp;考勤月报</td>
+        <td colspan="13" class="line_td_title" align="center">${year}年&nbsp;考勤年报</td>
     </tr>
     <form action="user-attendance!sum" method="post">
         <tr class="noprint">
             <td colspan="13" class="line_td_search" align="center">
-                <a href="user-attendance!sum?month=${beforemonth}&year=${beforeyear}">←${beforeyear}年&nbsp;第${beforemonth}月&nbsp;</a>
+                <a href="user-attendance!year?year=${beforeyear}">←&nbsp;${beforeyear}年&nbsp;</a>
                 日期：
                 <input name="day" id="day" class="input_one2" type="text" value="${day}"/>&nbsp;
                 <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(day,'date');" style="cursor:pointer">
                 <input type="button" name="search" id="search" value="搜索" class="search_but" onclick="changeday();"/>
-                <a href="user-attendance!sum?month=${aftermonth}&year=${afteryear}">&nbsp;${afteryear}年&nbsp;第${aftermonth}月→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="user-attendance!year?year=${afteryear}">&nbsp;${afteryear}年&nbsp;→</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" name="add" id="add" value="打印" onclick="window.print();" class="confirm_but"/>
             </td>
         </tr>

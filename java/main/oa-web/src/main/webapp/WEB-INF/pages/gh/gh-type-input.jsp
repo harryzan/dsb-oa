@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="gh-type!save?id=${id}" method="post" onsubmit="javascript:return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="gh-type!save?id=${id}" method="post" onSubmit="javascript:return check()">
                 <input type="hidden" name="parentid" value="${parent.id}" >
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -56,13 +56,17 @@
                               <%--<span class="textxing">*</span></td>--%>
                           <%--</tr>--%>
                           <tr class="textone1">
-                            <td><div align="right">名称：</div></td>
-                            <td>&nbsp;<input name="name" id="name" type="text" class="input_one" value="${name}">
-                              <span class="textxing">*</span></td>
+                            <td colspan="2" class="text_title"><div align="center">维护信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="17%" align="right" class="textone1">名称：</td>
+                            <td width="83%" class="textone1">&nbsp;
+                              <input name="name" type="text" class="input_one" id="name" value="${name}" size="60%">
+                            <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">描述：</div></td>
-                            <td height="100">&nbsp;<textarea name="definition" class="input_three">${definition}</textarea></td>
+                            <td height="90" class="textone1"><div align="right">描述：</div></td>
+                            <td height="100" class="textone1">&nbsp;<textarea name="definition" cols="60%" rows="5" class="input_three">${definition}</textarea></td>
                           </tr>
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">类型：</div></td>--%>
@@ -93,7 +97,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onclick="history.back();"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onClick="history.back();"></td>
                   </tr>
                 </table></td>
               </tr>

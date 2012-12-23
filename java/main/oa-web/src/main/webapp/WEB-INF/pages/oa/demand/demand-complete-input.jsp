@@ -54,8 +54,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-complete!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="demand-complete!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -69,95 +69,97 @@
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <c:if test="${type.name != '会议'}">
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">名称：</div></td>
-                                  <td width="70%">&nbsp;${name}
-                                  </td>
-                              </tr>
-                              <tr class="textone12">
-                                  <td width="30%"><div align="right">申请人：</div></td>
-                                  <td width="70%">&nbsp;${user.displayname}</td>
+                                  <td colspan="2"><div align="center"><span class="text_title">会议安排</span></div></td>
                               </tr>
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">申请科室：</div></td>
-                                  <td width="70%">&nbsp;${user.sysdept.name}</td>
+                                <td align="right" class="textone1">名称：</td>
+                                <td width="70%" class="textone1">&nbsp;${name} </td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">需求日期：</div></td>
-                                  <td width="70%">&nbsp;${demanddate}</td>
+                                  <td width="30%"><div align="right" class="textone1">申请人：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${user.displayname}</td>
                               </tr>
                               <tr class="textone1">
-                                  <td><div align="right">描述：</div></td>
-                                  <td>&nbsp;${desc}</td>
+                                  <td width="30%" class="textone1"><div align="right">申请科室：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${user.sysdept.name}</td>
+                              </tr>
+                              <tr class="textone12">
+                                  <td width="30%" class="textone1"><div align="right">需求日期：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${demanddate}</td>
+                              </tr>
+                              <tr class="textone1">
+                                  <td class="textone1"><div align="right">描述：</div></td>
+                                  <td class="textone1">&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <c:if test="${type.name == '会议'}">
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">会议名称：</div></td>
-                                  <td width="70%">&nbsp;${name}
+                                  <td width="30%" class="textone1"><div align="right">会议名称：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${name}
                                   </td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">会议主题：</div></td>
-                                  <td width="70%">&nbsp;${title}
+                                  <td width="30%" class="textone1"><div align="right">会议主题：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${title}
                                   </td>
                               </tr>
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">申请人：</div></td>
-                                  <td width="70%">&nbsp;${user.displayname}(${user.sysdept.name})</td>
+                                  <td width="30%" class="textone1"><div align="right">申请人：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${user.displayname}(${user.sysdept.name})</td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">主持人：</div></td>
-                                  <td width="70%">&nbsp;${moderator.displayname}</td>
+                                  <td width="30%" class="textone1"><div align="right">主持人：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${moderator.displayname}</td>
                               </tr>
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">使用时间：</div></td>
-                                  <td width="70%">&nbsp;${demanddate}&nbsp;至&nbsp;${enddate}</td>
+                                  <td width="30%" class="textone1"><div align="right">使用时间：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${demanddate}&nbsp;至&nbsp;${enddate}</td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">参加人员：</div></td>
-                                  <td width="70%">&nbsp;${attendance}
+                                  <td width="30%" class="textone1"><div align="right">参加人员：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${attendance}
                                   </td>
                               </tr>
                               <tr class="textone1">
-                                  <td width="30%"><div align="right">会议人数：</div></td>
-                                  <td width="70%">&nbsp;${personnum}
+                                  <td width="30%" class="textone1"><div align="right">会议人数：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${personnum}
                                   </td>
                               </tr>
                               <tr class="textone12">
-                                  <td width="30%"><div align="right">会议地点：</div></td>
-                                  <td width="70%">&nbsp;${room}
+                                  <td width="30%" class="textone1"><div align="right">会议地点：</div></td>
+                                  <td width="70%" class="textone1">&nbsp;${room}
                                   </td>
                               </tr>
                               <tr class="textone1">
-                                  <td><div align="right">会务要求：</div></td>
-                                  <td>&nbsp;${desc}</td>
+                                  <td class="textone1"><div align="right">会务要求：</div></td>
+                                  <td class="textone1">&nbsp;${desc}</td>
                               </tr>
                           </c:if>
                           <tr class="textone12">
-                              <td><div align="right">审核意见：</div></td>
-                              <td>${opinion}</td>
+                              <td class="textone1"><div align="right">审核意见：</div></td>
+                              <td class="textone1">${opinion}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">审核人：</div></td>
+                              <td class="textone1"><div align="right">审核人：</div></td>
                               <td>${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">安排情况：</div></td>
-                              <td>&nbsp;${memo}</td>
+                              <td class="textone1"><div align="right">安排情况：</div></td>
+                              <td class="textone1">&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">安排人：</div></td>
-                              <td>${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td class="textone1"><div align="right">安排人：</div></td>
+                              <td class="textone1">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">执行人：</div></td>
-                              <td>&nbsp;${mainuser.displayname}
+                              <td class="textone1"><div align="right">执行人：</div></td>
+                              <td class="textone1">&nbsp;${mainuser.displayname}
                               </td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">反馈意见：</div></td>
-                              <td height="60">&nbsp;
-                                  <textarea name="remind" class="input_five" rows="10">${remind}</textarea></td>
+                              <td class="textone1"><div align="right">反馈意见：</div></td>
+                              <td height="60" class="textone1">&nbsp;
+                                  <textarea name="remind" cols="60%" rows="10" class="input_five">${remind}</textarea></td>
                           </tr>
                           <%--<tr class="textone12">--%>
                             <%--<td><div align="right">照片：</div></td>--%>

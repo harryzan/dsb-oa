@@ -61,7 +61,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -73,16 +73,19 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">用户名：</div></td>
-                            <td width="68%">&nbsp;${loginname}</td>
-                          </tr>
-                          <tr class="textone12">
-                            <td><div align="right">显示名：</div></td>
-                            <td>&nbsp;${displayname}</td>
+                            <td colspan="2" class="text_title"><div align="center">用户信息查看</div></td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">电子签名：</div></td>
-                              <td height="60"><div class="mask2">
+                            <td width="32%" align="right" class="textone1">用户名：</td>
+                            <td class="textone1" width="68%">&nbsp;${loginname}</td>
+                          </tr>
+                          <tr class="textone12">
+                            <td class="textone1"><div align="right">显示名：</div></td>
+                            <td class="textone1">&nbsp;${displayname}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td class="textone1"><div align="right">电子签名：</div></td>
+                              <td height="60" class="textone1"><div class="mask2">
                                   <div id="box2">
                                       <s:iterator value="attachs">
                                           <span><img src="${ctx}/common/document/doc-attach!displayPic?id=${id}" alt="${filename}" height="150px" width="200px" ></span>

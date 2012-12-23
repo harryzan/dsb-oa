@@ -45,8 +45,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="worklog!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="worklog!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <input type ="hidden" name="bulletinstatus" value="${bulletinstatus}"> 
                 <tr>
@@ -60,26 +60,30 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                              <td width="30%"><div align="right">工作日期：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="workdate" name="workdate" type="text" class="input_one" value="${workdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(workdate, 'date');" /></td>
-                          </tr>
-                          <tr class="textone12">
-                              <td width="30%"><div align="right">开始时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'datetime');" /></td>
+                              <td colspan="2" class="text_title"><div align="center">工作日志维护</div></td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">结束时间：</div></td>
-                              <td width="70%">&nbsp;
-                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'datetime');" /></td>
+                            <td align="right" class="textone1">工作日期：</td>
+                            <td width="70%" class="textone1">&nbsp;
+                              <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
+                              <input id="workdate" name="workdate" type="text" class="input_one" value="${workdate}">
+                            <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(workdate, 'date');" /></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;
+                              <td width="30%" class="textone1"><div align="right">开始时间：</div></td>
+                              <td width="70%" class="textone1">&nbsp;
+                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
+                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(starttime, 'datetime');" /></td>
+                          </tr>
+                          <tr class="textone1">
+                              <td width="30%" class="textone1"><div align="right">结束时间：</div></td>
+                              <td width="70%" class="textone1">&nbsp;
+                                  <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
+                                  <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(endtime, 'datetime');" /></td>
+                          </tr>
+                          <tr class="textone12">
+                            <td class="textone1"><div align="right">内容：</div></td>
+                            <td height="60" colspan="2" class="textone1">&nbsp;
                                 <textarea name="content" id="content" class="input_three" >${content}</textarea></td>
                           </tr>
                       </table></td>

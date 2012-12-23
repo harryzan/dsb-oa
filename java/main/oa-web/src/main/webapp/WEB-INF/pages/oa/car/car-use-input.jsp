@@ -23,30 +23,31 @@
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
-  <%--<tr>--%>
-    <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
-    <%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
-    <%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
-  <%--</tr>--%>
-  <%--<tr>--%>
-    <%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
-    <%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
-      <%--<tr>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
-        <%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
-            <%--<tr>--%>
-              <%--<td width="20" class="textone">&nbsp;</td>--%>
-              <%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
-              <%--<td width="20">&nbsp;</td>--%>
-            <%--</tr>--%>
-        <%--</table></td>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
-      <%--</tr>--%>
-      <%--<tr>--%>
-        <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
-        <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="car-use!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+<%--<tr>--%>
+<%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
+<%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
+<%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
+<%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
+<%--<tr>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
+<%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
+<%--<tr>--%>
+<%--<td width="20" class="textone">&nbsp;</td>--%>
+<%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
+<%--<td width="20">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--</table></td>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
+<%--<td valign="top" bgcolor="#eff6fe">--%>
+<br>
+<table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="car-use!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -57,46 +58,43 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                        <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                        <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr class="textone1">
-                                <td width="15%"><div align="right">申请事由：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
-                                    <input name="name" type="text" class="input_chang" value="${name}">
-                                </td>
+                                <td colspan="4"  class="text_title"><div align="center">用车申请</div></td>
+                            </tr>
+                            <tr class="textone1">
+                              <td align="right" class="textone1">申请事由：</td>
+                              <td colspan="3" class="textone1">&nbsp;&nbsp;<input name="name" type="text" class="input_chang" value="${name}"></td>
                             </tr>
                             <tr class="textone12">
-                                <td width="15%"><div align="right">申请车别：</div></td>
-                                <td width="35%">&nbsp;
-                                    <input name="cardesc" type="text" class="input_one2" value="${cardesc}">
-                                </td>
-                                <td width="15%"><div align="right">人  数：</div></td>
-                                <td width="35%">&nbsp;
-                                    <input name="usercount" type="text" class="input_one2" value="${usercount}">
-                                </td>
+                                <td width="22%" class="textone1"><div align="right">申请车别：</div></td>
+                                <td width="31%" class="textone1">&nbsp;
+                                    <input name="cardesc" type="text" class="input_one2" value="${cardesc}">                                </td>
+                                <td width="15%" class="textone1"><div align="right">人  数：</div></td>
+                                <td width="32%" class="textone1">&nbsp;
+                                    <input name="usercount" type="text" class="input_one2" value="${usercount}">                                </td>
                             </tr>
                             <tr class="textone1">
-                                <td width="15%"><div align="right">发车时间：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
-                                    <input id="startdate" name="startdate" type="text" class="input_one" value="${startdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(startdate, 'datetime');" /></td>
+                                <td width="22%" class="textone1"><div align="right">发车时间：</div></td>
+                                <td colspan="3" class="textone1">&nbsp;
+                                    <input id="startdate" name="startdate" type="text" class="input_one" value="${startdate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(startdate, 'datetime');" /></td>
                             </tr>
                             <tr class="textone12">
-                                <td width="15%"><div align="right">返回时间：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
-                                    <input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(enddate, 'datetime');" /></td>
+                                <td width="22%" class="textone1"><div align="right">返回时间：</div></td>
+                                <td colspan="3" class="textone1">&nbsp;
+                                    <input id="enddate" name="enddate" type="text" class="input_one" value="${enddate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(enddate, 'datetime');" /></td>
                             </tr>
                             <tr class="textone1">
-                                <td width="15%"><div align="right">上车地点：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
-                                    <input name="place" type="text" class="input_chang" value="${place}">
-                            </tr>
+                                <td width="22%" class="textone1"><div align="right">上车地点：</div></td>
+                                <td colspan="3" class="textone1">&nbsp;
+                            <input name="place" type="text" class="input_chang" value="${place}">                            </tr>
                             <tr class="textone12">
-                                <td width="15%"><div align="right">行驶路线：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
-                                    <input name="drivingline" type="text" class="input_chang" value="${drivingline}">
-                            </tr>
+                                <td width="22%" class="textone1"><div align="right">行驶路线：</div></td>
+                                <td colspan="3" class="textone1">&nbsp;
+                            <input name="drivingline" type="text" class="input_chang" value="${drivingline}">                            </tr>
                             <tr class="textone1">
-                                <td width="15%"><div align="right">备注：</div></td>
-                                <td width="85%" colspan="3">&nbsp;
+                                <td width="22%" class="textone1"><div align="right">备注：</div></td>
+                                <td colspan="3" class="textone1">&nbsp;
                                     <textarea name="desc" class="input_long">${desc}</textarea></td>
                             </tr>
                             <%--<tr class="textone1">--%>
@@ -113,28 +111,29 @@
                         <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                     </tr>
                       <tr>
-                          <td width="4" height="4" background="${themesPath}/oldimages/bg/xia.gif"><div align="right"><img src="${themesPath}/oldimages/bg/3.gif" width="4" height="4"></div></td>
+                        <td width="4" height="4" background="${themesPath}/oldimages/bg/xia.gif"><div align="right"><img src="${themesPath}/oldimages/bg/3.gif" width="4" height="4"></div></td>
                           <td height="4" background="${themesPath}/oldimages/bg/xia.gif"></td>
                           <td width="4" align="right"><img src="${themesPath}/oldimages/bg/4.gif" width="4" height="4"></td>
                       </tr><tr>
-                      <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+                        <td colspan="5" bgcolor="#eff6fe"><br>
+                          <br>
+                          <table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr valign="top">
                               <td width="45%"><div align="right">
                                   <input type="submit" class="button_bc" name="input" value="完 成">
                               </div></td>
-                              <td width="10%"><div align="center">
+                              <td width="10%" valign="top"><div align="center">
                                   <input type="reset" class="button_cc" name="input" value="重 写">
-                              </div></td>
-                              <td width="45%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-use-grid';"></td>
+                            </div></td>
+                              <td width="45%" valign="top"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-complete-grid';"></td>
                           </tr>
-                            </table></td>
-                          </tr>
+                          </table></td></tr>
                   </table>
                   </td>
                 </tr>
 
             </form>
-        </table>
+</table>
         <%--</td><td background="${themesPath}/oldimages/bgtub.gif">&nbsp;</td>--%>
       <%--</tr>--%>
       <%--<tr>--%>

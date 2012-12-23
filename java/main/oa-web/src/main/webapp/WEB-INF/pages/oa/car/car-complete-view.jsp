@@ -48,8 +48,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="car-drive!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="car-drive!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -60,106 +60,75 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                           <tr class="textone1">
-                              <td width="15%"><div align="right">申请人：</div></td>
-                              <td width="35%">&nbsp;${user.displayname}
-                              </td>
-                              <td width="15%"><div align="right">申请时间：</div></td>
-                              <td width="35%">&nbsp;${submitdate}
-                              </td>
+                              <td colspan="4" class="text_title"><div align="center">用车申请</div>                                <div align="right"></div></td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">申请事由：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${name}
-                              </td>
+                              <td width="21%" class="textone1"><div align="right">申请事由：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${name}                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td width="19%" class="textone1"><div align="right">申请车别：</div></td>
+                              <td width="11%" class="textone1">&nbsp;${cardesc}                              </td>
+                              <td width="5%" class="textone1"><div align="right">人  数：</div></td>
+                              <td width="65%" class="textone1">&nbsp;${usercount}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">发车时间：</div></td>
-                              <td width="85%"  colspan="3">&nbsp;
+                              <td width="21%" class="textone1"><div align="right">发车时间：</div></td>
+                              <td  colspan="3" class="textone1">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">返回时间：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
+                              <td width="21%" class="textone1"><div align="right">返回时间：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">上车地点：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${place}
-                              </td>
+                              <td width="21%" class="textone1"><div align="right">上车地点：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${place}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">行驶路线：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${drivingline}
-                              </td>
+                              <td width="21%" class="textone1"><div align="right">行驶路线：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${drivingline}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">备注：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${desc}
-                              </td>
+                              <td width="21%" class="textone1"><div align="right">备注：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${desc}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">批示意见：</div></td>
-                              <td colspan="3">&nbsp;${opinion}</td>
+                              <td width="22%" class="textone1"><div align="right">申请人：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${user.displayname}&nbsp;${submitdate}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">审核人：</div></td>
-                              <td colspan="3">&nbsp;${checker.displayname}&nbsp;${checkdate}</td>
+                              <td><div align="right" class="textone1">批示意见：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${opinion}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">调度意见：</div></td>
-                              <td colspan="3">&nbsp;${memo}</td>
+                              <td class="textone1"><div align="right">审核人：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${checker.displayname}&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">使用车辆：</div></td>
-                              <td width="35%">&nbsp;${car.carmodel}-${car.carlicense}
-                              </td>
-                              <td width="15%"><div align="right">驾驶员：</div></td>
-                              <td width="35%">&nbsp;${driver.name}
-                              </td>
+                              <td class="textone1"><div align="right">调度意见：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${memo}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">安排人：</div></td>
-                              <td colspan="3">&nbsp;${memor.displayname}&nbsp;${memodate}</td>
+                              <td width="21%" class="textone1"><div align="right">使用车辆：</div></td>
+                              <td width="19%" class="textone1">&nbsp;${car.carmodel}-${car.carlicense}                              </td>
+                              <td width="5%" nowrap="nowrap" class="textone1"><div align="right">驾驶员：</div></td>
+                              <td width="45%" class="textone1">&nbsp;${driver.name}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%" rowspan="2"><div align="right">往返路码数：</div></td>
-                              <td width="35%">&nbsp;起点:&nbsp;${gotrip}
-                              </td>
-                              <td width="15%"><div align="right">实际油耗：</div></td>
-                              <td width="35%">&nbsp;${fuel}
-                              </td>
-                          </tr>
-                          <tr class="textone1">
-                              <td width="35%">&nbsp;终点:&nbsp;${returntrip}
-                              </td>
-                              <td width="15%"><div align="right">实际里程：</div></td>
-                              <td width="35%">&nbsp;${kilometer}
-                              </td>
+                              <td class="textone1"><div align="right">安排人：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${memor.displayname}&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">登记人：</div></td>
-                              <td width="35%">&nbsp;${reminder.displayname}
-                              </td>
-                              <td width="15%"><div align="right">登记时间：</div></td>
-                              <td width="35%">&nbsp;${reminddate}
-                              </td>
-                          </tr>
-                          <tr class="textone1">
-                              <td width="15%"><div align="right">状态：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  <c:if test="${empty flag}">
-                                        已审核
-                                  </c:if>
-                                  <c:if test="${not empty flag}">
-                                      ${flag}
-                                  </c:if>
-                              </td>
+                              <td width="21%" class="textone1"><div align="right">状态：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;${flag}</td>
                           </tr>
 
                           <%--<tr class="textone1">--%>
@@ -188,7 +157,7 @@
                                   <%--<td width="10%"><div align="center">--%>
                                       <%--<input type="reset" class="button_cc" name="input" value="重 写">--%>
                                   <%--</div></td>--%>
-                                  <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-complete-grid';"></td>
+                                  <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
                                 </tr>
                             </table></td>
                           </tr>

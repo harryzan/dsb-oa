@@ -14,8 +14,8 @@
         var pageParam = "";
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
-//        var addurl = "demand-check!input";
-//        var modifyurl = "demand-complete!input";
+        var addurl = "demand-use!input";
+        //        var modifyurl = "demand-complete!input";
 //        var deleteurl = "demand-check!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -31,19 +31,22 @@
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"demand-complete-grid!griddata",
-//            addUrl:addurl,
+            <c:if test='${isadmin}'>
+            addUrl:addurl,
+            </c:if>
 //            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
+                {name:"flag",header:"状态",width:"10%"},
                 <c:if test="${type.name != '会议'}">
                 {name:"name",renderer:checkview,header:"申请内容",width:"15%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"demanddate",header:"需求时间",width:"15%"},
                 {name:"mainuser.displayname",header:"执行人",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"15%"},
-                {name:"memodate",header:"安排时间",width:"15%"},
+                {name:"memodate",header:"安排时间",width:"15%"}
                 </c:if>
                 <c:if test="${type.name == '会议'}">
                 {name:"name",renderer:checkview,header:"会议名称",width:"15%"},
@@ -52,9 +55,8 @@
                 {name:"moderater",header:"主持人",width:"15%"},
                 {name:"mainuser.displayname",header:"执行人",width:"10%"},
                 {name:"checkdate",header:"审核时间",width:"15%"},
-                {name:"memodate",header:"安排时间",width:"15%"},
+                {name:"memodate",header:"安排时间",width:"15%"}
                 </c:if>
-                {name:"flag",header:"状态",width:"10%"}
 //                {name:"desc",header:"备注",width:"30%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
@@ -84,12 +86,22 @@
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-//            var title = record.data["name"];
-//            var temp = title.split("|");
-//            if(temp.length == 3){
-//                title = temp[2];
-//            }
-            var url = '${ctx}/oa/demand/demand-complete?id=' + id;
+            var flag = record.data["flag"];
+//            alert(flag);
+            var url;
+            url = 'demand-complete?id=' + id;
+        <c:if test='${isadmin}'>
+            if ('待审核' == flag) {
+                url = "demand-check!input?id=" + id;
+            }
+            else if ('待安排' == flag) {
+                url = "demand-app!input?id=" + id;
+            }
+            else {
+                url = 'demand-complete?id=' + id;
+            }
+        </c:if>
+//            alert(url);
             window.location = url;
 //            enter(title,url,500,300);
         }

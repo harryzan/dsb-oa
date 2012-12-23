@@ -44,8 +44,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="demand-type!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="demand-type!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -58,24 +58,27 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">需求名称：</div></td>
-                            <td width="70%">&nbsp;
-                                <input name="name" type="text" class="input_one" value="${name}">
-                                <span class="textxing">*</span></td>
+                            <td colspan="2" class="text_title"><div align="center">信息维护</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td align="right" class="textone1">需求名称：</td>
+                            <td width="70%" class="textone1">&nbsp;
+                              <input name="name" type="text" class="input_one" value="${name}">
+                            <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">描述：</div></td>
-                              <td height="60">&nbsp;
+                              <td class="textone1"><div align="right">描述：</div></td>
+                              <td height="60" class="textone1">&nbsp;
                                   <textarea name="desc" class="input_five">${desc}</textarea></td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">负责人：</div></td>
-                              <td width="70%">&nbsp;
+                              <td class="textone1"  width="30%"><div align="right">负责人：</div></td>
+                              <td class="textone1" width="70%">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
                                   <%--<input id="buydate" name="buydate" type="text" class="input_one" value="${buydate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(buydate, 'date');" />--%>
-                                  <input id="username" name="username" type="text" class="input_one" value="${user.displayname}" onclick="user()" >
+                                  <input id="username" name="username" type="text" class="input_one" value="${user.displayname}" onClick="user()" >
                                   <input id="userid" type ="hidden" name="userid" value="${user.id}">
-                                  <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onclick="user()" >
+                                  <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onClick="user()" >
                               </td>
                           </tr>
                           <%--<tr class="textone12">--%>

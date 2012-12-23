@@ -67,7 +67,7 @@
 <%--<tr>--%>
 <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
 <%--<td valign="top" bgcolor="#eff6fe">--%>
-<table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+<table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
     <form action="instrument!save?id=${id}" method="post">
         <input type ="hidden" name="gridParam" value='${gridParam}'>
         <%--<input type ="hidden" name="status" value="${status}">--%>
@@ -82,10 +82,12 @@
                     <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                     <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                         <tr class="textone1">
-                            <td width="30%"><div align="right">标题：</div></td>
-                            <td width="70%" colspan="2">&nbsp;
-                                ${title}
-                            </td>
+                            <td colspan="3" class="text_title" ><div align="center">办文信息查看</div></td>
+                        </tr>
+                        <tr class="textone1">
+                          <td class="textone1" width="30%" align="right">标题：</td>
+                          <td width="70%" colspan="2" class="textone1">&nbsp;
+                          ${title} </td>
                         </tr>
                         <%--<tr class="textone12">--%>
                         <%--<td width="30%"><div align="right">发布时间：</div></td>--%>
@@ -100,23 +102,23 @@
                         <%--<input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>--%>
                         <%--</tr>--%>
                         <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;
+                            <td class="textone1"><div align="right">内容：</div></td>
+                            <td class="textone1" height="60" colspan="2">&nbsp;
                                 ${content}</td>
                         </tr>
                         <tr class="textone1">
-                            <td><div align="right">发起人：</div></td>
-                            <td height="60" colspan="2">&nbsp;
+                            <td class="textone1"><div align="right">发起人：</div></td>
+                            <td height="60" colspan="2" class="textone1">&nbsp;
                                 ${createuser.displayname}</td>
                         </tr>
                         <tr class="textone12">
-                            <td><div align="right">最后修改人：</div></td>
-                            <td height="60" colspan="2">&nbsp;
+                            <td class="textone1"><div align="right">最后修改人：</div></td>
+                            <td height="60" colspan="2" class="textone1">&nbsp;
                                 ${updateuser.displayname}</td>
                         </tr>
                         <tr class="textone1">
-                            <td><div align="right">文书附件：</div></td>
-                            <td height="60" colspan="2">&nbsp;
+                            <td class="textone1"><div align="right">文书附件：</div></td>
+                            <td class="textone1" height="60" colspan="2">&nbsp;
                                 <s:iterator value ="attachs">
                                     <a href='${ctx}/common/document/doc-attach!download?id=${id}' target='_blank'>
                                         <img src='${themesPath}/oldimages/icons/doc.gif' border='0' style='cursor:pointer' alt='${filename}'></a>
@@ -133,7 +135,7 @@
                             <%--</td>--%>
                         <%--</tr>--%>
 
-                    </table></td>
+        </table></td>
                     <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
                 </tr>
                 <tr>

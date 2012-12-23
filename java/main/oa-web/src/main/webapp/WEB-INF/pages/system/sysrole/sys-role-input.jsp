@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="sys-role!save" method="post" onsubmit="javascript:return judge();" >
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="sys-role!save" method="post" onSubmit="javascript:return judge();" >
                 <input type ="hidden" name="id" value="${id}">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -46,13 +46,17 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">角色名称：</div></td>
-                            <td width="68%">&nbsp;<input id="name" name="name" type="text" class="input_one" value="${name}">
-                              <span class="textxing">*</span></td>
+                            <td colspan="2"  class="text_title"><div align="center">维护角色信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="32%" align="right" class="textone1">角色名称：</td>
+                            <td width="68%" class="textone1">&nbsp;
+                              <input id="name" name="name" type="text" class="input_one" value="${name}">
+                            <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">角色描述：</div></td>
-                            <td height="100">&nbsp;<textarea name="description" class="input_three">${description}</textarea></td>
+                            <td height="90" class="textone1"><div align="right">角色描述：</div></td>
+                            <td height="100" class="textone1">&nbsp;<textarea name="description" class="input_three">${description}</textarea></td>
                           </tr>
                         </table> </td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -70,7 +74,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="" value="返 回" onclick="history.back();"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="" value="返 回" onClick="history.back();"></td>
                   </tr>
                 </table></td>
               </tr>

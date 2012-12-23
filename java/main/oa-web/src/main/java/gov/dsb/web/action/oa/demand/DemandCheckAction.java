@@ -30,7 +30,7 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-check-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-complete-grid", type = "redirect")})
 public class DemandCheckAction extends CRUDActionSupport<Demand>{
 
     @Autowired
@@ -117,10 +117,11 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
 
 //        if (StringHelp.isNotEmpty(complete))
             entity.setStatus(true);
+        entity.setFlag("待安排");
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();
-        sysUsers.add(entity.getUser());
+        sysUsers.add(entity.getType().getUser());
         messageListener.notice(sysUsers, entity);
 
         return RELOAD;
@@ -138,14 +139,18 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
             }
             else {
                 entity = new Demand();
-                entity.setStatus(false);
             }
         }
-        UserSession userSession = userSessionService.getUserSession();
-        Long typeid= typeid = (Long) userSession.get("typeid");
-        if (typeid != null){
-            type = demandTypeDao.get(typeid);
-            entity.setType(type);
+        if (entity.getId() == null) {
+            UserSession userSession = userSessionService.getUserSession();
+            Long typeid= typeid = (Long) userSession.get("typeid");
+            if (typeid != null){
+                type = demandTypeDao.get(typeid);
+                entity.setType(type);
+            }
+        }
+        else {
+            type = entity.getType();
         }
     }
 

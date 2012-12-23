@@ -31,8 +31,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="doc-document!save" method="post" enctype="multipart/form-data" onsubmit="javascript: return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="doc-document!save" method="post" enctype="multipart/form-data" onSubmit="javascript: return check()">
                 <input type ="hidden" name="id" value="${id}">
                 <input type ="hidden" name="doccategoryid" value="${doccategoryid}${doccategory.id}">
                 <input type="hidden" name="gridParam" value='${gridParam}'> 
@@ -57,11 +57,14 @@
                           <%--</td>--%>
                           <%--</tr>--%>
                         <tr class="textone12">
-                          <td><div align="right">标题：</div></td>
-                          <td colspan="3">&nbsp;<input name="name" type="text" class="input_one" value="${name}" >
-                              &nbsp;<span class="textxing">*</span>
-                          </td>
+                          <td class="text_title" colspan="4"><div align="center">文档信息</div></td>
                           </tr>
+                        <tr class="textone12">
+                          <td align="right" class="textone1">标题：</td>
+                          <td colspan="3" class="textone1">&nbsp;
+                            <input name="name" type="text" class="input_one" value="${name}" >
+&nbsp;<span class="textxing">*</span></td>
+                        </tr>
                         <%--<tr class="textone1">--%>
                           <%--<td><div align="right">作者：</div></td>--%>
                           <%--<td>&nbsp;<input name="author" type="text" class="input_one" value="${author}"></td>--%>
@@ -89,39 +92,39 @@
                             <%--<img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onclick="dept()" ></td>--%>
                           <%--</tr>--%>
                         <tr class="textone12">
-                          <td><div align="right">摘要：</div></td>
-                          <td height="60" colspan="3">&nbsp;<textarea name="abstractcontent" class="input_four">${abstractcontent}</textarea></td>
+                          <td class="textone1"><div align="right">摘要：</div></td>
+                          <td height="60" colspan="3" class="textone1">&nbsp;<textarea name="abstractcontent" class="input_four">${abstractcontent}</textarea></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">描述：</div></td>
-                          <td height="60" colspan="3">&nbsp;<textarea name="description" class="input_four">${description}</textarea></td>
+                          <td class="textone1"><div align="right">描述：</div></td>
+                          <td  height="60" colspan="3" class="textone1">&nbsp;<textarea name="description" class="input_four">${description}</textarea></td>
                           </tr>
                       </table>
                         <table class="textoneA" width="100%" border="0" id="attachtable" cellspacing="0" cellpadding="0" >
                           <tr>
-                            <td height="25" colspan="4"><div align="center" class="text"><strong style="font-weight:bold;">附件列表</strong></div></td>
+                            <td  class="textone1"height="25" colspan="4"><div align="center" class="text"><strong style="font-weight:bold;">附件列表</strong></div></td>
                             </tr>
                           <tr>
-                            <td width="2%" onclick="addattachrow();" background="${themesPath}/oldcss/diandi.gif" style="cursor:pointer;" title="添加附件"><img src="${themesPath}/oldimages/jia.gif"></td>
-                            <td width="48%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称(<font style="color:red">文件大小100M以内</font>)</div></td>
-                            <td width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
-                            <td width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
+                            <td class="textone1" width="2%" onClick="addattachrow();" background="${themesPath}/oldcss/diandi.gif" style="cursor:pointer;" title="添加附件"><img src="${themesPath}/oldimages/jia.gif"></td>
+                            <td  class="textone1" width="48%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称(<font style="color:red">文件大小100M以内</font>)</div></td>
+                            <td class="textone1" width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
+                            <td class="textone1" width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
                             </tr>
                             <s:iterator value ="attachs">
                                <tr>
-                            <td height="25" onclick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
-                            <td><div align="center"><a href="${ctx}/common/document/doc-attach!download?id=${id}" target="_blank">${filename}</a><input type="hidden" name ="attachids" value="${id}"> </div></td>
-                            <td><div align="center"><input type ="text" name="existattachcontents" value="${content}"> </div></td>
-                            <td><div align="center"><input type ="text" name="existattachdescriptions" value="${description}"></div></td>
+                            <td class="textone1" height="25" onClick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
+                            <td class="textone1"><div align="center"><a href="${ctx}/common/document/doc-attach!download?id=${id}" target="_blank">${filename}</a><input type="hidden" name ="attachids" value="${id}"> </div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="existattachcontents" value="${content}"> </div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="existattachdescriptions" value="${description}"></div></td>
                             </tr>
                             </s:iterator>
                           <tr>
-                            <td height="25" onclick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
-                            <td><div align="center">
+                            <td class="textone1" height="25" onClick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
+                            <td class="textone1"><div align="center">
                                 附件：<input type ="file" name="upload">
                             </div></td>
-                            <td><div align="center"><input type ="text" name="uploadattachcontents" ></div></td>
-                            <td><div align="center"><input type ="text" name="uploadattachdescriptions" ></div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="uploadattachcontents" ></div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="uploadattachdescriptions" ></div></td>
                             </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

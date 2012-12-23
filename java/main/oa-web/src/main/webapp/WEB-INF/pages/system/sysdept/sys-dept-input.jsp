@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="sys-dept!save" method="post" onsubmit="javascript:return judge();">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="sys-dept!save" method="post" onSubmit="javascript:return judge();">
                 <input type="hidden" name="parentid" value="${parentid}${parent.id}" >
                 <input type ="hidden" name="id" value="${id}">
                 <tr>
@@ -47,31 +47,35 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">编码：</div></td>
-                            <td width="70%">&nbsp;<input name="code" id="code" type="text" class="input_one" value="${code}">
-                              <span class="textxing">*</span></td>
+                            <td colspan="2" class="text_title"><div align="center">单位管理－维护单位信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="30%" align="right" class="textone1">编码：</td>
+                            <td width="70%" class="textone1">&nbsp;
+                              <input name="code" id="code" type="text" class="input_one" value="${code}">
+                            <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">名称：</div></td>
-                            <td>&nbsp;<input name="name" id="name" type="text" class="input_one" value="${name}">
+                            <td class="textone1"><div align="right">名称：</div></td>
+                            <td class="textone1">&nbsp;<input name="name" id="name" type="text" class="input_one" value="${name}">
                               <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">类型：</div></td>
-                            <td>&nbsp;<select name="type" class="input_xiao">
+                            <td class="textone1"><div align="right">类型：</div></td>
+                            <td class="textone1">&nbsp;<select name="type" class="input_xiao">
                               <option value="true" <s:if test="type">selected</s:if>>单位</option>
                               <option value="false" <s:if test="!type">selected</s:if>>部门</option>
                               </select>
                               <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">简称：</div></td>
-                            <td>&nbsp;<input name="shortname" type="text" class="input_one" value="${shortname}">
+                            <td class="textone1"><div align="right">简称：</div></td>
+                            <td class="textone1">&nbsp;<input name="shortname" type="text" class="input_one" value="${shortname}">
 							</td>
                           </tr>
                           <tr class="textone1">
-                            <td height="100"><div align="right">介绍：</div></td>
-                            <td>&nbsp;<textarea name="profile" class="input_three">${profile}</textarea></td>
+                            <td class="textone1" height="100"><div align="right">介绍：</div></td>
+                            <td class="textone1">&nbsp;<textarea name="profile" class="input_three">${profile}</textarea></td>
                           </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -89,7 +93,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="Submit52" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onclick="location='${ctx}/common/blank'"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onClick="location='${ctx}/common/blank'"></td>
                   </tr>
                 </table></td>
               </tr>

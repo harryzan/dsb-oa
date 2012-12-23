@@ -39,7 +39,7 @@
     </script>
 </head>
 <body>
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="3" class="line_td_title" align="center">个人考勤</td>
     </tr>
@@ -77,11 +77,7 @@
             </c:if>
             <td class="line_td_light" width="60%" nowrap="nowrap">&nbsp;&nbsp;
                 <c:if test='${attendance.noon == false}'>
-                  上午
-                </c:if>
-                <c:if test='${attendance.noon == true}'>
-                  下午
-                </c:if>
+                  上午</c:if><c:if test='${attendance.noon == true}'>下午</c:if>
                 &nbsp;&nbsp;
                 <select name="atttype" id="atttype" onchange="changetype();">
                     <option value="1" <c:if test='${attendance.type == 1}'>selected</c:if>>出勤</option>
@@ -98,7 +94,7 @@
                 </select>&nbsp;&nbsp;
                 <input id="memo" name="memo" value="${attendance.memo}" class="input_one" type="text" style="display:none"/>&nbsp;&nbsp;
                     <c:if test='${empty attendance.type }'>
-                        &nbsp;<font color="red">请选择</font>
+                        &nbsp;<font color="red">未考勤</font>
                     </c:if>
             </td>
         </tr>

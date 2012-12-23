@@ -44,7 +44,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 
                 <tr>
                   <td valign="top">
@@ -57,9 +57,12 @@
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF">
-                      <table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <table width="100%" border="1" cellpadding="0" cellspacing="1">
                             <tr class="textone1">
-                              <td width="30%"><div align="right">编码：</div></td>
+                              <td colspan="2"><div align="right"></div></td>
+                            </tr>
+                            <tr class="textone1">
+                              <td width="30%" align="right">编码：</td>
                               <td width="70%">&nbsp;${code}</td>
                             </tr>
                             <tr class="textone12">
@@ -91,17 +94,14 @@
                               <td><div class="mask2">
                                           <div id="box2">
                                               <s:iterator value="attachs">
-                                              <span><img src="${ctx}/common/document/doc-attach!displayPic?id=${id}" alt="${filename}" height="150px" width="200px" ></span>
-                                              </s:iterator>
+                                              <span><img src="${ctx}/common/document/doc-attach!displayPic?id=${id}" alt="${filename}" height="150px" width="200px" ></span>                                              </s:iterator>
                                           </div>
                                       </div>
                                       <p class="buttons">
                                           <span id="prev1">&lt;&lt; 上一张</span>
                                           <span id="play1">幻灯片 &gt;</span>
                                           <span id="stop1">停止</span>
-                                          <span id="next1">下一张 &gt;&gt;</span>
-                                      </p>
-                              </td>
+                                          <span id="next1">下一张 &gt;&gt;</span>                                      </p>                              </td>
                             </tr>
                         </table>
                       </td>

@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -45,29 +45,32 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">角色名称：</div></td>
-                            <td width="68%">&nbsp;${name}<span class="textxing"></span></td>
+                            <td colspan="2" class="text_title"><div align="center">角色信息查看</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="32%" align="right" class="textone1">角色名称：</td>
+                            <td width="68%" class="textone1">&nbsp;${name}<span class="textxing"></span></td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">角色描述：</div></td>
-                            <td>&nbsp;${description}</td>
+                            <td height="90" class="textone1"><div align="right">角色描述：</div></td>
+                            <td class="textone1">&nbsp;${description}</td>
                           </tr>
                           <tr >
                             <td colspan="2" align="center">
                             <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-                                <tr class="textone1"><td colspan="4"><div align="center">拥有该角色的用户列表</div></td></tr>
+                                <tr class="textone1"><td colspan="4" class="textone1"><div align="center">拥有该角色的用户列表</div></td></tr>
                                 <tr class="textone1">
-                                    <td width="3%" height="25" ><div align="center">#</div></td>
-                                    <td width="31%" ><div align="center">登录ID</div></td>
-                                    <td width="31%" ><div align="center">用户名</div></td>
-                                    <td width="31%" ><div align="center">所属部门</div></td>
+                                    <td width="3%" height="25" class="textone1" ><div align="center">#</div></td>
+                                    <td width="31%" class="textone1" ><div align="center">登录ID</div></td>
+                                    <td width="31%" class="textone1" ><div align="center">用户名</div></td>
+                                    <td width="31%" class="textone1" ><div align="center">所属部门</div></td>
                                 </tr>
                                     <s:iterator value="sysRoleUsers" id="his" status="sta">
                                 <tr class="textone12">
-                                    <td ><div align="center">${sta.count}</div></td>
-                                    <td ><div align="center">${loginname}</div></td>
-                                    <td ><div align="center">${displayname}</div></td>
-                                    <td ><div align="center">${sysdept.name}</div></td>
+                                    <td class="textone1" ><div align="center">${sta.count}</div></td>
+                                    <td class="textone1"><div align="center">${loginname}</div></td>
+                                    <td class="textone1"><div align="center">${displayname}</div></td>
+                                    <td class="textone1"><div align="center">${sysdept.name}</div></td>
                                 </tr>
                                     </s:iterator>
                             </table></td>

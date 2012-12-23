@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -45,25 +45,28 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="30%"><div align="right">编码：</div></td>
-                            <td width="70%">&nbsp;${code}</td>
-                          </tr>
-                          <tr class="textone12">
-                            <td><div align="right">名称：</div></td>
-                            <td>&nbsp;${name}</td>
+                            <td colspan="2" class="text_title"><div align="center">单位管理－单位信息查看</div></td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">类型：</div></td>
-                            <td>&nbsp;<s:if test="type">单位</s:if><s:else>部门</s:else>
+                            <td width="30%" align="right" class="textone1">编码：</td>
+                            <td width="70%" class="textone1">&nbsp;${code}</td>
+                          </tr>
+                          <tr class="textone12">
+                            <td class="textone1"><div align="right">名称：</div></td>
+                            <td class="textone1">&nbsp;${name}</td>
+                          </tr>
+                          <tr class="textone1">
+                            <td class="textone1"><div align="right">类型：</div></td>
+                            <td class="textone1">&nbsp;<s:if test="type">单位</s:if><s:else>部门</s:else>
                             </td>                     
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">简称：</div></td>
-                            <td>&nbsp;${shortname}</td>
+                            <td class="textone1"><div align="right">简称：</div></td>
+                            <td class="textone1">&nbsp;${shortname}</td>
                           </tr>
                           <tr class="textone1">
-                            <td height="100"><div align="right">介绍：</div></td>
-                            <td>&nbsp;${profile}</td>
+                            <td class="textone1" height="100"><div align="right">介绍：</div></td>
+                            <td class="textone1">&nbsp;${profile}</td>
                           </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

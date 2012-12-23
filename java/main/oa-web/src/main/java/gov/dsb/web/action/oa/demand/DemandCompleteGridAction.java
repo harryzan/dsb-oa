@@ -2,9 +2,11 @@ package gov.dsb.web.action.oa.demand;
 
 import gov.dsb.core.dao.DemandDao;
 import gov.dsb.core.dao.DemandTypeDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.dao.base.Page;
 import gov.dsb.core.domain.Demand;
 import gov.dsb.core.domain.DemandType;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.PageActionSupport;
 import gov.dsb.core.utils.Nulls;
 import gov.dsb.core.utils.StringHelp;
@@ -122,7 +124,7 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from Demand where status is true and type.id=? and flag is not null", typeid);
+            page = service.findPageByQuery(page, "from Demand where type.id=? order by flag desc,demanddate desc", typeid);
         }
         List<Demand> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);
@@ -135,6 +137,31 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
         return GRIDDATA;
     }
 
+
+    private DemandType demandType;
+
+    public DemandType getDemandType() {
+        return demandType;
+    }
+
+    public void setDemandType(DemandType demandType) {
+        this.demandType = demandType;
+    }
+
+    private boolean isadmin;
+
+    public boolean getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
+    }
+
+
+    @Autowired
+    private SysUserDao sysUserDao;
+
     @Override
     public String execute() throws Exception {
         UserSession userSession = userSessionService.getUserSession();
@@ -144,6 +171,16 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
 //            entity.setType(type);
         }
 
-        return super.execute();    //To change body of overridden methods use File | Settings | File Templates.
+        typeid = (Long) userSession.get("typeid");
+        demandType = demandTypeDao.get(typeid);
+
+        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
+                demandType.getUser().getId().equals(currentUser.getId()) || currentUser.getLoginname().equals("admin")) {
+            isadmin = true;
+        }
+
+        return SUCCESS;    //To change body of overridden methods use File | Settings | File Templates.
     }
 }

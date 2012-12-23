@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="sys-privilege!save?id=${id}" method="post" onsubmit="javascript:return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="sys-privilege!save?id=${id}" method="post" onSubmit="javascript:return check()">
                 <input type="hidden" name="parentid" value="${parent.id}" >
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -46,27 +46,31 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">权限代码：</div></td>
-                            <td width="68%">&nbsp;<input name="code" id="code" type="text" class="input_one" value="${code}">
-                              <span class="textxing">*</span></td>
+                            <td colspan="2" class="text_title"><div align="center">维护权限信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="32%" align="right" class="textone1">权限代码：</td>
+                            <td width="68%" class="textone1">&nbsp;
+                              <input name="code" id="code" type="text" class="input_one" value="${code}">
+                            <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">权限标号：</div></td>
-                            <td>&nbsp;<input name="tag" id="tag" type="text" class="input_one" value="${tag}">
+                            <td class="textone1"><div align="right">权限标号：</div></td>
+                            <td class="textone1">&nbsp;<input name="tag" id="tag" type="text" class="input_one" value="${tag}">
                               <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">权限名称：</div></td>
-                            <td>&nbsp;<input name="name" id="name" type="text" class="input_one" value="${name}">
+                            <td class="textone1"><div align="right">权限名称：</div></td>
+                            <td class="textone1">&nbsp;<input name="name" id="name" type="text" class="input_one" value="${name}">
                               <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">权限描述：</div></td>
-                            <td height="100">&nbsp;<textarea name="definition" class="input_three">${definition}</textarea></td>
+                            <td height="90" class="textone1"><div align="right">权限描述：</div></td>
+                            <td height="100" class="textone1">&nbsp;<textarea name="definition" class="input_three">${definition}</textarea></td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">权限类型：</div></td>
-                            <td>&nbsp;<select name="privilegetypeid" class="input_zhong">
+                            <td class="textone1"><div align="right">权限类型：</div></td>
+                            <td class="textone1">&nbsp;<select name="privilegetypeid" class="input_zhong">
                                 <s:iterator value="colprivilegetype">
                                     <option value="${id}" ${privilegetype.id == id?"selected":""}>${listname}</option>
                                 </s:iterator>
@@ -74,8 +78,8 @@
                               <span class="textxing">*</span></td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">备注：</div></td>
-                            <td height="100">&nbsp;<textarea name="description" class="input_three">${description}</textarea></td>
+                            <td height="90" class="textone1"><div align="right">备注：</div></td>
+                            <td height="100" class="textone1">&nbsp;<textarea name="description" class="input_three">${description}</textarea></td>
                           </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -93,7 +97,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onclick="history.back();"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onClick="history.back();"></td>
                   </tr>
                 </table></td>
               </tr>

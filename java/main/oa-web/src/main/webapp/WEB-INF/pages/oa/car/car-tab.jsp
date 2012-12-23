@@ -10,7 +10,7 @@
     <script type="text/javascript">
         function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
-            var count = 6;
+            var count = 4;
             for (var i = 1; i <= count; i++) {
                 var button = document.getElementById('button' + i);
                 button.className = 'tab';
@@ -27,10 +27,10 @@
             <c:if test='${isadmin}'>
                 <input onclick="openFunction('car-grid', this)" type="button" name="button1" id="button1" value="车辆管理" class="tab" />
                 <input onclick="openFunction('driver-grid', this)" type="button" name="button3" id="button3" value="驾驶员管理" class="tab" />
-                <input onclick="openFunction('car-check-grid', this)" type="button" name="button4" id="button4" value="申请审核" class="tab" />
-                <input onclick="openFunction('car-drive-grid', this)" type="button" name="button5" id="button5" value="派车安排" class="tab" />
+                <%--<input onclick="openFunction('car-check-grid', this)" type="button" name="button4" id="button4" value="申请审核" class="tab" />--%>
+                <%--<input onclick="openFunction('car-drive-grid', this)" type="button" name="button5" id="button5" value="派车安排" class="tab" />--%>
             </c:if>
-            <input onclick="openFunction('car-complete-grid', this)" type="button" name="button6" id="button6" value="用车信息" class="tab" />
+            <input onclick="openFunction('car-complete-grid', this)" type="button" name="button4" id="button4" value="用车信息" class="tab" />
         </td>
     </tr>
 </table>

@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="sys-user!save" method="post" onsubmit="javascript:return check()" >
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="sys-user!save" method="post" onSubmit="javascript:return check()" >
                 <input type="hidden" name="sysdeptid" value="${sysdeptid}${sysdept.id}">
                 <input type ="hidden" name="id" value="${id}">
                 <tr>
@@ -47,63 +47,68 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">用户名：</div></td>
-                            <td width="68%">&nbsp;<input id="loginname" name="loginname" type="text" class="input_one" value="${loginname}" onblur="unique();">&nbsp;<span class="textxing">*</span><span id ="load"></span></td>
+                            <td colspan="2" class="text_title"><div align="center">维护用户信息</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="32%" align="right" class="textone1">用户名：</td>
+                            <td width="68%" class="textone1">&nbsp;
+                              <input id="loginname" name="loginname" type="text" class="input_one" value="${loginname}" onBlur="unique();">
+                            &nbsp;<span class="textxing">*</span><span id ="load"></span></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">显示名：</div></td>
-                            <td>&nbsp;<input name="displayname" id="displayname" type="text" class="input_one" value="${displayname}">&nbsp;<span class="textxing">*</span>
+                            <td class="textone1"><div align="right">显示名：</div></td>
+                            <td class="textone1">&nbsp;<input name="displayname" id="displayname" type="text" class="input_one" value="${displayname}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">直线：</div></td>
-                              <td>&nbsp;<input name="phonenumber" id="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                              <td class="textone1"><div align="right">直线：</div></td>
+                              <td class="textone1">&nbsp;<input name="phonenumber" id="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">分机：</div></td>
-                            <td>&nbsp;<input name="subphone" id="subphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                            <td class="textone1"><div align="right">分机：</div></td>
+                            <td class="textone1">&nbsp;<input name="subphone" id="subphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">手机：</div></td>
-                              <td>&nbsp;<input name="cellphone" id="cellphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                              <td class="textone1"><div align="right">手机：</div></td>
+                              <td class="textone1">&nbsp;<input name="cellphone" id="cellphone" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">邮箱：</div></td>
-                            <td>&nbsp;<input name="email" id="email" type="text" class="input_one" value="${email}">&nbsp;<span class="textxing">*</span>
+                            <td class="textone1"><div align="right">邮箱：</div></td>
+                            <td class="textone1">&nbsp;<input name="email" id="email" type="text" class="input_one" value="${email}">&nbsp;<span class="textxing">*</span>
                               </td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">密码：</div></td>
-                            <td>&nbsp;<input name="password" id="password" type="password" class="input_one" value="" onblur="nullcheck();">&nbsp;<span id="pwdtext1"></span></td>
+                            <td class="textone1"><div align="right">密码：</div></td>
+                            <td class="textone1">&nbsp;<input name="password" id="password" type="password" class="input_one" value="" onBlur="nullcheck();">&nbsp;<span id="pwdtext1"></span></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">确认密码：</div></td>
-                            <td>&nbsp;<input name="password2" id="password2" type="password" class="input_one" value="" onblur="passwordcheck();">&nbsp;<span id ="pwdtext2"></span>
+                            <td class="textone1"><div align="right">确认密码：</div></td>
+                            <td class="textone1">&nbsp;<input name="password2" id="password2" type="password" class="input_one" value="" onBlur="passwordcheck();">&nbsp;<span id ="pwdtext2"></span>
 							</td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">状态：</div></td>
-                            <td>&nbsp;<input name="status" id="status" type="checkbox" value="true" onblur="passwordcheck();" <s:if test="status">checked="checked"</s:if>>
+                            <td class="textone1"><div align="right">状态：</div></td>
+                            <td class="textone1">&nbsp;<input name="status" id="status" type="checkbox" value="true" onblur="passwordcheck();" <s:if test="status">checked="checked"</s:if>>
 							</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">自定义：</div></td>
-                              <td>&nbsp;<input name="profile" id="profile" type="text" class="input_one" value="${profile}">&nbsp;
+                              <td class="textone1"><div align="right">自定义：</div></td>
+                              <td class="textone1">&nbsp;<input name="profile" id="profile" type="text" class="input_one" value="${profile}">&nbsp;
                               </td>
                           </tr>
                         </table>
 
                         <table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone12">
-                            <td colspan="4"><div align="center"><strong>设置角色</strong></div></td>
+                            <td colspan="4" class="textone1"><div align="center"><strong>设置角色</strong></div></td>
                           </tr>
                           <s:iterator value="colsysrole" status="sta">
                               ${((sta.index % 4) == 0) && (((sta.index / 4) % 2) == 0) ? "<tr class=\"textone1\">":""}
                               ${((sta.index % 4) == 0) && (((sta.index / 4) % 2) != 0) ? "<tr class=\"textone12\">":""}
-                                     <td width="25%" height="26">
+                                     <td width="25%" height="26" class="textone1">
                                          <div align="center">
                                               &nbsp;<s:if test="!isnull"><input type="checkbox" id="${sysrole.id}" name="sysroleids" value="${sysrole.id}" ${checked?"checked=\"checked\"":""}>${sysrole.name}</s:if>
                                          </div></td>
@@ -125,7 +130,7 @@
                     <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="" value="重 写">
                     </div></td>
-                    <td width="45%"><input type="button" class="button_cc" name="" value="返 回" onclick="location='${ctx}/common/blank'"></td>
+                    <td width="45%"><input type="button" class="button_cc" name="" value="返 回" onClick="location='${ctx}/common/blank'"></td>
                   </tr>
                 </table></td>
               </tr>

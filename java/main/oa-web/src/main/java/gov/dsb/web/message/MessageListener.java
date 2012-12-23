@@ -84,37 +84,20 @@ public class MessageListener implements Listener {
             message.setReceiver(sysUser);
             message.setSystem(true);
 
-            if (!carUse.getStatus()) {
-                message.setName("用车申请待处理");
+            if (carUse.getFlag().equals("待审核")) {
+                message.setName("用车申请待审核");
                 message.setDescription("/oa/car/car-check!input?id=" + carUse.getId());
                 messageDao.save(message);
             }
+            else if (carUse.getFlag().equals("待安排")) {
+                message.setName("用车申请待安排");
+                message.setDescription("/oa/car/car-drive!input?id=" + carUse.getId());
+                messageDao.save(message);
+            }
             else {
-                if (StringHelp.isEmpty(carUse.getFlag())) {
-                    message.setName("用车申请已通过");
-                    message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
-                    messageDao.save(message);
-
-
-                    SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
-                    Collection<SysUser> users = role.getSysuserroles();
-                    for (SysUser user : users) {
-                        message = new Message();
-                        message.setType("用车申请");
-                        message.setFlag("caruse");
-                        message.setStarttime(new Timestamp(current));
-                        message.setReceiver(user);
-                        message.setSystem(true);
-                        message.setName("用车申请待安排");
-                        message.setDescription("/oa/car/car-drive!input?id=" + carUse.getId());
-                        messageDao.save(message);
-                    }
-                }
-                else {
-                    message.setName("用车申请已安排");
-                    message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
-                    messageDao.save(message);
-                }
+                message.setName("用车申请已安排");
+                message.setDescription("/oa/car/car-complete?id=" + carUse.getId());
+                messageDao.save(message);
             }
         }
     }
@@ -131,45 +114,31 @@ public class MessageListener implements Listener {
             message.setReceiver(sysUser);
             message.setSystem(true);
 
-            if (!demand.getStatus()) {
-                message.setName(demand.getType().getName() + "申请待处理");
+            if (demand.getFlag().equals("待审核")) {
+                message.setName(demand.getType().getName() + "申请待审核");
                 message.setDescription("/oa/demand/demand-check!input?id=" + demand.getId());
                 messageDao.save(message);
             }
+            else if (demand.getFlag().equals("待安排")) {
+                message.setName(demand.getType().getName() + "申请待安排");
+                message.setDescription("/oa/demand/demand-app!input?id=" + demand.getId());
+                messageDao.save(message);
+            }
             else {
-                if (StringHelp.isEmpty(demand.getFlag())) {
-                    message.setName(demand.getType().getName() + "申请已通过");
-                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
-                    messageDao.save(message);
+                message.setName(demand.getType().getName() + "申请已安排");
+                message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
+                messageDao.save(message);
 
-
-                    SysUser user = demand.getType().getUser();
-                    message = new Message();
-                    message.setType(demand.getType().getName() + "申请");
-                    message.setFlag("demand");
-                    message.setStarttime(new Timestamp(current));
-                    message.setReceiver(user);
-                    message.setSystem(true);
-                    message.setName(demand.getType().getName() + "申请待安排");
-                    message.setDescription("/oa/demand/demand-app!input?id=" + demand.getId());
-                    messageDao.save(message);
-                }
-                else {
-                    message.setName(demand.getType().getName() + "申请已安排");
-                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
-                    messageDao.save(message);
-
-                    SysUser user = demand.getMainuser();
-                    message = new Message();
-                    message.setType(demand.getType().getName() + "申请");
-                    message.setFlag("demand");
-                    message.setStarttime(new Timestamp(current));
-                    message.setReceiver(user);
-                    message.setSystem(true);
-                    message.setName(demand.getType().getName() + "申请已安排");
-                    message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
-                    messageDao.save(message);
-                }
+                SysUser user = demand.getMainuser();
+                message = new Message();
+                message.setType(demand.getType().getName() + "申请");
+                message.setFlag("demand");
+                message.setStarttime(new Timestamp(current));
+                message.setReceiver(user);
+                message.setSystem(true);
+                message.setName(demand.getType().getName() + "申请已安排");
+                message.setDescription("/oa/demand/demand-complete?id=" + demand.getId());
+                messageDao.save(message);
             }
         }
     }

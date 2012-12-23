@@ -35,7 +35,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top">
                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -50,22 +50,25 @@
                   <table width="100%" border="0" cellpadding="0" cellspacing="1">
 
                           <tr class="textone1">
-                            <td width="32%"><div align="right">代码集：</div></td>
-                            <td width="68%">&nbsp;${syscode.code}</td>
+                            <td colspan="2" class="text_title"><div align="center">代码项信息查看</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="32%" align="right" class="textone1">代码集：</td>
+                            <td width="68%" class="textone1">&nbsp;${syscode.code}</td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">代码项：</div></td>
-                            <td>&nbsp;${listcode}</td>
+                            <td class="textone1"><div align="right">代码项：</div></td>
+                            <td class="textone1">&nbsp;${listcode}</td>
                           </tr>
 
 
                           <tr class="textone1">
-                            <td><div align="right">名称：</div></td>
-                            <td>&nbsp;${listname}</td>
+                            <td class="textone1"><div align="right">名称：</div></td>
+                            <td class="textone1">&nbsp;${listname}</td>
                           </tr>
                           <tr class="textone12">
-                            <td height="90"><div align="right">描述：</div></td>
-                            <td height="100">&nbsp;${description}</td>
+                            <td height="90"><div align="right" class="textone1">描述：</div></td>
+                            <td height="100" class="textone1">&nbsp;${description}</td>
                           </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

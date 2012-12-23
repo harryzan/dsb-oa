@@ -28,7 +28,7 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-drive-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-complete-grid", type = "redirect")})
 public class CarDriveAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
@@ -120,7 +120,7 @@ public class CarDriveAction extends CRUDActionSupport<CarUse>{
         String day = sdf.format(d);
         entity.setMemodate(day);
         entity.setMemor(userSessionService.getCurrentSysUser());
-        entity.setFlag("已安排");
+        entity.setFlag("已完成");
 
         service.save(entity);
 

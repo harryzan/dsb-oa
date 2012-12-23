@@ -12,7 +12,7 @@
         <script type="text/javascript">
         function login() {
             var username = '${user.loginname}';
-            var password = '';
+            var password = '111';
             if (username == 'admin') {
                 password = 'admin';
 

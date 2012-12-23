@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="4" height="4" background="${themesPath}/oldimages/bg/shang.gif"><div align="right"><img src="${themesPath}/oldimages/bg/1.gif" width="4" height="4"></div></td>
@@ -44,16 +44,19 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                         <tr class="textone1">
-                          <td width="30%"><div align="right">业务文档类型：</div></td>
-                          <td>&nbsp;${docclientcategory.name}</td>
-                          </tr>
-                        <tr class="textone12">
-                          <td><div align="right">文档目录代码：</div></td>
-                          <td>&nbsp;${doccategory.code}</td>
+                          <td colspan="2" class="text_title"><div align="center">业务文档目录信息查看</div></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">文档目录名称：</div></td>
-                          <td>&nbsp;${name}</td>
+                          <td width="30%" align="right" class="textone1">业务文档类型：</td>
+                          <td class="textone1">${docclientcategory.name}</td>
+                        </tr>
+                        <tr class="textone12">
+                          <td><div align="right" class="textone1">文档目录代码：</div></td>
+                          <td class="textone1">&nbsp;${doccategory.code}</td>
+                          </tr>
+                        <tr class="textone1">
+                          <td><div align="right" class="textone1">文档目录名称：</div></td>
+                          <td class="textone1">&nbsp;${name}</td>
                         </tr>
                       </table>
                         </td>

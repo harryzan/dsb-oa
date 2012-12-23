@@ -31,8 +31,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="doc-relate-category!save" method="post" onsubmit="javascript: return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="doc-relate-category!save" method="post" onSubmit="javascript: return check()">
                 <input type ="hidden" name="id" value="${id}">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -45,8 +45,13 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                         <tr class="textone1">
-                          <td width="30%"><div align="right">名称：</div></td>
-                          <td>&nbsp;<input name="name" type="text" class="input_chang" value="${name}">&nbsp;<span class="textxing">*</span></td>
+                          <td colspan="2"  class="text_title"><div align="center">业务文档目录信息维护</div></td>
+                        </tr>
+                        <tr class="textone1">
+                          <td width="30%" align="right" class="textone1">名称：</td>
+                          <td class="textone1">&nbsp;
+                            <input name="name" type="text" class="input_chang" value="${name}">
+                          &nbsp;<span class="textxing">*</span></td>
                         </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

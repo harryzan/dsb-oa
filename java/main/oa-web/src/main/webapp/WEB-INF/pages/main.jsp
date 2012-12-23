@@ -48,7 +48,7 @@
                 <c:if test="${pageno < totalpages}">
                 <a href="main?pageno=${pageno+1}">下一页</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </c:if>
-                <a href="${ctx}/message/bulletin/bulletin-grid-record">查看全部</a>
+                <a href="bulletin-grid-record">查看全部</a>
             </td>
         </tr>
         <tr>

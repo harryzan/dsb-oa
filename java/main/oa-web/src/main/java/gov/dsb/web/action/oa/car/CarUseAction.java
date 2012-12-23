@@ -27,7 +27,7 @@ import java.util.Date;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-use-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-complete-grid", type = "redirect")})
 public class CarUseAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
@@ -93,13 +93,13 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
+        entity.setFlag("待审核");
 
         Long entityId = entity.getId();
 
         service.save(entity);
 
         if (entityId == null) {
-
             SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
             if (role != null) {
                 messageListener.notice(role.getSysuserroles(), entity);
@@ -121,7 +121,8 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
             }
             else {
                 entity = new CarUse();
-                entity.setStatus(false);
+//                entity.setStatus(false);
+//                entity.setFlag("待审核");
             }
         }
 

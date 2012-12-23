@@ -40,7 +40,7 @@
                 {name:"cardesc",header:"申请车别",width:"15%"},
                 {name:"name",header:"申请事由",width:"35%"},
                 {name:"user.displayname",header:"申请人",width:"20%"},
-                {name:"usedate",header:"使用时间",width:"20%"},
+                {name:"startdate",header:"使用时间",width:"20%"},
                 {name:"submitdate",header:"提交时间",width:"20%"},
                 {name:"desc",header:"备注",width:"20%"}
             ],

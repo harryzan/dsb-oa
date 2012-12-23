@@ -32,8 +32,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="doc-document!save" method="post" enctype="multipart/form-data" onsubmit="javascript: return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="doc-document!save" method="post" enctype="multipart/form-data" onSubmit="javascript: return check()">
                 <input type ="hidden" name="id" value="${id}">
                 <input type ="hidden" name="doccategoryid" value="${doccategoryid}${doccategory.id}">
                 <input type ="hidden" name="modelname" value="${modelname}"> 
@@ -48,75 +48,82 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                         <tr class="textone1">
-                          <td width="20%"><div align="right">原始编号：</div></td>
-                          <td width="20%">&nbsp;<input name="origincode" type="text" class="input_xiao" value="${origincode}">&nbsp;<span class="textxing">*</span></td>
-                          <td width="15%"><div align="right">编号：</div></td>
-                          <td width="30%">&nbsp;<input name="code" type="text" class="input_xiao" value="${code}" >&nbsp;<span class="textxing">*</span></td>
-                          </tr>
-                        <tr class="textone12">
-                          <td><div align="right">标题：</div></td>
-                          <td colspan="3">&nbsp;<input name="name" type="text" class="input_chang" value="${name}" >&nbsp;<span class="textxing">*</span></td>
+                          <td colspan="4" class="text_title"><div align="center">文档挂接</div>                            <div align="right"></div></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">作者：</div></td>
-                          <td>&nbsp;<input name="author" type="text" class="input_one" value="${author}"></td>
-                          <td><div align="right">文档性质：
+                          <td width="20%" align="right" class="textone1">原始编号：</td>
+                          <td width="20%" nowrap class="textone1">&nbsp;
+                            <input name="origincode" type="text" class="input_xiao" value="${origincode}">
+                          &nbsp;<span class="textxing">*</span></td>
+                          <td width="15%" align="right" class="textone1">编号：</td>
+                          <td width="30%" class="textone1">&nbsp;
+                            <input name="code" type="text" class="input_xiao" value="${code}" >
+                          &nbsp;<span class="textxing">*</span></td>
+                        </tr>
+                        <tr class="textone12">
+                          <td class="textone1"><div align="right">标题：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;<input name="name" type="text" class="input_chang" value="${name}" >&nbsp;<span class="textxing">*</span></td>
+                          </tr>
+                        <tr class="textone1">
+                          <td class="textone1"><div align="right">作者：</div></td>
+                          <td class="textone1">&nbsp;<input name="author" type="text" class="input_one" value="${author}"></td>
+                          <td class="textone1"><div align="right">文档性质：
                             </div></td>
-                          <td>&nbsp;<select name="propertyid" class="input_one">
+                          <td class="textone1">&nbsp;<select name="propertyid" class="input_one">
                               <s:iterator value="properties">
                                   <option value="${id}" ${property.id == id ?"selected=\"selected\"":""}>${listname}</option>
                               </s:iterator>
                           </select></td>
                           </tr>
                         <tr class="textone12">
-                          <td><div align="right">关键字：</div></td>
-                          <td>&nbsp;<input name="keywords" type="text" class="input_one" value="${keywords}" ></td>
-                          <td><div align="right">文档格式：</div></td>
-                          <td>&nbsp;<select name="formatid" class="input_one">
+                          <td class="textone1"><div align="right">关键字：</div></td>
+                          <td class="textone1">&nbsp;<input name="keywords" type="text" class="input_one" value="${keywords}" ></td>
+                          <td class="textone1"><div align="right">文档格式：</div></td>
+                          <td class="textone1">&nbsp;<select name="formatid" class="input_one">
                               <s:iterator value="formats">
                                   <option value="${id}" ${format.id==id?"selected=\"selected\"":""}>${listname}</option>
                               </s:iterator>
                             </select></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">单位：</div></td>
-                          <td nowrap colspan="3" >&nbsp;<input name="deptname" type="text" class="input_one" value="${sysdept.name}" onclick="dept()" ><input type ="hidden" name="deptid" value="${sysdept.id}">
-                            <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onclick="dept()" ></td>
+                          <td><div align="right" class="textone1">单位：</div></td>
+                          <td nowrap colspan="3" class="textone1" >&nbsp;<input name="deptname" type="text" class="input_one" value="${sysdept.name}" onClick="dept()" ><input type ="hidden" name="deptid" value="${sysdept.id}">
+                            <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onClick="dept()" ></td>
                           </tr>
                         <tr class="textone12">
-                          <td><div align="right">摘要：</div></td>
-                          <td height="60" colspan="3">&nbsp;<textarea name="abstractcontent" class="input_four">${abstractcontent}</textarea></td>
+                          <td class="textone1"><div align="right">摘要：</div></td>
+                          <td height="60" colspan="3" class="textone1">&nbsp;<textarea name="abstractcontent" class="input_four">${abstractcontent}</textarea></td>
                           </tr>
                         <tr class="textone1">
-                          <td><div align="right">描述：</div></td>
-                          <td height="60" colspan="3">&nbsp;<textarea name="description" class="input_four">${description}</textarea></td>
+                          <td class="textone1"><div align="right">描述：</div></td>
+                          <td height="60" colspan="3" class="textone1">&nbsp;<textarea name="description" class="input_four">${description}</textarea></td>
                           </tr>
                       </table>
                         <table class="textoneA" width="100%" border="0" id="attachtable" cellspacing="0" cellpadding="0" >
                           <tr>
-                            <td height="25" colspan="4"><div align="center" class="text"><strong>附件列表</strong></div></td>
+                            <td class="textone1" height="25" colspan="4"><div align="center" class="text"><strong>附件列表</strong></div></td>
                             </tr>
                           <tr>
                             <td height="25" width="2%"  onclick="addattachrow();" background="${themesPath}/oldcss/diandi.gif" style="cursor:pointer;" title="添加附件"><img src="${themesPath}/oldimages/jia.gif"></td>
-                            <td width="48%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称(<font style="color:red">文件大小100M以内</font>)</div></td>
-                            <td width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
-                            <td width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
+                            <td class="textone1" width="48%" background="${themesPath}/oldcss/diandi.gif"><div align="center">文件名称(<font style="color:red">文件大小100M以内</font>)</div></td>
+                            <td class="textone1" width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">说明</div></td>
+                            <td class="textone1" width="25%" background="${themesPath}/oldcss/diandi.gif"><div align="center">备注</div></td>
                             </tr>
                             <s:iterator value ="attachs">
                                <tr>
-                            <td height="25" onclick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
-                            <td><div align="center">${filename}<input type="hidden" name ="attachids" value="${id}"> </div></td>
-                            <td><div align="center"><input type ="text" name="existattachcontents" value="${content}"> </div></td>
-                            <td><div align="center"><input type ="text" name="existattachdescriptions" value="${description}"></div></td>
+                            <td height="25" onClick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
+                            <td class="textone1"><div align="center">${filename}<input type="hidden" name ="attachids" value="${id}"> </div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="existattachcontents" value="${content}"> </div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="existattachdescriptions" value="${description}"></div></td>
                             </tr>
                             </s:iterator>
                           <tr>
-                            <td onclick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
-                            <td><div align="center">
+                            <td onClick="deleteattachrow();" background="${themesPath}/oldimages/jian.gif" style="background-repeat:no-repeat;background-position:left;cursor:pointer;" title="删除附件">&nbsp;</td>
+                            <td class="textone1"><div align="center">
                                 附件：<input type ="file" name="upload">
                             </div></td>
-                            <td><div align="center"><input type ="text" name="uploadattachcontents" ></div></td>
-                            <td><div align="center"><input type ="text" name="uploadattachdescriptions" ></div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="uploadattachcontents" ></div></td>
+                            <td class="textone1"><div align="center"><input type ="text" name="uploadattachdescriptions" ></div></td>
                             </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -134,7 +141,7 @@
                   <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="Submit52" value="重 写">
                   </div></td>
-                  <td width="45%"><input type="button" class="button_cc" name="Submit522" value="关 闭" onClick="below();"></td>
+                  <td width="45%"><input type="button" class="button_cc" name="Submit522" value="关 闭" onClick="window.close();"></td>
                 </tr>
               </table></td>
               </tr>

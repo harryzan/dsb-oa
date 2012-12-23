@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 
                 <input type="hidden" name="parentid" value="${parentid}${parent.id}" >
                 <tr>
@@ -55,12 +55,15 @@
                       <%--<td><div align="left">&nbsp;${tag}</div></td>--%>
                     <%--</tr>--%>
                     <tr class="textone1">
-                      <td><div align="right">名称：</div></td>
-                      <td><div align="left">&nbsp;${name}</div></td>
+                      <td colspan="2"  class="text_title"><div align="center">信息查看</div>                        <div align="left"></div></td>
+                      </tr>
+                    <tr class="textone1">
+                      <td align="right" class="textone1">名称：</td>
+                      <td class="textone1">&nbsp;${name}</td>
                     </tr>
                     <tr class="textone12">
-                      <td height="90"><div align="right">描述：</div></td>
-                      <td><div align="left">&nbsp;${definition}</div></td>
+                      <td height="90" class="textone1"><div align="right">描述：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${definition}</div></td>
                     </tr>
                     <%--<tr class="textone1">--%>
                       <%--<td><div align="right">类型：</div></td>--%>

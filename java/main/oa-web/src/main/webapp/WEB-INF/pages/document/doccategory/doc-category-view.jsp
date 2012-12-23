@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="4" height="4" background="${themesPath}/oldimages/bg/shang.gif"><div align="right"><img src="${themesPath}/oldimages/bg/1.gif" width="4" height="4"></div></td>
@@ -44,27 +44,29 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                         <tr class="textone1">
-                          <td width="20%"><div align="right">编号：</div></td>
-                          <td width="80%" colspan="3">&nbsp;${code}
-							  </td>
-                        </tr>
-                        <tr class="textone12">
-                          <td><div align="right">名称：</div></td>
-                          <td colspan="3">&nbsp;${name}</td>
+                          <td colspan="4" class="text_title"><div align="center">文档目录信息查看</div></td>
                         </tr>
                         <tr class="textone1">
-                          <td><div align="right">路径：</div></td>
-                          <td colspan="3">&nbsp;${path}</td>
+                          <td width="20%" align="right" class="textone1">编号：</td>
+                          <td width="80%" colspan="3" class="textone1">&nbsp;${code} </td>
                         </tr>
                         <tr class="textone12">
-                          <td><div align="right">系统目录：</div></td>
-                          <td colspan="3">&nbsp;${issystem ? "是" : "否"}</td>
+                          <td class="textone1"><div align="right">名称：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${name}</td>
                         </tr>
                         <tr class="textone1">
-                          <td rowspan="${viewrow}"><div align="right">查看权限：</div></td>
-                          <td width="20%" height="25"><div align="center">单位</div></td>
-                          <td width="20%"><div align="center">用户</div></td>
-                          <td width="20%"><div align="center">权限项</div></td>
+                          <td class="textone1"><div align="right">路径：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${path}</td>
+                        </tr>
+                        <tr class="textone12">
+                          <td class="textone1"><div align="right">系统目录：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;${issystem ? "是" : "否"}</td>
+                        </tr>
+                        <tr class="textone1">
+                          <td rowspan="${viewrow}" class="textone1"><div align="right">查看权限：</div></td>
+                          <td class="textone1" width="80%" height="25"><div align="center">单位</div></td>
+                          <td width="20%" class="textone1"><div align="center">用户</div></td>
+                          <td width="20%" class="textone1"><div align="center">权限项</div></td>
                         </tr>
                           <s:iterator value="viewunit">
                         <tr>
@@ -74,16 +76,16 @@
                         </tr>
                           </s:iterator>
                         <tr class="textone12">
-                          <td rowspan="${editrow}"><div align="right">修改权限：</div></td>
-                          <td height="25"><div align="center">单位</div></td>
-                          <td><div align="center">用户</div></td>
-                          <td><div align="center">权限项</div></td>
+                          <td class="textone1" rowspan="${editrow}"><div align="right">修改权限：</div></td>
+                          <td class="textone1" height="25"><div align="center">单位</div></td>
+                          <td class="textone1"><div align="center">用户</div></td>
+                          <td class="textone1"><div align="center">权限项</div></td>
                         </tr>
                         <s:iterator value="editunit">
                         <tr>
-                          <td class="textone12"><div align="center">${sysdept.name}</div></td>
-                          <td class="textone12"><div align="center">${sysuser.displayname}</div></td>
-                          <td class="textone12"><div align="center">${sysprivilege.name}</div></td>
+                          <td class="textone1"><div align="center">${sysdept.name}</div></td>
+                          <td class="textone1"><div align="center">${sysuser.displayname}</div></td>
+                          <td class="textone1"><div align="center">${sysprivilege.name}</div></td>
                         </tr>
                           </s:iterator>
                       </table></td>

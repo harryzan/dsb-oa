@@ -1,12 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/common/taglibs.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
-<base target="mainFrame">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
+    <base target="mainFrame">
 </head>
 
 <body>
@@ -63,18 +63,19 @@
         </div>
         <div class="caidan">
             <ul>
-                <li class="n1"><a href="#" class="tag">电子邮件</a></li>
-                <li class="n1"><a href="#">规章制度</a></li>
-                <li class="n1"><a href="#">文书管理</a></li>
-                <li class="n1"><a href="#">需求申请</a></li>
-                <li class="n1"><a href="#">资料库链接</a></li>
+                <li class="n1"><a href="${ctx}/common/intouch2" target="_blank">电子邮件</a></li>
+                <li class="n1"><a href="${ctx}/message/message/message-main">短消息</a></li>
+                <li class="n1"><a href="${ctx}/policy/policy/doc-document-grid">规章制度</a></li>
+                <li class="n1"><a href="${ctx}/offical/workflow/work-flow-main">发文管理</a></li>
+                <%--<li class="n1"><a href="#">需求申请</a></li>--%>
+                <li class="n1"><a href="http://10.0.0.2:2000/" target="_blank">资料库链接</a></li>
                 <li class="n1"><a href="${ctx}/dw/index" target="_blank">机关党委</a></li>
                 <li class="n1"><a href="${ctx}/gh/index" target="_blank">机关工会</a></li>
-                <li class="n1"><a href="#">BBS论坛</a></li>
+                <li class="n1"><a href="${ctx}/common/jforum" target="_blank">BBS论坛</a></li>
             </ul>
         </div>
     </div>
 </div>
-	<div class="clr"></div>
+<div class="clr"></div>
 </body>
 </html>

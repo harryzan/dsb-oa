@@ -2,8 +2,10 @@ package gov.dsb.web.action.oa.car;
 
 import gov.dsb.core.dao.CarDao;
 import gov.dsb.core.dao.CarUseDao;
+import gov.dsb.core.dao.SysRoleDao;
 import gov.dsb.core.domain.Car;
 import gov.dsb.core.domain.CarUse;
+import gov.dsb.core.domain.SysRole;
 import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
 import gov.dsb.web.message.MessageListener;
@@ -28,11 +30,14 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-check-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-complete-grid", type = "redirect")})
 public class CarCheckAction extends CRUDActionSupport<CarUse>{
 
     @Autowired
     private CarUseDao service;
+
+    @Autowired
+    private SysRoleDao sysRoleDao;
 
     @Autowired
     private MessageListener messageListener;
@@ -90,11 +95,13 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
         entity.setCheckdate(day);
         entity.setChecker(userSessionService.getCurrentSysUser());
         entity.setStatus(true);
+        entity.setFlag("待安排");
         service.save(entity);
 
-        List<SysUser> sysUsers = new ArrayList<SysUser>();
-        sysUsers.add(entity.getUser());
-        messageListener.notice(sysUsers, entity);
+        SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
+        if (role != null) {
+            messageListener.notice(role.getSysuserroles(), entity);
+        }
 
         return RELOAD;
     }
@@ -111,7 +118,7 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
             }
             else {
                 entity = new CarUse();
-                entity.setStatus(false);
+//                entity.setStatus(false);
             }
         }
 

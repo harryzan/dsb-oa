@@ -41,7 +41,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -54,24 +54,27 @@
                       <td valign="top" bgcolor="#FFFFFF">
                   <table width="100%" border="0" cellpadding="0" cellspacing="1">
                               <tr class="textone1">
-                                <td width="32%"><div align="right">用户名：</div></td>
-                                <td width="68%">&nbsp;${sysuser.loginname}</td>
-                              </tr>
-                              <tr class="textone12">
-                                <td><div align="right">权限项：</div></td>
-                                <td>&nbsp;${sysprivilege.name}</td>
+                                <td colspan="2" class="text_title" ><div align="center">系统日志信息查看</div></td>
                               </tr>
                               <tr class="textone1">
-                                <td><div align="right">操作日期：</div></td>
-                                <td>&nbsp;${logtime}</td>
+                                <td width="32%" align="right" class="textone1">用户名：</td>
+                                <td width="68%" class="textone1">&nbsp;${sysuser.loginname}</td>
                               </tr>
                               <tr class="textone12">
-                                <td><div align="right">IP地址：</div></td>
-                                <td>&nbsp;${ipaddress}</td>
+                                <td class="textone1"><div align="right">权限项：</div></td>
+                                <td class="textone1">&nbsp;${sysprivilege.name}</td>
                               </tr>
                               <tr class="textone1">
-                                <td><div align="right">描述：</div></td>
-                                <td>&nbsp;${content}</td>
+                                <td class="textone1"><div align="right">操作日期：</div></td>
+                                <td class="textone1">&nbsp;${logtime}</td>
+                              </tr>
+                              <tr class="textone12">
+                                <td class="textone1"><div align="right">IP地址：</div></td>
+                                <td class="textone1">&nbsp;${ipaddress}</td>
+                              </tr>
+                              <tr class="textone1">
+                                <td class="textone1"><div align="right">描述：</div></td>
+                                <td class="textone1">&nbsp;${content}</td>
                               </tr>
                           </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -86,7 +89,7 @@
                       <td width="45%"><div align="right">
                       </div></td>
                       <td width="10%"><div align="center">
-                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="closewindow('日志查看-${content}(${sysuser.displayname}/${logtime})');">
+                          <input type="button" class="button_cc" name="input" value="关 闭" onClick="window.back();">
                       </div></td>
                       <td width="45%"></td>
                     </tr>

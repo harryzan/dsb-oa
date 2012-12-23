@@ -30,7 +30,7 @@ import java.util.List;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-app-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "demand-complete-grid", type = "redirect")})
 public class DemandAppAction extends CRUDActionSupport<Demand>{
 
     @Autowired
@@ -116,7 +116,7 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
         entity.setMemor(userSessionService.getCurrentSysUser());
 
 //        if (StringHelp.isNotEmpty(complete)) {
-            entity.setFlag("已安排");
+            entity.setFlag("已完成");
             entity.setStatus(true);
 //        }
         service.save(entity);
@@ -143,11 +143,16 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
                 entity.setStatus(false);
             }
         }
-        UserSession userSession = userSessionService.getUserSession();
-        Long typeid= typeid = (Long) userSession.get("typeid");
-        if (typeid != null){
-            type = demandTypeDao.get(typeid);
-            entity.setType(type);
+        if (entity.getId() == null) {
+            UserSession userSession = userSessionService.getUserSession();
+            Long typeid= typeid = (Long) userSession.get("typeid");
+            if (typeid != null){
+                type = demandTypeDao.get(typeid);
+                entity.setType(type);
+            }
+        }
+        else {
+            type = entity.getType();
         }
     }
 

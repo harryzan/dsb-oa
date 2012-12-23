@@ -14,8 +14,8 @@
         var pageParam = "";
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
-//        var addurl = "car-use!input";
-//        var modifyurl = "car-complete!input";
+        var addurl = "car-use!input";
+        //        var modifyurl = "car-complete!input";
 //        var deleteurl = "car-use!delete";
 //        if(result.b01_model_D){
 //            deleteurl = false;
@@ -31,18 +31,20 @@
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"car-complete-grid!griddata",
-//            addUrl:addurl,
+            <c:if test='${isadmin}'>
+            addUrl:addurl,
+            </c:if>
 //            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
+                {name:"flag",header:"状态",width:"10%"},
                 {name:"name",renderer:checkview,header:"申请事由",width:"25%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"startdate",header:"使用时间",width:"10%"},
                 {name:"car.carmodel",header:"分配车辆",width:"15%"},
-                {name:"driver.name",header:"司机",width:"10%"},
-                {name:"flag",header:"状态",width:"10%"}
+                {name:"driver.name",header:"司机",width:"10%"}
 //                {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
@@ -72,7 +74,22 @@
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var url = '${ctx}/oa/car/car-complete?id=' + id;
+            var flag = record.data["flag"];
+//            alert(flag);
+            var url;
+            url = 'car-complete?id=' + id;
+        <c:if test='${isadmin}'>
+            if ('待审核' == flag) {
+                url = "car-check!input?id=" + id;
+            }
+            else if ('待安排' == flag) {
+                url = "car-drive!input?id=" + id;
+            }
+            else {
+                url = 'car-complete?id=' + id;
+            }
+        </c:if>
+//            alert(url);
             window.location = url;
 //            enter(title,url,500,300);
         }

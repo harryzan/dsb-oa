@@ -18,9 +18,9 @@
     </script>
 </head>
 <body>
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
-        <td colspan="3" class="line_td_title" align="center">个人考勤</td>
+        <td colspan="3" class="line_td_title" align="center">${day}&nbsp;考勤查询</td>
     </tr>
     <form action="user-attendance!save" method="post">
     <tr>
@@ -34,11 +34,11 @@
             <%--<input type="submit" name="submit" id="save" value="完成" class="confirm_but" onclick="return confirm('是否完成?');"/>--%>
         </td>
     </tr>
-    <tr>
-        <td class="line_td_head">部门</td>
-        <td class="line_td_head">姓名</td>
-        <td class="line_td_head">考勤状态</td>
-    </tr>
+    <%--<tr>--%>
+        <%--<td class="line_td_head">部门</td>--%>
+        <%--<td class="line_td_head">姓名</td>--%>
+        <%--<td class="line_td_head">考勤状态</td>--%>
+    <%--</tr>--%>
         <c:set var="name" value=""/>
         <c:forEach items="${attendances}" var="attendance" varStatus="status">
         <tr>

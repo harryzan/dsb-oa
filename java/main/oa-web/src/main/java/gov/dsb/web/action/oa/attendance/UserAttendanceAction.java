@@ -506,17 +506,17 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 //        System.out.println("day.substring(0, 7) = " + day.substring(0, 7));
 
         String sql = "select userid,\n" +
-                "        sum(decode(type, 1, 1, 0)) type1, \n" +
-                "        sum(decode(type, 2, 1, 0)) type2,\n" +
-                "        sum(decode(type, 3, 1, 0)) type3,\n" +
-                "        sum(decode(type, 4, 1, 0)) type4,\n" +
-                "        sum(decode(type, 5, 1, 0)) type5,\n" +
-                "        sum(decode(type, 6, 1, 0)) type6,\n" +
-                "        sum(decode(type, 7, 1, 0)) type7,\n" +
-                "        sum(decode(type, 8, 1, 0)) type8,\n" +
-                "        sum(decode(type, 9, 1, 0)) type9,\n" +
-                "        sum(decode(type, 10, 1, 0)) type10,\n" +
-                "        sum(decode(type, 0, 1, 0)) type0\n" +
+                "        cast(sum(decode(type, 1, 1, 0)) as decimal(18,2))/2 type1, \n" +
+                "        cast(sum(decode(type, 2, 1, 0)) as decimal(18,2))/2 type2, \n" +
+                "        cast(sum(decode(type, 3, 1, 0)) as decimal(18,2))/2 type3, \n" +
+                "        cast(sum(decode(type, 4, 1, 0)) as decimal(18,2))/2 type4, \n" +
+                "        cast(sum(decode(type, 5, 1, 0)) as decimal(18,2))/2 type5, \n" +
+                "        cast(sum(decode(type, 6, 1, 0)) as decimal(18,2))/2 type6, \n" +
+                "        cast(sum(decode(type, 7, 1, 0)) as decimal(18,2))/2 type7, \n" +
+                "        cast(sum(decode(type, 8, 1, 0)) as decimal(18,2))/2 type8, \n" +
+                "        cast(sum(decode(type, 9, 1, 0)) as decimal(18,2))/2 type9, \n" +
+                "        cast(sum(decode(type, 10, 1, 0)) as decimal(18,2))/2 type10, \n" +
+                "        cast(sum(decode(type, 0, 1, 0)) as decimal(18,2))/2 type0 \n" +
                 "  from userattendance t where substr(checkdate, 0, 7) = '" + day.substring(0, 7) + "' and type is not null group by userid";
 
         records = service.findBySql(sql);
@@ -532,9 +532,80 @@ public class UserAttendanceAction extends CRUDActionSupport<UserAttendance> {
 
         Collections.sort(records, new UserAttendanceComparator());
 
-        System.out.println("records.size() = " + records.size());
+//        System.out.println("records.size() = " + records.size());
 
         return "sum";
+    }
+
+    public String year() throws ParseException {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        if (year != null) {
+            calendar.set(Calendar.YEAR, year);
+//            calendar.set(Calendar.MONTH, month-1);
+            Date d = calendar.getTime();
+            day = sdf.format(d);
+        } else if (StringHelp.isNotEmpty(day)) {
+            Date d = sdf.parse(day);
+            calendar.setTime(d);
+//            setMonth(calendar.get(Calendar.MONTH) + 1);
+            setYear(calendar.get(Calendar.YEAR));
+        } else {
+            Date d = new Date();
+            calendar.setTime(d);
+            day = sdf.format(d);
+//            setMonth(calendar.get(Calendar.MONTH) + 1);
+            setYear(calendar.get(Calendar.YEAR));
+        }
+
+
+//        setBeforemonth(month - 1);
+        setBeforeyear(year-1);
+//        setAftermonth(month + 1);
+        setAfteryear(year+1);
+//        setWeek("" + _week);
+//        if (month == 1) {
+//            setBeforemonth(12);
+//            setBeforeyear(year - 1);
+//        } else if (month == 12) {
+//            setAftermonth(1);
+//            setAfteryear(year + 1);
+//        }
+
+//        System.out.println("day.substring(0, 7) = " + day.substring(0, 7));
+
+        String sql = "select userid,\n" +
+                "        cast(sum(decode(type, 1, 1, 0)) as decimal(18,2))/2 type1, \n" +
+                "        cast(sum(decode(type, 2, 1, 0)) as decimal(18,2))/2 type2, \n" +
+                "        cast(sum(decode(type, 3, 1, 0)) as decimal(18,2))/2 type3, \n" +
+                "        cast(sum(decode(type, 4, 1, 0)) as decimal(18,2))/2 type4, \n" +
+                "        cast(sum(decode(type, 5, 1, 0)) as decimal(18,2))/2 type5, \n" +
+                "        cast(sum(decode(type, 6, 1, 0)) as decimal(18,2))/2 type6, \n" +
+                "        cast(sum(decode(type, 7, 1, 0)) as decimal(18,2))/2 type7, \n" +
+                "        cast(sum(decode(type, 8, 1, 0)) as decimal(18,2))/2 type8, \n" +
+                "        cast(sum(decode(type, 9, 1, 0)) as decimal(18,2))/2 type9, \n" +
+                "        cast(sum(decode(type, 10, 1, 0)) as decimal(18,2))/2 type10, \n" +
+                "        cast(sum(decode(type, 0, 1, 0)) as decimal(18,2))/2 type0 \n" +
+                "  from userattendance t where substr(checkdate, 0, 4) = '" + day.substring(0, 4) + "' and type is not null group by userid";
+
+        records = service.findBySql(sql);
+        for (Map map : records) {
+            BigInteger userid = (BigInteger) map.get("USERID");
+
+            SysUser user = sysUserDao.get(userid.longValue());
+
+            map.put("USERNAME", user.getDisplayname());
+            map.put("ORDERNO", user.getSysdept().getOrderno());
+            map.put("DEPTNAME", user.getSysdept().getName());
+        }
+
+        Collections.sort(records, new UserAttendanceComparator());
+
+//        System.out.println("records.size() = " + records.size());
+
+        return "year";
     }
 
     List<Map> records;

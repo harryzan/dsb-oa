@@ -10,7 +10,7 @@
     <script type="text/javascript">
         function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
-            var count = 4;
+            var count = 2;
             for (var i = 1; i <= count; i++) {
                 var button = document.getElementById('button' + i);
                 button.className = 'tab';
@@ -24,10 +24,10 @@
     <tr>
         <td>
             <input onclick="openFunction('demand-use!input', this)" type="button" name="button1" id="button1" value="${demandType.name}申请" class="tab_xz" />
-            <c:if test='${isadmin}'>
-            <input onclick="openFunction('demand-check-grid', this)" type="button" name="button3" id="button3" value="${demandType.name}审核" class="tab" />
-            <input onclick="openFunction('demand-app-grid', this)" type="button" name="button4" id="button4" value="${demandType.name}安排" class="tab" />
-            </c:if>
+            <%--<c:if test='${isadmin}'>--%>
+            <%--<input onclick="openFunction('demand-check-grid', this)" type="button" name="button3" id="button3" value="${demandType.name}审核" class="tab" />--%>
+            <%--<input onclick="openFunction('demand-app-grid', this)" type="button" name="button4" id="button4" value="${demandType.name}安排" class="tab" />--%>
+            <%--</c:if>--%>
             <input onclick="openFunction('demand-complete-grid', this)" type="button" name="button2" id="button2" value="${demandType.name}信息" class="tab" />
         </td>
     </tr>

@@ -45,8 +45,9 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="work-arrange!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <br>
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+          <form action="work-arrange!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <input type ="hidden" name="bulletinstatus" value="${bulletinstatus}"> 
                 <tr>
@@ -60,31 +61,34 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                              <td width="30%"><div align="right">年份：</div></td>
-                              <td width="70%">&nbsp;${year}
-                                  <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
+                              <td colspan="2" class="text_title"><div align="center">一周工作安排维护</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td align="right"  class="textone1">年份：</td>
+                            <td width="70%"  class="textone1">&nbsp;${year}
+                            <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">周数：</div></td>
-                              <td width="70%">&nbsp;${week}
+                              <td width="30%"  class="textone1"><div align="right">周数：</div></td>
+                              <td width="70%"  class="textone1">&nbsp;${week}
                                   <input id="week" name="week" type="hidden" class="input_one" value="${week}"></td>
                           </tr>
                           <tr class="textone1">
-                              <td width="30%"><div align="right">开始时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="30%"  class="textone1"><div align="right">开始时间：</div></td>
+                              <td width="70%"  class="textone1">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(starttime, 'date');" /></td>
+                                  <input id="starttime" name="starttime" type="text" class="input_one" value="${starttime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(starttime, 'date');" /></td>
                           </tr>
                           <tr class="textone12">
-                              <td width="30%"><div align="right">结束时间：</div></td>
-                              <td width="70%">&nbsp;
+                              <td width="30%"  class="textone1"><div align="right">结束时间：</div></td>
+                              <td width="70%"  class="textone1">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
-                                  <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>
+                                  <input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onClick="calendar(endtime, 'date');" /></td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">内容：</div></td>
-                            <td height="60" colspan="2">&nbsp;
-                                <textarea name="content" id="content" class="input_three" >${content}</textarea></td>
+                            <td  class="textone1"><div align="right">内容：</div></td>
+                            <td height="60" colspan="2"  class="textone1">&nbsp;
+                                <textarea name="content" cols="60%" rows="5" class="input_three" id="content" >${content}</textarea></td>
                           </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

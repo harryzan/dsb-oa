@@ -31,8 +31,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="doc-category!save" method="post" onsubmit="javascript: return check()">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="doc-category!save" method="post" onSubmit="javascript: return check()">
                 <input type ="hidden" name="id" value="${id}">
                 <input type="hidden" name="parentid" value="${parentid}${parent.id}" >
                 <tr>
@@ -47,54 +47,57 @@
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                         <tr class="textone1">
 
-                          <td width="20%"><div align="right">编号：</div></td>
-                          <td width="80%" colspan="3">&nbsp;<input name="code" type="text" class="input_one" value="${code}">&nbsp;<span class="textxing">*</span>
-
-                        </tr>
+                          <td colspan="4" class="text_title"><div align="center">文档目录管理</div></td>
+                          </tr>
+                        <tr class="textone1">
+                          <td width="20%" align="right" class="textone1">编号：</td>
+                          <td width="80%" colspan="3" class="textone1">&nbsp;
+                            <input name="code" type="text" class="input_one" value="${code}">
+                        &nbsp;<span class="textxing">*</span></tr>
                         <tr class="textone12">
-                          <td><div align="right">名称：</div></td>
-                          <td colspan="3">&nbsp;<input name="name" type="text" class="input_one" value="${name}">&nbsp;<span class="textxing">*</span></td>
+                          <td class="textone1"><div align="right">名称：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;<input name="name" type="text" class="input_one" value="${name}">&nbsp;<span class="textxing">*</span></td>
 
 
                         </tr>
                           <tr class="textone1">
-                          <td><div align="right">路径：</div></td>
-                          <td colspan="3">&nbsp;<input name="path" type="text" class="input_one" value="${path}"></td>
+                          <td class="textone1"><div align="right">路径：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;<input name="path" type="text" class="input_one" value="${path}"></td>
                         </tr>
                           <tr class="textone12">
-                          <td><div align="right">系统目录：</div></td>
-                          <td colspan="3">&nbsp;<input type="radio" value="true" name="issystem" ${issystem ? "checked" : ""}>&nbsp;是&nbsp;<input type="radio" value="false" name="issystem" ${issystem ? "" : "checked"}> &nbsp;否  </td>
+                          <td class="textone1"><div align="right">系统目录：</div></td>
+                          <td colspan="3" class="textone1">&nbsp;<input type="radio" value="true" name="issystem" ${issystem ? "checked" : ""}>&nbsp;是&nbsp;<input type="radio" value="false" name="issystem" ${issystem ? "" : "checked"}> &nbsp;否  </td>
                         </tr>
                         <tr class="textone1">
-                          <td rowspan="${viewrow}"><div align="right">查看权限：</div></td>
-                          <td width="20%" height="25"><div align="center">单位:&nbsp;<input type ="hidden" name="viewdeptid"><input type ="text" name="viewdeptname" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="viewdept()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="dviewdept()"></div></td>
-                          <td width="20%"><div align="center">用户:&nbsp;<input type ="hidden" name="viewuserid"><input type ="text" name="viewusername" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="viewuser()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="dviewuser()"></div></td>
-                          <td width="20%"><div align="center">权限项:&nbsp;<input type ="hidden" name="viewprivilegeid"><input type ="text" name="viewprivilegename" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="viewprivilege()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="dviewprivilege()"></div></td>
+                          <td rowspan="${viewrow}" class="textone1"><div align="right">查看权限：</div></td>
+                          <td width="80%" height="25" class="textone1"><div align="center">单位:&nbsp;<input type ="hidden" name="viewdeptid"><input type ="text" name="viewdeptname" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="viewdept()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="dviewdept()"></div></td>
+                          <td  class="textone1" width="20%"><div align="center">用户:&nbsp;<input type ="hidden" name="viewuserid"><input type ="text" name="viewusername" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="viewuser()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="dviewuser()"></div></td>
+                          <td class="textone1" width="20%"><div align="center">权限项:&nbsp;<input type ="hidden" name="viewprivilegeid"><input type ="text" name="viewprivilegename" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="viewprivilege()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="dviewprivilege()"></div></td>
                         </tr>
                           <s:iterator value="viewunit">
                         <tr class="textone1">
-                          <td><div align="center">${sysdept.name}</div></td>
-                          <td><div align="center">${sysuser.displayname}</div></td>
-                          <td><div align="center">${sysprivilege.name}</div></td>
+                          <td class="textone1"><div align="center">${sysdept.name}</div></td>
+                          <td class="textone1"><div align="center">${sysuser.displayname}</div></td>
+                          <td class="textone1"><div align="center">${sysprivilege.name}</div></td>
                         </tr>
                           </s:iterator>
                         <tr class="textone12">
-                          <td rowspan="${editrow}"><div align="right">修改权限：</div></td>
-                          <td height="25"><div align="center">单位:&nbsp;<input type ="hidden" name="editdeptid"><input type ="text" name="editdeptname" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="editdept()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="deditdept()"></div></td>
-                          <td><div align="center">用户:&nbsp;<input type ="hidden" name="edituserid"><input type ="text" name="editusername" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="edituser()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="dedituser()"></div></td>
-                          <td><div align="center">权限项:&nbsp;<input type ="hidden" name="editprivilegeid"><input type ="text" name="editprivilegename" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onclick="editprivilege()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onclick="deditprivilege()"></div></td>
+                          <td class="textone1" rowspan="${editrow}"><div align="right">修改权限：</div></td>
+                          <td class="textone1" height="25"><div align="center">单位:&nbsp;<input type ="hidden" name="editdeptid"><input type ="text" name="editdeptname" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="editdept()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="deditdept()"></div></td>
+                          <td class="textone1"><div align="center">用户:&nbsp;<input type ="hidden" name="edituserid"><input type ="text" name="editusername" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="edituser()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="dedituser()"></div></td>
+                          <td class="textone1"><div align="center">权限项:&nbsp;<input type ="hidden" name="editprivilegeid"><input type ="text" name="editprivilegename" class="input_one2">&nbsp;<img src="${themesPath}/oldimages/jia.gif" width="11" height="11" style="cursor:pointer" onClick="editprivilege()">&nbsp;<img src="${themesPath}/oldimages/jian.gif" width="11" height="11" style="cursor:pointer" onClick="deditprivilege()"></div></td>
                         </tr>
                         <s:iterator value="editunit">
                         <tr class="textone12">
-                          <td><div align="center">${sysdept.name}</div></td>
-                          <td><div align="center">${sysuser.displayname}</div></td>
-                          <td><div align="center">${sysprivilege.name}</div></td>
+                          <td class="textone1"><div align="center">${sysdept.name}</div></td>
+                          <td class="textone1"><div align="center">${sysuser.displayname}</div></td>
+                          <td class="textone1"><div align="center">${sysprivilege.name}</div></td>
                         </tr>
                           </s:iterator>
 
                         <tr class="textone1">
-                          <td>&nbsp;</td>
-                          <td colspan="3">&nbsp;<input name="Submit2" type="button" class="button_main4" value="清空权限" onclick="clearall()"></td>
+                          <td class="textone1">&nbsp;</td>
+                          <td class="textone1" colspan="3">&nbsp;<input name="Submit2" type="button" class="button_main4" value="清空权限" onClick="clearall()"></td>
                           </tr>
                       </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>
@@ -112,7 +115,7 @@
                   <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="Submit52" value="重 写">
                   </div></td>
-                  <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onclick="location='doc-category?id=${id}'" ></td>
+                  <td width="45%"><input type="button" class="button_cc" name="Submit522" value="返 回" onClick="location='doc-category?id=${id}'" ></td>
                 </tr>
               </table></td>
               </tr>

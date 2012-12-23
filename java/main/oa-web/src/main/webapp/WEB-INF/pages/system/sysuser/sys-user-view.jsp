@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -45,32 +45,35 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="32%"><div align="right">用户名：</div></td>
-                            <td width="68%">&nbsp;${loginname}</td>
-                          </tr>
-                          <tr class="textone12">
-                            <td><div align="right">显示名：</div></td>
-                            <td>&nbsp;${displayname}</td>
+                            <td colspan="2" class="text_title"><div align="center">用户信息查看</div></td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">直线：</div></td>
-                            <td>&nbsp;${phonenumber}</td>
+                            <td width="32%" align="right" class="textone1">用户名：</td>
+                            <td width="68%" class="textone1">&nbsp;${loginname}</td>
                           </tr>
                           <tr class="textone12">
-                              <td><div align="right">分机：</div></td>
-                              <td>&nbsp;${subphone}</td>
+                            <td class="textone1"><div align="right">显示名：</div></td>
+                            <td class="textone1">&nbsp;${displayname}</td>
                           </tr>
                           <tr class="textone1">
-                              <td><div align="right">手机：</div></td>
-                              <td>&nbsp;${cellphone}</td>
+                            <td class="textone1"><div align="right">直线：</div></td>
+                            <td class="textone1">&nbsp;${phonenumber}</td>
                           </tr>
                           <tr class="textone12">
-                            <td><div align="right">邮箱：</div></td>
-                            <td>&nbsp;${email}</td>
+                              <td class="textone1"><div align="right">分机：</div></td>
+                              <td class="textone1">&nbsp;${subphone}</td>
                           </tr>
                           <tr class="textone1">
-                            <td><div align="right">状态：</div></td>
-                            <td>&nbsp;${status ? "激活" : "禁用"}</td>
+                              <td class="textone1"><div align="right">手机：</div></td>
+                              <td class="textone1">&nbsp;${cellphone}</td>
+                          </tr>
+                          <tr class="textone12">
+                            <td class="textone1"><div align="right">邮箱：</div></td>
+                            <td class="textone1">&nbsp;${email}</td>
+                          </tr>
+                          <tr class="textone1">
+                            <td class="textone1"><div align="right">状态：</div></td>
+                            <td class="textone1">&nbsp;${status ? "激活" : "禁用"}</td>
                           </tr>
                         </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

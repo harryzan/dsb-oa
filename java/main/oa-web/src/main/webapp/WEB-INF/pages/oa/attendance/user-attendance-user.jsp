@@ -20,7 +20,7 @@
 <body>
 <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
-        <td colspan="2" class="line_td_title" align="center">考勤统计（一周）</td>
+        <td colspan="2" class="line_td_title" align="center">人员考勤查询（一周）</td>
     </tr>
     <form action="user-attendance!save" method="post">
     <tr>

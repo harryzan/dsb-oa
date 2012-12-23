@@ -45,8 +45,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="car-check!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="car-check!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -57,62 +57,53 @@
                     </tr>
                     <tr>
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
-                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
+                      <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                           <tr class="textone1">
-                              <td width="15%"><div align="right">申请事由：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${name}
-                              </td>
+                              <td colspan="4" align="center"  class="text_title">用车审核</td>
+                          </tr>
+                          <tr class="textone1">
+                            <td align="right" class="textone1">申请事由：</td>
+                            <td colspan="3" class="textone1"> ${name} </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">申请车别：</div></td>
-                              <td width="35%">&nbsp;${cardesc}
-                              </td>
-                              <td width="15%"><div align="right">人  数：</div></td>
-                              <td width="35%">&nbsp;${usercount}
-                              </td>
+                              <td width="19%" class="textone1"><div align="right">申请车别：</div></td>
+                              <td width="11%" class="textone1">&nbsp;${cardesc}                              </td>
+                              <td width="5%" class="textone1"><div align="right">人  数：</div></td>
+                              <td width="65%" class="textone1">&nbsp;${usercount}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">发车时间：</div></td>
-                              <td width="85%"  colspan="3">&nbsp;
+                              <td width="19%" class="textone1"><div align="right">发车时间：</div></td>
+                              <td  colspan="3" class="textone1">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">返回时间：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
+                              <td width="19%"><div align="right">返回时间：</div></td>
+                              <td colspan="3">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">上车地点：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${place}
-                              </td>
+                              <td width="19%" class="textone1"><div align="right">上车地点：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${place}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">行驶路线：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  ${drivingline}
-                              </td>
+                              <td width="19%" class="textone1"><div align="right">行驶路线：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  ${drivingline}                              </td>
                           </tr>
                           <tr class="textone1">
-                            <td width="15%"><div align="right">备注：</div></td>
-                            <td width="85%" colspan="3">&nbsp;
-                                ${desc}
-                            </td>
+                            <td width="19%" class="textone1"><div align="right">备注：</div></td>
+                            <td colspan="3" class="textone1">&nbsp;
+                                ${desc}                            </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="15%"><div align="right">申请人：</div></td>
-                              <td width="35%">&nbsp;${user.displayname}
-                              </td>
-                              <td width="15%"><div align="right">申请时间：</div></td>
-                              <td width="35%">&nbsp;${submitdate}
-                              </td>
+                              <td width="19%"><div align="right">申请人：</div></td>
+                              <td colspan="3">&nbsp;${user.displayname}&nbsp;${submitdate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="15%"><div align="right">批示意见：</div></td>
-                              <td width="85%" colspan="3">&nbsp;
-                                  <textarea name="opinion" class="input_long">${opinion}</textarea>
-                              </td>
+                              <td width="19%" class="textone1"><div align="right">批示意见：</div></td>
+                              <td colspan="3" class="textone1">&nbsp;
+                                  <textarea name="opinion" class="input_long">${opinion}</textarea>                              </td>
                           </tr>
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>

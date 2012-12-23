@@ -39,7 +39,7 @@
 <tr>
 <td width="82%" valign="top">
 
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
             <td colspan="2" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
@@ -59,7 +59,10 @@
             <td width="290" valign="top" bgcolor="#FFFFFF" class="gdmp_text" align="right"></td>
         </tr>
         <tr>
-            <td height="500" colspan="2" valign="top" bgcolor="#FFFFFF" class="gdmp_text">${description}</td>
+            <td colspan="2" valign="top" bgcolor="#FFFFFF" class="gdmp_text">${description}</td>
+        </tr>
+        <tr>
+            <td height="50" width="100%" colspan="3" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
         </tr>
 
     </table>

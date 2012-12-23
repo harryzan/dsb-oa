@@ -43,7 +43,7 @@
     </script>
 </head>
 
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="initial();">
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="initial();">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
   <%--<tr>--%>
     <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
@@ -67,8 +67,8 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="dw!save?id=${id}" method="post" onsubmit="javascript:return check_form(this)">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+            <form action="dw!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <input type ="hidden" name="typeid" value="${typeid}">
                 <tr>
@@ -82,10 +82,13 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <tr class="textone1">
-                            <td width="10%"><div align="right">标题：</div></td>
-                            <td width="90%" colspan="2">&nbsp;
-                                <input name="name" id="name" type="text" class="input_one" value="${name}"> &nbsp;<span class="textxing">*</span>
-                                </td>
+                            <td colspan="3" class="text_title"><div align="center">信息维护</div></td>
+                          </tr>
+                          <tr class="textone1">
+                            <td width="10%" align="right" class="textone1">标题：</td>
+                            <td width="90%" colspan="2" class="textone1">&nbsp;
+                              <input name="name" type="text" class="input_one" id="name" value="${name}" size="60%">
+&nbsp;<span class="textxing">*</span></td>
                           </tr>
                           <%--<tr class="textone12">--%>
                               <%--<td width="30%"><div align="right">发布时间：</div></td>--%>
@@ -100,8 +103,8 @@
                                   <%--<input id="endtime" name="endtime" type="text" class="input_one" value="${endtime}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(endtime, 'date');" /></td>--%>
                           <%--</tr>--%>
                           <tr class="textone12">
-                              <td><div align="right">内容：</div></td>
-                              <td height="60" colspan="2">&nbsp;
+                              <td class="textone1"><div align="right">内容：</div></td>
+                              <td height="60" colspan="2" class="textone1">&nbsp;
                                   <div id="editor" name="editor"></div>
                                   <input name="description" id="description" value="" type="hidden"/>
                                   <div id="desc" style="display: none">

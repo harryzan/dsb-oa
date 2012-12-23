@@ -33,7 +33,7 @@
       <%--<tr>--%>
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 
                 <input type="hidden" name="parentid" value="${parentid}${parent.id}" >
                 <tr>
@@ -47,28 +47,31 @@
                       <td width="4" background="${themesPath}/oldimages/bg/zuo.gif"><img src="${themesPath}/oldimages/bg/zuo.gif" width="4" height="4"></td>
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                     <tr class="textone1">
-                      <td width="32%"><div align="right">权限代码：</div></td>
-                      <td width="68%"><div align="left">&nbsp;${code}</div></td>
+                      <td colspan="2" class="text_title"><div align="center">权限信息查看</div>                        <div align="left"></div></td>
+                      </tr>
+                    <tr class="textone1">
+                      <td width="32%" align="right" class="textone1">权限代码：</td>
+                      <td width="68%" class="textone1">&nbsp;${code}</td>
                     </tr>
                     <tr class="textone12">
-                      <td><div align="right">权限标号：</div></td>
-                      <td><div align="left">&nbsp;${tag}</div></td>
+                      <td class="textone1"><div align="right">权限标号：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${tag}</div></td>
                     </tr>
                     <tr class="textone1">
-                      <td><div align="right">权限名称：</div></td>
-                      <td><div align="left">&nbsp;${name}</div></td>
+                      <td class="textone1"><div align="right">权限名称：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${name}</div></td>
                     </tr>
                     <tr class="textone12">
-                      <td height="90"><div align="right">权限描述：</div></td>
-                      <td><div align="left">&nbsp;${definition}</div></td>
+                      <td height="90" class="textone1"><div align="right">权限描述：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${definition}</div></td>
                     </tr>
                     <tr class="textone1">
-                      <td><div align="right">权限类型：</div></td>
-                      <td><div align="left">&nbsp;${privilegetype.listname}</div></td>
+                      <td class="textone1"><div align="right">权限类型：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${privilegetype.listname}</div></td>
                     </tr>
                     <tr class="textone12">
-                      <td height="90"><div align="right">备注：</div></td>
-                      <td><div align="left">&nbsp;${description}</div></td>
+                      <td height="90" class="textone1"><div align="right">备注：</div></td>
+                      <td class="textone1"><div align="left">&nbsp;${description}</div></td>
                     </tr>
                   </table></td>
                       <td width="4" background="${themesPath}/oldimages/bg/you.gif"><img src="${themesPath}/oldimages/bg/you.gif" width="4" height="4"></td>

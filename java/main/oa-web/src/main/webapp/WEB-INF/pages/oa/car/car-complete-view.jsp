@@ -157,7 +157,7 @@
                                   <%--<td width="10%"><div align="center">--%>
                                       <%--<input type="reset" class="button_cc" name="input" value="重 写">--%>
                                   <%--</div></td>--%>
-                                  <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
+                                  <td width="100%" align="center"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='car-complete-grid'"></td>
                                 </tr>
                             </table></td>
                           </tr>

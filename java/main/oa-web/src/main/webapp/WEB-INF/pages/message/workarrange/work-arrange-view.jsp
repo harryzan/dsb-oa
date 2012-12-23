@@ -89,7 +89,7 @@
                             <td colspan="3" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top" align="center">
                                   <td width="45%"><br>
-                                  <input type="button" class="button_cc" name="input" value="关 闭" onClick="window.close();" align="center"></td></tr>
+                                  <input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();" align="center"></td></tr>
                             </table></td>
                           </tr>
                   </table>

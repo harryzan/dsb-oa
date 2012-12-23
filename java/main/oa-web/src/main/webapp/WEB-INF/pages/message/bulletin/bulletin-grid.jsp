@@ -48,8 +48,8 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"name",renderer:checkview,header:"标题",width:"20%"}
-//                {name:"starttime",header:"发布时间",width:"20%"},
+                {name:"name",renderer:checkview,header:"标题",width:"20%"},
+                {name:"starttime",header:"发布时间",width:"20%"}
 //                {name:"endtime",header:"结束时间",width:"10%"},
 //                {name:"adduser.displayname",header:"发布人",width:"10%"}
 //                {name:"description",header:"内容",width:"40%"}

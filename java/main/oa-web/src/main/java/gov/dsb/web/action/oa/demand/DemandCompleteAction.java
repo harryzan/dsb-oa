@@ -140,11 +140,19 @@ public class DemandCompleteAction extends CRUDActionSupport<Demand>{
                 entity.setStatus(false);
             }
         }
-        UserSession userSession = userSessionService.getUserSession();
-        Long typeid= typeid = (Long) userSession.get("typeid");
-        if (typeid != null){
-            type = demandTypeDao.get(typeid);
-            entity.setType(type);
+        if (entity.getId() == null) {
+            UserSession userSession = userSessionService.getUserSession();
+            Long typeid= typeid = (Long) userSession.get("typeid");
+            if (typeid != null){
+                type = demandTypeDao.get(typeid);
+                entity.setType(type);
+            }
+        }
+        else {
+            type = entity.getType();
+
+            UserSession userSession = userSessionService.getUserSession();
+            userSession.set("typeid", type.getId());
         }
     }
 

@@ -153,6 +153,8 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
         }
         else {
             type = entity.getType();
+            UserSession userSession = userSessionService.getUserSession();
+            userSession.set("typeid", type.getId());
         }
     }
 

@@ -34,22 +34,29 @@
             <%--<input type="submit" name="add" id="add" value="完成" class="confirm_but"/>--%>
         </td>
     </tr>
+        <c:set var="lasttype" value=""/>
+        <c:set var="lastmemo" value=""/>
         <c:forEach items="${attendances}" var="attendance" varStatus="status">
+            <c:if test='${attendance.noon == false}'>
+                <c:set var="lasttype" value="${attendance.type}"/>
+                <c:set var="lastmemo" value="${attendance.memo}"/>
+            </c:if>
+            <c:if test='${attendance.noon == true}'>
             <tr>
-                <%--<input type="hidden" name="attid" value="${attendance.id}"/>--%>
-                <c:if test='${attendance.noon == false}'>
-                    <%--<td rowspan="2" class="line_td_light" width="30%">${attendance.user.sysdept.name}</td>--%>
-                    <%--<td rowspan="2" class="line_td_light" width="20%">${attendance.user.displayname}</td>--%>
-                    <td rowspan="2" class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">${attendance.checkdate}</td>
-                </c:if>
-                <td class="line_td_light" width="40%">&nbsp;
-                    <c:if test='${attendance.noon == false}'>
-                        上午
-                    </c:if>
-                    <c:if test='${attendance.noon == true}'>
-                        下午
-                    </c:if>
-                    &nbsp;&nbsp;
+                <td class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;${attendance.checkdate}</td>
+                <td class="line_td_light" width="40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <c:if test='${lasttype == 1}'>出勤</c:if>
+                    <c:if test='${lasttype == 2}'>调休</c:if>
+                    <c:if test='${lasttype == 3}'>事假</c:if>
+                    <c:if test='${lasttype == 4}'>病假</c:if>
+                    <c:if test='${lasttype == 5}'>产假</c:if>
+                    <c:if test='${lasttype == 6}'>婚假</c:if>
+                    <c:if test='${lasttype == 7}'>哺乳假</c:if>
+                    <c:if test='${lasttype == 8}'>探亲假</c:if>
+                    <c:if test='${lasttype == 9}'>旷工</c:if>
+                    <c:if test='${lasttype == 10}'>公出</c:if>
+                    <c:if test='${lasttype == 0}'>其他: ${lastmemo}</c:if>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
 
                     <c:if test='${attendance.type == 1}'>出勤</c:if>
                     <c:if test='${attendance.type == 2}'>调休</c:if>
@@ -64,6 +71,7 @@
                     <c:if test='${attendance.type == 0}'>其他: ${attendance.memo}</c:if>
                 </td>
             </tr>
+            </c:if>
         </c:forEach>
     </form>
 </table>

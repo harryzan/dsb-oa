@@ -291,16 +291,16 @@
                 Y.style.color="#666";
                 Y.innerHTML=c[a].showInLunar;
                 X.appendChild(Y);
-                X.onmouseover=(function(d){
-                    return function(f){
-                        F.show({
-                            dateIndex:d,cell:this
-                        } )
-                    }
-                } )(a);
-                X.onmouseout=function(){
-                    F.hide()
-                } ;
+//                X.onmouseover=(function(d){
+//                    return function(f){
+//                        F.show({
+//                            dateIndex:d,cell:this
+//                        } )
+//                    }
+//                } )(a);
+//                X.onmouseout=function(){
+//                    F.hide()
+//                } ;
                 M("cm").appendChild(X)
             } var G=R("DIV");
             G.id="fd";

@@ -191,7 +191,7 @@
                     </tr><tr>
                             <td colspan="4" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
                                 <tr valign="top" align="center">
-                                  <td width="100%"><input type="button" class="button_cc" name="input" value="返 回" onClick="history.back();"></td>
+                                  <td width="100%"><input type="button" class="button_cc" name="input" value="返 回" onClick="location='demand-complete-grid';"></td>
                                 </tr>
                             </table></td>
                           </tr>

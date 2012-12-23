@@ -18,7 +18,7 @@
     </script>
 </head>
 <body>
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="2" class="line_td_title" align="center">全室一周工作安排</td>
     </tr>
@@ -45,7 +45,7 @@
                         <c:if test='${arrange.dow == 6}'>星期五</c:if>
                         <c:if test='${arrange.dow == 7}'>星期六</c:if>
                 </td>
-                <td height="80px">
+                <td height="60px">
                     ${arrange.content}
                 </td>
             </tr>

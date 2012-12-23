@@ -91,8 +91,7 @@
                     <option value="9" <c:if test='${attendance.type == 9}'>selected</c:if>>旷工</option>
                     <option value="10" <c:if test='${attendance.type == 10}'>selected</c:if>>公出</option>
                     <option value="0" <c:if test='${attendance.type == 0}'>selected</c:if>>其他</option>
-                </select>&nbsp;&nbsp;
-                <input id="memo" name="memo" value="${attendance.memo}" class="input_one" type="text" style="display:none"/>&nbsp;&nbsp;
+                </select>&nbsp;&nbsp;<input id="memo" name="memo" value="${attendance.memo}" class="input_one" type="text" style="display:none"/>&nbsp;&nbsp;
                     <c:if test='${empty attendance.type }'>
                         &nbsp;<font color="red">未考勤</font>
                     </c:if>

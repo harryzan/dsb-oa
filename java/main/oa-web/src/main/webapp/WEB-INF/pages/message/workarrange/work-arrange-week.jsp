@@ -45,7 +45,7 @@
                         <c:if test='${arrange.dow == 6}'>星期五</c:if>
                         <c:if test='${arrange.dow == 7}'>星期六</c:if>
                 </td>
-                <td height="90px">
+                <td height="70px">
                     <input type="hidden" name="arrangeids" value="${arrange.id}"/>
                     <textarea class="input_long2" name="content${arrange.id}">${arrange.content}</textarea>
                 </td>

@@ -205,13 +205,13 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
     public String save() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
 
-        System.out.println("arrangeids = " + arrangeids);
+//        System.out.println("arrangeids = " + arrangeids);
         String[] ids = arrangeids.split(",");
         WorkArrange workArrange = null;
         for (String id : ids) {
             WorkArrange arrange = service.get(Long.parseLong(id.trim()));
             String content = request.getParameter("content" + id.trim());
-            System.out.println("content = " + content);
+//            System.out.println("content = " + content);
 
             arrange.setContent(content);
             service.save(arrange);
@@ -302,6 +302,10 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
                 arranges.add(workArrange);
             }
         }
+
+//        WorkArrange workArrange = arranges.get(0);
+        WorkArrange arrange = arranges.remove(0);
+        arranges.add(arrange);
 
 
 //        Date now = new Date();

@@ -41,21 +41,23 @@
                 {name:"id",header:"",width:"10%"},
                 {name:"flag",renderer:statusview,header:"状态",width:"10%"},
                 <c:if test="${type.name != '会议'}">
-                {name:"name",renderer:checkview,header:"申请内容",width:"15%"},
+                {name:"name",renderer:checkview,header:"申请内容",width:"20%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
+                {name:"submit",header:"申请时间",width:"15%"},
                 {name:"demanddate",header:"需求时间",width:"15%"},
-                {name:"mainuser.displayname",header:"执行人",width:"10%"},
-                {name:"checkdate",header:"审核时间",width:"15%"},
-                {name:"memodate",header:"安排时间",width:"15%"}
+                {name:"mainuser.displayname",header:"执行人",width:"10%"}
+//                {name:"checkdate",header:"审核时间",width:"15%"},
+//                {name:"memodate",header:"安排时间",width:"15%"}
                 </c:if>
                 <c:if test="${type.name == '会议'}">
-                {name:"name",renderer:checkview,header:"会议名称",width:"15%"},
+                {name:"name",renderer:checkview,header:"会议名称",width:"20%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
+                {name:"submitdate",header:"会议时间",width:"15%"},
                 {name:"demanddate",header:"会议时间",width:"15%"},
                 {name:"moderater",header:"主持人",width:"15%"},
-                {name:"mainuser.displayname",header:"执行人",width:"10%"},
-                {name:"checkdate",header:"审核时间",width:"15%"},
-                {name:"memodate",header:"安排时间",width:"15%"}
+                {name:"mainuser.displayname",header:"执行人",width:"10%"}
+//                {name:"checkdate",header:"审核时间",width:"15%"},
+//                {name:"memodate",header:"安排时间",width:"15%"}
                 </c:if>
 //                {name:"desc",header:"备注",width:"30%"}
             ],

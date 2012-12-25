@@ -40,10 +40,11 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 {name:"flag",renderer:statusview,header:"状态",width:"10%"},
-                {name:"name",renderer:checkview,header:"申请事由",width:"25%"},
+                {name:"name",renderer:checkview,header:"申请事由",width:"20%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
-                {name:"startdate",header:"使用时间",width:"10%"},
-                {name:"car.carmodel",header:"分配车辆",width:"15%"},
+                {name:"submitdate",header:"申请时间",width:"15%"},
+                {name:"startdate",header:"使用时间",width:"15%"},
+                {name:"car.carmodel",header:"分配车辆",width:"10%"},
                 {name:"driver.name",header:"司机",width:"10%"}
 //                {name:"desc",header:"备注",width:"20%"}
             ],

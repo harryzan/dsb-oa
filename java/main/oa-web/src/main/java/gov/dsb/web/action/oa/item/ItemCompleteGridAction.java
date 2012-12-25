@@ -89,7 +89,7 @@ public class ItemCompleteGridAction extends PageActionSupport<ItemUse> {
             page = new Page<ItemUse>(limit, true);
         }
         else {
-            page = new Page<ItemUse>(10, true);
+            page = new Page<ItemUse>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

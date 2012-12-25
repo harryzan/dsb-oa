@@ -116,7 +116,7 @@ public class DocDocumentGridAction extends PageActionSupport<DocDocument> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<DocDocument>(limit, true);
         } else {
-            page = new Page<DocDocument>(10, true);
+            page = new Page<DocDocument>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

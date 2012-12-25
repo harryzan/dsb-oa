@@ -65,7 +65,7 @@
             <ul>
                 <li class="n1"><a href="${ctx}/common/intouch2" target="_blank">电子邮件</a></li>
                 <li class="n1"><a href="${ctx}/message/message/message-main">短消息</a></li>
-                <li class="n1"><a href="${ctx}/policy/policy/doc-document-grid">规章制度</a></li>
+                <li class="n1"><a href="${ctx}/policy/policy/doc-document-grid!main">规章制度</a></li>
                 <li class="n1"><a href="${ctx}/offical/workflow/work-flow-main">发文管理</a></li>
                 <%--<li class="n1"><a href="#">需求申请</a></li>--%>
                 <li class="n1"><a href="http://10.0.0.2:2000/" target="_blank">资料库链接</a></li>

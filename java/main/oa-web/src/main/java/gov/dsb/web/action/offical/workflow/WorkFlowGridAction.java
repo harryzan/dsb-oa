@@ -101,7 +101,7 @@ public class WorkFlowGridAction extends PageActionSupport<WorkFlow> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<WorkFlow>(limit, true);
         } else {
-            page = new Page<WorkFlow>(10, true);
+            page = new Page<WorkFlow>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

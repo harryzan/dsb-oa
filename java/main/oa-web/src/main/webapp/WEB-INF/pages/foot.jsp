@@ -45,7 +45,7 @@
 </head>
 
 <body>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="main_title">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="main_title_foot">
   <tr>
     <td class="foot">中共上海市委党史研究室&nbsp;&nbsp;&nbsp;&nbsp;版权所有</td>
   </tr>

@@ -116,7 +116,7 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
         entity.setMemor(userSessionService.getCurrentSysUser());
 
 //        if (StringHelp.isNotEmpty(complete)) {
-            entity.setFlag("已完成");
+            entity.setFlag("完成");
             entity.setStatus(true);
 //        }
         service.save(entity);

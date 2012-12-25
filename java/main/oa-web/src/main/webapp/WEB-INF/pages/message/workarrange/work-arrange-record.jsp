@@ -18,6 +18,7 @@
     </script>
 </head>
 <body>
+<br>
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="table_line">
     <tr>
         <td colspan="2" class="line_td_title" align="center">全室一周工作安排</td>
@@ -36,16 +37,16 @@
     </tr>
         <c:forEach items="${arranges}" var="arrange" varStatus="status">
             <tr>
-                <td width="15%" align="left" class="sy_text_1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td width="15%" align="left" class="sy_text_1z" nowrap="nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <c:if test='${arrange.dow == 1}'>星期日</c:if>
                         <c:if test='${arrange.dow == 2}'>星期一</c:if>
                         <c:if test='${arrange.dow == 3}'>星期二</c:if>
                         <c:if test='${arrange.dow == 4}'>星期三</c:if>
                         <c:if test='${arrange.dow == 5}'>星期四</c:if>
                         <c:if test='${arrange.dow == 6}'>星期五</c:if>
-                        <c:if test='${arrange.dow == 7}'>星期六</c:if>
+                        <c:if test='${arrange.dow == 7}'>星期六</c:if>&nbsp;
                 </td>
-                <td width="85%" height="60px">
+                <td width="85%" height="30px" class="sy_text_1z1">
                     ${arrange.content}
                 </td>
             </tr>

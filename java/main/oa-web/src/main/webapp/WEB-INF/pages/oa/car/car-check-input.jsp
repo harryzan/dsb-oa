@@ -23,29 +23,30 @@
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <%--<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">--%>
-  <%--<tr>--%>
-    <%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
-    <%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
-    <%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
-  <%--</tr>--%>
-  <%--<tr>--%>
-    <%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
-    <%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
-      <%--<tr>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
-        <%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
-            <%--<tr>--%>
-              <%--<td width="20" class="textone">&nbsp;</td>--%>
-              <%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
-              <%--<td width="20">&nbsp;</td>--%>
-            <%--</tr>--%>
-        <%--</table></td>--%>
-        <%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
-      <%--</tr>--%>
-      <%--<tr>--%>
-        <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
-        <%--<td valign="top" bgcolor="#eff6fe">--%>
-        <table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+<%--<tr>--%>
+<%--<td width="13" height="12" valign="top" background="${themesPath}/oldimages/azuo.gif"><img src="${themesPath}/oldimages/a1.gif" width="13" height="13"></td>--%>
+<%--<td background="${themesPath}/oldimages/ashang.gif"></td>--%>
+<%--<td width="12" height="12" valign="top" nowrap background="${themesPath}/oldimages/ayou.gif"><img src="${themesPath}/oldimages/a2.gif" width="13" height="13"></td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/azuo.gif"></td>--%>
+<%--<td  valign="top" bgcolor="#fbfbfb"><table width="100%"  border="0" cellpadding="0" cellspacing="0">--%>
+<%--<tr>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgzuo.gif">&nbsp;</td>--%>
+<%--<td background="${themesPath}/oldimages/bgz.gif"><table width="100%" height="10"  border="0" align="right" cellpadding="0" cellspacing="2">--%>
+<%--<tr>--%>
+<%--<td width="20" class="textone">&nbsp;</td>--%>
+<%--<td height="23" valign="bottom" class="textone" align="center"><strong style="font-weight:bold;">维护型号信息</strong></td>--%>
+<%--<td width="20">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--</table></td>--%>
+<%--<td width="10" height="27" nowrap background="${themesPath}/oldimages/bgyou.gif">&nbsp;</td>--%>
+<%--</tr>--%>
+<%--<tr>--%>
+<%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
+<%--<td valign="top" bgcolor="#eff6fe">--%>
+<br>
+<table width="90%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
             <form action="car-check!save?id=${id}" method="post" onSubmit="javascript:return check_form(this)">
                 <input type ="hidden" name="gridParam" value='${gridParam}'>
                 <tr>
@@ -66,42 +67,42 @@
                             <td colspan="3" class="textone1"> ${name} </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="19%" class="textone1"><div align="right">申请车别：</div></td>
-                              <td width="11%" class="textone1">&nbsp;${cardesc}                              </td>
-                              <td width="5%" class="textone1"><div align="right">人  数：</div></td>
-                              <td width="65%" class="textone1">&nbsp;${usercount}                              </td>
+                            <td width="27%" class="textone1"><div align="right">申请车别：</div></td>
+                              <td width="23%" class="textone1">&nbsp;${cardesc}                              </td>
+                            <td width="9%" nowrap class="textone1"><div align="right">人  数：</div></td>
+                              <td width="41%" class="textone1">&nbsp;${usercount}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="19%" class="textone1"><div align="right">发车时间：</div></td>
+                            <td width="27%" class="textone1"><div align="right">发车时间：</div></td>
                               <td  colspan="3" class="textone1">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="19%"><div align="right">返回时间：</div></td>
+                            <td width="27%"><div align="right">返回时间：</div></td>
                               <td colspan="3">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="19%" class="textone1"><div align="right">上车地点：</div></td>
+                            <td width="27%" class="textone1"><div align="right">上车地点：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${place}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="19%" class="textone1"><div align="right">行驶路线：</div></td>
+                            <td width="27%" class="textone1"><div align="right">行驶路线：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${drivingline}                              </td>
                           </tr>
                           <tr class="textone1">
-                            <td width="19%" class="textone1"><div align="right">备注：</div></td>
+                            <td width="27%" class="textone1"><div align="right">备注：</div></td>
                             <td colspan="3" class="textone1">&nbsp;
                                 ${desc}                            </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="19%"><div align="right">申请人：</div></td>
+                            <td width="27%"><div align="right">申请人：</div></td>
                               <td colspan="3">&nbsp;${user.displayname}&nbsp;${submitdate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="19%" class="textone1"><div align="right">批示意见：</div></td>
+                            <td width="27%" class="textone1"><div align="right">批示意见：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   <textarea name="opinion" class="input_long">${opinion}</textarea>                              </td>
                           </tr>
@@ -140,7 +141,7 @@
                 </tr>
 
             </form>
-        </table>
+</table>
         <%--</td><td background="${themesPath}/oldimages/bgtub.gif">&nbsp;</td>--%>
       <%--</tr>--%>
       <%--<tr>--%>

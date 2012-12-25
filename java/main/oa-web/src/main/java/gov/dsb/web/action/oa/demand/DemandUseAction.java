@@ -103,7 +103,7 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
-        entity.setFlag("待审核");
+        entity.setFlag("审核");
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

@@ -39,7 +39,7 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"flag",header:"状态",width:"10%"},
+                {name:"flag",renderer:statusview,header:"状态",width:"10%"},
                 {name:"name",renderer:checkview,header:"申请事由",width:"25%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"startdate",header:"使用时间",width:"10%"},
@@ -64,10 +64,22 @@
             div:"list"
         };
 
+        function statusview(value){
+            if ('审核' == value) {
+                value = "<font color='red'>" + value + "</font>";
+            }
+            else if ('派车' == value) {
+                value = "<font color='blue'>" + value + "</font>";
+            }
+            else {
+                value = "<font color='black'>" + value + "</font>";
+            }
+
+            return value;
+        }
+
         function checkview(value){
-//            if(result.d02_document_R) {
-//                return value;
-//            }
+
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
         }
 
@@ -79,10 +91,10 @@
             var url;
             url = 'car-complete?id=' + id;
         <c:if test='${isadmin}'>
-            if ('待审核' == flag) {
+            if ('审核' == flag) {
                 url = "car-check!input?id=" + id;
             }
-            else if ('待安排' == flag) {
+            else if ('派车' == flag) {
                 url = "car-drive!input?id=" + id;
             }
             else {

@@ -124,7 +124,7 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from Demand where type.id=? order by flag desc,demanddate desc", typeid);
+            page = service.findPageByQuery(page, "from Demand where type.id=? order by submitdate desc", typeid);
         }
         List<Demand> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);

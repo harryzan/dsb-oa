@@ -109,7 +109,7 @@ public class DwGridAction extends PageActionSupport<Dw> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<Dw>(limit, true);
         } else {
-            page = new Page<Dw>(10, true);
+            page = new Page<Dw>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

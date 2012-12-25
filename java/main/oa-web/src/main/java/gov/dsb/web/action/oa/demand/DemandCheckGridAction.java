@@ -110,7 +110,7 @@ public class DemandCheckGridAction extends PageActionSupport<Demand> {
             page = new Page<Demand>(limit, true);
         }
         else {
-            page = new Page<Demand>(10, true);
+            page = new Page<Demand>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

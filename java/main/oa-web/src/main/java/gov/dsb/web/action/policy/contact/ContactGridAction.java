@@ -102,7 +102,7 @@ public class ContactGridAction extends PageActionSupport<SysUser> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<SysUser>(limit, true);
         } else {
-            page = new Page<SysUser>(15, true);
+            page = new Page<SysUser>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

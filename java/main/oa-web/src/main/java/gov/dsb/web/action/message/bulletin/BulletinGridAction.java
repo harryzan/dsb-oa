@@ -101,7 +101,7 @@ public class BulletinGridAction extends PageActionSupport<Bulletin> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<Bulletin>(limit, true);
         } else {
-            page = new Page<Bulletin>(10, true);
+            page = new Page<Bulletin>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

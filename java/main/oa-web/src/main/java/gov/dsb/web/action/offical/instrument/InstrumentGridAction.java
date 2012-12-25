@@ -101,7 +101,7 @@ public class InstrumentGridAction extends PageActionSupport<Instrument> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<Instrument>(limit, true);
         } else {
-            page = new Page<Instrument>(10, true);
+            page = new Page<Instrument>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

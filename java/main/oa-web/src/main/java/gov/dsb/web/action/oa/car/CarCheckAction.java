@@ -95,7 +95,7 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
         entity.setCheckdate(day);
         entity.setChecker(userSessionService.getCurrentSysUser());
         entity.setStatus(true);
-        entity.setFlag("待安排");
+        entity.setFlag("派车");
         service.save(entity);
 
         SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");

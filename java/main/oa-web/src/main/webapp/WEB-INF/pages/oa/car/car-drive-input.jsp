@@ -71,46 +71,46 @@
                             ${name} </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="19%" class="textone1"><div align="right">申请车别：</div></td>
+                            <td width="20%" class="textone1"><div align="right">申请车别：</div></td>
                               <td width="11%" class="textone1">&nbsp;${cardesc}                              </td>
-                              <td width="5%" class="textone1"><div align="right">人  数：</div></td>
-                              <td width="65%" class="textone1">&nbsp;${usercount}                              </td>
+                            <td width="27%" nowrap class="textone1"><div align="right">人  数：</div></td>
+                              <td width="42%" class="textone1">&nbsp;${usercount}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="22%" class="textone1"><div align="right">发车时间：</div></td>
+                            <td width="20%" class="textone1"><div align="right">发车时间：</div></td>
                               <td  colspan="3" class="textone1">&nbsp;
                                   ${startdate}</td>
                           </tr>
                           <tr class="textone12">
-                              <td width="22%" class="textone1"><div align="right">返回时间：</div></td>
+                            <td width="20%" class="textone1"><div align="right">返回时间：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${enddate}</td>
                           </tr>
                           <tr class="textone1">
-                              <td width="22%" class="textone1"><div align="right">上车地点：</div></td>
+                            <td width="20%" class="textone1"><div align="right">上车地点：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${place}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="22%" class="textone1"><div align="right">行驶路线：</div></td>
+                            <td width="20%" class="textone1"><div align="right">行驶路线：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${drivingline}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="22%" class="textone1"><div align="right">备注：</div></td>
+                            <td width="20%" class="textone1"><div align="right">备注：</div></td>
                               <td colspan="3" class="textone1">&nbsp;
                                   ${desc}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="22%" class="textone1"><div align="right">申请人：</div></td>
+                            <td width="20%" class="textone1"><div align="right">申请人：</div></td>
                               <td colspan="3" class="textone1">&nbsp;${user.displayname}&nbsp;${submitdate}                              </td>
                           </tr>
                           <tr class="textone1">
-                              <td width="22%" class="textone1"><div align="right">批示意见：</div></td>
+                            <td width="20%" class="textone1"><div align="right">批示意见：</div></td>
                               <td colspan="3" class="textone1">&nbsp;${opinion}                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="22%" class="textone1"><div align="right">批示人：</div></td>
+                            <td width="20%" class="textone1"><div align="right">批示人：</div></td>
                               <td colspan="3" class="textone1">&nbsp;${checker.displayname}&nbsp;${checkdate}                              </td>
                           </tr>
                           <tr class="textone1">
@@ -119,7 +119,7 @@
                                   <textarea name="memo" class="input_long">${memo}</textarea>                              </td>
                           </tr>
                           <tr class="textone12">
-                              <td width="22%" class="textone1"><div align="right">分配车辆：</div></td>
+                            <td width="20%" class="textone1"><div align="right">分配车辆：</div></td>
                               <td valign="center"  colspan="3" class="textone1">&nbsp;
                                   <select name="carid" id="carid">
                                       <c:forEach items="${cars}" var="car" varStatus="status">
@@ -127,7 +127,7 @@
                                       </c:forEach>
                           </select>                          </tr>
                           <tr class="textone1">
-                              <td width="22%" class="textone1"><div align="right">指定司机：</div></td>
+                            <td width="20%" class="textone1"><div align="right">指定司机：</div></td>
                               <td valign="center" colspan="3" class="textone1">&nbsp;
                                   <select name="driverid" id="driverid">
                                       <c:forEach items="${drivers}" var="driver" varStatus="status">

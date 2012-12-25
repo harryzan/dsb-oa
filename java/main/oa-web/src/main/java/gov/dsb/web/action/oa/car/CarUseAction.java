@@ -93,7 +93,7 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
-        entity.setFlag("待审核");
+        entity.setFlag("审核");
 
         Long entityId = entity.getId();
 

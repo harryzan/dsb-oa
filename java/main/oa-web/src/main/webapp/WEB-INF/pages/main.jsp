@@ -204,21 +204,21 @@
             <td colspan="2"><div class="sy_line">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                        <td height="30"><table width="80%" border="0" align="center">
+                        <td height="30"><table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
-                                <td><table width="50%" border="0">
+                                <td><table width="50%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_1.jpg" width="23" height="25" /></td>
                                         <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=发文管理">发文管理<span class="STYLE1">（${count1}）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="50%" border="0">
+                                <td><table width="50%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_2.jpg" width="41" height="22" /><a href="#"></a></td>
                                         <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${message2.id}" alt="${message2.name}">用车申请<span class="STYLE1">（${count2}）</span></a></td>
                                     </tr>
                                 </table></td>
-                                <td><table width="50%" border="0">
+                                <td><table width="50%" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_3.jpg" width="31" height="24" /><a href="#"></a></td>
                                         <td nowrap="nowrap"><a href="${ctx}/message/message/message!act?id=${message3.id}" alt="${message3.name}">需求申请<span class="STYLE1">（${count3}）</span></a></td>
@@ -256,8 +256,8 @@
             #cal #top{height:29px;line-height:29px;background:transparent; background-image:url(${themesPath}/images/bg.jpg); background-repeat:repeat-x;color:#ffffff;padding-left:5px}
             #cal #top select{font-size:12px}
             #cal #top input{padding:0}
-            #cal ul#wk{margin:0;padding:0;height:25px}
-            #cal ul#wk li{float:left;width:36px;text-align:center;line-height:25px;list-style:none}
+            #cal ul#wk{margin:0;padding:0;height:20px}
+            #cal ul#wk li{float:left;width:36px;text-align:center;line-height:20px;list-style:none}
             #cal ul#wk li b{font-weight:normal;color:#c60b02}
             #cal #cm{clear:left;border-top:1px solid #ddd;border-bottom:1px dotted #ddd;position:relative}
             #cal #cm .cell{position:absolute;width:30px;height:36px;text-align:center;margin:0 0 0 9px}
@@ -294,7 +294,6 @@
                     <li><b>日</b></li>
                 </ul>
                 <div id="cm"></div>
-                <div id="bm"></div>
             </div></td>
     </tr>
 </table>
@@ -302,8 +301,8 @@
 </td>
 </tr>
      <tr>
-       <td>
-           <div id="container" style="width: 260px; height: 260px; margin: 0 auto"></div>
+       <td valign="top">
+           <div id="container" style="width: 240px; height: 240px; margin: 0 auto"></div>
        </td>
      </tr>
 </table></td>

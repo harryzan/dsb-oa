@@ -120,7 +120,7 @@ public class CarDriveAction extends CRUDActionSupport<CarUse>{
         String day = sdf.format(d);
         entity.setMemodate(day);
         entity.setMemor(userSessionService.getCurrentSysUser());
-        entity.setFlag("已完成");
+        entity.setFlag("完成");
 
         service.save(entity);
 

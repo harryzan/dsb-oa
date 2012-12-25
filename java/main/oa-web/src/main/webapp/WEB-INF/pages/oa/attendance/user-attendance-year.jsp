@@ -38,29 +38,46 @@
             </td>
         </tr>
     <tr>
-        <td class="line_td_head">部门</td>
-        <td class="line_td_head">姓名</td>
-        <td class="line_td_head">出勤合计</td>
-        <td class="line_td_head">调休</td>
-        <td class="line_td_head">事假</td>
-        <td class="line_td_head">病假</td>
-        <td class="line_td_head">产假</td>
-        <td class="line_td_head">婚假</td>
-        <td class="line_td_head">哺乳假</td>
-        <td class="line_td_head">探亲假</td>
-        <td class="line_td_head">旷工</td>
-        <td class="line_td_head">公出</td>
-        <td class="line_td_head">其他</td>
+        <td class="line_td_headk">部门</td>
+        <td class="line_td_headk">姓名</td>
+        <td class="line_td_headk" nowrap="nowrap">出勤合计</td>
+        <td class="line_td_headk">调休</td>
+        <td class="line_td_headk">事假</td>
+        <td class="line_td_headk">病假</td>
+        <td class="line_td_headk">产假</td>
+        <td class="line_td_headk">婚假</td>
+        <td class="line_td_headk">哺乳假</td>
+        <td class="line_td_headk">探亲假</td>
+        <td class="line_td_headk">旷工</td>
+        <td class="line_td_headk">公出</td>
+        <td class="line_td_headk">其他</td>
     </tr>
         <c:set var="name" value=""/>
         <c:forEach items="${records}" var="attendance" varStatus="status">
         <tr>
-            <td class="line_td_light" width="10%" nowrap="nowrap">
-                <c:if test="${attendance.DEPTNAME != name}">
+            <c:if test="${attendance.DEPTNAME != name}">
+                <td class="line_td_light4" width="15%" nowrap="nowrap">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <font color="purple">${attendance.DEPTNAME}</font>
-                </c:if>
-                <c:set var="name" value="${attendance.DEPTNAME}"/>
-            </td>
+                </td>
+            </c:if>
+            <c:if test="${attendance.DEPTNAME == name}">
+                <c:choose>
+                    <c:when test="${status.last}">
+                        <td class="line_td_light5" width="15%" nowrap="nowrap">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                <%--<font color="purple">${attendance.user.sysdept.name}</font>--%>
+                        </td>
+                    </c:when>
+                    <c:otherwise>
+                        <td class="line_td_light3" width="15%" nowrap="nowrap">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                <%--<font color="purple">${attendance.user.sysdept.name}</font>--%>
+                        </td>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
+            <c:set var="name" value="${attendance.DEPTNAME}"/>
             <td class="line_td_light" width="10%" nowrap="nowrap">
                 <font color="blue">${attendance.USERNAME}</font>
             </td>

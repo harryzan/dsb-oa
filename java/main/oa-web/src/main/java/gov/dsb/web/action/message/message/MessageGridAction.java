@@ -117,7 +117,7 @@ public class MessageGridAction extends PageActionSupport<Message> {
         if (!Nulls.isNull(limit) && limit > 0) {
             page = new Page<Message>(limit, true);
         } else {
-            page = new Page<Message>(10, true);
+            page = new Page<Message>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {

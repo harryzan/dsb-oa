@@ -92,7 +92,7 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
             page = new Page<CarUse>(limit, true);
         }
         else {
-            page = new Page<CarUse>(10, true);
+            page = new Page<CarUse>(20, true);
         }
 
         if (!Nulls.isNull(start) && !Nulls.isNull(limit)) {
@@ -104,7 +104,7 @@ public class CarCompleteGridAction extends PageActionSupport<CarUse> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from CarUse order by startdate desc");
+            page = service.findPageByQuery(page, "from CarUse order by submitdate desc");
         }
         List<CarUse> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);

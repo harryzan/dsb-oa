@@ -56,9 +56,9 @@
         </td>
     </tr>
     <tr>
-        <td class="line_td_head">部门</td>
-        <td class="line_td_head">姓名</td>
-        <td class="line_td_head">考勤状态</td>
+        <td class="line_td_headk">部门</td>
+        <td class="line_td_headk">姓名</td>
+        <td class="line_td_headk">考勤状态</td>
     </tr>
         <c:set var="name" value=""/>
         <c:forEach items="${attendances}" var="attendance" varStatus="status">

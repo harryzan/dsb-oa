@@ -117,7 +117,7 @@ public class DemandCheckAction extends CRUDActionSupport<Demand>{
 
 //        if (StringHelp.isNotEmpty(complete))
             entity.setStatus(true);
-        entity.setFlag("待安排");
+        entity.setFlag("安排");
         service.save(entity);
 
         List<SysUser> sysUsers = new ArrayList<SysUser>();

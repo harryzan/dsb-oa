@@ -39,7 +39,7 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"flag",header:"状态",width:"10%"},
+                {name:"flag",renderer:statusview,header:"状态",width:"10%"},
                 <c:if test="${type.name != '会议'}">
                 {name:"name",renderer:checkview,header:"申请内容",width:"15%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
@@ -76,6 +76,20 @@
             div:"list"
         };
 
+        function statusview(value){
+            if ('审核' == value) {
+                value = "<font color='red'>" + value + "</font>";
+            }
+            else if ('安排' == value) {
+                value = "<font color='blue'>" + value + "</font>";
+            }
+            else {
+                value = "<font color='black'>" + value + "</font>";
+            }
+
+            return value;
+        }
+
         function checkview(value){
 //            if(result.d02_document_R) {
 //                return value;
@@ -91,10 +105,10 @@
             var url;
             url = 'demand-complete?id=' + id;
         <c:if test='${isadmin}'>
-            if ('待审核' == flag) {
+            if ('审核' == flag) {
                 url = "demand-check!input?id=" + id;
             }
-            else if ('待安排' == flag) {
+            else if ('安排' == flag) {
                 url = "demand-app!input?id=" + id;
             }
             else {

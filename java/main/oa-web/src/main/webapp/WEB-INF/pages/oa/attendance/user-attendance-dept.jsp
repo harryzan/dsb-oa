@@ -34,6 +34,7 @@
             <%--<input type="submit" name="add" id="add" value="完成" class="confirm_but"/>--%>
         </td>
     </tr>
+        <c:set var="name" value=""/>
         <c:set var="lasttype" value=""/>
         <c:set var="lastmemo" value=""/>
         <c:forEach items="${attendances}" var="attendance" varStatus="status">
@@ -43,10 +44,30 @@
             </c:if>
             <c:if test='${attendance.noon == true}'>
             <tr>
-                <td class="line_td_light" width="10%" valign="top" nowrap="nowrap">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">${attendance.user.displayname}</font>
-                </td>
-                <td class="line_td_light" width="10%" align="right" valign="top" nowrap="nowrap">
+                <c:if test="${attendance.user.displayname != name}">
+                    <td class="line_td_light4" width="15%" nowrap="nowrap">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font color="purple">${attendance.user.displayname}</font>
+                    </td>
+                </c:if>
+                <c:if test="${attendance.user.displayname == name}">
+                    <c:choose>
+                        <c:when test="${status.last}">
+                            <td class="line_td_light5" width="15%" nowrap="nowrap">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%--<font color="purple">${attendance.user.sysdept.name}</font>--%>
+                            </td>
+                        </c:when>
+                        <c:otherwise>
+                            <td class="line_td_light3" width="15%" nowrap="nowrap">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <%--<font color="purple">${attendance.user.sysdept.name}</font>--%>
+                            </td>
+                        </c:otherwise>
+                    </c:choose>
+                </c:if>
+                <c:set var="name" value="${attendance.user.displayname}"/>
+                <td class="line_td_light" width="10%" align="center" valign="top" nowrap="nowrap">
                     &nbsp;&nbsp;&nbsp;&nbsp;${attendance.checkdate}</td>
                 <td class="line_td_light" width="40%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <c:if test='${lasttype == 1}'>出勤</c:if>

@@ -1,6 +1,6 @@
 /* CSS Document */
 BODY{
-FONT-SIZE: 12px;
+font-size: 12px;
 COLOR: #000000;
 FONT-FAMILY:  "宋体";
 SCROLLBAR-FACE-COLOR: #FFFFFF;
@@ -159,28 +159,54 @@ A:hover {
 	margin: 0;
 	padding: 0;
 }
+.text_title {
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #59ACFF;
+	text-decoration: none;
+	font-family: "瀹嬩綋";
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #0099FF;
+	border-left-color: #0099FF;
+	font-weight: bold;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	line-height: 30px;
+}
 .textone1 {
-	font-size: 11px;
+	font-size: 14px;
 	line-height: 26px;
 	color: #2b70ce;
-	background-color: #d3e0f2;
+	background-color: #ffffff;
 	letter-spacing: 0.5px;
 	text-decoration: none;
 	font-family: "宋体";
 	margin: 0;
 	padding: 0;
-	
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #0099FF;
+	border-left-color: #0099FF;	
 }
 .textone12 {
-	font-size: 11px;
+	font-size: 14px;
 	line-height: 26px;
 	color: #2b70ce;
-	background-color: #d3e0f2;
+	background-color: #ffffff;
 	letter-spacing: 0.5px;
 	text-decoration: none;
 	font-family: "宋体";
 	margin: 0;
 	padding: 0;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #3366FF;
+	border-left-color: #3366FF;
 }
 .textoneA {
 	font-size: 12px;
@@ -715,7 +741,7 @@ height:25px;
     color: #666666;
     background-color: #e2ecfa;
     width: 600px;
-    height: 60px;
+    height: 80px;
 }
 .input_five{
     font-size: 12px;

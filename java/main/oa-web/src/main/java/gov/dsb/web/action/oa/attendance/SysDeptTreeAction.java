@@ -64,20 +64,37 @@ public class SysDeptTreeAction extends TreeActionSupport {
         TreeBranch treeBranch = new TreeBranch();
 
         if (id.equals("root")) {
-            List<SysDept> sysdepts = service.findByQuery("from SysDept where parent is null order by orderno");
-            for (SysDept sysdept : sysdepts) {
-                TreeNode treeNode = new TreeNode();
-                treeNode.setText(sysdept.getName());
-                if(sysdept.getChildren().size() > 0 || sysdept.getSysusers().size() > 0){
-                    treeNode.setLeaf(false);
-                }
-                else {
-                    treeNode.setLeaf(true);
-                }
-                treeNode.setIcon(imageUrls[1]);
-                treeNode.setId("sys-dept|<id>" + sysdept.getId() + "</id>");
+            List<SysDept> parents = service.findByQuery("from SysDept where parent is null order by orderno");
+            for (SysDept parent : parents) {
+                List<SysDept> sysdepts = service.findByQuery("from SysDept where parent.id=? order by orderno", parent.getId());//
+                // .findByCriteria(Restrictions.eq("parent.id", parentid));
+                for (SysDept sysdept : sysdepts) {
+                    TreeNode treeNode = new TreeNode();
+                    treeNode.setText(sysdept.getName());
+                    if(sysdept.getChildren().size() > 0 || sysdept.getSysusers().size() > 0){
+                        treeNode.setLeaf(false);
+                    }
+                    else {
+                        treeNode.setLeaf(true);
+                    }
+                    treeNode.setIcon(imageUrls[1]);
+                    treeNode.setId("sys-dept|<id>" + sysdept.getId() + "</id>");
 
-                treeBranch.addTreeNode(treeNode);
+                    treeBranch.addTreeNode(treeNode);
+                }
+                Collection<SysUser> sysusers = sysUserEntityService.findByQuery("from SysUser s where s.sysdept.id=? order by id", parent.getId());
+                for(SysUser sysuser : sysusers){
+                    TreeNode treeNode = new TreeNode();
+                    treeNode.setText(sysuser.getDisplayname());
+                    treeNode.setLeaf(true);
+                    treeNode.setIcon(imageUrls[2]);
+
+                    boolean flag = false;
+
+                    treeNode.setId("sys-user|<id>" + sysuser.getId() + "</id><status>" + sysuser.getStatus() +
+                            "</status><delete>" + flag + "</delete>");
+                    treeBranch.addTreeNode(treeNode);
+                }
             }
         } else if (id.startsWith("sys-dept")) {
             Long parentid = Long.valueOf(StringHelp.getElementValue(id, "id"));
@@ -106,18 +123,6 @@ public class SysDeptTreeAction extends TreeActionSupport {
                 treeNode.setIcon(imageUrls[2]);
 
                 boolean flag = false;
-                // update by xj, 2012-08-24
-                // 获取的日志公告等信息太占内存，用户不支持删除
-
-//                Collection<SysLog> logs = sysuser.getSyslogs();
-//                if (logs != null && logs.size() > 0) {
-//                    flag = false;
-//                }
-//
-//                Collection<Bulletin> bulletins = sysuser.getBulletinusers();
-//                if (bulletins != null && bulletins.size() > 0) {
-//                    flag = false;
-//                }
 
                 treeNode.setId("sys-user|<id>" + sysuser.getId() + "</id><status>" + sysuser.getStatus() +
                         "</status><delete>" + flag + "</delete>");

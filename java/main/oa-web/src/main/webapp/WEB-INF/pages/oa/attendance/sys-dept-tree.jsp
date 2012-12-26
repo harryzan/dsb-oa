@@ -23,7 +23,21 @@
             var treePanel = new TreePanel(root, null, "sys-dept-tree!treedata", imageUrl, " ");
 
             //默认加载第一层节点
+//            root.expandAll();
             root.expand(1);
+//            var childNodes = root.childNodes();
+//            for (var i = 0; i < childNodes.length; i++) {
+//                alert(11);
+//                var child = childNodes[i];
+//                child.expand(1);
+//            }
+//            root.eachChild(function(child) {
+//                alert('11');
+//                child.expand(1);
+//            });
+//            root.expand(true,true);
+
+//            root.expand(2);
 
             //添加菜单显示函数，根据自己需求在要显示菜单的节点上显示菜单
             treePanel.setMenuStatus(menuStatus);

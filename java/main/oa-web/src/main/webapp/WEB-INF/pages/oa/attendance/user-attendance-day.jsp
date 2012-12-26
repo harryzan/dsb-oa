@@ -68,7 +68,7 @@
             <td rowspan="2" class="line_td_light" width="10%" nowrap="nowrap">
                 <c:if test="${attendance.user.sysdept.name != name}">
                     <font color="purple">${attendance.user.sysdept.name}</font>
-                </c:if>
+                </c:if>&nbsp;
                 <c:set var="name" value="${attendance.user.sysdept.name}"/>
             </td>
             <td rowspan="2" class="line_td_light" width="10%" nowrap="nowrap">

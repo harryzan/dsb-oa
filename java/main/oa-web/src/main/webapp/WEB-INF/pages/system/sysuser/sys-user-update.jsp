@@ -33,7 +33,7 @@
         <%--<td background="${themesPath}/oldimages/bgtua.gif">&nbsp;</td>--%>
         <%--<td valign="top" bgcolor="#eff6fe">--%>
         <table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="1">
-            <form action="sys-user!saveupdate" method="post" onsubmit="javascript:return check()" >
+            <form action="sys-user!saveupdate" method="post" >
                 <input type="hidden" name="sysdeptid" value="${sysdeptid}${sysdept.id}">
                 <input type ="hidden" name="id" value="${id}">
                 <tr>
@@ -56,8 +56,18 @@
                               </td>
                           </tr>
                           <tr class="textone1">
+                              <td><div align="right">直线：</div></td>
+                              <td>&nbsp;<input name="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;
+                              </td>
+                          </tr>
+                          <tr class="textone12">
+                              <td><div align="right">分线：</div></td>
+                              <td>&nbsp;<input name="subphone" type="text" class="input_one" value="${subphone}">&nbsp;
+                              </td>
+                          </tr>
+                          <tr class="textone1">
                             <td><div align="right">手机：</div></td>
-                            <td>&nbsp;<input name="phonenumber" type="text" class="input_one" value="${phonenumber}">&nbsp;<span class="textxing">*</span>
+                            <td>&nbsp;<input name="cellphone" type="text" class="input_one" value="${cellphone}">&nbsp;
                               </td>
                           </tr>
                           <tr class="textone12">

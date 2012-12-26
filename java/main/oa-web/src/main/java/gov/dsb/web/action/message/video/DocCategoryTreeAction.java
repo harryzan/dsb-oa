@@ -38,6 +38,7 @@ public class DocCategoryTreeAction extends TreeActionSupport {
 
     private String treeData;
 
+
     public String getId() {
         return id;
     }

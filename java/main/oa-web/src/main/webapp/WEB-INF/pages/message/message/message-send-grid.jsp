@@ -10,9 +10,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title><c:if test='${messagestatus == false}'>未读</c:if>
-        <c:if test='${messagestatus == true}'>已读</c:if>
-        短信息</title>
+    <title>已发消息</title>
     <%@ include file="/common/metaGrid.jsp" %>
     <%@ include file="/common/metaMocha.jsp" %>
 
@@ -23,9 +21,9 @@
         var pageParam = "";
 //        var privilegecode = "s07_message_D,s07_message_R,s07_message_U,s07_message_C";
 //        var result = doPrivilege(privilegecode);
-        var addurl = "message!input?messagestatus=${messagestatus}";
-        var modifyurl = "message!input?messagestatus=${messagestatus}";
-        var deleteurl = "message!delete";
+        <%--var addurl = "message!input?messagestatus=${messagestatus}";--%>
+        <%--var modifyurl = "message!input?messagestatus=${messagestatus}";--%>
+//        var deleteurl = "message!delete";
 //        addurl = false; // 目前的系统公告功能仅供报警推送之用
 //        deleteurl = false;
 //        modifyurl = false;
@@ -42,19 +40,21 @@
         var params = {
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
-            url:"message-grid!griddata?messagestatus=${messagestatus}&type=${type}",
-            addUrl:addurl,
-            modifyUrl:modifyurl,
-            deleteUrl:deleteurl,
+            url:"message-send-grid!griddata",
+//            addUrl:addurl,
+//            modifyUrl:modifyurl,
+//            deleteUrl:deleteurl,
 
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"type",header:"分类",width:"20%"},
+//                {name:"type",header:"分类",width:"20%"},
                 {name:"name",renderer:checkview,header:"标题",width:"20%"},
                 {name:"starttime",header:"时间",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},
-                {name:"sender.displayname",header:"发件人",width:"20%"}
+//                {name:"sender.displayname",header:"发布人",width:"20%"},
+                {name:"receiver.displayname",header:"收件人",width:"20%"},
+                {name:"status",renderer:statusview,header:"状态",width:"10%"}
 //                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
@@ -100,6 +100,21 @@
 //            }
 //            return value;
         }
+        function statusview(value){
+//            alert(value);
+//            if(result.s07_message_R){
+            if (value == 'true')
+            return '已读';
+            else
+            return '未读';
+//            }
+
+//            var temp = value.split("|");
+//            if(temp.length == 3){
+//                value = "[<a style='cursor:pointer;'onclick='goResult("+ temp[0] +", \""+temp[1]+"\")'>推送结果</a>]" + temp[2];
+//            }
+//            return value;
+        }
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
@@ -108,7 +123,7 @@
             if(temp.length == 3){
                 title = temp[2];
             }
-            var url = '${ctx}/message/message/message!read?id=' + id;
+            var url = '${ctx}/message/message/message!view?id=' + id;
             enter(title,url,500,300);
         }
 

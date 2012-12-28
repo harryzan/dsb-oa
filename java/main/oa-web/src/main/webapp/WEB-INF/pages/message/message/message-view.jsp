@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>公告信息查看</title>
+<title>信息查看</title>
 <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
 </head>
@@ -33,7 +33,7 @@
                       <td valign="top" bgcolor="#FFFFFF">
                       <table width="100%" border="0" cellpadding="0" cellspacing="1">
                             <tr class="textone1">
-                              <td colspan="2" class="text_title"><div align="center">公告信息查看</div></td>
+                              <td colspan="2" class="text_title"><div align="center">短消息查看</div></td>
                             </tr>
                             <tr class="textone1">
                               <td width="30%" align="right" class="textone1">标题：</td>
@@ -53,7 +53,7 @@
                                   <c:if test="${system == true}">
                                       <a href="${ctx}${description}" target="_blank"><font color="red">点击跳转</font></a>
                                   </c:if>
-                                  <c:if test="${system == false}">
+                                  <c:if test="${system == false or empty system}">
                                       ${description}
                                   </c:if>
                               </td>
@@ -64,7 +64,7 @@
                             <%--</tr>--%>
 
                           <tr class="textone1">
-                              <td class="textone1"><div align="right">发送者：</div></td>
+                              <td class="textone1"><div align="right">发件人：</div></td>
                               <td class="textone1">&nbsp;${sender.displayname}</td>
                             </tr>
                           <%--<s:if test="map.myuser == adduser.id">--%>

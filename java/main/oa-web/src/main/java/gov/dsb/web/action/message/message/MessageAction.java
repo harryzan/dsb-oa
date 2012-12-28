@@ -138,6 +138,7 @@ public class MessageAction extends CRUDActionSupport<Message> {
                     message.setStarttime(entity.getStarttime());
                     message.setSender(user);
                     message.setReceiver(sysUser);
+                    message.setStatus(false);
 
                     service.save(message);
                 }
@@ -148,11 +149,12 @@ public class MessageAction extends CRUDActionSupport<Message> {
         return RELOAD;
     }
 
-    public void read() {
+    public String read() {
         entity.setStatus(true);
 
         service.save(entity);
 //        return RELOAD;
+        return VIEW;
     }
 
     public String delete() throws Exception {
@@ -179,7 +181,7 @@ public class MessageAction extends CRUDActionSupport<Message> {
     }
 
     public String view() throws Exception {
-        read();
+//        read();
         return VIEW;
     }
 

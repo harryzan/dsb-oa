@@ -8,8 +8,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
-        function openFunction(url) {
+        function openFunction(url, input) {
             window.parent.frames.main_frame.location = url;
+            var count = 3;
+            for (var i = 1; i <= count; i++) {
+                var button = document.getElementById('button' + i);
+                button.className = 'tab';
+            }
+            input.className = 'tab_xz';
         }
     </script>
 </head>
@@ -19,6 +25,7 @@
         <td>
             <input onclick="openFunction('message-grid?messagestatus=false')" type="button" name="button1" id="button1" value="未读消息" class="tab_xz" />
             <input onclick="openFunction('message-grid?messagestatus=true')" type="button" name="button2" id="button2" value="已读消息" class="tab" />
+            <input onclick="openFunction('message-send-grid')" type="button" name="button3" id="button3" value="已发消息" class="tab" />
         </td>
     </tr>
 </table>

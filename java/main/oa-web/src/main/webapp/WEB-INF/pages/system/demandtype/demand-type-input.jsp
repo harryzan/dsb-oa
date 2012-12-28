@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>车辆信息维护</title>
+<title>需求类型维护</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
@@ -76,9 +76,9 @@
                               <td class="textone1" width="70%">&nbsp;
                                   <%--<s:date name="buydate" format="yyyy-MM-dd"/>--%>
                                   <%--<input id="buydate" name="buydate" type="text" class="input_one" value="${buydate}"><img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" style="cursor:pointer;" onclick="calendar(buydate, 'date');" />--%>
-                                  <input id="username" name="username" type="text" class="input_one" value="${user.displayname}" onClick="user()" >
-                                  <input id="userid" type ="hidden" name="userid" value="${user.id}">
-                                  <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onClick="user()" >
+                                  <input id="viewusernames" name="viewusernames" type="text" class="input_one" value="${usernames}" onClick="jia();" >
+                                  <input id="viewuserids" type ="hidden" name="viewuserids" value="${userids}">
+                                  <img src="${themesPath}/oldcss/cl.gif" width="16" height="16" style="cursor:pointer" onClick="jia();" >
                               </td>
                           </tr>
                           <%--<tr class="textone12">--%>
@@ -152,6 +152,24 @@
         if(returnvalue){
             document.getElementById("username").value = returnvalue.split(",")[0];
             document.getElementById("userid").value = returnvalue.split(",")[1];
+        }
+    }
+
+    function jia(){
+        var viewuserids = eval("document.all.viewuserids").value;
+        var viewusernames = eval("document.all.viewusernames").value;
+        viewusernames = encodeURI(viewusernames);
+        if(viewuserids != null && "" != viewuserids){
+            returnvalue = window.showModalDialog("${ctx}/common/tree/multi-sys-user-tree?viewuserids="+viewuserids+"&viewusernames="+viewusernames);
+        }else{
+            returnvalue = window.showModalDialog("${ctx}/common/tree/multi-sys-user-tree");
+        }
+        if(returnvalue != undefined){
+
+            var id = returnvalue.substring(returnvalue.indexOf("<id>")+4,returnvalue.indexOf("</id>"));
+            var name = returnvalue.substring(returnvalue.indexOf("<name>")+6,returnvalue.indexOf("</name>"));
+            eval("document.all.viewusernames").value = name;
+            eval("document.all.viewuserids").value = id;
         }
     }
 </script>

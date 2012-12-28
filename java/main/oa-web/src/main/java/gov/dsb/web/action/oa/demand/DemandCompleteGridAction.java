@@ -177,7 +177,7 @@ public class DemandCompleteGridAction extends PageActionSupport<Demand> {
         SysUser currentUser = userSessionService.getCurrentSysUser();
 
         if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
-                demandType.getUser().getId().equals(currentUser.getId()) || currentUser.getLoginname().equals("admin")) {
+                demandType.getUserids().indexOf(currentUser.getId().toString()) >= 0 || currentUser.getLoginname().equals("admin")) {
             isadmin = true;
         }
 

@@ -123,9 +123,9 @@
                           <tr class="textone12">
                               <td class="textone1"><div align="right">发送给：</div></td>
                               <td height="60" colspan="2" class="textone1">&nbsp;
-                                  <input type="hidden" name="tuserid" id="tuserid"/>
-                                  <input name="targetusername" type="text" class="input_one" id="targetusername" size="60%" readonly />
-                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onClick="targetuser()" >
+                                  <input id="viewusernames" name="viewusernames" type="text" class="input_one" value="${usernames}" onClick="jia();" >
+                                  <input id="viewuserids" type ="hidden" name="viewuserids" value="${userids}">
+                                  <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onClick="jia();" >
                               </td>
                           </tr>
 
@@ -185,11 +185,6 @@
             eval("document.all.viewusernames").value = name;
             eval("document.all.viewuserids").value = id;
         }
-    }
-
-    function jian(){
-        eval("document.all.viewusernames").value = "";
-        eval("document.all.viewuserids").value = "";
     }
 
 </script>

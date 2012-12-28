@@ -137,11 +137,11 @@
                           </c:if>
                           <tr class="textone12">
                               <td class="textone1"><div align="right">审核意见：</div></td>
-                              <td class="textone1">${opinion}</td>
+                              <td class="textone1">&nbsp;${opinion}</td>
                           </tr>
                           <tr class="textone12">
                               <td class="textone1"><div align="right">审核人：</div></td>
-                              <td class="textone1">${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
+                              <td class="textone1">&nbsp;${checker.displayname}&nbsp;&nbsp;${checkdate}</td>
                           </tr>
                           <tr class="textone1">
                               <td class="textone1"><div align="right">安排情况：</div></td>
@@ -149,7 +149,7 @@
                           </tr>
                           <tr class="textone12">
                               <td class="textone1"><div align="right">安排人：</div></td>
-                              <td class="textone1">${memor.displayname}&nbsp;&nbsp;${memodate}</td>
+                              <td class="textone1">&nbsp;${memor.displayname}&nbsp;&nbsp;${memodate}</td>
                           </tr>
                           <tr class="textone1">
                               <td class="textone1"><div align="right">执行人：</div></td>

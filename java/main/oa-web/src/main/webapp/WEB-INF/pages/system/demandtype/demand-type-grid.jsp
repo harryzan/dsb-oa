@@ -38,8 +38,8 @@
             gridParams:[
                 {name:"id",header:"",width:"10%"},
                 {name:"name",header:"需求名称",width:"20%"},
-                {name:"desc",header:"需求描述",width:"25%"},
-                {name:"user.displayname",header:"需求负责人",width:"20%"}
+                {name:"desc",header:"需求描述",width:"20%"},
+                {name:"usernames",header:"需求负责人",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
             buttonParams:[{header:"操作",renderer:"displayButton"}],

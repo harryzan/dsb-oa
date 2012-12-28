@@ -3,6 +3,7 @@ package gov.dsb.web.action.oa.demand;
 import gov.dsb.core.dao.*;
 import gov.dsb.core.domain.*;
 import gov.dsb.core.struts2.CRUDActionSupport;
+import gov.dsb.core.utils.StringHelp;
 import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSession;
 import gov.dsb.web.security.UserSessionService;
@@ -106,9 +107,17 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
         entity.setFlag("审核");
         service.save(entity);
 
-        List<SysUser> sysUsers = new ArrayList<SysUser>();
-        sysUsers.add(entity.getType().getUser());
-        messageListener.notice(sysUsers, entity);
+        List<SysUser> users = new ArrayList<SysUser>();
+        String viewuserids = entity.getType().getUserids();
+        if (StringHelp.isNotEmpty(viewuserids)) {
+            viewuserids = viewuserids.trim();
+            String[] userids = viewuserids.split(",");
+            for (String id : userids) {
+                SysUser sysUser = sysUserDao.get(Long.parseLong(id));
+                users.add(sysUser);
+            }
+        }
+        messageListener.notice(users, entity);
 
         return RELOAD;
     }

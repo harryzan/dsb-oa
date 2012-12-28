@@ -84,13 +84,13 @@ public class MessageListener implements Listener {
             message.setReceiver(sysUser);
             message.setSystem(true);
 
-            if (carUse.getFlag().equals("待审核")) {
+            if (carUse.getFlag().equals("审核")) {
                 message.setName("用车申请待审核");
                 message.setDescription("/oa/car/car-check!input?id=" + carUse.getId());
                 messageDao.save(message);
             }
-            else if (carUse.getFlag().equals("待安排")) {
-                message.setName("用车申请待安排");
+            else if (carUse.getFlag().equals("派车")) {
+                message.setName("用车申请待派车");
                 message.setDescription("/oa/car/car-drive!input?id=" + carUse.getId());
                 messageDao.save(message);
             }
@@ -114,12 +114,12 @@ public class MessageListener implements Listener {
             message.setReceiver(sysUser);
             message.setSystem(true);
 
-            if (demand.getFlag().equals("待审核")) {
+            if (demand.getFlag().equals("审核")) {
                 message.setName(demand.getType().getName() + "申请待审核");
                 message.setDescription("/oa/demand/demand-check!input?id=" + demand.getId());
                 messageDao.save(message);
             }
-            else if (demand.getFlag().equals("待安排")) {
+            else if (demand.getFlag().equals("安排")) {
                 message.setName(demand.getType().getName() + "申请待安排");
                 message.setDescription("/oa/demand/demand-app!input?id=" + demand.getId());
                 messageDao.save(message);

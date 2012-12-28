@@ -162,11 +162,14 @@
 //            });
             var divObj = document.getElementById("selectedDiv");
             var a = divObj.innerHTML;
-            var select = a.split("<BR>");
+//         alert(a);
+            var select = a.split("<br>");
             for(var i = 1; i < select.length-1; i++){
-                ids += "," + getIdElement(select[i]);
-                names += "," + select[i].substring(select[i].indexOf("span>")+5,select[i].indexOf("<INPUT"));
+//                alert(select[i]);
+                ids += "," + select[i].substring(select[i].indexOf("node_")+5,select[i].indexOf("\">"));
+                names += "," + select[i].substring(select[i].indexOf("span\">")+6,select[i].indexOf("<input"));
             }
+//         alert(ids);
             if (ids != "")
             {
                 window.returnValue = "<id>" + ids.substring(1, ids.length) + "</id>" + "<name>" + names.substring(1, names.length) + "</name>";

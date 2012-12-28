@@ -14,6 +14,8 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -40,8 +42,6 @@ public class MessageAction extends CRUDActionSupport<Message> {
 
     protected Long id;
 
-    private String viewuserids;
-
     private HashMap map;
 
     private String result;
@@ -62,10 +62,6 @@ public class MessageAction extends CRUDActionSupport<Message> {
 
     public HashMap getMap() {
         return map;
-    }
-
-    public void setViewuserids(String viewuserids) {
-        this.viewuserids = viewuserids;
     }
 
     public Boolean getMessagestatus() {
@@ -102,25 +98,53 @@ public class MessageAction extends CRUDActionSupport<Message> {
         this.tuserid = tuserid;
     }
 
+    private String viewuserids;
+
+    public String getViewuserids() {
+        return viewuserids;
+    }
+
+    public void setViewuserids(String viewuserids) {
+        this.viewuserids = viewuserids;
+    }
+
+    private String viewusernames;
+
+    public String getViewusernames() {
+        return viewusernames;
+    }
+
+    public void setViewusernames(String viewusernames) {
+        this.viewusernames = viewusernames;
+    }
+
     public String save() throws Exception {
         SysUser user = userSessionService.getCurrentSysUser();
         entity.setSender(user);
 
         long current = System.currentTimeMillis();
         entity.setStarttime(new Timestamp(current));
-//        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
-//        if (entity.getSysuserbulletins() != null) {
-//            entity.getSysuserbulletins().clear();
-//        } else {
-//            entity.setSysuserbulletins(new ArrayList<SysUser>());
-//        }
 
-        if (StringHelp.isNotEmpty(tuserid)) {
-            SysUser targetuser = sysUserEntityService.get(Long.parseLong(tuserid));
-            entity.setReceiver(targetuser);
+        if (StringHelp.isNotEmpty(viewuserids)) {
+            viewuserids = viewuserids.trim();
+            String[] userids = viewuserids.split(",");
+            for (String id : userids) {
+                SysUser sysUser = sysUserEntityService.get(Long.parseLong(id));
+
+                if (sysUser != null) {
+                    Message message = new Message();
+                    message.setName(entity.getName());
+                    message.setDescription(entity.getDescription());
+                    message.setStarttime(entity.getStarttime());
+                    message.setSender(user);
+                    message.setReceiver(sysUser);
+
+                    service.save(message);
+                }
+            }
         }
 
-        service.save(entity);
+//        service.save(entity);
         return RELOAD;
     }
 

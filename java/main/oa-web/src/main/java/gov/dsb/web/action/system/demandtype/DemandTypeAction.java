@@ -3,11 +3,16 @@ package gov.dsb.web.action.system.demandtype;
 import gov.dsb.core.dao.DemandTypeDao;
 import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.domain.DemandType;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.CRUDActionSupport;
+import gov.dsb.core.utils.StringHelp;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by IntelliJ IDEA.
@@ -53,10 +58,46 @@ public class DemandTypeAction extends CRUDActionSupport<DemandType>{
         this.userid = userid;
     }
 
+    private String viewuserids;
+
+    public String getViewuserids() {
+        return viewuserids;
+    }
+
+    public void setViewuserids(String viewuserids) {
+        this.viewuserids = viewuserids;
+    }
+
+    private String viewusernames;
+
+    public String getViewusernames() {
+        return viewusernames;
+    }
+
+    public void setViewusernames(String viewusernames) {
+        this.viewusernames = viewusernames;
+    }
+
     public String save() throws Exception {
-        if (userid != null) {
-            entity.setUser(sysUserDao.get(userid));
-        }
+//        if (userid != null) {
+//            entity.setUser(sysUserDao.get(userid));
+//        }
+        entity.setUserids(viewuserids);
+        entity.setUsernames(viewusernames);
+
+//        if (StringHelp.isNotEmpty(viewuserids)) {
+//            Collection<SysUser> users = new ArrayList<SysUser>();
+//
+//            viewuserids = viewuserids.trim();
+//            String[] userids = viewuserids.split(",");
+//            for (String id : userids) {
+//                SysUser sysUser = sysUserDao.get(Long.parseLong(id));
+//                users.add(sysUser);
+//            }
+//
+//            entity.setDemandtypeusers(users);
+//        }
+
         service.save(entity);
         return RELOAD;
     }

@@ -128,7 +128,12 @@
                               </tr>
                               <tr class="textone12">
                                   <td width="30%" class="textone1"><div align="right">会议地点：</div></td>
-                                  <td width="70%" class="textone1">&nbsp;${room}
+                                  <td width="70%" class="textone1">&nbsp;
+                                      <select name="room" id="room">
+                                          <option value="一楼会议室" <c:if test='${room == "一楼会议室"}'>selected</c:if> >一楼会议室</option>
+                                          <option value="二楼会议室" <c:if test='${room == "二楼会议室"}'>selected</c:if> >二楼会议室</option>
+                                          <option value="四楼会议室" <c:if test='${room == "四楼会议室"}'>selected</c:if> >四楼会议室</option>
+                                      </select>
                                   </td>
                               </tr>
                               <tr class="textone1">

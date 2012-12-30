@@ -34,6 +34,10 @@
             <%--<input type="submit" name="add" id="add" value="完成" class="confirm_but"/>--%>
         </td>
     </tr>
+        <tr>
+            <td class="line_td_headk">姓名</td>
+            <td class="line_td_headk">上午&nbsp;&nbsp;下午</td>
+        </tr>
         <c:set var="name" value=""/>
         <c:set var="lasttype" value=""/>
         <c:set var="lastmemo" value=""/>

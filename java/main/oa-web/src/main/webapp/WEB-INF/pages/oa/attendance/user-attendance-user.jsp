@@ -34,6 +34,9 @@
             <%--<input type="submit" name="add" id="add" value="完成" class="confirm_but"/>--%>
         </td>
     </tr>
+        <tr>
+            <td class="line_td_headk">上午&nbsp;&nbsp;下午</td>
+        </tr>
         <c:set var="lasttype" value=""/>
         <c:set var="lastmemo" value=""/>
         <c:forEach items="${attendances}" var="attendance" varStatus="status">

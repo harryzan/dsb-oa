@@ -13,7 +13,7 @@
 <html>                         
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>车辆信息维护</title>
+<title>领用申请信息</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 
@@ -63,10 +63,7 @@
                           </tr>
                           <tr class="textone1">
                             <td width="30%" align="right" class="textone1">日常用品：</td>
-                            <td width="70%" class="textone1">
-                              <table style="line-height: 26px">
-                                <s:select name="itemid" list="items" listKey="id"  listValue="name" headerKey="0"/>
-                              </table>
+                            <td width="70%" class="textone1">&nbsp;${item.name}
                               <%--<select name="itemid" id="itemid">--%>
                               <%--<option value="1"></option>--%>
                             <%--</select>--%></td>
@@ -85,14 +82,25 @@
                           <%--</tr>--%>
                           <tr class="textone12">
                               <td class="textone1"><div align="right">领用数量：</div></td>
-                              <td height="60" class="textone1">&nbsp;
-                                  <input name="usecount" type="text" class="input_one2" value="${usecount}">
+                              <td class="textone1">&nbsp;${usecount}
                               </td>
                           </tr>
                           <tr class="textone1">
                               <td class="textone1"><div align="right">描述：</div></td>
-                              <td height="60" class="textone1">&nbsp;
-                                  <textarea name="desc" cols="60%" rows="5" class="input_five">${desc}</textarea></td>
+                              <td class="textone1">&nbsp;${desc}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td class="textone1"><div align="right">申请人：</div></td>
+                              <td class="textone1">&nbsp;${user.displayname}&nbsp;${submitdate}</td>
+                          </tr>
+                          <tr class="textone1">
+                              <td class="textone1"><div align="right">审核人：</div></td>
+                              <td class="textone1">&nbsp;${checker.displayname}&nbsp;${checkdate}</td>
+                          </tr>
+                          <tr class="textone12">
+                              <td class="textone1"><div align="right">状态：</div></td>
+                              <td class="textone1">&nbsp;${flag}
+                              </td>
                           </tr>
                           <%--<tr class="textone1">--%>
                             <%--<td><div align="right">其他说明：</div></td>--%>

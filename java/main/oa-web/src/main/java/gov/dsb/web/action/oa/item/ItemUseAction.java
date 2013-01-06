@@ -28,7 +28,7 @@ import java.util.Date;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "item-use-grid", type = "chain")})
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "item-complete-grid", type = "redirect")})
 public class ItemUseAction extends CRUDActionSupport<ItemUse>{
 
     @Autowired
@@ -84,11 +84,12 @@ public class ItemUseAction extends CRUDActionSupport<ItemUse>{
         Item item = itemDao.get(itemid);
         entity.setItem(item);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date d = new Date();
         String day = sdf.format(d);
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
+        entity.setFlag("审核");
         service.save(entity);
         return RELOAD;
     }

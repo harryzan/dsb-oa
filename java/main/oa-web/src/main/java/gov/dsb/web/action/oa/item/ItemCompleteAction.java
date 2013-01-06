@@ -1,13 +1,10 @@
-package gov.dsb.web.action.oa.car;
+package gov.dsb.web.action.oa.item;
 
-import gov.dsb.core.dao.CarDao;
-import gov.dsb.core.dao.CarUseDao;
-import gov.dsb.core.dao.SysRoleDao;
-import gov.dsb.core.domain.Car;
-import gov.dsb.core.domain.CarUse;
-import gov.dsb.core.domain.SysRole;
+import gov.dsb.core.dao.ItemDao;
+import gov.dsb.core.dao.ItemUseDao;
+import gov.dsb.core.domain.Item;
+import gov.dsb.core.domain.ItemUse;
 import gov.dsb.core.struts2.CRUDActionSupport;
-import gov.dsb.web.message.MessageListener;
 import gov.dsb.web.security.UserSessionService;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -27,23 +24,18 @@ import java.util.Date;
  */
 
 @ParentPackage("default")
-@Results({@Result(name = CRUDActionSupport.RELOAD, location = "car-complete-grid", type = "redirect")})
-public class CarUseAction extends CRUDActionSupport<CarUse>{
+@Results({@Result(name = CRUDActionSupport.RELOAD, location = "item-complete-grid", type = "chain")})
+public class ItemCompleteAction extends CRUDActionSupport<ItemUse>{
 
     @Autowired
-    private CarUseDao service;
+    private ItemUseDao service;
+
 
     @Autowired
-    private MessageListener messageListener;
-
-    @Autowired
-    private CarDao  carDao;
+    private ItemDao itemDao;
 
     @Autowired
     private UserSessionService userSessionService;
-
-    @Autowired
-    private SysRoleDao sysRoleDao;
 
     private String gridParam;
 
@@ -52,14 +44,14 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
     }
 
 
-    private Collection<Car> cars;
+    private Collection<Item> items;
 
-    public Collection<Car> getCars() {
-        return cars;
+    public Collection<Item> getItems() {
+        return items;
     }
 
-    public void setCars(Collection<Car> cars) {
-        this.cars = cars;
+    public void setItems(Collection<Item> items) {
+        this.items = items;
     }
 
     protected Long id;
@@ -72,21 +64,21 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         return id;
     }
 
-    public Long carid;
+    public Long itemid;
 
-    public Long getCarid() {
-        return carid;
+    public Long getItemid() {
+        return itemid;
     }
 
-    public void setCarid(Long carid) {
-        this.carid = carid;
+    public void setItemid(Long itemid) {
+        this.itemid = itemid;
     }
 
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
-//        Car car = carDao.get(carid);
-//        entity.setCar(car);
+        Item item = itemDao.get(itemid);
+        entity.setItem(item);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date d = new Date();
@@ -94,18 +86,7 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
         entity.setSubmitdate(day);
         entity.setUser(userSessionService.getCurrentSysUser());
         entity.setFlag("审核");
-
-        Long entityId = entity.getId();
-
         service.save(entity);
-
-        if (entityId == null) {
-            SysRole role = sysRoleDao.findUnique("from SysRole where name=?", "车辆负责人");
-            if (role != null) {
-                messageListener.notice(role.getSysuserroles(), entity);
-            }
-        }
-
         return RELOAD;
     }
 
@@ -120,18 +101,16 @@ public class CarUseAction extends CRUDActionSupport<CarUse>{
                 entity = service.get(id);
             }
             else {
-                entity = new CarUse();
-//                entity.setStatus(false);
-//                entity.setFlag("待审核");
+                entity = new ItemUse();
+                entity.setStatus(false);
             }
         }
 
 
-        cars = carDao.findAll();
-//        System.out.println("cars.size() = " + cars.size());
+        items = itemDao.findAll();
     }
 
-    public CarUse getModel() {
+    public ItemUse getModel() {
         return entity;
     }
 

@@ -89,7 +89,7 @@ public class CarCheckAction extends CRUDActionSupport<CarUse>{
     public String save() throws Exception {
 //        System.out.println("********************** carid = " + carid);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date d = new Date();
         String day = sdf.format(d);
         entity.setCheckdate(day);

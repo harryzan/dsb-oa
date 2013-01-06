@@ -1,11 +1,14 @@
 package gov.dsb.web.action.oa.item;
 
 import gov.dsb.core.dao.ItemUseDao;
+import gov.dsb.core.dao.SysUserDao;
 import gov.dsb.core.dao.base.Page;
 import gov.dsb.core.domain.ItemUse;
+import gov.dsb.core.domain.SysUser;
 import gov.dsb.core.struts2.PageActionSupport;
 import gov.dsb.core.utils.Nulls;
 import gov.dsb.core.utils.StringHelp;
+import gov.dsb.web.security.UserSessionService;
 import gov.dsb.web.ui.grid.Grid;
 import gov.dsb.web.ui.grid.QueryTranslate;
 import gov.dsb.web.ui.grid.Row;
@@ -101,11 +104,41 @@ public class ItemCompleteGridAction extends PageActionSupport<ItemUse> {
             page = service.findPageByQuery(page, queryTranslate.toString());
         }
         else {
-            page = service.findPageByQuery(page, "from ItemUse where status is true");
+            page = service.findPageByQuery(page, "from ItemUse order by submitdate desc");
         }
         List<ItemUse> list = page.getResult();
         rows = Grid.gridValue2Rows(list, columns);
 
         return GRIDDATA;
+    }
+
+    private boolean isadmin;
+
+    public boolean getIsadmin() {
+        return isadmin;
+    }
+
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
+    }
+
+
+    @Autowired
+    private UserSessionService userSessionService;
+
+
+    @Autowired
+    private SysUserDao sysUserDao;
+
+    @Override
+    public String execute() throws Exception {
+        SysUser currentUser = userSessionService.getCurrentSysUser();
+
+        if (sysUserDao.containRole(currentUser.getId(), "系统管理员") ||
+                sysUserDao.containRole(currentUser.getId(), "领用负责人") || currentUser.getLoginname().equals("admin")) {
+            isadmin = true;
+        }
+
+        return SUCCESS;    //To change body of overridden methods use File | Settings | File Templates.
     }
 }

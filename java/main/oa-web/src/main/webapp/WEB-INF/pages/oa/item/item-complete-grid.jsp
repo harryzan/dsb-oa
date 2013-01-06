@@ -14,7 +14,7 @@
         var pageParam = "";
 //        var privilegecode = "b01_model_D,b01_model_R,b01_model_U,b01_model_C";
 //        var result = doPrivilege(privilegecode);
-//        var addurl = "item-use!input";
+        var addurl = "item-use!input";
 //        var modifyurl = "item-use!input";
 //        var deleteurl = "item-use!delete";
 //        if(result.b01_model_D){
@@ -31,23 +31,27 @@
             //url:grid 请求数据url,addUrl:添加记录页面url,view:查看记录页面url
             // (修改和删除的url:modify.html,delete.html 放在grid.js中)
             url:"item-complete-grid!griddata",
-//            addUrl:addurl,
-//            modifyUrl:modifyurl,
+            <c:if test='${isadmin}'>
+            addUrl:addurl,
+            </c:if>
+            //            modifyUrl:modifyurl,
 //            deleteUrl:deleteurl,
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
-                {name:"item.name",header:"用品名称",width:"10%"},
+                {name:"flag",renderer:statusview,header:"状态",width:"10%"},
+                {name:"item.name",renderer:checkview,header:"用品名称",width:"10%"},
                 {name:"item.model",header:"用品型号",width:"10%"},
                 {name:"user.displayname",header:"申请人",width:"10%"},
                 {name:"usecount",header:"申请数量",width:"10%"},
                 {name:"submitdate",header:"申请时间",width:"10%"},
-                {name:"checker.displayname",header:"审核者",width:"10%"},
-                {name:"checkdate",header:"审核时间",width:"10%"},
-                {name:"desc",header:"备注",width:"20%"}
+                {name:"item.itemcount",header:"用品结余",width:"10%"},
+                {name:"checker.displayname",header:"审核人",width:"10%"},
+                {name:"checkdate",header:"审核时间",width:"10%"}
+//                {name:"desc",header:"备注",width:"20%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列
-            buttonParams:[{header:"操作",renderer:"displayButton"}],
+//            buttonParams:[{header:"操作",renderer:"displayButton"}],
             //用户自定义按钮 name：按钮名称；css按钮css样式；event:按钮点击事件，fparam：按钮点击事件的参数 event(fparam)
             //查询条件：["姓名","","String","name"]对应--- 表别名,数据类型,数据字段
             queryCondition:[
@@ -62,19 +66,48 @@
             div:"list"
         };
 
-        function checkview(value){
-//            if(result.b01_model_R){
-//                return value;
+        function statusview(value){
+            if ('审核' == value) {
+                value = "<font color='red'>" + value + "</font>";
+            }
+//            else if ('派车' == value) {
+//                value = "<font color='blue'>" + value + "</font>";
 //            }
+            else {
+                value = "<font color='black'>" + value + "</font>";
+            }
+
+            return value;
+        }
+
+        function checkview(value){
+
             return "<a style=\"cursor:pointer;\" onclick=\"viewwindow();\">"+value+"</a>";
         }
+
         function viewwindow(){
             var record = Ext.getCmp("grid").getSelectionModel().getSelected();
             var id = record.data["id"];
-            var title = record.data["description"] + "(" + record.data["code"] + ")";
-            var url = '${ctx}/b/b01/model-property?id=' + id;
-//            window.open('model-property?id=' + id,'','width=800px,height=500px,center=yes,help=no,status=no,scrollbars=yes,toolbar=no,resizable=yes');
-            enter(title,url,600,400);
+            var flag = record.data["flag"];
+//            alert(flag);
+            var url;
+            url = 'item-complete?id=' + id;
+        <c:if test='${isadmin}'>
+            if ('审核' == flag) {
+                url = "item-check!save?id=" + id;
+                if (!confirm('是否通过审核?'))
+                    return;
+            }
+//            else if ('派车' == flag) {
+//                url = "car-drive!input?id=" + id;
+//            }
+            else {
+                url = 'item-complete?id=' + id;
+            }
+        </c:if>
+//            alert(url);
+            window.location = url;
+//            enter(title,url,500,300);
         }
 
     </script>

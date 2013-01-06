@@ -92,6 +92,16 @@ public class ItemUse extends IdEntity {
         this.status = status;
     }
 
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
     private SysUser user;
 
     @ManyToOne(fetch = FetchType.LAZY)

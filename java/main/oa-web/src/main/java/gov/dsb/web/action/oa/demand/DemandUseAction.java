@@ -99,7 +99,7 @@ public class DemandUseAction extends CRUDActionSupport<Demand>{
             entity.setModerator(moderator);
         }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date d = new Date();
         String day = sdf.format(d);
         entity.setSubmitdate(day);

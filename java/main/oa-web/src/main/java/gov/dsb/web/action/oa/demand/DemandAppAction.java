@@ -109,7 +109,7 @@ public class DemandAppAction extends CRUDActionSupport<Demand>{
             entity.setMainuser(mainuser);
         }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date d = new Date();
         String day = sdf.format(d);
         entity.setMemodate(day);

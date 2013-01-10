@@ -52,7 +52,8 @@
                 {name:"workno",header:"发文号",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},
                 {name:"createuser.displayname",header:"创建人",width:"10%"},
-                {name:"updateuser.displayname",header:"最新更新",width:"10%"}
+                {name:"updateuser.displayname",header:"最新更新",width:"10%"},
+                {name:"targetuser.displayname",header:"最新更新",width:"10%"}
 //                {name:"description",header:"内容",width:"40%"}
             ],
             //控制列表中操作按钮,如果注释该行,列表中将不显示操作列

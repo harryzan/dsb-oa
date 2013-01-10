@@ -160,6 +160,56 @@ public class WorkFlow extends IdEntity {
         this.keyword = keyword;
     }
 
+    private String writedeptname;
+
+    public String getWritedeptname() {
+        return writedeptname;
+    }
+
+    public void setWritedeptname(String writedeptname) {
+        this.writedeptname = writedeptname;
+    }
+
+    private String modifyusername;
+
+    public String getModifyusername() {
+        return modifyusername;
+    }
+
+    public void setModifyusername(String modifyusername) {
+        this.modifyusername = modifyusername;
+    }
+
+    private String sendusername;
+
+    private String ccusername;
+
+    private String ctusername;
+
+    public String getSendusername() {
+        return sendusername;
+    }
+
+    public void setSendusername(String sendusername) {
+        this.sendusername = sendusername;
+    }
+
+    public String getCcusername() {
+        return ccusername;
+    }
+
+    public void setCcusername(String ccusername) {
+        this.ccusername = ccusername;
+    }
+
+    public String getCtusername() {
+        return ctusername;
+    }
+
+    public void setCtusername(String ctusername) {
+        this.ctusername = ctusername;
+    }
+
     private SysUser createuser;
 
     @ManyToOne(fetch = FetchType.EAGER)

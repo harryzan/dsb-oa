@@ -221,111 +221,84 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
 //        System.out.println("backinput = " + backinput);
 
-        if ("1".equals(backinput)) {
-            entity.setStep(entity.getStep() - 1);
-        }
-        else {
-            entity.setStep(entity.getStep() + 1);
-        }
 
-        if (entity.getStep() == 9) {
+
+        if (entity.getStep() == 4) {
             entity.setStatus(true);
         }
         else if (entity.getStep() == 1) {
-            if ("1".equals(backinput)) {
-                entity.setTargetuser(entity.getWriteuser());
+//            entity.setTargetuser(entity.getWriteuser());
+            if (StringHelp.isNotEmpty(typeuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(typeuserid));
+                entity.setTypeuser(targetuser);
             }
-        }
-        else if (entity.getStep() == 2) {
             if (StringHelp.isNotEmpty(checkuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(checkuserid));
                 entity.setTargetuser(targetuser);
                 entity.setCheckuser(targetuser);
             }
-            if ("1".equals(backinput)) {
-                entity.setTargetuser(entity.getCheckuser());
-            }
+//            if ("1".equals(backinput)) {
+//                entity.setTargetuser(entity.getCheckuser());
+//            }
             messageListener.notice(entity.getTargetuser(), entity);
         }
-        else if (entity.getStep() == 3) {
+        else if (entity.getStep() == 2) {
             if (StringHelp.isNotEmpty(modifyuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(modifyuserid));
-                entity.setTargetuser(targetuser);
+//                entity.setTargetuser(targetuser);
                 entity.setModifyuser(targetuser);
+                entity.setModifyusername(entity.getModifyusername() + "&nbsp;" + targetuser.getDisplayname());
+            }
+            if (StringHelp.isNotEmpty(collateuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(collateuserid));
+//                entity.setTargetuser(targetuser);
+                entity.setCollateuser(targetuser);
             }
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getModifyuser());
             }
-            messageListener.notice(entity.getTargetuser(), entity);
-        }
-        else if (entity.getStep() == 4) {
-            if (StringHelp.isNotEmpty(typeuserid)) {
-                SysUser targetuser = sysUserEntityService.get(Long.parseLong(typeuserid));
-                entity.setTargetuser(targetuser);
-                entity.setTypeuser(targetuser);
-            }
-            if ("1".equals(backinput)) {
-                entity.setTargetuser(entity.getTypeuser());
-            }
-            messageListener.notice(entity.getTargetuser(), entity);
-        }
-        else if (entity.getStep() == 5) {
-            if (StringHelp.isNotEmpty(collateuserid)) {
-                SysUser targetuser = sysUserEntityService.get(Long.parseLong(collateuserid));
-                entity.setTargetuser(targetuser);
-                entity.setCollateuser(targetuser);
-            }
-            if ("1".equals(backinput)) {
+            else {
                 entity.setTargetuser(entity.getCollateuser());
             }
             messageListener.notice(entity.getTargetuser(), entity);
         }
-        else if (entity.getStep() == 6) {
+        else if (entity.getStep() == 3) {
             if (StringHelp.isNotEmpty(signuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(signuserid));
-                entity.setTargetuser(targetuser);
+//                entity.setTargetuser(targetuser);
                 entity.setSignuser(targetuser);
             }
-            if ("1".equals(backinput)) {
-                entity.setTargetuser(entity.getSignuser());
-            }
-            messageListener.notice(entity.getTargetuser(), entity);
-        }
-        else if (entity.getStep() == 7) {
-            if (StringHelp.isNotEmpty(allsignuserid)) {
-                SysUser targetuser = sysUserEntityService.get(Long.parseLong(allsignuserid));
-                entity.setTargetuser(targetuser);
-                entity.setAllsignuser(targetuser);
-            }
-            if ("1".equals(backinput)) {
-                entity.setTargetuser(entity.getAllsignuser());
-            }
-            messageListener.notice(entity.getTargetuser(), entity);
-        }
-        else if (entity.getStep() == 8) {
             if (StringHelp.isNotEmpty(printuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(printuserid));
                 entity.setPrintuser(targetuser);
-                entity.setTargetuser(targetuser);
-                messageListener.notice(entity.getTargetuser(), entity);
+//                entity.setTargetuser(targetuser);
+//                messageListener.notice(entity.getTargetuser(), entity);
             }
-            if (StringHelp.isNotEmpty(senduserid)) {
-                SysUser senduser = sysUserEntityService.get(Long.parseLong(senduserid));
-                entity.setSenduser(senduser);
-                messageListener.notice(entity.getSenduser(), entity);
-            }
-            if (StringHelp.isNotEmpty(ccuserid)) {
-                SysUser ccuser = sysUserEntityService.get(Long.parseLong(ccuserid));
-                entity.setCcuser(ccuser);
-                messageListener.notice(entity.getCcuser(), entity);
-            }
-            if (StringHelp.isNotEmpty(ctuserid)) {
-                SysUser ctuser = sysUserEntityService.get(Long.parseLong(ctuserid));
-                entity.setCtuser(ctuser);
-                messageListener.notice(entity.getCtuser(), entity);
-            }
+//            if (StringHelp.isNotEmpty(senduserid)) {
+//                SysUser senduser = sysUserEntityService.get(Long.parseLong(senduserid));
+//                entity.setSenduser(senduser);
+//                messageListener.notice(entity.getSenduser(), entity);
+//            }
+//            if (StringHelp.isNotEmpty(ccuserid)) {
+//                SysUser ccuser = sysUserEntityService.get(Long.parseLong(ccuserid));
+//                entity.setCcuser(ccuser);
+//                messageListener.notice(entity.getCcuser(), entity);
+//            }
+//            if (StringHelp.isNotEmpty(ctuserid)) {
+//                SysUser ctuser = sysUserEntityService.get(Long.parseLong(ctuserid));
+//                entity.setCtuser(ctuser);
+//                messageListener.notice(entity.getCtuser(), entity);
+//            }
+            entity.setTargetuser(entity.getSignuser());
+            messageListener.notice(entity.getTargetuser(), entity);
         }
 
+        if (!"1".equals(backinput)) {
+//            entity.setStep(entity.getStep() - 1);
+//        }
+//        else {
+            entity.setStep(entity.getStep() + 1);
+        }
 //        entity.setStarttime(new Timestamp(System.currentTimeMillis()));
 //        if (entity.getSysuserbulletins() != null) {
 //            entity.getSysuserbulletins().clear();
@@ -375,8 +348,10 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setStep(1);
                 entity.setWriteuser(currentUser);
                 entity.setWritedept(currentUser.getSysdept());
+                entity.setWritedeptname(currentUser.getSysdept().getName());
 
                 entity.setStatus(false);
+                admin = true;
 //                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //                Date now = new Date(System.currentTimeMillis());
 //                entity.setStarttime(sdf.format(now));

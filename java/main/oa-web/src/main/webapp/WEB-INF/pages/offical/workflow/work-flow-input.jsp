@@ -127,7 +127,7 @@
     </script>
 </head>
 
-<body bgcolor="#FFFFFF">
+<body>
 <table width="98%" border="0" align="center">
 <form action="work-flow!save?id=${id}" method="post" id="workform" name="workform">
 <tr>
@@ -154,7 +154,12 @@
               <td width="18%" height="50" nowrap="nowrap">缓急 </td>
               <td width="82%">
                   <c:if test='${step == 1}'>
-                      <input name="fast" id="fast" type="text" class="input_one2" value="${fast}"/>
+                      <select name="fast" id="fast">
+                          <option value=""></option>
+                          <option value="急">急</option>
+                          <option value="加急">加急</option>
+                      </select>
+                      <%--<input name="fast" id="fast" type="text" class="input_one2" value="${fast}"/>--%>
                   </c:if>
                   <c:if test='${step != 1}'>
                       ${fast}
@@ -167,7 +172,13 @@
               <td width="18%" height="50" nowrap="nowrap">密级 </td>
               <td width="82%">
                   <c:if test='${step == 1}'>
-                      <input name="security" id="security" type="text" class="input_one2" value="${security}"/>
+                      <select name="security" id="security">
+                          <option value=""></option>
+                          <option value="绝密">绝密</option>
+                          <option value="机密">机密</option>
+                          <option value="秘密">秘密</option>
+                      </select>
+                      <%--<input name="security" id="security" type="text" class="input_one2" value="${security}"/>--%>
                   </c:if>
                   <c:if test='${step != 1}'>
                       ${security}
@@ -184,23 +195,23 @@
           <tr>
             <td height="100" valign="top">
                 <%--<textarea name="sign" id="sign" class="input_three" >${sign}</textarea>--%>
-                    <c:if test='${step == 5}'>
+                    <c:if test='${step == 3}'>
                         <input type="hidden" name="signuserid" id="signuserid" value="${signuser.id}"/>
                         <input name="signusername" id="signusername" value="${signuser.displayname}" type="text" class="input_one" readonly />
                         <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="signuser()" >
                     </c:if>
-                    <c:if test='${step != 5}'>
+                    <c:if test='${step != 3}'>
                         ${signuser.displayname}
                     </c:if>
             </td>
           </tr>
           <tr>
             <td height="50" align="right">
-                <c:if test='${step == 5}'>
+                <c:if test='${step == 4}'>
                     <input name="signdate" id="signdate" class="input_one2" type="text" value="${signdate}"/>&nbsp;
                     <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(signdate,'date');" style="cursor:pointer">
                 </c:if>
-                <c:if test='${step != 5}'>
+                <c:if test='${step != 4}'>
                     ${signdate}
                 </c:if>
                 </td>
@@ -213,25 +224,25 @@
           <tr>
             <td height="100" valign="top">
                 <%--<textarea name="allsign" id="allsign" class="input_three" >${allsign}</textarea>--%>
-                    <c:if test='${step == 6}'>
-                        <input type="hidden" name="allsignuserid" id="allsignuserid" value="${allsignuser.id}"/>
-                        <input name="allsignusername" id="allsignusername" value="${allsignuser.displayname}" type="text" class="input_one" readonly />
-                        <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="allsignuser()" >
-                    </c:if>
-                    <c:if test='${step != 6}'>
-                        ${allsignuser.displayname}
-                    </c:if>
+                    <%--<c:if test='${step == 6}'>--%>
+                        <%--<input type="hidden" name="allsignuserid" id="allsignuserid" value="${allsignuser.id}"/>--%>
+                        <%--<input name="allsignusername" id="allsignusername" value="${allsignuser.displayname}" type="text" class="input_one" readonly />--%>
+                        <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="allsignuser()" >--%>
+                    <%--</c:if>--%>
+                    <%--<c:if test='${step != 6}'>--%>
+                        <%--${allsignuser.displayname}--%>
+                    <%--</c:if>--%>
             </td>
           </tr>
           <tr>
             <td height="50" align="right">
-                <c:if test='${step == 6}'>
-                    <input name="allsigndate" id="allsigndate" class="input_one2" type="text" value="${allsigndate}"/>&nbsp;
-                    <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(allsigndate,'date');" style="cursor:pointer">
-                </c:if>
-                <c:if test='${step != 6}'>
-                    ${allsigndate}
-                </c:if>
+                <%--<c:if test='${step == 6}'>--%>
+                    <%--<input name="allsigndate" id="allsigndate" class="input_one2" type="text" value="${allsigndate}"/>&nbsp;--%>
+                    <%--<img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(allsigndate,'date');" style="cursor:pointer">--%>
+                <%--</c:if>--%>
+                <%--<c:if test='${step != 6}'>--%>
+                    <%--${allsigndate}--%>
+                <%--</c:if>--%>
             </td>
           </tr>
         </table></td>
@@ -242,13 +253,13 @@
             <tr>
               <td width="10%" height="50">主送:</td>
               <td width="90%">
-                  <c:if test='${step == 7}'>
-                      <input type="hidden" name="senduserid" id="senduserid"/>
-                      <input name="sendusername" id="sendusername" type="text" class="input_one" readonly />
-                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="senduser()" >
+                  <c:if test='${step == 3}'>
+                      <%--<input type="hidden" name="senduserid" id="senduserid"/>--%>
+                      <input name="sendusername" id="sendusername" type="text" class="input_one" value="${sendusername}" />
+                      <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="senduser()" >--%>
                   </c:if>
-                  <c:if test='${step != 7}'>
-                      ${senduser.displayname}
+                  <c:if test='${step != 3}'>
+                      ${sendusername}
                   </c:if>
               </td>
             </tr>
@@ -259,13 +270,13 @@
             <tr>
               <td width="10%" height="50">抄送：</td>
               <td width="90%">
-                  <c:if test='${step == 7}'>
-                      <input type="hidden" name="ccuserid" id="ccuserid"/>
-                      <input name="ccusername" id="ccusername" type="text" class="input_one" readonly />
-                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="ccuser()" >
+                  <c:if test='${step == 3}'>
+                      <%--<input type="hidden" name="ccuserid" id="ccuserid"/>--%>
+                      <input name="ccusername" id="ccusername" type="text" class="input_one" value="${ccusername}" />
+                      <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="ccuser()" >--%>
                   </c:if>
-                  <c:if test='${step != 7}'>
-                      ${ccuser.displayname}
+                  <c:if test='${step != 3}'>
+                      ${ccusername}
                   </c:if>
               </td>
             </tr>
@@ -276,13 +287,13 @@
             <tr>
               <td width="10%" height="50">抄报：</td>
               <td width="90%">
-                  <c:if test='${step == 7}'>
-                      <input type="hidden" name="ctuserid" id="ctuserid"/>
-                      <input name="ctusername" id="ctusername" type="text" class="input_one" readonly />
-                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="ctuser()" >
+                  <c:if test='${step == 3}'>
+                      <%--<input type="hidden" name="ctuserid" id="ctuserid"/>--%>
+                      <input name="ctusername" id="ctusername" type="text" class="input_one" value="${ctusername}" } />
+                      <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="ctuser()" >--%>
                   </c:if>
-                  <c:if test='${step != 7}'>
-                      ${ctuser.displayname}
+                  <c:if test='${step != 3}'>
+                      ${ctusername}
                   </c:if>
               </td>
             </tr>
@@ -292,24 +303,30 @@
         <td height="50" colspan="2"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
               <td width="18%" height="50" nowrap="nowrap">拟稿单位：</td>
-              <td width="82%" nowrap="nowrap">${writedept.name} </td>
+              <td width="82%" nowrap="nowrap">
+                  <c:if test='${step == 1}'>
+                      <input name="writedeptname" id="writedeptname" type="text" class="input_one" value="${writedeptname}"/>
+                  </c:if>
+                  <c:if test='${step != 1}'>
+                      ${writedeptname}
+                  </c:if>
+              </td>
             </tr>
           </table></td>
         <td width="148"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
               <td width="18%" height="50" nowrap="nowrap">拟稿：</td>
               <td width="82%" nowrap="nowrap">
-                  ${writeuser.displayname}
-                  <%--<c:if test='${step == 1}'>--%>
-                      <%--<input name="workno" id="workno" type="text" class="input_one" value="${workno}"/>--%>
-                  <%--</c:if>--%>
-                  <%--<c:if test='${step != 1}'>--%>
-                      <%--${workno}--%>
-                  <%--</c:if>--%>
-                  <%--<input type="hidden" name="writeuserid" id="writeuserid"/>--%>
-                  <%--<input name="writeusername" id="writeusername" type="text" class="input_one" readonly />--%>
-                  <%--<img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="writeuser()" >--%>
-              </td>
+                  <c:if test='${step == 1}'>
+                      <input type="hidden" name="writeuserid" id="writeuserid" value="${writeuser.id}"/>
+                      <input name="writeusername" id="writeusername" value="${writeuser.displayname}" type="text" class="input_one2" readonly />
+                      <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="writeuser()" >
+                  </c:if>
+                  <c:if test='${step != 1}'>
+                      ${writeuser.displayname}
+                  </c:if>
+
+           </td>
             </tr>
           </table></td>
         <td width="137" nowrap="nowrap"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
@@ -330,15 +347,15 @@
         <td colspan="2"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
               <td width="18%" height="50" nowrap="nowrap">修改：</td>
-              <td width="82%" nowrap="nowrap">
+              <td width="82%" nowrap="nowrap">${modifyusername}&nbsp;
                   <c:if test='${step == 2}'>
                       <input type="hidden" name="modifyuserid" id="modifyuserid" value="${modifyuser.id}"/>
                       <input name="modifyusername" id="modifyusername" value="${modifyuser.displayname}" type="text" class="input_one2" readonly />
                       <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="modifyuser()" >
                   </c:if>
-                  <c:if test='${step != 2}'>
-                      ${modifyuser.displayname}
-                  </c:if>
+                  <%--<c:if test='${step != 2}'>--%>
+                      <%--${modifyuser.displayname}--%>
+                  <%--</c:if>--%>
                   </td>
             </tr>
           </table></td>
@@ -348,12 +365,12 @@
             <tr>
               <td width="41%" height="50" nowrap="nowrap">打字：</td>
               <td width="59%" nowrap="nowrap">
-                   <c:if test='${step == 3}'>
+                   <c:if test='${step == 1}'>
                        <input type="hidden" name="typeuserid" id="typeuserid" value="${typeuser.id}"/>
                        <input name="typeusername" id="typeusername" value="${typeuser.displayname}" type="text" class="input_one2" readonly />
                        <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="typeuser()" >
                    </c:if>
-                  <c:if test='${step != 3}'>
+                  <c:if test='${step != 1}'>
                       ${typeuser.displayname}
                   </c:if>
               </td>
@@ -363,12 +380,12 @@
             <tr>
               <td width="18%" height="50" nowrap="nowrap">校对：</td>
               <td width="82%" nowrap="nowrap">
-                  <c:if test='${step == 4}'>
+                  <c:if test='${step == 2}'>
                       <input type="hidden" name="collateuserid" id="collateuserid" value="${collateuser.id}"/>
                       <input name="collateusername" id="collateusername" value="${collateuser.displayname}" type="text" class="input_one2" readonly />
                       <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="collateuser()" >
                   </c:if>
-                  <c:if test='${step != 4}'>
+                  <c:if test='${step != 2}'>
                       ${collateuser.displayname}
                   </c:if>
               </td>
@@ -378,12 +395,12 @@
             <tr>
               <td width="18%" height="50" nowrap="nowrap">印刷：</td>
               <td width="82%" nowrap="nowrap">
-                  <c:if test='${step == 7}'>
+                  <c:if test='${step == 3}'>
                       <input type="hidden" name="printuserid" id="printuserid" value="${printuser.id}"/>
                       <input name="printusername" id="printusername" value="${printuser.displayname}" type="text" class="input_one2" readonly />
                       <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="printuser()" >
                   </c:if>
-                  <c:if test='${step != 7}'>
+                  <c:if test='${step != 3}'>
                       ${printuser.displayname}
                   </c:if>
               </td>
@@ -393,10 +410,10 @@
             <tr>
               <td width="18%" height="50" nowrap="nowrap">份数：</td>
               <td width="82%">
-                  <c:if test='${step == 7}'>
+                  <c:if test='${step == 3}'>
                       <input name="num" id="num" type="text" class="input_one2" value="${num}"/>
                   </c:if>
-                  <c:if test='${step != 7}'>
+                  <c:if test='${step != 3}'>
                       ${num}
                   </c:if>
               </td>
@@ -417,22 +434,22 @@
             </tr>
           </table></td>
         </tr>
-      <tr>
-        <td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td width="10%" height="50">主题词：</td>
-              <td width="90%">
-                  <%--<c:if test='${step == 1}'>--%>
-                      <input name="keyword" id="keyword" type="text" class="input_chang" value="${keyword}"/>
-                  <%--</c:if>--%>
-                  <%--<c:if test='${step != 1}'>--%>
-                      <%--${keyword}--%>
-                  <%--</c:if>--%>
-              </td>
-            </tr>
-          </table></td>
-        </tr>
-      <tr>
+      <%--<tr>--%>
+        <%--<td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">--%>
+            <%--<tr>--%>
+              <%--<td width="10%" height="50">主题词：</td>--%>
+              <%--<td width="90%">--%>
+                  <%--&lt;%&ndash;<c:if test='${step == 1}'>&ndash;%&gt;--%>
+                      <%--<input name="keyword" id="keyword" type="text" class="input_chang" value="${keyword}"/>--%>
+                  <%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
+                  <%--&lt;%&ndash;<c:if test='${step != 1}'>&ndash;%&gt;--%>
+                      <%--&lt;%&ndash;${keyword}&ndash;%&gt;--%>
+                  <%--&lt;%&ndash;</c:if>&ndash;%&gt;--%>
+              <%--</td>--%>
+            <%--</tr>--%>
+          <%--</table></td>--%>
+        <%--</tr>--%>
+      <%--<tr>--%>
         <td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
             <tr>
               <td width="10%" height="100">标题： </td>
@@ -464,20 +481,25 @@
       <tr>
           <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
               <tr valign="top">
-                  <c:if test='${step == 8}'>
+                  <c:if test='${step >= 4}'>
                       <td width="30%"><div align="right">
                           <input type="button" class="button_bc" name="input" onclick="printme();" value="打 印">
                       </div></td>
                   </c:if>
-                  <c:if test='${step > 1 && step < 8}'>
+                  <c:if test='${step == 2}'>
                       <td width="30%"><div align="right">
                           <input type="hidden" id="backinput" name="backinput" value="0"/>
                           <%--<input type="button" class="button_bc" name="input" onclick="printme();" value="打 印">--%>
-                              <input type="button" class="button_bc" name="input" value="退 回" onclick="back();">
+                              <input type="button" class="button_bc" name="input" value="修 改" onclick="back();">
                       </div></td>
                   </c:if>
                   <td width="30%"><div align="right">
-                      <input type="submit" class="button_bc" name="input" value="完 成">
+                      <c:if test='${step == 4}'>
+                          <input type="submit" class="button_bc" name="input" value="存 档">
+                      </c:if>
+                      <c:if test='${step < 4}'>
+                          <input type="submit" class="button_bc" name="input" value="提 交">
+                      </c:if>
                   </div></td>
                   <td width="10%"><div align="center">
                       <input type="reset" class="button_cc" name="input" value="重 写">

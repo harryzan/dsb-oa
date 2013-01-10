@@ -81,12 +81,12 @@
 
                 //选中节点层次判断 -- select.js中启用
                 var nodeId = id;
-                <%--if(${isCheck}){--%>
-                    <%--if(!${check}) {--%>
-                        <%--//取消选中状态--%>
-                        <%--node.getUI().toggleCheck(false);--%>
-                        <%--return;--%>
-                    <%--}--%>
+            <%--if(${isCheck}){--%>
+            <%--if(!${check}) {--%>
+            <%--//取消选中状态--%>
+            <%--node.getUI().toggleCheck(false);--%>
+            <%--return;--%>
+            <%--}--%>
 //                }
 
                 addNodeToList(node);
@@ -142,18 +142,18 @@
                 result = undefined;
             }
             else if(id.indexOf("sys-dept") >= 0){
-                 result = undefined;
+                result = undefined;
             }
             else if(id.indexOf("sys-user") >= 0){
-                 result = getIdElement(id) + "," + node.text;
+                result = getIdElement(id) + "," + node.text;
             }
             else {
                 result = undefined;
             }
         }
 
-     function OK(){
-         var selectedNodes = Ext.getCmp("tree").getChecked();
+        function OK(){
+            var selectedNodes = Ext.getCmp("tree").getChecked();
             var ids = "";
             var names = "";
 //            Ext.each(selectedNodes, function(node) {
@@ -162,14 +162,11 @@
 //            });
             var divObj = document.getElementById("selectedDiv");
             var a = divObj.innerHTML;
-//         alert(a);
-            var select = a.split("<br>");
+            var select = a.split("<BR>");
             for(var i = 1; i < select.length-1; i++){
-//                alert(select[i]);
-                ids += "," + select[i].substring(select[i].indexOf("node_")+5,select[i].indexOf("\">"));
-                names += "," + select[i].substring(select[i].indexOf("span\">")+6,select[i].indexOf("<input"));
+                ids += "," + getIdElement(select[i]);
+                names += "," + select[i].substring(select[i].indexOf("span>")+5,select[i].indexOf("<INPUT"));
             }
-//         alert(ids);
             if (ids != "")
             {
                 window.returnValue = "<id>" + ids.substring(1, ids.length) + "</id>" + "<name>" + names.substring(1, names.length) + "</name>";
@@ -179,12 +176,12 @@
                 return;
             }
             window.close();
-    }
+        }
 
-    function EXIT(){
-        window.returnValue = undefined;
-        self.close();
-    }
+        function EXIT(){
+            window.returnValue = undefined;
+            self.close();
+        }
     </script>
 </head>
 

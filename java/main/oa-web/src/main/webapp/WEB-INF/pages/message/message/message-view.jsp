@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>信息查看</title>
+<title>短消息查看</title>
 <link href="${themesPath}/css/style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${scriptsPath}/system/function.js"></script>
 </head>

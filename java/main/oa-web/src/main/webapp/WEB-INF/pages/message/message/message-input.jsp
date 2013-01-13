@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>公告信息维护</title>
+<title>短消息维护</title>
 
 <link href="${themesPath}/oldcss/style.css" rel="stylesheet" type="text/css">
 

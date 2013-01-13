@@ -91,7 +91,7 @@
         <tr>
             <td width="10%" height="50">主送:</td>
             <td width="90%">
-                ${senduser.displayname}
+                ${sendusername}
             </td>
         </tr>
     </table></td>
@@ -101,7 +101,7 @@
         <tr>
             <td width="10%" height="50">抄送：</td>
             <td width="90%">
-                ${ccuser.displayname}
+                ${ccusername}
             </td>
         </tr>
     </table></td>
@@ -111,7 +111,7 @@
         <tr>
             <td width="10%" height="50">抄报：</td>
             <td width="90%">
-                ${ctuser.displayname}
+                ${ctusername}
             </td>
         </tr>
     </table></td>
@@ -120,7 +120,7 @@
     <td height="50" colspan="2"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td width="18%" height="50" nowrap="nowrap">拟稿单位：</td>
-            <td width="82%" nowrap="nowrap">${writedept.name} </td>
+            <td width="82%" nowrap="nowrap">${writedeptname} </td>
         </tr>
     </table></td>
     <td width="148"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
@@ -203,16 +203,16 @@
         </tr>
     </table></td>
 </tr>
-<tr>
-    <td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td width="10%" height="50">主题词：</td>
-            <td width="90%">
-                ${keyword}
-            </td>
-        </tr>
-    </table></td>
-</tr>
+<%--<tr>--%>
+    <%--<td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">--%>
+        <%--<tr>--%>
+            <%--<td width="10%" height="50">主题词：</td>--%>
+            <%--<td width="90%">--%>
+                <%--${keyword}--%>
+            <%--</td>--%>
+        <%--</tr>--%>
+    <%--</table></td>--%>
+<%--</tr>--%>
 <tr>
     <td height="50" colspan="6"  class="table_gw_td"><table width="98%" border="0" cellpadding="0" cellspacing="0">
         <tr>

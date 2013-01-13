@@ -48,6 +48,7 @@
             //name:实体类属性名称，header:gird列表的表头，width:列宽
             gridParams:[
                 {name:"id",header:"",width:"10%"},
+                {name:"flag",header:"状态",width:"10%"},
                 {name:"title",renderer:checkview,header:"标题",width:"20%"},
                 {name:"workno",header:"发文号",width:"20%"},
 //                {name:"endtime",header:"结束时间",width:"10%"},

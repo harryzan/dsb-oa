@@ -160,6 +160,16 @@ public class WorkFlow extends IdEntity {
         this.keyword = keyword;
     }
 
+    private String flag;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
     private String writedeptname;
 
     public String getWritedeptname() {

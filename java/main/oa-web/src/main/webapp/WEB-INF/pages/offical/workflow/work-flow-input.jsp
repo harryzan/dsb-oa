@@ -71,7 +71,7 @@
         function modifyuser(){
             var returnvalue = window.showModalDialog("${ctx}/common/tree/sys-user-tree", 1);
             if(returnvalue){
-                document.getElementById("modifyusername").value = returnvalue.split(",")[0];
+                document.getElementById("modifyusername1").value = returnvalue.split(",")[0];
                 document.getElementById("modifyuserid").value = returnvalue.split(",")[1];
             }
         }
@@ -195,12 +195,12 @@
           <tr>
             <td height="100" valign="top">
                 <%--<textarea name="sign" id="sign" class="input_three" >${sign}</textarea>--%>
-                    <c:if test='${step == 3}'>
+                    <c:if test='${step == 4}'>
                         <input type="hidden" name="signuserid" id="signuserid" value="${signuser.id}"/>
                         <input name="signusername" id="signusername" value="${signuser.displayname}" type="text" class="input_one" readonly />
                         <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="signuser()" >
                     </c:if>
-                    <c:if test='${step != 3}'>
+                    <c:if test='${step != 4}'>
                         ${signuser.displayname}
                     </c:if>
             </td>
@@ -333,12 +333,12 @@
             <tr>
               <td width="18%" height="50" nowrap="nowrap">核稿：</td>
               <td width="82%" nowrap="nowrap">
-                  <c:if test='${step == 1}'>
+                  <c:if test='${step == 3}'>
                       <input type="hidden" name="checkuserid" id="checkuserid" value="${checkuser.id}"/>
                       <input name="checkusername" id="checkusername" value="${checkuser.displayname}" type="text" class="input_one2" readonly />
                       <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="checkuser()" >
                   </c:if>
-                  <c:if test='${step != 1}'>
+                  <c:if test='${step != 3}'>
                       ${checkuser.displayname}
                   </c:if>
                 </td>
@@ -348,9 +348,9 @@
             <tr>
               <td width="18%" height="50" nowrap="nowrap">修改：</td>
               <td width="82%" nowrap="nowrap">${modifyusername}&nbsp;
-                  <c:if test='${step == 2}'>
-                      <input type="hidden" name="modifyuserid" id="modifyuserid" value="${modifyuser.id}"/>
-                      <input name="modifyusername" id="modifyusername" value="${modifyuser.displayname}" type="text" class="input_one2" readonly />
+                  <c:if test='${step == 1 or step == 2}'>
+                      <input type="hidden" name="modifyuserid" id="modifyuserid" value=""/>
+                      <input name="modifyusername1" id="modifyusername1" value="" type="text" class="input_one2" readonly />
                       <img src="${themesPath}/oldimages/ren.gif" width="16" height="16" style="cursor:pointer;" onclick="modifyuser()" >
                   </c:if>
                   <%--<c:if test='${step != 2}'>--%>

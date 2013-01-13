@@ -232,11 +232,15 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(typeuserid));
                 entity.setTypeuser(targetuser);
             }
-            if (StringHelp.isNotEmpty(checkuserid)) {
-                SysUser targetuser = sysUserEntityService.get(Long.parseLong(checkuserid));
+            if (StringHelp.isNotEmpty(modifyuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(modifyuserid));
+//                entity.setTargetuser(targetuser);
+                entity.setModifyuser(targetuser);
                 entity.setTargetuser(targetuser);
-                entity.setCheckuser(targetuser);
+//                if (entity.getModifyusername() != null)
+                entity.setModifyusername(entity.getModifyusername() + "&nbsp;" + targetuser.getDisplayname());
             }
+            entity.setFlag("修改");
 //            if ("1".equals(backinput)) {
 //                entity.setTargetuser(entity.getCheckuser());
 //            }
@@ -256,13 +260,29 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
             }
             if ("1".equals(backinput)) {
                 entity.setTargetuser(entity.getModifyuser());
+                entity.setFlag("修改");
             }
             else {
                 entity.setTargetuser(entity.getCollateuser());
+                entity.setFlag("打印");
             }
             messageListener.notice(entity.getTargetuser(), entity);
         }
         else if (entity.getStep() == 3) {
+            if (StringHelp.isNotEmpty(printuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(printuserid));
+//                entity.setTargetuser(targetuser);
+                entity.setPrintuser(targetuser);
+            }
+            if (StringHelp.isNotEmpty(checkuserid)) {
+                SysUser targetuser = sysUserEntityService.get(Long.parseLong(checkuserid));
+                entity.setTargetuser(targetuser);
+                entity.setCheckuser(targetuser);
+            }
+            entity.setFlag("核搞");
+            messageListener.notice(entity.getTargetuser(), entity);
+        }
+        else if (entity.getStep() == 4) {
             if (StringHelp.isNotEmpty(signuserid)) {
                 SysUser targetuser = sysUserEntityService.get(Long.parseLong(signuserid));
 //                entity.setTargetuser(targetuser);
@@ -291,6 +311,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 //            }
             entity.setTargetuser(entity.getSignuser());
             messageListener.notice(entity.getTargetuser(), entity);
+            entity.setFlag("签发");
         }
 
         if (!"1".equals(backinput)) {
@@ -342,6 +363,10 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 else {
                     admin = false;
                 }
+
+                if (entity.getStep() == 4) {
+                    entity.setSignuser(currentUser);
+                }
             } else {
                 entity = new WorkFlow();
 
@@ -349,6 +374,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                 entity.setWriteuser(currentUser);
                 entity.setWritedept(currentUser.getSysdept());
                 entity.setWritedeptname(currentUser.getSysdept().getName());
+                entity.setModifyusername("");
 
                 entity.setStatus(false);
                 admin = true;

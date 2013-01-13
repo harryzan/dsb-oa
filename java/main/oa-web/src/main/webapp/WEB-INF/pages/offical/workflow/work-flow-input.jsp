@@ -207,11 +207,11 @@
           </tr>
           <tr>
             <td height="50" align="right">
-                <c:if test='${step == 4}'>
+                <c:if test='${step == 5}'>
                     <input name="signdate" id="signdate" class="input_one2" type="text" value="${signdate}"/>&nbsp;
                     <img src="${themesPath}/oldimages/calendar.gif"  width="13" height="12" onClick="calendar(signdate,'date');" style="cursor:pointer">
                 </c:if>
-                <c:if test='${step != 4}'>
+                <c:if test='${step != 5}'>
                     ${signdate}
                 </c:if>
                 </td>
@@ -481,7 +481,7 @@
       <tr>
           <td colspan="5" bgcolor="#eff6fe"><table width="100%" border="0" cellspacing="1" cellpadding="0">
               <tr valign="top">
-                  <c:if test='${step >= 4}'>
+                  <c:if test='${step >= 3}'>
                       <td width="30%"><div align="right">
                           <input type="button" class="button_bc" name="input" onclick="printme();" value="打 印">
                       </div></td>
@@ -494,10 +494,10 @@
                       </div></td>
                   </c:if>
                   <td width="30%"><div align="right">
-                      <c:if test='${step == 4}'>
+                      <c:if test='${step == 5}'>
                           <input type="submit" class="button_bc" name="input" value="存 档">
                       </c:if>
-                      <c:if test='${step < 4}'>
+                      <c:if test='${step < 5}'>
                           <input type="submit" class="button_bc" name="input" value="提 交">
                       </c:if>
                   </div></td>

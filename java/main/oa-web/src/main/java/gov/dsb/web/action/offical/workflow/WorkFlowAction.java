@@ -223,7 +223,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
 
 
 
-        if (entity.getStep() == 4) {
+        if (entity.getStep() == 5) {
             entity.setStatus(true);
         }
         else if (entity.getStep() == 1) {
@@ -357,7 +357,7 @@ public class WorkFlowAction extends CRUDActionSupport<WorkFlow> {
                     attachs = document.getDocdocumentattaches();
                 }
 
-                if (entity.getTargetuser().getId().equals(currentUser.getId())) {
+                if (entity.getTargetuser().getId().equals(currentUser.getId()) && !entity.getStatus()) {
                     admin = true;
                 }
                 else {

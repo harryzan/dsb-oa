@@ -292,7 +292,7 @@ public class MainAction extends PageActionSupport<DemandType> {
 
         totalpages = page.getTotalPages();
 
-        query1 = messageDao.findByQuery("from Message where flag = 'workflow' and receiver.id=? and (status is null or status is false) ", user.getId());
+        query1 = messageDao.findByQuery("from Message where flag = 'workflow' and receiver.id=? and (status is null or status is false) order by id desc", user.getId());
         count1 = query1.size();
         if (count1 > 0) {
             message1 = query1.get(0);
@@ -301,7 +301,7 @@ public class MainAction extends PageActionSupport<DemandType> {
             message1 = new Message();
         }
 
-        query2 = messageDao.findByQuery("from Message where flag = 'caruse' and receiver.id=? and (status is null or status is false) ", user.getId());
+        query2 = messageDao.findByQuery("from Message where flag = 'caruse' and receiver.id=? and (status is null or status is false) order by id desc", user.getId());
         count2 = query2.size();
         if (count2 > 0){
             message2 = query2.get(0);
@@ -310,7 +310,7 @@ public class MainAction extends PageActionSupport<DemandType> {
             message2 = new Message();
         }
 
-        query3 = messageDao.findByQuery("from Message where flag = 'demand' and receiver.id=? and (status is null or status is false) ", user.getId());
+        query3 = messageDao.findByQuery("from Message where flag = 'demand' and receiver.id=? and (status is null or status is false) order by id desc", user.getId());
         count3 = query3.size();
         if (count3 > 0){
             message3 = query3.get(0);
@@ -319,7 +319,7 @@ public class MainAction extends PageActionSupport<DemandType> {
             message3 = new Message();
         }
 
-        query4 = messageDao.findByQuery("from Message where flag = '一周工作安排' and receiver.id=? and (status is null or status is false) ", user.getId());
+        query4 = messageDao.findByQuery("from Message where flag is null and receiver.id=? and (status is null or status is false) ", user.getId());
         count4 = query4.size();
 
         return super.execute();    //To change body of overridden methods use File | Settings | File Templates.

@@ -137,7 +137,10 @@ public class MessageGridAction extends PageActionSupport<Message> {
         String hql = "from Message where receiver.id=" + user.getId();
 
         if (StringHelp.isNotEmpty(type)) {
-            hql += " and flag = '" + type + "' ";
+            if (type != "null")
+                hql += " and flag = '" + type + "' ";
+            else
+                hql += " and flag is null";
         }
 
         if (messagestatus) {

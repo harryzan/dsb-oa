@@ -34,7 +34,7 @@
     </script>
 </head>
 
-<body bgcolor="#FFFFFF" style="overflow:hidden; height:100%" >
+<body bgcolor="#FFFFFF" style="height:100%" >
 <table width="98%" height="100%" border="0" align="center">
 <tr>
 <td width="82%" valign="top">

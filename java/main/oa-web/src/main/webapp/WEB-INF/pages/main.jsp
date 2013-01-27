@@ -227,7 +227,7 @@
                                 <td><table width="50%" border="0">
                                     <tr>
                                         <td><img src="${themesPath}/images/sy_icon_4.jpg" width="27" height="28" /><a href="#"></a></td>
-                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false&type=null">短消息<span class="STYLE1">（${count4}）</span></a></td>
+                                        <td nowrap="nowrap"><a href="${ctx}/message/message/message-grid?messagestatus=false">短消息<span class="STYLE1">（${count4}）</span></a></td>
                                     </tr>
                                 </table></td>
                             </tr>

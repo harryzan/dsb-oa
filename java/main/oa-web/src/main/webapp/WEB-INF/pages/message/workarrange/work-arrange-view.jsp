@@ -65,7 +65,7 @@
                           </tr>
                           <tr >
                             <td align="right" class="textone1">日期：</td>
-                            <td width="70%" class="textone1">&nbsp;${year}
+                            <td width="70%" class="textone1">&nbsp;${newdate}
                             <input id="year" name="year" type="hidden" class="input_one" value="${year}"></td>
                           </tr>
                           <tr>

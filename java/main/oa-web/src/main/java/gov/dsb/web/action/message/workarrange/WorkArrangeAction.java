@@ -354,7 +354,31 @@ public class WorkArrangeAction extends CRUDActionSupport<WorkArrange> {
         return "search";
     }
 
+    private String newdate;
+
+    public String getNewdate() {
+        return newdate;
+    }
+
+    public void setNewdate(String newdate) {
+        this.newdate = newdate;
+    }
+
     public String view() throws Exception {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.setTime(new Date());
+        calendar.set(Calendar.YEAR, Integer.parseInt(entity.getYear()));
+        calendar.set(Calendar.WEEK_OF_YEAR, Integer.parseInt(entity.getWeek()));
+        calendar.set(Calendar.DAY_OF_WEEK, Integer.parseInt(entity.getDow()));
+
+//        System.out.println("calendar.getTime() = " + calendar.getTime());
+
+        newdate = sdf.format(calendar.getTime());
+
+//        System.out.println("workdate = " + workdate);
+
         return VIEW;
     }
 }

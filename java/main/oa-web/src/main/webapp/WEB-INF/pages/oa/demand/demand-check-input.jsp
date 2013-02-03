@@ -69,7 +69,7 @@
                       <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellpadding="0" cellspacing="1">
                           <c:if test="${type.name != '会议'}">
                               <tr class="textone1">
-                                  <td colspan="2"  class="text_title"><div align="center">会议申请</div></td>
+                                  <td colspan="2"  class="text_title"><div align="center">${type.name}审核</div></td>
                               </tr>
                               <tr class="textone1">
                                 <td align="right" class="textone1">名称：</td>

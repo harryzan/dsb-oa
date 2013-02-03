@@ -70,11 +70,8 @@
 
                           <c:if test="${type.name != '会议'}">
                           <tr class="textone1">
-                            <td colspan="2" class="text_title"><div align="center">会议申请</div></td>
-                            </tr>
-                          <tr class="textone1">
                             <td align="right" class="textone1">名称：</td>
-                            <td width="70%" class="textone1">&nbsp;<input name="name2" type="text" class="input_one" value="${name}"></td>
+                            <td width="70%" class="textone1">&nbsp;<input name="name" type="text" class="input_one" value="${name}"></td>
                           </tr>
                           <tr class="textone12">
                               <td width="30%" class="textone1"><div align="right">需求日期：</div></td>

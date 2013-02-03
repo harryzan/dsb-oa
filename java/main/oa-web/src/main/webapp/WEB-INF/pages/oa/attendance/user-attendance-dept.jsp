@@ -36,6 +36,7 @@
     </tr>
         <tr>
             <td class="line_td_headk">姓名</td>
+            <td class="line_td_headk">日期</td>
             <td class="line_td_headk">上午&nbsp;&nbsp;下午</td>
         </tr>
         <c:set var="name" value=""/>
